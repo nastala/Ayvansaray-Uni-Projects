@@ -15,79 +15,79 @@ namespace Hafta2Gun2
 
             //-------------------------------------------------------------------
 
-            bool bCheck = true;
-            int iSayac;
-            Random r;
-            int iSayi;
-            int girilenSayi;
-            char cDevam;
+            //bool bCheck = true;
+            //int iSayac;
+            //Random r;
+            //int iSayi;
+            //int girilenSayi;
+            //char cDevam;
 
-            while (bCheck)
-            {
-                r = new Random();
-                iSayi = r.Next(1, 10);
-                iSayac = 1;
+            //while (bCheck)
+            //{
+            //    r = new Random();
+            //    iSayi = r.Next(1, 10);
+            //    iSayac = 1;
 
-                while (true)
-                {
-                    Console.Write("Tahmin ettiğiniz sayıyı giriniz: ");
-                    try
-                    {
-                        girilenSayi = Int32.Parse(Console.ReadLine());
+            //    while (true)
+            //    {
+            //        Console.Write("Tahmin ettiğiniz sayıyı giriniz: ");
+            //        try
+            //        {
+            //            girilenSayi = Int32.Parse(Console.ReadLine());
 
-                        if (girilenSayi < 0 || girilenSayi > 10)
-                        {
-                            Console.WriteLine("Girdiğiniz sayı 0'dan küçük, 10'dan büyük olamaz");
-                            continue;
-                        }
+            //            if (girilenSayi < 0 || girilenSayi > 10)
+            //            {
+            //                Console.WriteLine("Girdiğiniz sayı 0'dan küçük, 10'dan büyük olamaz");
+            //                continue;
+            //            }
 
-                        if (girilenSayi == 0)
-                        {
-                            Console.WriteLine("Uygulama sonlandırıldı.");
-                            Console.ReadKey();
-                            Environment.Exit(0);
-                        }
-                        else if (girilenSayi == iSayi)
-                        {
-                            Console.WriteLine("------------> TEBRİKLER! {0}. denemenizde sayıyı buldunuz <------------", iSayac);
-                            break;
-                        }
-                        else
-                        {
-                            Console.WriteLine("{0}. tahmininizde sayıyı bulamadınız.", iSayac);
-                            iSayac++;
-                        }
-                    }
-                    catch (FormatException)
-                    {
-                        Console.WriteLine("Lütfen sayı giriniz");
-                    }
-                    catch (OverflowException)
-                    {
-                        Console.WriteLine("Girilen sayi çok büyük!");
-                    }
-                }
+            //            if (girilenSayi == 0)
+            //            {
+            //                Console.WriteLine("Uygulama sonlandırıldı.");
+            //                Console.ReadKey();
+            //                Environment.Exit(0);
+            //            }
+            //            else if (girilenSayi == iSayi)
+            //            {
+            //                Console.WriteLine("------------> TEBRİKLER! {0}. denemenizde sayıyı buldunuz <------------", iSayac);
+            //                break;
+            //            }
+            //            else
+            //            {
+            //                Console.WriteLine("{0}. tahmininizde sayıyı bulamadınız.", iSayac);
+            //                iSayac++;
+            //            }
+            //        }
+            //        catch (FormatException)
+            //        {
+            //            Console.WriteLine("Lütfen sayı giriniz");
+            //        }
+            //        catch (OverflowException)
+            //        {
+            //            Console.WriteLine("Girilen sayi çok büyük!");
+            //        }
+            //    }
 
-                while (true)
-                {
-                    Console.Write("\nTekrar oynamak ister misiniz?(E/H): ");
-                    cDevam = Console.ReadKey().KeyChar;
-                    if (cDevam.Equals('H') || cDevam.Equals('h'))
-                    {
-                        bCheck = false;
-                        break;
-                    }
-                    else if (cDevam.Equals('E') || cDevam.Equals('e'))
-                    {
-                        bCheck = true;
-                        break;
-                    }
-                    else
-                        Console.WriteLine("\nYanlış bir tuşa bastınız.");
-                }
+            //    while (true)
+            //    {
+            //        Console.Write("\nTekrar oynamak ister misiniz?(E/H): ");
+            //        cDevam = Console.ReadKey().KeyChar;
+            //        if (cDevam.Equals('H') || cDevam.Equals('h'))
+            //        {
+            //            bCheck = false;
+            //            break;
+            //        }
+            //        else if (cDevam.Equals('E') || cDevam.Equals('e'))
+            //        {
+            //            bCheck = true;
+            //            break;
+            //        }
+            //        else
+            //            Console.WriteLine("\nYanlış bir tuşa bastınız.");
+            //    }
 
-                Console.WriteLine("");
-            }
+            //    Console.WriteLine("");
+            //}
 
             //-------------------------------------------------------------------
 
