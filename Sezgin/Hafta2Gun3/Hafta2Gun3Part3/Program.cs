@@ -48,6 +48,12 @@ namespace Hafta2Gun3Part3
             //string yeniCumle = cumle.ToLower();
             //Console.WriteLine(yeniCumle);
 
+            ////Format
+            //DateTime girdi = DateTime.Now;
+            //string cikti;
+            //cikti = string.Format("{0:dddd}", girdi);
+            //Console.WriteLine(cikti);
+
             Console.ReadKey();
         }
     }
