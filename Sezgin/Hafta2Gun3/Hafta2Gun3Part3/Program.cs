@@ -10,7 +10,7 @@ namespace Hafta2Gun3Part3
     {
         static void Main(string[] args)
         {
-            //Hafta 2, Gün 3, Part 2 <-----> 28.11.2018
+            //Hafta 2, Gün 3, Part 3 <-----> 28.11.2018
 
             ////Replace
             //string cumle = "Selam Nasılsın?";
