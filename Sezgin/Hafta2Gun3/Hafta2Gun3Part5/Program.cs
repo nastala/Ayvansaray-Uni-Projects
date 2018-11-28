@@ -8,6 +8,8 @@ namespace Hafta2Gun3Part5
 {
     class Program
     {
+        //Hafta 2, Gün 3, Part 5 <-----> 28.11.2018
+
         public static string aciklama, islem;
         public static decimal sayi, sayi1, sayi2;
         public static decimal sonuc;
