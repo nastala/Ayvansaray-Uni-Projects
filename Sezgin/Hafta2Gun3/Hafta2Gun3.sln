@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2048
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hafta2Gun3", "Hafta2Gun3\Hafta2Gun3.csproj", "{8733D930-2BD7-41F3-8FCE-9CE0B5C69829}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hafta2Gun3Part2", "Hafta2Gun3Part2\Hafta2Gun3Part2.csproj", "{56399581-1442-4CE8-BC79-C3E6F66BEDD3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8733D930-2BD7-41F3-8FCE-9CE0B5C69829}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8733D930-2BD7-41F3-8FCE-9CE0B5C69829}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8733D930-2BD7-41F3-8FCE-9CE0B5C69829}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8733D930-2BD7-41F3-8FCE-9CE0B5C69829}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56399581-1442-4CE8-BC79-C3E6F66BEDD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56399581-1442-4CE8-BC79-C3E6F66BEDD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56399581-1442-4CE8-BC79-C3E6F66BEDD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56399581-1442-4CE8-BC79-C3E6F66BEDD3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {503A0CB1-63A8-4960-8113-CEC337B102E8}
+	EndGlobalSection
+EndGlobal
