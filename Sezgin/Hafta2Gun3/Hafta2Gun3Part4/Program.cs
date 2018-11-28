@@ -12,10 +12,10 @@ namespace Hafta2Gun3Part4
         {
             //Hafta 2, Gün 3, Part 4 <-----> 28.11.2018
 
-            string inceUnluler = "eiöü";
-            string kalinUnluler = "aıou";
             bool kontrolInce = false;
             bool kontrolKalin = false;
+            string inceUnluler = "eiöü";
+            string kalinUnluler = "aıou";
             string kelime;
 
             Console.Write("Bir kelime giriniz: ");
