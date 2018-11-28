@@ -10,7 +10,7 @@ namespace Hafta2Gun3
     {
         static void Main(string[] args)
         {
-            //Hafta 2, Gün 3 <-----> 28.11.2018
+            //Hafta 2, Gün 3, Part 1 <-----> 28.11.2018
 
             int iSatir, iSutun;
 
