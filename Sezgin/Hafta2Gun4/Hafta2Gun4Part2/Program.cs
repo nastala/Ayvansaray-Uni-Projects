@@ -12,26 +12,63 @@ namespace Hafta2Gun4Part2
         {
             //Hafta 2, Gün 4, Part 2 <-----> 29.11.2018
 
+            int fibSayisi;
+            uint[] fibSayilar;
+
+            fibSayilar = new uint[100];
+            fibSayilar = nTaneUret(100);
+            sayilariYazdir(fibSayilar);
+
+            Console.WriteLine("------------------------------------");
+
+            fibSayisi = fibSayisiIste("Kaç tane fibonacci sayısı üretmek istersiniz? ");
+            fibSayilar = new uint[fibSayisi];
+            fibSayilar = nTaneUret(fibSayisi);
+            sayilariYazdir(fibSayilar);
+            //uint deneme = recursiveFib(100);
+            //Console.WriteLine("\n" + deneme);
+
+            Console.ReadKey();
+        }
+
+        static int fibSayisiIste(string aciklama)
+        {
+            Console.Write(aciklama);
+
+            try
+            {
+                return Int32.Parse(Console.ReadLine());
+            }
+            catch (FormatException)
+            {
+                return fibSayisiIste(aciklama = "Sayı girmelisiniz! ");
+            }
+            catch (OverflowException)
+            {
+                return fibSayisiIste(aciklama = "Girdiğiniz sayı çok büyük! ");
+            }
+        }
+
+        static uint[] nTaneUret(int n)
+        {
+            uint[] fibSayilar = new uint[n];
             uint siradakiSayi;
-            uint[] fibSayilar = new uint[100];
             fibSayilar[0] = 0;
             fibSayilar[1] = 1;
 
-            for (int i = 2; i < 100; i++)
+            for (int i = 2; i < n; i++)
             {
                 siradakiSayi = fibSayilar[i - 1] + fibSayilar[i - 2];
                 fibSayilar[i] = siradakiSayi;
             }
 
-            for(int i = 0; i < fibSayilar.Length; i++)
-            {
-                Console.Write(fibSayilar[i] + " ");
-            }
+            return fibSayilar;
+        }
 
-            //uint deneme = recursiveFib(100);
-            //Console.WriteLine("\n" + deneme);
-
-            Console.ReadKey();
+        static void sayilariYazdir(uint[] sayilar)
+        {
+            for(int i = 0; i < sayilar.Length; i++)
+                Console.Write(sayilar[i] + " ");
         }
 
         //static uint recursiveFib(int index)
