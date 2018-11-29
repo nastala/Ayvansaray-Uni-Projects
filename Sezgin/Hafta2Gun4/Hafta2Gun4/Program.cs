@@ -10,16 +10,24 @@ namespace Hafta2Gun4
     {
         //Hafta 2, Gün 4, Part 1 <-----> 29.11.2018
 
-        static Random r;
-
         static void Main(string[] args)
         {
             int[] sansliNumaralar = new int[6];
-            r = new Random();
+            Random r = new Random();
+            int uretilenSayi;
 
             for (int i = 0; i < sansliNumaralar.Length; i++)
-                sansliNumaralar[i] = sayiUret();
-
+            {
+                uretilenSayi = r.Next(1, 49);
+                if (!(Array.IndexOf(sansliNumaralar, uretilenSayi) >= 0))
+                    sansliNumaralar[i] = uretilenSayi;
+                else
+                {
+                    i--;
+                    continue;
+                }
+                
+            }
             sayilariYazdir(sansliNumaralar);
 
             Console.ReadKey();
@@ -32,11 +40,6 @@ namespace Hafta2Gun4
             {
                 Console.WriteLine(sayilar[i]);
             }
-        }
-
-        static int sayiUret()
-        {
-            return r.Next(1, 49);
         }
     }
 }
