@@ -16,7 +16,7 @@ namespace Hafta2Gun4Part3
             int girilenSayi;
             
             girilenSayi = sayiyiGirdir("Aramak istediğiniz sayıyı girin: ");
-            sayiyiBinaryAra(girilenSayi, 0, 100);
+            sayiyiBinaryAra(girilenSayi, 0, 513);
             Console.WriteLine("{0}. denemede sayı bulundu.", nBinary);
 
             Console.ReadKey();
