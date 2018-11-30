@@ -13,7 +13,7 @@ namespace Hafta2Gun5
             //Hafta 2, Gün 5, Part 1 <-----> 30.11.2018
 
             int iFaktoriyel, iSonuc;
-            iFaktoriyel = sayiyiGirdir("Lütfen faktoriyelini almak istediğiniz sayıyıy giriniz: ");
+            iFaktoriyel = sayiyiGirdir("Lütfen faktoriyelini almak istediğiniz sayıyı giriniz: ");
 
             iSonuc = recursiveFaktoriyel(iFaktoriyel);
             Console.WriteLine("Recursive Faktoriyel Sonuc: " + iSonuc);
