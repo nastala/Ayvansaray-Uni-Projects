@@ -10,6 +10,8 @@ using System.Windows.Forms;
 
 namespace Hafta3Gun1Part2
 {
+    //Hafta 3, Gün 1, Part 2, Form App - 1 <-----> 03.12.2018
+
     public partial class Form1 : Form
     {
         public Form1()
