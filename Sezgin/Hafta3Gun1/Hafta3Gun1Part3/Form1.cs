@@ -24,32 +24,38 @@ namespace Hafta3Gun1Part3
 
         private void tbText_MouseHover(object sender, EventArgs e)
         {
-            SaveToLB("OnMouseHover()");
+            if(cbMouseHover.Checked)
+                SaveToLB("OnMouseHover()");
         }
 
         private void tbText_MouseLeave(object sender, EventArgs e)
         {
-            SaveToLB("OnMouseLeave()");
+            if(cbMouseLeave.Checked)
+                SaveToLB("OnMouseLeave()");
         }
 
         private void tbText_MouseEnter(object sender, EventArgs e)
         {
-            SaveToLB("OnMouseEnter()");
+            if(cbMouseEnter.Checked)
+                SaveToLB("OnMouseEnter()");
         }
 
         private void tbText_MouseDown(object sender, MouseEventArgs e)
         {
-            SaveToLB("OnMouseDown()");
+            if(cbMouseDown.Checked)
+                SaveToLB("OnMouseDown()");
         }
 
         private void tbText_MouseMove(object sender, MouseEventArgs e)
         {
-            SaveToLB("OnMouseMove()");
+            if(cbMouseMove.Checked)
+                SaveToLB("OnMouseMove()");
         }
 
         private void tbText_MouseUp(object sender, MouseEventArgs e)
         {
-            SaveToLB("OnMouseUp()");
+            if(cbMouseUp.Checked)
+                SaveToLB("OnMouseUp()");
         }
 
         private void btnClear_Click(object sender, EventArgs e)
