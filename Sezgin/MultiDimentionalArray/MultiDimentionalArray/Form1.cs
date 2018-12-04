@@ -31,12 +31,16 @@ namespace MultiDimentionalArray
                     Color[,] twoDimensionalArray = new Color[bmp.Width, bmp.Height];
                     string text;
                     lbImagePixels.HorizontalScrollbar = true;
+                    int center = bmp.Width / 2;
 
                     for (int y = 0; y < bmp.Height; y++)
                     {
                         text = "";
                         for (int x = 0; x < bmp.Width; x++)
                         {
+                            if (x == center)
+                                bmp.SetPixel(x, y, Color.Black);
+
                             twoDimensionalArray[x, y] = bmp.GetPixel(x,y);
                             text += "[" + x + ", " + y + "] -> (" + twoDimensionalArray[x, y].ToString() + "), ";
                         }
@@ -45,8 +49,6 @@ namespace MultiDimentionalArray
                     }
                     
                     pbImage.Image = bmp;
-
-                    //Bitmap bmp2 = new Bitmap(bmp.Width, bmp.Height, bmp.Width * 4, System.Drawing.Imaging.PixelFormat.Format32bppRgb);
                 }
                 catch(Exception ex)
                 {
