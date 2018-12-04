@@ -32,13 +32,13 @@ namespace MultiDimentionalArray
                     string text;
                     lbImagePixels.HorizontalScrollbar = true;
 
-                    for (int j = 0; j < bmp.Height; j++)
+                    for (int y = 0; y < bmp.Height; y++)
                     {
                         text = "";
-                        for (int i = 0; i < bmp.Width; i++)
+                        for (int x = 0; x < bmp.Width; x++)
                         {
-                            twoDimensionalArray[i, j] = bmp.GetPixel(i,j);
-                            text += "[" + i + ", " + j + "] -> (" + twoDimensionalArray[i, j].ToString() + "), ";
+                            twoDimensionalArray[x, y] = bmp.GetPixel(x,y);
+                            text += "[" + x + ", " + y + "] -> (" + twoDimensionalArray[x, y].ToString() + "), ";
                         }
                         text = text.Substring(0, text.Length - 2);
                         lbImagePixels.Items.Add(text);
