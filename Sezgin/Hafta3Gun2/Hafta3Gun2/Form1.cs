@@ -21,19 +21,30 @@ namespace Hafta3Gun2
         public Form1()
         {
             InitializeComponent();
-            timer1.Tick += new System.EventHandler(OnTimerEvent);
         }
 
         private bool timerCheck()
         {
+            bool timerCheck, boomNumberCheck;
             if (timer1.Enabled)
             {
                 tbBoomNumber.Clear();
                 MessageBox.Show("Timer is already running right now!");
-                return false;
+                timerCheck = false;
             }
             else
-                return true;
+                timerCheck = true;
+
+            if (boomNumber <= 0)
+            {
+                tbBoomNumber.Clear();
+                MessageBox.Show("Boom number must be greater than 0");
+                boomNumberCheck = false;
+            }
+            else
+                boomNumberCheck = true;
+
+            return timerCheck && boomNumberCheck;
         }
 
         private void btnStart_Click(object sender, EventArgs e)
@@ -46,6 +57,7 @@ namespace Hafta3Gun2
             try
             {
                 boomNumber = byte.Parse(tbBoomNumber.Text);
+                timer1.Start();
             }
             catch (FormatException)
             {
@@ -55,10 +67,6 @@ namespace Hafta3Gun2
             {
                 MessageBox.Show("The number is too big.");
             }
-            catch (DivideByZeroException)
-            {
-                MessageBox.Show("You can not enter 0.");
-            }
             catch (Exception ex)
             {
                 MessageBox.Show("An unknown error occured! Error: " + ex.Message);
@@ -67,12 +75,9 @@ namespace Hafta3Gun2
             {
                 tbBoomNumber.Clear();
             }
-            
-            //timer1.Enabled = true;
-            timer1.Start();
         }
 
-        private void OnTimerEvent(object source, EventArgs e)
+        private void boomControl()
         {
             if (count > 100)
             {
@@ -110,7 +115,7 @@ namespace Hafta3Gun2
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            //lbBoomNumbers.Items.Add(itemText);
+            boomControl();
         }
     }
 }
