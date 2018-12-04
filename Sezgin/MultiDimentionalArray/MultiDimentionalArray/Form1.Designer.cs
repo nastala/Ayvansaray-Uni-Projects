@@ -39,17 +39,19 @@
             // lblFilePath
             // 
             this.lblFilePath.AutoSize = true;
-            this.lblFilePath.Location = new System.Drawing.Point(25, 537);
+            this.lblFilePath.Location = new System.Drawing.Point(19, 436);
+            this.lblFilePath.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblFilePath.Name = "lblFilePath";
-            this.lblFilePath.Size = new System.Drawing.Size(63, 17);
+            this.lblFilePath.Size = new System.Drawing.Size(48, 13);
             this.lblFilePath.TabIndex = 0;
             this.lblFilePath.Text = "File Path";
             // 
             // btnImageOpen
             // 
-            this.btnImageOpen.Location = new System.Drawing.Point(28, 557);
+            this.btnImageOpen.Location = new System.Drawing.Point(21, 453);
+            this.btnImageOpen.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnImageOpen.Name = "btnImageOpen";
-            this.btnImageOpen.Size = new System.Drawing.Size(80, 30);
+            this.btnImageOpen.Size = new System.Drawing.Size(60, 24);
             this.btnImageOpen.TabIndex = 1;
             this.btnImageOpen.Text = "Open";
             this.btnImageOpen.UseVisualStyleBackColor = true;
@@ -57,35 +59,39 @@
             // 
             // pbImage
             // 
-            this.pbImage.Location = new System.Drawing.Point(126, 557);
+            this.pbImage.Location = new System.Drawing.Point(94, 453);
+            this.pbImage.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pbImage.Name = "pbImage";
-            this.pbImage.Size = new System.Drawing.Size(30, 30);
+            this.pbImage.Size = new System.Drawing.Size(22, 24);
             this.pbImage.TabIndex = 2;
             this.pbImage.TabStop = false;
             // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
+            this.openFileDialog1.Filter = "(*.png)|*.png|(*.txt)|*.txt";
             // 
             // lbImagePixels
             // 
             this.lbImagePixels.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lbImagePixels.FormattingEnabled = true;
-            this.lbImagePixels.ItemHeight = 22;
-            this.lbImagePixels.Location = new System.Drawing.Point(28, 12);
+            this.lbImagePixels.ItemHeight = 18;
+            this.lbImagePixels.Location = new System.Drawing.Point(21, 10);
+            this.lbImagePixels.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.lbImagePixels.Name = "lbImagePixels";
-            this.lbImagePixels.Size = new System.Drawing.Size(1060, 510);
+            this.lbImagePixels.Size = new System.Drawing.Size(796, 400);
             this.lbImagePixels.TabIndex = 3;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1115, 601);
+            this.ClientSize = new System.Drawing.Size(836, 488);
             this.Controls.Add(this.lbImagePixels);
             this.Controls.Add(this.pbImage);
             this.Controls.Add(this.btnImageOpen);
             this.Controls.Add(this.lblFilePath);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
