@@ -22,28 +22,31 @@ namespace MultiDimentionalArray
             DialogResult result = openFileDialog1.ShowDialog();
             if(result == DialogResult.OK)
             {
+                lbImagePixels.Items.Clear();
                 string imagePath = openFileDialog1.FileName;
                 try
                 {
                     Bitmap bmp = new Bitmap(imagePath);
                     lblFilePath.Text = imagePath;
-                    string[,] twoDimentionalArray = new string[bmp.Height, bmp.Width];
+                    Color[,] twoDimensionalArray = new Color[bmp.Width, bmp.Height];
                     string text;
                     lbImagePixels.HorizontalScrollbar = true;
 
-                    for (int i = 0; i < bmp.Height; i++)
+                    for (int j = 0; j < bmp.Height; j++)
                     {
                         text = "";
-                        for (int j = 0; j < bmp.Width; j++)
+                        for (int i = 0; i < bmp.Width; i++)
                         {
-                            twoDimentionalArray[i, j] = "R:" + bmp.GetPixel(i, j).R + ", G:" + bmp.GetPixel(i, j).G + ", B:" + bmp.GetPixel(i, j).B;
-                            text += "[" + i + ", " + j + "] -> (" + twoDimentionalArray[i, j] + "), ";
+                            twoDimensionalArray[i, j] = bmp.GetPixel(i,j);
+                            text += "[" + i + ", " + j + "] -> (" + twoDimensionalArray[i, j].ToString() + "), ";
                         }
                         text = text.Substring(0, text.Length - 2);
                         lbImagePixels.Items.Add(text);
                     }
-
+                    
                     pbImage.Image = bmp;
+
+                    //Bitmap bmp2 = new Bitmap(bmp.Width, bmp.Height, bmp.Width * 4, System.Drawing.Imaging.PixelFormat.Format32bppRgb);
                 }
                 catch(Exception ex)
                 {
