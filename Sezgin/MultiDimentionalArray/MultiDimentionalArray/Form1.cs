@@ -27,28 +27,34 @@ namespace MultiDimentionalArray
                 try
                 {
                     Bitmap bmp = new Bitmap(imagePath);
+                    Bitmap bmpLinedImage = new Bitmap(bmp.Width, bmp.Height);
                     lblFilePath.Text = imagePath;
                     Color[,] twoDimensionalArray = new Color[bmp.Width, bmp.Height];
                     string text;
                     lbImagePixels.HorizontalScrollbar = true;
                     int center = bmp.Width / 2;
+                    Color color;
 
                     for (int y = 0; y < bmp.Height; y++)
                     {
                         text = "";
                         for (int x = 0; x < bmp.Width; x++)
                         {
+                            color = bmp.GetPixel(x, y);
                             if (x == center)
-                                bmp.SetPixel(x, y, Color.Black);
+                                color = Color.Black;
 
-                            twoDimensionalArray[x, y] = bmp.GetPixel(x,y);
+                            bmpLinedImage.SetPixel(x, y, color);
+                            twoDimensionalArray[x, y] = color;
                             text += "[" + x + ", " + y + "] -> (" + twoDimensionalArray[x, y].ToString() + "), ";
                         }
+
                         text = text.Substring(0, text.Length - 2);
                         lbImagePixels.Items.Add(text);
                     }
                     
-                    pbImage.Image = bmp;
+                    pbPickedImage.Image = bmp;
+                    pbCenterLinedPicture.Image = bmpLinedImage;
                 }
                 catch(Exception ex)
                 {

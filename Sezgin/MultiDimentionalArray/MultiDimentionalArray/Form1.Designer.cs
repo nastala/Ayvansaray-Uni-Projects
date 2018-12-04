@@ -30,10 +30,12 @@
         {
             this.lblFilePath = new System.Windows.Forms.Label();
             this.btnImageOpen = new System.Windows.Forms.Button();
-            this.pbImage = new System.Windows.Forms.PictureBox();
+            this.pbPickedImage = new System.Windows.Forms.PictureBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.lbImagePixels = new System.Windows.Forms.ListBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
+            this.pbCenterLinedPicture = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPickedImage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCenterLinedPicture)).BeginInit();
             this.SuspendLayout();
             // 
             // lblFilePath
@@ -57,14 +59,14 @@
             this.btnImageOpen.UseVisualStyleBackColor = true;
             this.btnImageOpen.Click += new System.EventHandler(this.btnImageOpen_Click);
             // 
-            // pbImage
+            // pbPickedImage
             // 
-            this.pbImage.Location = new System.Drawing.Point(94, 453);
-            this.pbImage.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.pbImage.Name = "pbImage";
-            this.pbImage.Size = new System.Drawing.Size(22, 24);
-            this.pbImage.TabIndex = 2;
-            this.pbImage.TabStop = false;
+            this.pbPickedImage.Location = new System.Drawing.Point(709, 414);
+            this.pbPickedImage.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pbPickedImage.Name = "pbPickedImage";
+            this.pbPickedImage.Size = new System.Drawing.Size(50, 50);
+            this.pbPickedImage.TabIndex = 2;
+            this.pbPickedImage.TabStop = false;
             // 
             // openFileDialog1
             // 
@@ -82,19 +84,30 @@
             this.lbImagePixels.Size = new System.Drawing.Size(796, 400);
             this.lbImagePixels.TabIndex = 3;
             // 
+            // pbCenterLinedPicture
+            // 
+            this.pbCenterLinedPicture.Location = new System.Drawing.Point(767, 414);
+            this.pbCenterLinedPicture.Margin = new System.Windows.Forms.Padding(2);
+            this.pbCenterLinedPicture.Name = "pbCenterLinedPicture";
+            this.pbCenterLinedPicture.Size = new System.Drawing.Size(50, 50);
+            this.pbCenterLinedPicture.TabIndex = 4;
+            this.pbCenterLinedPicture.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(836, 488);
+            this.Controls.Add(this.pbCenterLinedPicture);
             this.Controls.Add(this.lbImagePixels);
-            this.Controls.Add(this.pbImage);
+            this.Controls.Add(this.pbPickedImage);
             this.Controls.Add(this.btnImageOpen);
             this.Controls.Add(this.lblFilePath);
             this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Form1";
             this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPickedImage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCenterLinedPicture)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -104,9 +117,10 @@
 
         private System.Windows.Forms.Label lblFilePath;
         private System.Windows.Forms.Button btnImageOpen;
-        private System.Windows.Forms.PictureBox pbImage;
+        private System.Windows.Forms.PictureBox pbPickedImage;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.ListBox lbImagePixels;
+        private System.Windows.Forms.PictureBox pbCenterLinedPicture;
     }
 }
 
