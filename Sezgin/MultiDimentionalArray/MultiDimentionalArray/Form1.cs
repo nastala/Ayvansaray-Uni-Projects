@@ -27,34 +27,55 @@ namespace MultiDimentionalArray
                 try
                 {
                     Bitmap bmp = new Bitmap(imagePath);
-                    Bitmap bmpLinedImage = new Bitmap(bmp.Width, bmp.Height);
+                    int width = bmp.Width;
+                    int height = bmp.Height;
+                    Bitmap bmpLinedImage = new Bitmap(width, height);
+                    Bitmap bmpCrossedImage = new Bitmap(width, height);
+                    Bitmap bmpRightAlignedCrossedImage = new Bitmap(width, height);
                     lblFilePath.Text = imagePath;
-                    Color[,] twoDimensionalArray = new Color[bmp.Width, bmp.Height];
+                    Color[,] twoDimensionalArray = new Color[width, height];
                     string text;
                     lbImagePixels.HorizontalScrollbar = true;
-                    int center = bmp.Width / 2;
+                    int center = width / 2;
                     Color color;
+                    float counterLeftAlignedCross = 0;
+                    float counterRightAlignedCross = width;
+                    float increment = (float)width / (float)height;
 
-                    for (int y = 0; y < bmp.Height; y++)
+                    for (int y = 0; y < height; y++)
                     {
                         text = "";
-                        for (int x = 0; x < bmp.Width; x++)
+                        for (int x = 0; x < width; x++)
                         {
                             color = bmp.GetPixel(x, y);
-                            if (x == center)
+                            if (x <= center && (x + 1) >= center)
                                 color = Color.Black;
+
+                            if (x <= counterLeftAlignedCross && (x + 1) >= counterLeftAlignedCross)
+                                bmpCrossedImage.SetPixel(x, y, Color.Black);
+                            else
+                                bmpCrossedImage.SetPixel(x, y, bmp.GetPixel(x, y));
+
+                            if (x <= counterRightAlignedCross && (x + 1) >= counterRightAlignedCross)
+                                bmpRightAlignedCrossedImage.SetPixel(x, y, Color.Black);
+                            else
+                                bmpRightAlignedCrossedImage.SetPixel(x, y, bmp.GetPixel(x, y));
 
                             bmpLinedImage.SetPixel(x, y, color);
                             twoDimensionalArray[x, y] = color;
                             text += "[" + x + ", " + y + "] -> (" + twoDimensionalArray[x, y].ToString() + "), ";
                         }
 
+                        counterLeftAlignedCross += increment;
+                        counterRightAlignedCross -= increment;
                         text = text.Substring(0, text.Length - 2);
                         lbImagePixels.Items.Add(text);
                     }
                     
                     pbPickedImage.Image = bmp;
                     pbCenterLinedPicture.Image = bmpLinedImage;
+                    pbCrossedImage.Image = bmpCrossedImage;
+                    pbRighAlignedCrossedImage.Image = bmpRightAlignedCrossedImage;
                 }
                 catch(Exception ex)
                 {

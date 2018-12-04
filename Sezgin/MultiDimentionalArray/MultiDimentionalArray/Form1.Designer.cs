@@ -34,8 +34,12 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.lbImagePixels = new System.Windows.Forms.ListBox();
             this.pbCenterLinedPicture = new System.Windows.Forms.PictureBox();
+            this.pbCrossedImage = new System.Windows.Forms.PictureBox();
+            this.pbRighAlignedCrossedImage = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbPickedImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCenterLinedPicture)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCrossedImage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbRighAlignedCrossedImage)).BeginInit();
             this.SuspendLayout();
             // 
             // lblFilePath
@@ -61,7 +65,7 @@
             // 
             // pbPickedImage
             // 
-            this.pbPickedImage.Location = new System.Drawing.Point(709, 414);
+            this.pbPickedImage.Location = new System.Drawing.Point(669, 414);
             this.pbPickedImage.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pbPickedImage.Name = "pbPickedImage";
             this.pbPickedImage.Size = new System.Drawing.Size(50, 50);
@@ -81,23 +85,43 @@
             this.lbImagePixels.Location = new System.Drawing.Point(21, 10);
             this.lbImagePixels.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.lbImagePixels.Name = "lbImagePixels";
-            this.lbImagePixels.Size = new System.Drawing.Size(796, 400);
+            this.lbImagePixels.Size = new System.Drawing.Size(860, 400);
             this.lbImagePixels.TabIndex = 3;
             // 
             // pbCenterLinedPicture
             // 
-            this.pbCenterLinedPicture.Location = new System.Drawing.Point(767, 414);
+            this.pbCenterLinedPicture.Location = new System.Drawing.Point(723, 414);
             this.pbCenterLinedPicture.Margin = new System.Windows.Forms.Padding(2);
             this.pbCenterLinedPicture.Name = "pbCenterLinedPicture";
             this.pbCenterLinedPicture.Size = new System.Drawing.Size(50, 50);
             this.pbCenterLinedPicture.TabIndex = 4;
             this.pbCenterLinedPicture.TabStop = false;
             // 
+            // pbCrossedImage
+            // 
+            this.pbCrossedImage.Location = new System.Drawing.Point(777, 414);
+            this.pbCrossedImage.Margin = new System.Windows.Forms.Padding(2);
+            this.pbCrossedImage.Name = "pbCrossedImage";
+            this.pbCrossedImage.Size = new System.Drawing.Size(50, 50);
+            this.pbCrossedImage.TabIndex = 5;
+            this.pbCrossedImage.TabStop = false;
+            // 
+            // pbRighAlignedCrossedImage
+            // 
+            this.pbRighAlignedCrossedImage.Location = new System.Drawing.Point(831, 414);
+            this.pbRighAlignedCrossedImage.Margin = new System.Windows.Forms.Padding(2);
+            this.pbRighAlignedCrossedImage.Name = "pbRighAlignedCrossedImage";
+            this.pbRighAlignedCrossedImage.Size = new System.Drawing.Size(50, 50);
+            this.pbRighAlignedCrossedImage.TabIndex = 6;
+            this.pbRighAlignedCrossedImage.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(836, 488);
+            this.ClientSize = new System.Drawing.Size(892, 479);
+            this.Controls.Add(this.pbRighAlignedCrossedImage);
+            this.Controls.Add(this.pbCrossedImage);
             this.Controls.Add(this.pbCenterLinedPicture);
             this.Controls.Add(this.lbImagePixels);
             this.Controls.Add(this.pbPickedImage);
@@ -108,6 +132,8 @@
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.pbPickedImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCenterLinedPicture)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCrossedImage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbRighAlignedCrossedImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -121,6 +147,8 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.ListBox lbImagePixels;
         private System.Windows.Forms.PictureBox pbCenterLinedPicture;
+        private System.Windows.Forms.PictureBox pbCrossedImage;
+        private System.Windows.Forms.PictureBox pbRighAlignedCrossedImage;
     }
 }
 
