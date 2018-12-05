@@ -35,6 +35,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnClear = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.btnForStart = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // tbBoomNumber
@@ -58,7 +59,7 @@
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(59, 25);
             this.btnStart.TabIndex = 2;
-            this.btnStart.Text = "Start";
+            this.btnStart.Text = "T Start";
             this.btnStart.UseVisualStyleBackColor = true;
             this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
@@ -73,7 +74,7 @@
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(77, 218);
+            this.btnClear.Location = new System.Drawing.Point(142, 218);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(59, 25);
             this.btnClear.TabIndex = 5;
@@ -85,11 +86,22 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // btnForStart
+            // 
+            this.btnForStart.Location = new System.Drawing.Point(77, 218);
+            this.btnForStart.Name = "btnForStart";
+            this.btnForStart.Size = new System.Drawing.Size(59, 25);
+            this.btnForStart.TabIndex = 6;
+            this.btnForStart.Text = "For Start";
+            this.btnForStart.UseVisualStyleBackColor = true;
+            this.btnForStart.Click += new System.EventHandler(this.btnForStart_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(290, 247);
+            this.Controls.Add(this.btnForStart);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnStart);
@@ -110,6 +122,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Button btnForStart;
     }
 }
 

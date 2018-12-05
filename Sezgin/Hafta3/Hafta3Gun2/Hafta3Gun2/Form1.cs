@@ -52,12 +52,19 @@ namespace Hafta3Gun2
             if (!timerCheck())
                 return;
 
+            if(fillBoomNumber())
+                timer1.Start();
+        }
+
+        private bool fillBoomNumber()
+        {
+            lbBoomNumbers.BackColor = Color.White;
             lbBoomNumbers.Items.Clear();
 
             try
             {
                 boomNumber = byte.Parse(tbBoomNumber.Text);
-                timer1.Start();
+                return true;
             }
             catch (FormatException)
             {
@@ -75,9 +82,11 @@ namespace Hafta3Gun2
             {
                 tbBoomNumber.Clear();
             }
+
+            return false;
         }
 
-        private void boomControl()
+        private void timerBoom()
         {
             if (count > 100)
             {
@@ -104,6 +113,31 @@ namespace Hafta3Gun2
             count++;
         }
 
+        private void forBoom()
+        {
+            for(int i = 1; i <= 100; i++)
+            {
+                if (i % boomNumber == 0)
+                {
+                    lbBoomNumbers.BackColor = Color.Red;
+                    lbBoomNumbers.ForeColor = Color.White;
+                    itemText = "BOOM";
+                }
+                else
+                {
+                    lbBoomNumbers.BackColor = Color.White;
+                    lbBoomNumbers.ForeColor = Color.Black;
+                    itemText = i.ToString();
+                }
+
+                lbBoomNumbers.Items.Add(itemText);
+                lbBoomNumbers.TopIndex = i - 1;
+
+                this.Update();
+                Thread.Sleep(100);
+            }
+        }
+
         private void btnClear_Click(object sender, EventArgs e)
         {
             if (!timerCheck())
@@ -115,7 +149,14 @@ namespace Hafta3Gun2
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            boomControl();
+            timerBoom();
+        }
+
+        private void btnForStart_Click(object sender, EventArgs e)
+        {
+            lbBoomNumbers.Items.Clear();
+            if(fillBoomNumber())
+                forBoom();
         }
     }
 }
