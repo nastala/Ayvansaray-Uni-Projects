@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace Haftta3Gun3
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
         //Hafta3, Gün 3, Part 1 <-----> 05.12.2018
         private Font font;
         private Color color;
         private string name, surname, description;
 
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
 
