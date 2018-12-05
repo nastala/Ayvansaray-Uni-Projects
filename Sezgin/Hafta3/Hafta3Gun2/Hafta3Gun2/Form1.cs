@@ -154,7 +154,6 @@ namespace Hafta3Gun2
 
         private void btnForStart_Click(object sender, EventArgs e)
         {
-            lbBoomNumbers.Items.Clear();
             if(fillBoomNumber())
                 forBoom();
         }
