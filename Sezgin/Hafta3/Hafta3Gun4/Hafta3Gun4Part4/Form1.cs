@@ -15,7 +15,7 @@ namespace Hafta3Gun4Part4
         //Hafta 3, Gün 4, Part 4 <-----> 06.12.2018
 
         private int buttonCounter = 1;
-        private List<Button> buttons = new List<Button>();
+        //private List<Button> buttons = new List<Button>();
         private int y = 1;
 
         public Form1()
@@ -50,8 +50,9 @@ namespace Hafta3Gun4Part4
             {
                 MessageBox.Show("You cliked on " + ((Button)bS).Text);
             };
-            buttons.Add(button);
-            panel1.Controls.AddRange(buttons.ToArray());
+            //buttons.Add(button);
+            //panel1.Controls.AddRange(buttons.ToArray());
+            panel1.Controls.Add(button);
             buttonCounter++;
         }
 
@@ -61,8 +62,11 @@ namespace Hafta3Gun4Part4
             DialogResult result = colorDialog.ShowDialog();
             if(result == DialogResult.OK)
             {
-                foreach (Button button in buttons)
-                    button.BackColor = colorDialog.Color;
+                foreach (Control control in panel1.Controls)
+                {
+                    if(control is Button)
+                        control.BackColor = colorDialog.Color;
+                }
             }
         }
     }
