@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Hafta3Gun3Part2")]
+[assembly: AssemblyTitle("Hafta3Gun4Part2")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Microsoft")]
-[assembly: AssemblyProduct("Hafta3Gun3Part2")]
+[assembly: AssemblyProduct("Hafta3Gun4Part2")]
 [assembly: AssemblyCopyright("Copyright © Microsoft 2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("35b38b84-02ae-40c4-87d4-aa7113d28ea0")]
+[assembly: Guid("4e7d9538-1537-4272-b900-f03361554c97")]
 
 // Version information for an assembly consists of the following four values:
 //
