@@ -15,7 +15,7 @@ namespace Hafta3Gun4Part2
 
             Hashtable Sozluk = new Hashtable();
             Sozluk.Add("araba", "car");
-            Sozluk.Add("kitap", "book");
+            Sozluk["kitap"] = "car";
 
             ICollection anahtarlar = Sozluk.Keys;
             foreach (string anahtar in anahtarlar)
@@ -26,6 +26,9 @@ namespace Hafta3Gun4Part2
             ICollection degerler = Sozluk.Values;
             foreach (string deger in degerler)
                 Console.WriteLine(deger);
+
+            Console.WriteLine("------------------------------------");
+            Console.WriteLine("Toplam kelime: " + Sozluk.Count);
 
             Console.ReadKey();
         }
