@@ -12,6 +12,8 @@ namespace Hafta3Gun5
 {
     public partial class FormCatchMe : Form
     {
+        //Hafta 3, Gün 5, Part 1 <-----> 07.12.2018
+
         private Random r;
         private int x, y, width, height, iAttemps, prevX, prevY, bWidth, bHeight;
 

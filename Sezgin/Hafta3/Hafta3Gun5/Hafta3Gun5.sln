@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28010.2048
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hafta3Gun5", "Hafta3Gun5\Hafta3Gun5.csproj", "{59A31847-C20A-42E9-8354-6238544E694E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hafta3Gun5Part2", "Hafta3Gun5Part2\Hafta3Gun5Part2.csproj", "{97E6570C-0182-4B51-AF01-C7B811B7A066}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{59A31847-C20A-42E9-8354-6238544E694E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{59A31847-C20A-42E9-8354-6238544E694E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{59A31847-C20A-42E9-8354-6238544E694E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97E6570C-0182-4B51-AF01-C7B811B7A066}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97E6570C-0182-4B51-AF01-C7B811B7A066}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97E6570C-0182-4B51-AF01-C7B811B7A066}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97E6570C-0182-4B51-AF01-C7B811B7A066}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
