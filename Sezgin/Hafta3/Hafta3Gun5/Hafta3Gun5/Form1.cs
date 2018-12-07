@@ -13,7 +13,7 @@ namespace Hafta3Gun5
     public partial class FormCatchMe : Form
     {
         private Random r;
-        private int x, y, width, height, iAttemps;
+        private int x, y, width, height, iAttemps, prevX, prevY, bWidth, bHeight;
 
         public FormCatchMe()
         {
@@ -24,9 +24,14 @@ namespace Hafta3Gun5
         {
             x = r.Next(0, width);
             y = r.Next(0, height);
-            if (new Point(x, y) == FormCatchMe.MousePosition)
+            if ((x <= prevX && (prevX + bWidth) >= x) && (y <= prevY && (prevY + bHeight) >= y))
+            {
                 btnCatchMe_MouseEnter(sender, e);
-            
+                return;
+            }
+
+            prevX = x;
+            prevY = y;
             btnCatchMe.Location = new Point(x, y);
         }
 
@@ -40,7 +45,10 @@ namespace Hafta3Gun5
         {
             width = this.Size.Width - btnCatchMe.Width * 2;
             height = this.Size.Height - btnCatchMe.Height * 2;
+            btnCatchMe.Location = new Point(this.Size.Width / 2, this.Size.Height / 2);
             iAttemps = 0;
+            bWidth = btnCatchMe.Width;
+            bHeight = btnCatchMe.Height;
             r = new Random();
         }
 
