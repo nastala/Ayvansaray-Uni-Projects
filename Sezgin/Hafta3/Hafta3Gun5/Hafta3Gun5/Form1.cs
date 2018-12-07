@@ -12,9 +12,8 @@ namespace Hafta3Gun5
 {
     public partial class FormCatchMe : Form
     {
-        private Random r = new Random();
-        private int iAttemps = 0;
-        private int x, y;
+        private Random r;
+        private int x, y, width, height, iAttemps;
 
         public FormCatchMe()
         {
@@ -23,8 +22,8 @@ namespace Hafta3Gun5
 
         private void btnCatchMe_MouseEnter(object sender, EventArgs e)
         {
-            x = r.Next(0, this.Size.Width - btnCatchMe.Width);
-            y = r.Next(0, this.Size.Height - btnCatchMe.Height);
+            x = r.Next(0, width);
+            y = r.Next(0, height);
             if (new Point(x, y) == FormCatchMe.MousePosition)
                 btnCatchMe_MouseEnter(sender, e);
             
@@ -35,6 +34,14 @@ namespace Hafta3Gun5
         {
             iAttemps++;
             this.Text = "Total Attemps = " + iAttemps;
+        }
+
+        private void FormCatchMe_Load(object sender, EventArgs e)
+        {
+            width = this.Size.Width - btnCatchMe.Width * 2;
+            height = this.Size.Height - btnCatchMe.Height * 2;
+            iAttemps = 0;
+            r = new Random();
         }
 
         private void btnCatchMe_Click(object sender, EventArgs e)

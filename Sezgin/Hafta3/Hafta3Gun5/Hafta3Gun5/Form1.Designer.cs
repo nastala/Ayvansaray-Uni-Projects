@@ -50,6 +50,7 @@
             this.Controls.Add(this.btnCatchMe);
             this.Name = "FormCatchMe";
             this.Text = "Catch Me Game";
+            this.Load += new System.EventHandler(this.FormCatchMe_Load);
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.FormCatchMe_MouseClick);
             this.ResumeLayout(false);
 
