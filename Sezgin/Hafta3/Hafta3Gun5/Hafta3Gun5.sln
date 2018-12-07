@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2048
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hafta3Gun5", "Hafta3Gun5\Hafta3Gun5.csproj", "{59A31847-C20A-42E9-8354-6238544E694E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{59A31847-C20A-42E9-8354-6238544E694E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59A31847-C20A-42E9-8354-6238544E694E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59A31847-C20A-42E9-8354-6238544E694E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59A31847-C20A-42E9-8354-6238544E694E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {22FDF0AA-4DF2-49BF-9A69-48A3D0205D28}
+	EndGlobalSection
+EndGlobal
