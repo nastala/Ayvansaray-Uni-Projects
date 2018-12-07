@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hafta3Gun5", "Hafta3Gun5\Ha
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hafta3Gun5Part2", "Hafta3Gun5Part2\Hafta3Gun5Part2.csproj", "{97E6570C-0182-4B51-AF01-C7B811B7A066}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hafta3Gun5Part3", "Hafta3Gun5Part3\Hafta3Gun5Part3.csproj", "{BD5F9550-F4D0-4D15-953C-A03A1ED2B217}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{97E6570C-0182-4B51-AF01-C7B811B7A066}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{97E6570C-0182-4B51-AF01-C7B811B7A066}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{97E6570C-0182-4B51-AF01-C7B811B7A066}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD5F9550-F4D0-4D15-953C-A03A1ED2B217}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD5F9550-F4D0-4D15-953C-A03A1ED2B217}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD5F9550-F4D0-4D15-953C-A03A1ED2B217}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD5F9550-F4D0-4D15-953C-A03A1ED2B217}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
