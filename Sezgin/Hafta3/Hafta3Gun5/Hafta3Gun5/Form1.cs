@@ -15,7 +15,7 @@ namespace Hafta3Gun5
         //Hafta 3, Gün 5, Part 1 <-----> 07.12.2018
 
         private Random r;
-        private int x, y, width, height, iAttemps, prevX, prevY, bWidth, bHeight;
+        private int xNew, yNew, width, height, iAttemps, prevX, prevY, bWidth, bHeight, xNewR, yNewR, prevXR, prevYR;
 
         public FormCatchMe()
         {
@@ -24,17 +24,29 @@ namespace Hafta3Gun5
 
         private void btnCatchMe_MouseEnter(object sender, EventArgs e)
         {
-            x = r.Next(0, width);
-            y = r.Next(0, height);
-            if ((x <= prevX && (prevX + bWidth) >= x) && (y <= prevY && (prevY + bHeight) >= y))
+            xNew = r.Next(0, width);
+            yNew = r.Next(0, height);
+            xNewR = xNew + bWidth;
+            yNewR = yNew + bHeight;
+            prevXR = prevX + bWidth;
+            prevYR = prevY + bHeight;
+
+            if(((xNew >= prevX && xNew <= prevXR) || (xNewR >= prevX && xNewR <= prevXR)) && 
+                (yNew >= prevY && yNew <= prevYR) || (yNewR >= prevY && yNewR <= prevYR))
             {
                 btnCatchMe_MouseEnter(sender, e);
                 return;
             }
 
-            prevX = x;
-            prevY = y;
-            btnCatchMe.Location = new Point(x, y);
+            //if ((x <= prevX && (prevX + bWidth) >= x) && (y <= prevY && (prevY + bHeight) >= y))
+            //{
+            //    btnCatchMe_MouseEnter(sender, e);
+            //    return;
+            //}
+
+            prevX = xNew;
+            prevY = yNew;
+            btnCatchMe.Location = new Point(xNew, yNew);
         }
 
         private void FormCatchMe_MouseClick(object sender, MouseEventArgs e)
@@ -47,10 +59,10 @@ namespace Hafta3Gun5
         {
             width = this.Size.Width - btnCatchMe.Width * 2;
             height = this.Size.Height - btnCatchMe.Height * 2;
-            btnCatchMe.Location = new Point(this.Size.Width / 2, this.Size.Height / 2);
-            iAttemps = 0;
             bWidth = btnCatchMe.Width;
             bHeight = btnCatchMe.Height;
+            btnCatchMe.Location = new Point((this.Size.Width / 2) - (bWidth / 2) , (this.Size.Height / 2) - (bHeight / 2));
+            iAttemps = 0;
             r = new Random();
         }
 
