@@ -18,6 +18,7 @@ namespace Hafta3Gun5Part3
         private SoundPlayer soundPlayer;
         private int counter = 0;
         private const string imagePath = @"D:\Ayvansaray Uni Projects\Ayvansaray-Uni-Projects\Sezgin\Hafta3\Hafta3Gun5\";
+        private const string soundPath = @"D:\Ayvansaray Uni Projects\Ayvansaray-Uni-Projects\Sezgin\Hafta3\Hafta3Gun5\eagle.wav";
 
         public AlarmForm()
         {
@@ -36,7 +37,7 @@ namespace Hafta3Gun5Part3
         private void AlarmForm_Load(object sender, EventArgs e)
         {
             tbDescription.Text = Description;
-            soundPlayer = new System.Media.SoundPlayer(@"D:\Ayvansaray Uni Projects\Ayvansaray-Uni-Projects\Sezgin\Hafta3\Hafta3Gun5\eagle.wav");
+            soundPlayer = new System.Media.SoundPlayer(soundPath);
             ringAlarm();
             timer1.Start();
         }
