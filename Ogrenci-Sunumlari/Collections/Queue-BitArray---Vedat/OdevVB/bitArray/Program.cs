@@ -17,7 +17,7 @@ namespace bitArray
             EkranaYaz(bitDizisi);
 
             // bitDizisi koleksiyonu üzerinde mantıksal değil işlemini gerçekleştirildi.
-            BitArray Not_bitDizisi = bitDizisi.Not();
+            BitArray Not_bitDizisi = ((BitArray)bitDizisi.Clone()).Not();
             Console.WriteLine();
             Console.WriteLine("Not Sonuç:");
             EkranaYaz(Not_bitDizisi);
