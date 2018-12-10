@@ -71,6 +71,8 @@ namespace DictionarySamples
                 //if (cbValue.Checked)
                 //{
                 //    var sortedDictionary2 = sortedDictionary.OrderBy(item => item.Value);
+                //    foreach (var pair in sortedDictionary2)
+                //        lbListDictionary.Items.Add("Key: " + pair.Key + ", Value: " + pair.Value);
                 //}
 
                 foreach (KeyValuePair<string, int> pair in sortedDictionary)
