@@ -29,33 +29,34 @@ namespace EnumSample
             fruits.Add(new CustomClass("Banana", CustomClass.Fruit.Banana));
             fruits.Add(new CustomClass("Orange", CustomClass.Fruit.Orange));
 
-            string imagePath = @"D:\Ayvansaray Uni Projects\Ayvansaray-Uni-Projects\Sezgin\EnumSample\Images\";
+            string imagePath = @"C:\Users\iau\Documents\GitHub\Ayvansaray-Uni-Projects\Sezgin\EnumSample\Images\";
             string extension;
             foreach(CustomClass fruit in fruits)
             {
                 extension = "";
 
-                switch (fruit.Image)
-                {
-                    case CustomClass.Fruit.Apple:
-                        extension += "apple";
-                        break;
-                    case CustomClass.Fruit.Apricot:
-                        extension += "apricot";
-                        break;
-                    case CustomClass.Fruit.Blackberry:
-                        extension += "blackberry";
-                        break;
-                    case CustomClass.Fruit.Banana:
-                        extension += "banana";
-                        break;
-                    case CustomClass.Fruit.Peach:
-                        extension += "peach";
-                        break;
-                    case CustomClass.Fruit.Orange:
-                        extension += "orange";
-                        break;
-                }
+                //switch (fruit.Image)
+                //{
+                //    case CustomClass.Fruit.Apple:
+                //        extension += "apple";
+                //        break;
+                //    case CustomClass.Fruit.Apricot:
+                //        extension += "apricot";
+                //        break;
+                //    case CustomClass.Fruit.Blackberry:
+                //        extension += "blackberry";
+                //        break;
+                //    case CustomClass.Fruit.Banana:
+                //        extension += "banana";
+                //        break;
+                //    case CustomClass.Fruit.Peach:
+                //        extension += "peach";
+                //        break;
+                //    case CustomClass.Fruit.Orange:
+                //        extension += "orange";
+                //        break;
+                //}
+                extension += ((CustomClass.Fruit)fruit.Image).ToString().ToLower();
                 extension += ".png";
 
                 flpFruitsCreateControl(fruit.ImageName, imagePath + extension);
