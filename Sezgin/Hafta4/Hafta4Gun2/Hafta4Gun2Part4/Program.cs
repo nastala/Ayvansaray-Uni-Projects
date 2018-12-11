@@ -13,7 +13,7 @@ namespace Hafta4Gun2Part4
 
         static void Main(string[] args)
         {
-            string adres = @"C:\TestDizini\NewFile.txt";
+            string adres = @"C:\Test\TestDizini\NewFile.txt";
             FileStream fs = new FileStream(adres, FileMode.OpenOrCreate);
             FileStream fs2 = new FileStream(adres, FileMode.Append, FileAccess.Write);
             FileStream fs3 = new FileStream(adres, FileMode.Truncate, FileAccess.Write, FileShare.None);
@@ -25,6 +25,8 @@ namespace Hafta4Gun2Part4
             // Sistem kaynaklarını serbest bırakıyor.
             // File close yapılmadan baskları file'ı açıp işlem yapamaz
             fs.Close();
+
+            Console.ReadLine();
         }
     }
 }
