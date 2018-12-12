@@ -31,7 +31,7 @@
             this.tbCreateRemoveDirectory = new System.Windows.Forms.TextBox();
             this.lbDrives = new System.Windows.Forms.ListBox();
             this.btnDrives = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblCurrentPath = new System.Windows.Forms.Label();
             this.btnSubDrives = new System.Windows.Forms.Button();
             this.lbSubDrives = new System.Windows.Forms.ListBox();
             this.btnSubFiles = new System.Windows.Forms.Button();
@@ -60,6 +60,7 @@
             this.lbDrives.Name = "lbDrives";
             this.lbDrives.Size = new System.Drawing.Size(95, 212);
             this.lbDrives.TabIndex = 1;
+            this.lbDrives.SelectedIndexChanged += new System.EventHandler(this.lbDrives_SelectedIndexChanged);
             // 
             // btnDrives
             // 
@@ -69,15 +70,16 @@
             this.btnDrives.TabIndex = 2;
             this.btnDrives.Text = "Diskler";
             this.btnDrives.UseVisualStyleBackColor = true;
+            this.btnDrives.Click += new System.EventHandler(this.btnDrives_Click);
             // 
-            // label1
+            // lblCurrentPath
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(25, 330);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(128, 13);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Nerede Olduğunu Göster:";
+            this.lblCurrentPath.AutoSize = true;
+            this.lblCurrentPath.Location = new System.Drawing.Point(25, 330);
+            this.lblCurrentPath.Name = "lblCurrentPath";
+            this.lblCurrentPath.Size = new System.Drawing.Size(128, 13);
+            this.lblCurrentPath.TabIndex = 3;
+            this.lblCurrentPath.Text = "Nerede Olduğunu Göster:";
             // 
             // btnSubDrives
             // 
@@ -87,6 +89,7 @@
             this.btnSubDrives.TabIndex = 5;
             this.btnSubDrives.Text = "C:";
             this.btnSubDrives.UseVisualStyleBackColor = true;
+            this.btnSubDrives.Click += new System.EventHandler(this.btnSubDrives_Click);
             // 
             // lbSubDrives
             // 
@@ -104,6 +107,7 @@
             this.btnSubFiles.TabIndex = 7;
             this.btnSubFiles.Text = "C: diski";
             this.btnSubFiles.UseVisualStyleBackColor = true;
+            this.btnSubFiles.Click += new System.EventHandler(this.btnSubFiles_Click);
             // 
             // lbSubFiles
             // 
@@ -121,6 +125,7 @@
             this.btnCreateDirectory.TabIndex = 8;
             this.btnCreateDirectory.Text = "Dizin Oluştur";
             this.btnCreateDirectory.UseVisualStyleBackColor = true;
+            this.btnCreateDirectory.Click += new System.EventHandler(this.btnCreateDirectory_Click);
             // 
             // btnRemoveDirectory
             // 
@@ -130,6 +135,7 @@
             this.btnRemoveDirectory.TabIndex = 9;
             this.btnRemoveDirectory.Text = "Dizin Sil";
             this.btnRemoveDirectory.UseVisualStyleBackColor = true;
+            this.btnRemoveDirectory.Click += new System.EventHandler(this.btnRemoveDirectory_Click);
             // 
             // btnCurrentPath
             // 
@@ -139,6 +145,7 @@
             this.btnCurrentPath.TabIndex = 10;
             this.btnCurrentPath.Text = "Neredeyim";
             this.btnCurrentPath.UseVisualStyleBackColor = true;
+            this.btnCurrentPath.Click += new System.EventHandler(this.btnCurrentPath_Click);
             // 
             // label2
             // 
@@ -180,6 +187,7 @@
             this.btnMove.TabIndex = 15;
             this.btnMove.Text = "Taşı";
             this.btnMove.UseVisualStyleBackColor = true;
+            this.btnMove.Click += new System.EventHandler(this.btnMove_Click);
             // 
             // Form1
             // 
@@ -198,7 +206,7 @@
             this.Controls.Add(this.lbSubFiles);
             this.Controls.Add(this.btnSubDrives);
             this.Controls.Add(this.lbSubDrives);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblCurrentPath);
             this.Controls.Add(this.btnDrives);
             this.Controls.Add(this.lbDrives);
             this.Controls.Add(this.tbCreateRemoveDirectory);
@@ -214,7 +222,7 @@
         private System.Windows.Forms.TextBox tbCreateRemoveDirectory;
         private System.Windows.Forms.ListBox lbDrives;
         private System.Windows.Forms.Button btnDrives;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblCurrentPath;
         private System.Windows.Forms.Button btnSubDrives;
         private System.Windows.Forms.ListBox lbSubDrives;
         private System.Windows.Forms.Button btnSubFiles;
