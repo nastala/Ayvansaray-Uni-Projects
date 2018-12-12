@@ -30,12 +30,6 @@ namespace Hafta4Gun3Part4
                 lbDrives.Items.Add(drive);
         }
 
-        private void lbDrives_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if(lbDrives.SelectedIndex != -1)
-                updateLbSubDirectories(lbDrives.SelectedItem.ToString()); 
-        }
-
         private void btnSubDrives_Click(object sender, EventArgs e)
         {
             updateLbSubDirectories(@"C:\");
@@ -48,11 +42,11 @@ namespace Hafta4Gun3Part4
 
         private void updateLbSubDirectories(string path)
         {
-            lbSubDrives.Items.Clear();
+            lbSubDirectories.Items.Clear();
             try
             {
                 foreach (string subDir in Directory.GetDirectories(path))
-                    lbSubDrives.Items.Add(subDir);
+                    lbSubDirectories.Items.Add(subDir);
             }
             catch(Exception exc)
             {
@@ -135,6 +129,12 @@ namespace Hafta4Gun3Part4
             {
                 MessageBox.Show("An error occured! Error Message: " + exc.Message);
             }
+        }
+
+        private void lbDrives_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lbDrives.SelectedIndex != -1)
+                updateLbSubDirectories(lbDrives.SelectedItem.ToString());
         }
     }
 }
