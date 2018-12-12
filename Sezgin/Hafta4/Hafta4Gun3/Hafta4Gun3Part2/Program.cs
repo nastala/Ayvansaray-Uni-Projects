@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Collections;
+using System.Threading;
 
 namespace Hafta4Gun3Part2
 {
@@ -13,7 +14,10 @@ namespace Hafta4Gun3Part2
         {
             KareleriSeveriz kareler = new KareleriSeveriz();
             foreach (double kare in kareler)
+            {
                 Console.WriteLine(kare);
+                Thread.Sleep(100);
+            }
         }
     }
 
