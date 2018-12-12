@@ -32,12 +32,13 @@ namespace Hafta4Gun3Part4
 
         private void lbDrives_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+            if(lbDrives.SelectedIndex != -1)
+                updateLbSubDirectories(lbDrives.SelectedItem.ToString()); 
         }
 
         private void btnSubDrives_Click(object sender, EventArgs e)
         {
-            updateLbSubDirectories();
+            updateLbSubDirectories(@"C:\");
         }
 
         private void btnSubFiles_Click(object sender, EventArgs e)
@@ -45,11 +46,18 @@ namespace Hafta4Gun3Part4
             updateLbSubFiles();
         }
 
-        private void updateLbSubDirectories()
+        private void updateLbSubDirectories(string path)
         {
             lbSubDrives.Items.Clear();
-            foreach (string subDir in Directory.GetDirectories(@"C:\"))
-                lbSubDrives.Items.Add(subDir);
+            try
+            {
+                foreach (string subDir in Directory.GetDirectories(path))
+                    lbSubDrives.Items.Add(subDir);
+            }
+            catch(Exception exc)
+            {
+                MessageBox.Show("An error occured! Error message: " + exc.Message);
+            }
         }
 
         private void updateLbSubFiles()
@@ -67,7 +75,7 @@ namespace Hafta4Gun3Part4
                 if (!Directory.Exists(path))
                 {
                     Directory.CreateDirectory(path);
-                    updateLbSubDirectories();
+                    updateLbSubDirectories(@"C:\");
                 }
                 else
                 {
@@ -88,7 +96,7 @@ namespace Hafta4Gun3Part4
                 if (Directory.Exists(path))
                 {
                     Directory.Delete(path);
-                    updateLbSubDirectories();
+                    updateLbSubDirectories(@"C:\");
                 }
                 else
                 {
@@ -120,7 +128,7 @@ namespace Hafta4Gun3Part4
                     }
 
                     Directory.Move(source, target);
-                    updateLbSubDirectories();
+                    updateLbSubDirectories(@"C:\");
                 }
             }
             catch(Exception exc)
