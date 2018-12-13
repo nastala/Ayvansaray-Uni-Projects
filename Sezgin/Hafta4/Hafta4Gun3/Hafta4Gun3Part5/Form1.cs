@@ -113,25 +113,25 @@ namespace Hafta4Gun3Part5
                         extensionCount++;
                 }
 
-                mainExtensions.Add(extension, extension + " " + extensionCount + " files");
+                mainExtensions.Add(extension, "*" + extension + " (" + extensionCount + " files)");
             }
 
-            updateCbExtensions();
+            //updateCbExtensions();
         }
 
         private void updateLvFiles(List<FileInfo> files)
         {
             lvFiles.Items.Clear();
             float totalSize = 0;
-            List<string> extensions = new List<string>();
+            //List<string> extensions = new List<string>();
             foreach (FileInfo file in files)
             {
-                extensions.Add(file.Extension);
+                //extensions.Add(file.Extension);
                 lvFiles.Items.Add(new ListViewItem(new string[] { file.Name, file.Length.ToString(),
                         String.Format("{0:dddd, MMMM d, yyyy}", file.CreationTimeUtc) }));
                 totalSize += file.Length;
             }
-            addToExtensions(extensions);
+            //addToExtensions(extensions);
 
             string text = "";
             int numFiles = files.Count;
@@ -164,10 +164,16 @@ namespace Hafta4Gun3Part5
             {
                 mainFiles.Clear();
                 DirectoryInfo currentDirectory = new DirectoryInfo(e.Node.FullPath);
+                List<string> extensions = new List<string>();
                 foreach (FileInfo file in currentDirectory.GetFiles())
+                {
+                    extensions.Add(file.Extension);
                     mainFiles.Add(file);
+                }
+                addToExtensions(extensions);
 
                 updateLvFiles(mainFiles);
+                updateCbExtensions();
             }
         }
 
