@@ -15,6 +15,7 @@ namespace Hafta4Gun3Part5
     {
         private const int oneKB = 1024;
         private const int oneMB = oneKB * 1024;
+        private const int oneGB = oneMB * 1024;
         private List<FileInfo> mainFiles;
         private Dictionary<string, string> mainExtensions;
 
@@ -36,9 +37,9 @@ namespace Hafta4Gun3Part5
         {
             tvDirectories.ImageList = ilFolders;
             lvFiles.View = View.Details;
-            lvFiles.Columns.Add("Dosya Adı", 210, HorizontalAlignment.Left);
-            lvFiles.Columns.Add("Boyut", 50, HorizontalAlignment.Left);
-            lvFiles.Columns.Add("Oluşturma Tarihi", 240, HorizontalAlignment.Left);
+            lvFiles.Columns.Add("Dosya Adı", 170, HorizontalAlignment.Left);
+            lvFiles.Columns.Add("Boyut", 70, HorizontalAlignment.Left);
+            lvFiles.Columns.Add("Oluşturma Tarihi", 260, HorizontalAlignment.Left);
         }
 
         private void updateTvDirectories(string drive)
@@ -120,16 +121,13 @@ namespace Hafta4Gun3Part5
         private void updateLvFiles(List<FileInfo> files)
         {
             lvFiles.Items.Clear();
-            float totalSize = 0;
-            //List<string> extensions = new List<string>();
+            long totalSize = 0;
             foreach (FileInfo file in files)
             {
-                //extensions.Add(file.Extension);
-                lvFiles.Items.Add(new ListViewItem(new string[] { file.Name, file.Length.ToString(),
+                lvFiles.Items.Add(new ListViewItem(new string[] { file.Name, convertSizeToString(file.Length),
                         String.Format("{0:dddd, MMMM d, yyyy}", file.CreationTimeUtc) }));
                 totalSize += file.Length;
             }
-            //addToExtensions(extensions);
 
             string text = "";
             int numFiles = files.Count;
@@ -137,14 +135,7 @@ namespace Hafta4Gun3Part5
                 text = "There are " + numFiles + " files. Size: ";
             else
                 text = "There is " + numFiles + " file. Size: ";
-
-            if (totalSize >= oneMB)
-                text += string.Format("{0:0.00} MB", totalSize / oneMB);
-            else if (totalSize >= oneKB)
-                text += string.Format("{0:0.00} KB", totalSize / oneKB);
-            else
-                text += totalSize + " Bytes";
-            
+            text += convertSizeToString(totalSize);
             lblStatus.Text = text;
         }
 
@@ -178,6 +169,20 @@ namespace Hafta4Gun3Part5
                 updateLvFiles(mainFiles);
                 updateCbExtensions();
             }
+        }
+
+        private string convertSizeToString(float size)
+        {
+            if (size >= oneGB)
+                return String.Format("{0:0.00} GB", (size / oneGB));
+            else if (size >= oneMB)
+                return String.Format("{0:0.00} MB", (size / oneMB));
+            else if (size >= oneKB)
+                return String.Format("{0:0.00} KB", (size / oneKB));
+            else if (size > 1)
+                return size + " Bytes";
+            else
+                return size + " Byte";
         }
 
         private void filterFiles(string extension)
