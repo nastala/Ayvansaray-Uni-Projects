@@ -29,6 +29,7 @@ namespace Hafta4Gun3Part5
             mainFiles = new List<FileInfo>();
             updateCbDrives();
             initializeLvFiles();
+            updateCbExtensions();
         }
 
         private void initializeLvFiles()
@@ -91,9 +92,6 @@ namespace Hafta4Gun3Part5
 
             if (extensions.Count == 0)
             {
-                cbExtensions.Items.Clear();
-                cbExtensions.Items.Add("None");
-                cbExtensions.SelectedIndex = 0;
                 return;
             }
 
@@ -154,7 +152,12 @@ namespace Hafta4Gun3Part5
         {
             cbExtensions.Items.Clear();
             cbExtensions.Items.AddRange(mainExtensions.Values.ToArray());
-            if (cbExtensions.Items.Count > 2)
+            if(cbExtensions.Items.Count == 0)
+            {
+                cbExtensions.Items.Add("None");
+                cbExtensions.SelectedIndex = 0;
+            }
+            else if (cbExtensions.Items.Count > 2)
                 cbExtensions.SelectedIndex = 0;
         }
 
