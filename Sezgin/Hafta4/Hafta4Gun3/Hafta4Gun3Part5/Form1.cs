@@ -15,8 +15,8 @@ namespace Hafta4Gun3Part5
     {
         private const int oneKB = 1024;
         private const int oneMB = oneKB * 1024;
-        private List<string> extensions;
         private List<FileInfo> mainFiles;
+        private Dictionary<string, string> mainExtensions;
 
         public Form1()
         {
@@ -25,7 +25,7 @@ namespace Hafta4Gun3Part5
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            extensions = new List<string>();
+            mainExtensions = new Dictionary<string, string>();
             mainFiles = new List<FileInfo>();
             updateCbDrives();
             initializeLvFiles();
@@ -81,36 +81,48 @@ namespace Hafta4Gun3Part5
                 updateTvDirectories(cbDrives.SelectedItem.ToString());
         }
 
-        private void addToExtensions(string newExtension)
+        private void addToExtensions(List<string> extensions)
         {
-            if (string.IsNullOrWhiteSpace(newExtension))
+            if (extensions.Count == 0)
                 return;
 
-            if (extensions.Count == 0)
-                extensions.Add("None");
+            mainExtensions.Clear();
 
+            if (mainExtensions.Count == 0)
+                mainExtensions.Add("None", "None");
+
+            int extensionCount;
             foreach (string extension in extensions)
             {
-                if (extension.Equals(newExtension))
-                    return;
+                if (mainExtensions.Keys.Contains(extension))
+                    continue;
+
+                extensionCount = 0;
+                for(int i = 0; i < extensions.Count; i++)
+                {
+                    if (extensions[i].Equals(extension))
+                        extensionCount++;
+                }
+
+                mainExtensions.Add(extension, extension + " " + extensionCount + " files");
             }
 
-            extensions.Add(newExtension);
+            updateCbExtensions();
         }
 
         private void updateLvFiles(List<FileInfo> files)
         {
             lvFiles.Items.Clear();
-            extensions.Clear();
-            cbExtensions.Items.Clear();
             float totalSize = 0;
+            List<string> extensions = new List<string>();
             foreach (FileInfo file in files)
             {
-                addToExtensions(file.Extension);
+                extensions.Add(file.Extension);
                 lvFiles.Items.Add(new ListViewItem(new string[] { file.Name, file.Length.ToString(),
                         String.Format("{0:dddd, MMMM d, yyyy}", file.CreationTimeUtc) }));
                 totalSize += file.Length;
             }
+            addToExtensions(extensions);
 
             string text = "";
             int numFiles = files.Count;
@@ -125,15 +137,15 @@ namespace Hafta4Gun3Part5
                 text += string.Format("{0:0.00} KB", totalSize / oneKB);
             else
                 text += totalSize + " Bytes";
-
-            updateCbExtensions();
+            
             lblStatus.Text = text;
         }
 
         private void updateCbExtensions()
         {
-            cbExtensions.Items.AddRange(extensions.ToArray());
-            if (cbExtensions.Items.Count > 0)
+            cbExtensions.Items.Clear();
+            cbExtensions.Items.AddRange(mainExtensions.Values.ToArray());
+            if (cbExtensions.Items.Count > 2)
                 cbExtensions.SelectedIndex = 0;
         }
 
@@ -141,8 +153,7 @@ namespace Hafta4Gun3Part5
         {
             if (e.Button == MouseButtons.Right)
             {
-                lvFiles.Items.Clear();
-                extensions.Clear();
+                mainFiles.Clear();
                 MessageBox.Show(e.Node.Text);
                 DirectoryInfo currentDirectory = new DirectoryInfo(e.Node.FullPath);
                 //float totalSize = 0;
@@ -190,8 +201,8 @@ namespace Hafta4Gun3Part5
 
         private void btnFilter_Click(object sender, EventArgs e)
         {
-            if(cbExtensions.SelectedItem != null)
-                filterFiles(cbExtensions.SelectedItem.ToString());
+            if(cbExtensions.SelectedIndex != -1)
+                filterFiles(mainExtensions.Keys.ElementAt(cbExtensions.SelectedIndex));
         }
     }
 }
