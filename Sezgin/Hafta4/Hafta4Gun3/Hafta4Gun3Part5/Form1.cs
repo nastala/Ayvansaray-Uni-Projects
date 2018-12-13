@@ -16,6 +16,7 @@ namespace Hafta4Gun3Part5
         private const int oneKB = 1024;
         private const int oneMB = oneKB * 1024;
         private List<string> extensions;
+        private List<FileInfo> mainFiles;
 
         public Form1()
         {
@@ -25,6 +26,7 @@ namespace Hafta4Gun3Part5
         private void Form1_Load(object sender, EventArgs e)
         {
             extensions = new List<string>();
+            mainFiles = new List<FileInfo>();
             updateCbDrives();
             initializeLvFiles();
         }
@@ -39,7 +41,7 @@ namespace Hafta4Gun3Part5
 
         private void updateTvDirectories(string drive)
         {
-            tvDirectories.Nodes.Add(findDirectories(@"D:\Ayvansaray Uni Projects", @"D:\Ayvansaray Uni Projects"));
+            tvDirectories.Nodes.Add(findDirectories(@"F:\", @"F:\"));
         }
 
         private TreeNode findDirectories(string name, string path)
@@ -56,7 +58,7 @@ namespace Hafta4Gun3Part5
                     }
                 }
             }
-            catch(Exception exc)
+            catch (Exception exc)
             {
 
             }
@@ -84,13 +86,55 @@ namespace Hafta4Gun3Part5
             if (string.IsNullOrWhiteSpace(newExtension))
                 return;
 
-            foreach(string extension in extensions)
+            if (extensions.Count == 0)
+                extensions.Add("None");
+
+            foreach (string extension in extensions)
             {
                 if (extension.Equals(newExtension))
                     return;
             }
 
             extensions.Add(newExtension);
+        }
+
+        private void updateLvFiles(List<FileInfo> files)
+        {
+            lvFiles.Items.Clear();
+            extensions.Clear();
+            cbExtensions.Items.Clear();
+            float totalSize = 0;
+            foreach (FileInfo file in files)
+            {
+                addToExtensions(file.Extension);
+                lvFiles.Items.Add(new ListViewItem(new string[] { file.Name, file.Length.ToString(),
+                        String.Format("{0:dddd, MMMM d, yyyy}", file.CreationTimeUtc) }));
+                totalSize += file.Length;
+            }
+
+            string text = "";
+            int numFiles = files.Count;
+            if (numFiles > 1)
+                text = "There are " + numFiles + " files. Size: ";
+            else
+                text = "There is " + numFiles + " file. Size: ";
+
+            if (totalSize >= oneMB)
+                text += string.Format("{0:0.00} MB", totalSize / oneMB);
+            else if (totalSize >= oneKB)
+                text += string.Format("{0:0.00} KB", totalSize / oneKB);
+            else
+                text += totalSize + " Bytes";
+
+            updateCbExtensions();
+            lblStatus.Text = text;
+        }
+
+        private void updateCbExtensions()
+        {
+            cbExtensions.Items.AddRange(extensions.ToArray());
+            if (cbExtensions.Items.Count > 0)
+                cbExtensions.SelectedIndex = 0;
         }
 
         private void tvDirectories_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
@@ -101,29 +145,53 @@ namespace Hafta4Gun3Part5
                 extensions.Clear();
                 MessageBox.Show(e.Node.Text);
                 DirectoryInfo currentDirectory = new DirectoryInfo(e.Node.FullPath);
-                float totalSize = 0;
+                //float totalSize = 0;
                 foreach (FileInfo file in currentDirectory.GetFiles())
                 {
-                    addToExtensions(file.Extension);
-                    lvFiles.Items.Add(new ListViewItem(new string[] { file.Name, file.Length.ToString(),
-                        String.Format("{0:dddd, MMMM d, yyyy}", file.CreationTimeUtc) }));
-                    totalSize += file.Length;
+                    //addToExtensions(file.Extension);
+                    mainFiles.Add(file);
+                    //totalSize += file.Length;
                 }
 
-                string text = "";
-                int numFiles = currentDirectory.GetFiles().Length;
-                if (numFiles > 1)
-                    text = "There are " + numFiles + " files. Size: ";
-                if (totalSize >= oneMB)
-                    text += string.Format("{0:0.00} MB", totalSize / oneMB);
-                else if (totalSize >= oneKB)
-                    text += string.Format("{0:0.00} KB", totalSize / oneKB);
-                else
-                    text += totalSize + " Bytes";
+                updateLvFiles(mainFiles);
 
-                cbExtensions.Items.AddRange(extensions.ToArray());
-                lblStatus.Text = text;
+                //string text = "";
+                //int numFiles = currentDirectory.GetFiles().Length;
+                //if (numFiles > 1)
+                //    text = "There are " + numFiles + " files. Size: ";
+                //if (totalSize >= oneMB)
+                //    text += string.Format("{0:0.00} MB", totalSize / oneMB);
+                //else if (totalSize >= oneKB)
+                //    text += string.Format("{0:0.00} KB", totalSize / oneKB);
+                //else
+                //    text += totalSize + " Bytes";
+
+                //cbExtensions.Items.AddRange(extensions.ToArray());
+                //lblStatus.Text = text;
             }
+        }
+
+        private void filterFiles(string extension)
+        {
+            if (string.IsNullOrEmpty(extension) || extension.Equals("None"))
+                updateLvFiles(mainFiles);
+            else
+            {
+                List<FileInfo> filteredFiles = new List<FileInfo>();
+                foreach(FileInfo file in mainFiles)
+                {
+                    if (file.Extension.Equals(extension))
+                        filteredFiles.Add(file);
+                }
+
+                updateLvFiles(filteredFiles);
+            }
+        }
+
+        private void btnFilter_Click(object sender, EventArgs e)
+        {
+            if(cbExtensions.SelectedItem != null)
+                filterFiles(cbExtensions.SelectedItem.ToString());
         }
     }
 }

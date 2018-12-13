@@ -38,72 +38,68 @@
             // 
             // tvDirectories
             // 
-            this.tvDirectories.Location = new System.Drawing.Point(16, 49);
-            this.tvDirectories.Margin = new System.Windows.Forms.Padding(4);
+            this.tvDirectories.Location = new System.Drawing.Point(12, 40);
             this.tvDirectories.Name = "tvDirectories";
-            this.tvDirectories.Size = new System.Drawing.Size(171, 393);
+            this.tvDirectories.Size = new System.Drawing.Size(129, 320);
             this.tvDirectories.TabIndex = 0;
             this.tvDirectories.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.tvDirectories_NodeMouseClick);
             // 
             // cbDrives
             // 
             this.cbDrives.FormattingEnabled = true;
-            this.cbDrives.Location = new System.Drawing.Point(17, 16);
-            this.cbDrives.Margin = new System.Windows.Forms.Padding(4);
+            this.cbDrives.Location = new System.Drawing.Point(13, 13);
             this.cbDrives.Name = "cbDrives";
-            this.cbDrives.Size = new System.Drawing.Size(171, 24);
+            this.cbDrives.Size = new System.Drawing.Size(129, 21);
             this.cbDrives.TabIndex = 2;
             this.cbDrives.SelectedIndexChanged += new System.EventHandler(this.cbDrives_SelectedIndexChanged);
             // 
             // lblStatus
             // 
             this.lblStatus.AutoSize = true;
-            this.lblStatus.Location = new System.Drawing.Point(196, 426);
-            this.lblStatus.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblStatus.Location = new System.Drawing.Point(147, 346);
             this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(48, 17);
+            this.lblStatus.Size = new System.Drawing.Size(37, 13);
             this.lblStatus.TabIndex = 3;
             this.lblStatus.Text = "Status";
             // 
             // cbExtensions
             // 
             this.cbExtensions.FormattingEnabled = true;
-            this.cbExtensions.Location = new System.Drawing.Point(199, 396);
-            this.cbExtensions.Margin = new System.Windows.Forms.Padding(4);
+            this.cbExtensions.Location = new System.Drawing.Point(149, 322);
             this.cbExtensions.Name = "cbExtensions";
-            this.cbExtensions.Size = new System.Drawing.Size(128, 24);
+            this.cbExtensions.Size = new System.Drawing.Size(97, 21);
             this.cbExtensions.TabIndex = 4;
             // 
             // btnFilter
             // 
-            this.btnFilter.Location = new System.Drawing.Point(336, 396);
-            this.btnFilter.Margin = new System.Windows.Forms.Padding(4);
+            this.btnFilter.Location = new System.Drawing.Point(252, 322);
             this.btnFilter.Name = "btnFilter";
-            this.btnFilter.Size = new System.Drawing.Size(85, 26);
+            this.btnFilter.Size = new System.Drawing.Size(64, 21);
             this.btnFilter.TabIndex = 5;
             this.btnFilter.Text = "Filter";
             this.btnFilter.UseVisualStyleBackColor = true;
+            this.btnFilter.Click += new System.EventHandler(this.btnFilter_Click);
             // 
             // lvFiles
             // 
-            this.lvFiles.Location = new System.Drawing.Point(199, 16);
+            this.lvFiles.Location = new System.Drawing.Point(149, 13);
+            this.lvFiles.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.lvFiles.Name = "lvFiles";
-            this.lvFiles.Size = new System.Drawing.Size(500, 373);
+            this.lvFiles.Size = new System.Drawing.Size(376, 304);
             this.lvFiles.TabIndex = 6;
             this.lvFiles.UseCompatibleStateImageBehavior = false;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(743, 458);
+            this.ClientSize = new System.Drawing.Size(557, 372);
             this.Controls.Add(this.lvFiles);
             this.Controls.Add(this.btnFilter);
             this.Controls.Add(this.cbExtensions);
             this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.cbDrives);
             this.Controls.Add(this.tvDirectories);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
