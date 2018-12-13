@@ -33,6 +33,7 @@ namespace Hafta4Gun3Part5
 
         private void initializeLvFiles()
         {
+            tvDirectories.ImageList = ilFolders;
             lvFiles.View = View.Details;
             lvFiles.Columns.Add("Dosya Adı", 210, HorizontalAlignment.Left);
             lvFiles.Columns.Add("Boyut", 50, HorizontalAlignment.Left);
@@ -52,11 +53,14 @@ namespace Hafta4Gun3Part5
             {
                 if (currentDirectory.GetDirectories().Length > 0)
                 {
+                    currentNode.ImageIndex = 0;
                     foreach (DirectoryInfo directory in currentDirectory.GetDirectories())
                     {
                         currentNode.Nodes.Add(findDirectories(directory.Name, directory.FullName));
                     }
                 }
+                else
+                    currentNode.ImageIndex = 1;
             }
             catch (Exception exc)
             {
@@ -83,10 +87,15 @@ namespace Hafta4Gun3Part5
 
         private void addToExtensions(List<string> extensions)
         {
-            if (extensions.Count == 0)
-                return;
-
             mainExtensions.Clear();
+
+            if (extensions.Count == 0)
+            {
+                cbExtensions.Items.Clear();
+                cbExtensions.Items.Add("None");
+                cbExtensions.SelectedIndex = 0;
+                return;
+            }
 
             if (mainExtensions.Count == 0)
                 mainExtensions.Add("None", "None");
@@ -154,31 +163,11 @@ namespace Hafta4Gun3Part5
             if (e.Button == MouseButtons.Right)
             {
                 mainFiles.Clear();
-                MessageBox.Show(e.Node.Text);
                 DirectoryInfo currentDirectory = new DirectoryInfo(e.Node.FullPath);
-                //float totalSize = 0;
                 foreach (FileInfo file in currentDirectory.GetFiles())
-                {
-                    //addToExtensions(file.Extension);
                     mainFiles.Add(file);
-                    //totalSize += file.Length;
-                }
 
                 updateLvFiles(mainFiles);
-
-                //string text = "";
-                //int numFiles = currentDirectory.GetFiles().Length;
-                //if (numFiles > 1)
-                //    text = "There are " + numFiles + " files. Size: ";
-                //if (totalSize >= oneMB)
-                //    text += string.Format("{0:0.00} MB", totalSize / oneMB);
-                //else if (totalSize >= oneKB)
-                //    text += string.Format("{0:0.00} KB", totalSize / oneKB);
-                //else
-                //    text += totalSize + " Bytes";
-
-                //cbExtensions.Items.AddRange(extensions.ToArray());
-                //lblStatus.Text = text;
             }
         }
 
@@ -201,8 +190,18 @@ namespace Hafta4Gun3Part5
 
         private void btnFilter_Click(object sender, EventArgs e)
         {
-            if(cbExtensions.SelectedIndex != -1)
+            if(cbExtensions.SelectedIndex != -1 && mainFiles.Count > 0)
                 filterFiles(mainExtensions.Keys.ElementAt(cbExtensions.SelectedIndex));
+        }
+
+        private void tvDirectories_BeforeExpand(object sender, TreeViewCancelEventArgs e)
+        {
+            e.Node.ImageIndex = 2;
+        }
+
+        private void tvDirectories_BeforeCollapse(object sender, TreeViewCancelEventArgs e)
+        {
+            e.Node.ImageIndex = 0;
         }
     }
 }

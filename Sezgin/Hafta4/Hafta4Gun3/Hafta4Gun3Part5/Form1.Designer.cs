@@ -28,12 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.tvDirectories = new System.Windows.Forms.TreeView();
             this.cbDrives = new System.Windows.Forms.ComboBox();
             this.lblStatus = new System.Windows.Forms.Label();
             this.cbExtensions = new System.Windows.Forms.ComboBox();
             this.btnFilter = new System.Windows.Forms.Button();
             this.lvFiles = new System.Windows.Forms.ListView();
+            this.ilFolders = new System.Windows.Forms.ImageList(this.components);
             this.SuspendLayout();
             // 
             // tvDirectories
@@ -42,6 +45,8 @@
             this.tvDirectories.Name = "tvDirectories";
             this.tvDirectories.Size = new System.Drawing.Size(129, 320);
             this.tvDirectories.TabIndex = 0;
+            this.tvDirectories.BeforeCollapse += new System.Windows.Forms.TreeViewCancelEventHandler(this.tvDirectories_BeforeCollapse);
+            this.tvDirectories.BeforeExpand += new System.Windows.Forms.TreeViewCancelEventHandler(this.tvDirectories_BeforeExpand);
             this.tvDirectories.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.tvDirectories_NodeMouseClick);
             // 
             // cbDrives
@@ -83,11 +88,19 @@
             // lvFiles
             // 
             this.lvFiles.Location = new System.Drawing.Point(149, 13);
-            this.lvFiles.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lvFiles.Margin = new System.Windows.Forms.Padding(2);
             this.lvFiles.Name = "lvFiles";
             this.lvFiles.Size = new System.Drawing.Size(376, 304);
             this.lvFiles.TabIndex = 6;
             this.lvFiles.UseCompatibleStateImageBehavior = false;
+            // 
+            // ilFolders
+            // 
+            this.ilFolders.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("ilFolders.ImageStream")));
+            this.ilFolders.TransparentColor = System.Drawing.Color.Transparent;
+            this.ilFolders.Images.SetKeyName(0, "BlueFolder.png");
+            this.ilFolders.Images.SetKeyName(1, "GreenFolder.png");
+            this.ilFolders.Images.SetKeyName(2, "BlueFolder2.png");
             // 
             // Form1
             // 
@@ -116,6 +129,7 @@
         private System.Windows.Forms.ComboBox cbExtensions;
         private System.Windows.Forms.Button btnFilter;
         private System.Windows.Forms.ListView lvFiles;
+        private System.Windows.Forms.ImageList ilFolders;
     }
 }
 
