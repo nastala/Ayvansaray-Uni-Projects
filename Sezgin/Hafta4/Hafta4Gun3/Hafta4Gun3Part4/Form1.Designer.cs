@@ -32,8 +32,8 @@
             this.lbDrives = new System.Windows.Forms.ListBox();
             this.btnDrives = new System.Windows.Forms.Button();
             this.lblCurrentPath = new System.Windows.Forms.Label();
-            this.btnSubDrives = new System.Windows.Forms.Button();
-            this.lbSubDrives = new System.Windows.Forms.ListBox();
+            this.btnSubDirectories = new System.Windows.Forms.Button();
+            this.lbSubDirectories = new System.Windows.Forms.ListBox();
             this.btnSubFiles = new System.Windows.Forms.Button();
             this.lbSubFiles = new System.Windows.Forms.ListBox();
             this.btnCreateDirectory = new System.Windows.Forms.Button();
@@ -81,23 +81,23 @@
             this.lblCurrentPath.TabIndex = 3;
             this.lblCurrentPath.Text = "Nerede Olduğunu Göster:";
             // 
-            // btnSubDrives
+            // btnSubDirectories
             // 
-            this.btnSubDrives.Location = new System.Drawing.Point(129, 283);
-            this.btnSubDrives.Name = "btnSubDrives";
-            this.btnSubDrives.Size = new System.Drawing.Size(61, 34);
-            this.btnSubDrives.TabIndex = 5;
-            this.btnSubDrives.Text = "C:";
-            this.btnSubDrives.UseVisualStyleBackColor = true;
-            this.btnSubDrives.Click += new System.EventHandler(this.btnSubDrives_Click);
+            this.btnSubDirectories.Location = new System.Drawing.Point(129, 283);
+            this.btnSubDirectories.Name = "btnSubDirectories";
+            this.btnSubDirectories.Size = new System.Drawing.Size(61, 34);
+            this.btnSubDirectories.TabIndex = 5;
+            this.btnSubDirectories.Text = "C:";
+            this.btnSubDirectories.UseVisualStyleBackColor = true;
+            this.btnSubDirectories.Click += new System.EventHandler(this.btnSubDrives_Click);
             // 
-            // lbSubDrives
+            // lbSubDirectories
             // 
-            this.lbSubDrives.FormattingEnabled = true;
-            this.lbSubDrives.Location = new System.Drawing.Point(113, 65);
-            this.lbSubDrives.Name = "lbSubDrives";
-            this.lbSubDrives.Size = new System.Drawing.Size(95, 212);
-            this.lbSubDrives.TabIndex = 4;
+            this.lbSubDirectories.FormattingEnabled = true;
+            this.lbSubDirectories.Location = new System.Drawing.Point(113, 65);
+            this.lbSubDirectories.Name = "lbSubDirectories";
+            this.lbSubDirectories.Size = new System.Drawing.Size(95, 212);
+            this.lbSubDirectories.TabIndex = 4;
             // 
             // btnSubFiles
             // 
@@ -204,8 +204,8 @@
             this.Controls.Add(this.btnCreateDirectory);
             this.Controls.Add(this.btnSubFiles);
             this.Controls.Add(this.lbSubFiles);
-            this.Controls.Add(this.btnSubDrives);
-            this.Controls.Add(this.lbSubDrives);
+            this.Controls.Add(this.btnSubDirectories);
+            this.Controls.Add(this.lbSubDirectories);
             this.Controls.Add(this.lblCurrentPath);
             this.Controls.Add(this.btnDrives);
             this.Controls.Add(this.lbDrives);
@@ -223,8 +223,8 @@
         private System.Windows.Forms.ListBox lbDrives;
         private System.Windows.Forms.Button btnDrives;
         private System.Windows.Forms.Label lblCurrentPath;
-        private System.Windows.Forms.Button btnSubDrives;
-        private System.Windows.Forms.ListBox lbSubDrives;
+        private System.Windows.Forms.Button btnSubDirectories;
+        private System.Windows.Forms.ListBox lbSubDirectories;
         private System.Windows.Forms.Button btnSubFiles;
         private System.Windows.Forms.ListBox lbSubFiles;
         private System.Windows.Forms.Button btnCreateDirectory;
