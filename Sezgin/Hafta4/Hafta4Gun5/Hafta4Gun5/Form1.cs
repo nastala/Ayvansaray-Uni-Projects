@@ -15,6 +15,7 @@ namespace Hafta4Gun5
     {
         private int lastIndex;
         private Dictionary<string, TabPageValues> dicDocuments;
+        private List<TabPageValues> documents;
         private const string filter = "*.txt|*.txt";
 
         public Form1()
@@ -44,6 +45,7 @@ namespace Hafta4Gun5
             textBox.Name = "textBox";
             values.TabPage.Controls.Add(textBox);
             dicDocuments.Add(values.TabPage.Name, values);
+            documents.Add(values);
         }
 
         private void tsbtnOpenFile_Click(object sender, EventArgs e)
@@ -75,6 +77,7 @@ namespace Hafta4Gun5
         private void Form1_Load(object sender, EventArgs e)
         {
             lastIndex = 1;
+            documents = new List<TabPageValues>();
             dicDocuments = new Dictionary<string, TabPageValues>();
             tcFiles.ContextMenuStrip = cmsTcFiles;
             for (int i = 0; i < tcFiles.TabCount; i++)
@@ -87,12 +90,41 @@ namespace Hafta4Gun5
 
         private void csmsClose_Click(object sender, EventArgs e)
         {
-            
-        }
+            int keyIndex = tcFiles.SelectedIndex;
+            string key = dicDocuments.Keys.ElementAt(keyIndex);
+            TabPageValues tabPageValues = dicDocuments[key];
+            if (tabPageValues.IsNameDefault)
+                lastIndex--;
+            foreach (Control control in tabPageValues.TabPage.Controls)
+            {
+                if(control is TextBox)
+                {
+                    string text = control.Text;
+                    if (!text.Equals(tabPageValues.TextValue))
+                    {
+                        if ((MessageBox.Show("You have unsaved changes. Do you want to save them?", "Warning", MessageBoxButtons.OKCancel)) == DialogResult.OK)
+                        {
+                            if (tabPageValues.IsNameDefault)
+                            {
+                                SaveFileDialog saveFileDialog = new SaveFileDialog();
+                                saveFileDialog.Filter = filter;
+                                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                                    saveDocument(saveFileDialog.FileName, text);
+                                else
+                                    return;
+                            }
+                            else
+                                saveDocument(tabPageValues.Path, text);
+                        }
+                        else
+                            return;
+                    }
 
-        private bool IsTBChanged(TabPage tabPage)
-        {
-            return false;
+                    break;
+                }
+            }
+            tcFiles.TabPages.RemoveAt(keyIndex);
+            dicDocuments.Remove(key);
         }
 
         private void tsbtnFileSave_Click(object sender, EventArgs e)
