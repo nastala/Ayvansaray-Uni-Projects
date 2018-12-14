@@ -21,11 +21,14 @@ namespace Hafta4Gun4
 
         private void btnVibrate_Click(object sender, EventArgs e)
         {
-            timer1.Start();
+            if(!timer1.Enabled)
+                timer1.Start();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            pbDiceLeft.Image = ilDiceNumbers.Images[0];
+            pbDiceRight.Image = ilDiceNumbers.Images[0];
             totalTime = 0;
         }
 
@@ -38,8 +41,8 @@ namespace Hafta4Gun4
                 totalTime = 0;
                 btnVibrate.Location = new Point(80, 120);
                 Random r = new Random();
-                pbDiceLeft.Image = ilDiceNumbers.Images[r.Next(1, 6)];
-                pbDiceRight.Image = ilDiceNumbers.Images[r.Next(1, 6)];
+                pbDiceLeft.Image = ilDiceNumbers.Images[r.Next(1, 7) - 1];
+                pbDiceRight.Image = ilDiceNumbers.Images[r.Next(1, 7) - 1];
             }
             else
             {
