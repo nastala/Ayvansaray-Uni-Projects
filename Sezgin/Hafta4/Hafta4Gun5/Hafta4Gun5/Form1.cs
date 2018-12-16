@@ -43,9 +43,25 @@ namespace Hafta4Gun5
             textBox.Size = new Size(768, 350);
             textBox.Text = values.TextValue;
             textBox.Name = "textBox";
+            textBox.ContextMenuStrip = cmsTpTextBox;
+            textBox.TextChanged += new EventHandler(TabPageTextBoxChanged);
             values.TabPage.Controls.Add(textBox);
             dicDocuments.Add(values.TabPage.Name, values);
             documents.Add(values);
+        }
+
+        private void TabPageTextBoxChanged(object sender, EventArgs e)
+        {
+            int keyIndex = tcFiles.SelectedIndex;
+            string key = dicDocuments.Keys.ElementAt(keyIndex);
+            TabPageValues tabPageValues = dicDocuments[key];
+            TextBox textBox = (TextBox)sender;
+            if ((!(textBox.Text.Equals(tabPageValues.TextValue))) && (!tabPageValues.TabPage.Text.Contains(" *")))
+            {
+                tabPageValues.TabPage.Text = tabPageValues.TabPage.Text + " *";
+            }
+            ssLblTextCount.Text = textBox.Text.Length.ToString();
+            dicDocuments[key] = tabPageValues;
         }
 
         private void tsbtnOpenFile_Click(object sender, EventArgs e)
@@ -63,12 +79,12 @@ namespace Hafta4Gun5
                 tabPageValues.TabPage = tabPage;
                 tabPageValues.Path = openFileDialog.FileName;
                 tabPageValues.IsNameDefault = false;
-                using(StreamReader sr = new StreamReader(openFileDialog.FileName))
+                using (StreamReader sr = new StreamReader(openFileDialog.FileName))
                 {
                     tabPageValues.TextValue = sr.ReadToEnd();
                 }
                 addTextBox(tabPageValues);
-                
+
                 tcFiles.Controls.Add(tabPageValues.TabPage);
                 tcFiles.SelectedTab = tabPage;
             }
@@ -93,16 +109,14 @@ namespace Hafta4Gun5
             int keyIndex = tcFiles.SelectedIndex;
             string key = dicDocuments.Keys.ElementAt(keyIndex);
             TabPageValues tabPageValues = dicDocuments[key];
-            if (tabPageValues.IsNameDefault)
-                lastIndex--;
             foreach (Control control in tabPageValues.TabPage.Controls)
             {
-                if(control is TextBox)
+                if (control is TextBox)
                 {
                     string text = control.Text;
                     if (!text.Equals(tabPageValues.TextValue))
                     {
-                        if ((MessageBox.Show("You have unsaved changes. Do you want to save them?", "Warning", MessageBoxButtons.OKCancel)) == DialogResult.OK)
+                        if ((MessageBox.Show("You have unsaved changes. Do you want to save them?", "Warning", MessageBoxButtons.YesNo)) == DialogResult.Yes)
                         {
                             if (tabPageValues.IsNameDefault)
                             {
@@ -116,27 +130,32 @@ namespace Hafta4Gun5
                             else
                                 saveDocument(tabPageValues.Path, text);
                         }
-                        else
-                            return;
                     }
 
                     break;
                 }
             }
+            if (tabPageValues.IsNameDefault)
+                lastIndex--;
             tcFiles.TabPages.RemoveAt(keyIndex);
             dicDocuments.Remove(key);
         }
 
         private void tsbtnFileSave_Click(object sender, EventArgs e)
         {
+            if (tcFiles.TabPages.Count < 1)
+                return;
+
             int keyIndex = tcFiles.SelectedIndex;
             string key = dicDocuments.Keys.ElementAt(keyIndex);
             TabPageValues tabPageValues = dicDocuments[key];
-            foreach(Control control in tabPageValues.TabPage.Controls)
+            TextBox textBox = new TextBox();
+            foreach (Control control in tabPageValues.TabPage.Controls)
             {
-                if (control is TextBox)
+                textBox = control as TextBox;
+                if (textBox != null)
                 {
-                    if (control.Text.Equals(tabPageValues.TextValue))
+                    if (textBox.Text.Equals(tabPageValues.TextValue))
                         return;
                     tabPageValues.TextValue = control.Text;
                     break;
@@ -156,11 +175,15 @@ namespace Hafta4Gun5
                     tabPageValues.IsNameDefault = false;
                     saveDocument(tabPageValues.Path, tabPageValues.TextValue);
                 }
-                
+                else
+                    return;
             }
             else
                 saveDocument(tabPageValues.Path, tabPageValues.TextValue);
 
+            tabPageValues.TabPage.Text = tabPageValues.TabPage.Text.Substring(0, tabPageValues.TabPage.Text.Length - 2);
+            if(textBox != null)
+                textBox.TextChanged += new EventHandler(TabPageTextBoxChanged);
             dicDocuments[key] = tabPageValues;
         }
 
@@ -168,6 +191,49 @@ namespace Hafta4Gun5
         {
             using (StreamWriter sw = new StreamWriter(path))
                 sw.Write(text.ToCharArray());
+        }
+
+        private void msFormatFontType_Click(object sender, EventArgs e)
+        {
+            int keyIndex = tcFiles.SelectedIndex;
+            string key = dicDocuments.Keys.ElementAt(keyIndex);
+            TabPageValues tabPageValues = dicDocuments[key];
+            if (fontDialog1.ShowDialog() == DialogResult.OK)
+            {
+                foreach (Control control in tabPageValues.TabPage.Controls)
+                {
+                    if (control is TextBox)
+                    {
+                        control.Font = fontDialog1.Font;
+                    }
+                }
+            }
+        }
+
+        private void cmsTpTextBoxSelectAll_Click(object sender, EventArgs e)
+        {
+            int keyIndex = tcFiles.SelectedIndex;
+            string key = dicDocuments.Keys.ElementAt(keyIndex);
+            TabPageValues tabPageValues = dicDocuments[key];
+            foreach (Control control in tabPageValues.TabPage.Controls)
+            {
+                TextBox textBox = control as TextBox;
+                if (textBox != null)
+                    textBox.SelectAll();
+            }
+        }
+
+        private void tcFiles_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int keyIndex = tcFiles.SelectedIndex;
+            string key = dicDocuments.Keys.ElementAt(keyIndex);
+            TabPageValues tabPageValues = dicDocuments[key];
+            foreach (Control control in tabPageValues.TabPage.Controls)
+            {
+                TextBox textBox = control as TextBox;
+                if(textBox != null)
+                    ssLblTextCount.Text = textBox.Text.Length.ToString();
+            }
         }
     }
 
