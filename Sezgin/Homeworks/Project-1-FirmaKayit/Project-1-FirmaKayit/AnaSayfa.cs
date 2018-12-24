@@ -80,5 +80,10 @@ namespace Project_1_FirmaKayit
                     break;
             }
         }
+
+        private void btnFirmaGiris_Click(object sender, EventArgs e)
+        {
+            _f.FrmGir();
+        }
     }
 }

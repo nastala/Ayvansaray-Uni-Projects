@@ -37,8 +37,10 @@
             this.pnl3 = new System.Windows.Forms.Panel();
             this.pnl2 = new System.Windows.Forms.Panel();
             this.pnl1 = new System.Windows.Forms.Panel();
+            this.btnFirmaGiris = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.pnl1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -133,11 +135,22 @@
             // pnl1
             // 
             this.pnl1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pnl1.Controls.Add(this.btnFirmaGiris);
             this.pnl1.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnl1.Location = new System.Drawing.Point(3, 16);
             this.pnl1.Name = "pnl1";
             this.pnl1.Size = new System.Drawing.Size(132, 331);
             this.pnl1.TabIndex = 0;
+            // 
+            // btnFirmaGiris
+            // 
+            this.btnFirmaGiris.Location = new System.Drawing.Point(4, 15);
+            this.btnFirmaGiris.Name = "btnFirmaGiris";
+            this.btnFirmaGiris.Size = new System.Drawing.Size(122, 24);
+            this.btnFirmaGiris.TabIndex = 0;
+            this.btnFirmaGiris.Text = "Firma Giriş";
+            this.btnFirmaGiris.UseVisualStyleBackColor = true;
+            this.btnFirmaGiris.Click += new System.EventHandler(this.btnFirmaGiris_Click);
             // 
             // AnaSayfa
             // 
@@ -152,6 +165,7 @@
             this.Load += new System.EventHandler(this.AnaSayfa_Load);
             this.panel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
+            this.pnl1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -167,5 +181,6 @@
         private System.Windows.Forms.Panel pnl3;
         private System.Windows.Forms.Panel pnl2;
         private System.Windows.Forms.Panel pnl1;
+        private System.Windows.Forms.Button btnFirmaGiris;
     }
 }
