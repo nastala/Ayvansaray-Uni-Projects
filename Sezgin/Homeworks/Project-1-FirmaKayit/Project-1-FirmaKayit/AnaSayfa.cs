@@ -66,6 +66,7 @@ namespace Project_1_FirmaKayit
                     pnl2.Visible = true;
                     groupBox1.Text = "Form 2";
                     groupBox1.ForeColor = Color.Crimson;
+                    MessageBox.Show("Hello World!");
                     break;
                 case Paneller.Panel3:
                     pnl3.Visible = true;

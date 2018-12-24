@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="FirmaKayit" Class="DBFirmaDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=localhost;Initial Catalog=FirmaKayit;Integrated Security=True" SettingsObjectName="Project_1_FirmaKayit.Properties.Settings" SettingsPropertyName="FirmaKayitConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.bgFirmaKayit" Member="bgFirmaKayits">
+    <Type Name="bgFirmaKayit">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Firma_No" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Firma_Tipi" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Firma_Adi" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Firma_Adres" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Firma_Tel1" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Firma_Tel2" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Firma_Fax" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Firma_Yetkili" Type="System.String" DbType="NVarChar(120)" CanBeNull="true" />
+      <Column Name="Firma_Departman" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Firma_Web" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Firma_Email" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Firma_Vergi_Dairesi" Type="System.String" DbType="NVarChar(80)" CanBeNull="true" />
+      <Column Name="Firma_Vergi_No" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="saveUser" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="saveDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="updateUser" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="updateDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Association Name="bgFirmaTipi_bgFirmaKayit" Member="bgFirmaTipi" ThisKey="Firma_Tipi" OtherKey="ID" Type="bgFirmaTipi" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.bgFirmaTipi" Member="bgFirmaTipis">
+    <Type Name="bgFirmaTipi">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Firma_Tipi" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Association Name="bgFirmaTipi_bgFirmaKayit" Member="bgFirmaKayits" ThisKey="ID" OtherKey="Firma_Tipi" Type="bgFirmaKayit" />
+    </Type>
+  </Table>
+</Database>
