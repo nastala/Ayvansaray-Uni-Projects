@@ -16,5 +16,20 @@ namespace Project_1_FirmaKayit.Bilgi
         {
             InitializeComponent();
         }
+
+        private void btnCollapse_Click(object sender, EventArgs e)
+        {
+            switch (splitContainer1.Panel2Collapsed)
+            {
+                case true:
+                    splitContainer1.Panel2Collapsed = false;
+                    btnCollapse.Text = "GIZLE";
+                    break;
+                case false:
+                    splitContainer1.Panel2Collapsed = true;
+                    btnCollapse.Text = "GOSTER";
+                    break;
+            }
+        }
     }
 }
