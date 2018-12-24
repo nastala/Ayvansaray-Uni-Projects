@@ -58,6 +58,7 @@
             // 
             // btnKapat
             // 
+            this.btnKapat.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btnKapat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnKapat.Location = new System.Drawing.Point(669, 24);
             this.btnKapat.Name = "btnKapat";
@@ -162,6 +163,7 @@
             this.IsMdiContainer = true;
             this.Name = "AnaSayfa";
             this.Text = "AnaSayfa";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.AnaSayfa_Load);
             this.panel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
