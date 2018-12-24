@@ -12,6 +12,8 @@ namespace Project_1_FirmaKayit.Bilgi
 {
     public partial class FrmFirmaListe : Form
     {
+        public bool Secim { get; set; }
+
         public FrmFirmaListe()
         {
             InitializeComponent();

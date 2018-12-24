@@ -7,11 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Project_1_FirmaKayit.Hangar;
 
 namespace Project_1_FirmaKayit
 {
     public partial class AnaSayfa : Form
     {
+        Formlar _f = new Formlar();
+        Mesajlar _m = new Mesajlar();
+        public static int Aktarma = -1;
+
         enum Paneller
         {
             Panel1,
