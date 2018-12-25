@@ -84,6 +84,7 @@
     </Compile>
     <Compile Include="Hangar\Formlar.cs" />
     <Compile Include="Hangar\Mesajlar.cs" />
+    <Compile Include="Hangar\Numaralar.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AnaSayfa.resx">
