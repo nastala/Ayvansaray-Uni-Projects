@@ -7,11 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Project_1_FirmaKayit.Hangar;
 
 namespace Project_1_FirmaKayit.Bilgi
 {
     public partial class FrmFirmaGiris : Form
     {
+        private DBFirmaDataContext _db = new DBFirmaDataContext();
+        private Formlar _f = new Formlar();
+        private Mesajlar _m = new Mesajlar();
+        private bool _edit = false;
+
         public FrmFirmaGiris()
         {
             InitializeComponent();
@@ -30,6 +36,51 @@ namespace Project_1_FirmaKayit.Bilgi
                     btnCollapse.Text = "GOSTER";
                     break;
             }
+        }
+
+        private void FrmFirmaGiris_Load(object sender, EventArgs e)
+        {
+            Temizle();
+            Combo();
+        }
+
+        private void Temizle()
+        {
+            foreach(Control control in splitContainer1.Panel1.Controls)
+            {
+                if (control is TextBox || control is ComboBox)
+                    control.Text = "";
+            }
+        }
+
+        private void Combo()
+        {
+            cbFirmaTipi.Items.Clear();
+            cbFirmaTipi.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            AutoCompleteStringCollection aucFirmaTipleri = new AutoCompleteStringCollection();
+            var firmaTipleri = _db.bgFirmaTipis.Select(item => item.Firma_Tipi).Distinct();
+
+            foreach(string firmaTipi in firmaTipleri)
+            {
+                aucFirmaTipleri.Add(firmaTipi);
+                cbFirmaTipi.Items.Add(firmaTipi);
+            }
+            cbFirmaTipi.AutoCompleteCustomSource = aucFirmaTipleri;
+        }
+
+        private void btnKaydet_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSil_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnFormuKapat_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

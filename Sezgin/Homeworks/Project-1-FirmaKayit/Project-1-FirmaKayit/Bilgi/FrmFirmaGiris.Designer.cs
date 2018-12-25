@@ -72,7 +72,7 @@
             this.label1.Dock = System.Windows.Forms.DockStyle.Top;
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(734, 76);
+            this.label1.Size = new System.Drawing.Size(773, 76);
             this.label1.TabIndex = 0;
             this.label1.Text = "Firma Giriş";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -120,8 +120,8 @@
             this.splitContainer1.Panel2.BackColor = System.Drawing.Color.SteelBlue;
             this.splitContainer1.Panel2.Controls.Add(this.btnKaydet);
             this.splitContainer1.Panel2.Controls.Add(this.btnSil);
-            this.splitContainer1.Size = new System.Drawing.Size(734, 428);
-            this.splitContainer1.SplitterDistance = 601;
+            this.splitContainer1.Size = new System.Drawing.Size(773, 426);
+            this.splitContainer1.SplitterDistance = 640;
             this.splitContainer1.TabIndex = 1;
             // 
             // btnCollapse
@@ -130,9 +130,9 @@
             this.btnCollapse.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnCollapse.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnCollapse.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnCollapse.Location = new System.Drawing.Point(577, 0);
+            this.btnCollapse.Location = new System.Drawing.Point(616, 0);
             this.btnCollapse.Name = "btnCollapse";
-            this.btnCollapse.Size = new System.Drawing.Size(20, 424);
+            this.btnCollapse.Size = new System.Drawing.Size(20, 422);
             this.btnCollapse.TabIndex = 0;
             this.btnCollapse.Text = "GIZLE";
             this.btnCollapse.UseVisualStyleBackColor = false;
@@ -141,12 +141,13 @@
             // btnFormuKapat
             // 
             this.btnFormuKapat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnFormuKapat.Location = new System.Drawing.Point(612, 17);
+            this.btnFormuKapat.Location = new System.Drawing.Point(651, 17);
             this.btnFormuKapat.Name = "btnFormuKapat";
             this.btnFormuKapat.Size = new System.Drawing.Size(110, 43);
             this.btnFormuKapat.TabIndex = 2;
             this.btnFormuKapat.Text = "Formu Kapat";
             this.btnFormuKapat.UseVisualStyleBackColor = true;
+            this.btnFormuKapat.Click += new System.EventHandler(this.btnFormuKapat_Click);
             // 
             // btnSil
             // 
@@ -156,16 +157,18 @@
             this.btnSil.TabIndex = 0;
             this.btnSil.Text = "Sil";
             this.btnSil.UseVisualStyleBackColor = true;
+            this.btnSil.Click += new System.EventHandler(this.btnSil_Click);
             // 
             // btnKaydet
             // 
             this.btnKaydet.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnKaydet.Location = new System.Drawing.Point(22, 370);
+            this.btnKaydet.Location = new System.Drawing.Point(22, 368);
             this.btnKaydet.Name = "btnKaydet";
             this.btnKaydet.Size = new System.Drawing.Size(93, 44);
             this.btnKaydet.TabIndex = 1;
             this.btnKaydet.Text = "Kaydet";
             this.btnKaydet.UseVisualStyleBackColor = true;
+            this.btnKaydet.Click += new System.EventHandler(this.btnKaydet_Click);
             // 
             // label2
             // 
@@ -253,6 +256,8 @@
             // 
             // cbFirmaTipi
             // 
+            this.cbFirmaTipi.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbFirmaTipi.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.cbFirmaTipi.FormattingEnabled = true;
             this.cbFirmaTipi.Location = new System.Drawing.Point(134, 203);
             this.cbFirmaTipi.Name = "cbFirmaTipi";
@@ -371,7 +376,7 @@
             // 
             this.label13.BackColor = System.Drawing.Color.LightSeaGreen;
             this.label13.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.label13.Location = new System.Drawing.Point(283, 199);
+            this.label13.Location = new System.Drawing.Point(316, 174);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(100, 23);
             this.label13.TabIndex = 23;
@@ -380,7 +385,7 @@
             // 
             // tbVergiNo
             // 
-            this.tbVergiNo.Location = new System.Drawing.Point(389, 199);
+            this.tbVergiNo.Location = new System.Drawing.Point(431, 176);
             this.tbVergiNo.Name = "tbVergiNo";
             this.tbVergiNo.Size = new System.Drawing.Size(164, 20);
             this.tbVergiNo.TabIndex = 24;
@@ -407,12 +412,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(734, 504);
+            this.ClientSize = new System.Drawing.Size(773, 502);
             this.Controls.Add(this.btnFormuKapat);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.label1);
             this.Name = "FrmFirmaGiris";
             this.Text = "FrmFirmaGiris";
+            this.Load += new System.EventHandler(this.FrmFirmaGiris_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
