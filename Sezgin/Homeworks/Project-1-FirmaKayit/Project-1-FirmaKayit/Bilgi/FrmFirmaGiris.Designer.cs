@@ -72,7 +72,7 @@
             this.label1.Dock = System.Windows.Forms.DockStyle.Top;
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(803, 76);
+            this.label1.Size = new System.Drawing.Size(734, 76);
             this.label1.TabIndex = 0;
             this.label1.Text = "Firma Giriş";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -120,8 +120,8 @@
             this.splitContainer1.Panel2.BackColor = System.Drawing.Color.SteelBlue;
             this.splitContainer1.Panel2.Controls.Add(this.btnKaydet);
             this.splitContainer1.Panel2.Controls.Add(this.btnSil);
-            this.splitContainer1.Size = new System.Drawing.Size(803, 425);
-            this.splitContainer1.SplitterDistance = 670;
+            this.splitContainer1.Size = new System.Drawing.Size(734, 428);
+            this.splitContainer1.SplitterDistance = 601;
             this.splitContainer1.TabIndex = 1;
             // 
             // btnCollapse
@@ -130,9 +130,9 @@
             this.btnCollapse.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnCollapse.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnCollapse.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnCollapse.Location = new System.Drawing.Point(646, 0);
+            this.btnCollapse.Location = new System.Drawing.Point(577, 0);
             this.btnCollapse.Name = "btnCollapse";
-            this.btnCollapse.Size = new System.Drawing.Size(20, 421);
+            this.btnCollapse.Size = new System.Drawing.Size(20, 424);
             this.btnCollapse.TabIndex = 0;
             this.btnCollapse.Text = "GIZLE";
             this.btnCollapse.UseVisualStyleBackColor = false;
@@ -141,7 +141,7 @@
             // btnFormuKapat
             // 
             this.btnFormuKapat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnFormuKapat.Location = new System.Drawing.Point(681, 17);
+            this.btnFormuKapat.Location = new System.Drawing.Point(612, 17);
             this.btnFormuKapat.Name = "btnFormuKapat";
             this.btnFormuKapat.Size = new System.Drawing.Size(110, 43);
             this.btnFormuKapat.TabIndex = 2;
@@ -160,7 +160,7 @@
             // btnKaydet
             // 
             this.btnKaydet.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnKaydet.Location = new System.Drawing.Point(22, 367);
+            this.btnKaydet.Location = new System.Drawing.Point(22, 370);
             this.btnKaydet.Name = "btnKaydet";
             this.btnKaydet.Size = new System.Drawing.Size(93, 44);
             this.btnKaydet.TabIndex = 1;
@@ -197,7 +197,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(100, 23);
             this.label4.TabIndex = 3;
-            this.label4.Text = "Adres";
+            this.label4.Text = "Adres:";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // tbFirmaNo
@@ -230,7 +230,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(100, 23);
             this.label5.TabIndex = 7;
-            this.label5.Text = "Vergi Dairesi";
+            this.label5.Text = "Vergi Dairesi:";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label6
@@ -241,7 +241,7 @@
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(100, 23);
             this.label6.TabIndex = 8;
-            this.label6.Text = "Firma Tipi";
+            this.label6.Text = "Firma Tipi:";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // tbVergiDairesi
@@ -267,7 +267,7 @@
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(100, 23);
             this.label7.TabIndex = 11;
-            this.label7.Text = "Telefon-1";
+            this.label7.Text = "Telefon-1:";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // tbTel1
@@ -407,7 +407,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(803, 501);
+            this.ClientSize = new System.Drawing.Size(734, 504);
             this.Controls.Add(this.btnFormuKapat);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.label1);
