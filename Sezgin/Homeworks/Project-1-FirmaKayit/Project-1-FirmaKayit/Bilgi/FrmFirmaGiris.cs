@@ -90,7 +90,9 @@ namespace Project_1_FirmaKayit.Bilgi
                 Firma_Vergi_Dairesi = tbVergiDairesi.Text,
                 Firma_Vergi_No = tbVergiNo.Text,
                 Firma_Web = tbWebAdresi.Text,
-                Firma_Yetkili = tbYetkili.Text
+                Firma_Yetkili = tbYetkili.Text,
+                saveDate = DateTime.Now,
+                saveUser = -1
             };
 
             _db.bgFirmaKayits.InsertOnSubmit(bgFirmaKayit);
