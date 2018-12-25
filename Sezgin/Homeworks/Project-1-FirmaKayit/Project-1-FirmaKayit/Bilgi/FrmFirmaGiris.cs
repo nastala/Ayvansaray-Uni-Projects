@@ -70,7 +70,31 @@ namespace Project_1_FirmaKayit.Bilgi
 
         private void btnKaydet_Click(object sender, EventArgs e)
         {
+            VeriTabaninaKaydet();
+            Temizle();
+        }
 
+        private void VeriTabaninaKaydet()
+        {
+            bgFirmaKayit bgFirmaKayit = new bgFirmaKayit
+            {
+                Firma_Adi = tbFirmaAdi.Text,
+                Firma_Adres = tbAdres.Text,
+                Firma_Departman = tbDepartman.Text,
+                Firma_Email = tbEposta.Text,
+                Firma_Fax = tbFaks.Text,
+                Firma_No = Convert.ToInt32(tbFirmaNo.Text),
+                Firma_Tel1 = tbTel1.Text,
+                Firma_Tel2 = tbTel2.Text,
+                Firma_Tipi = cbFirmaTipi.SelectedIndex + 1,
+                Firma_Vergi_Dairesi = tbVergiDairesi.Text,
+                Firma_Vergi_No = tbVergiNo.Text,
+                Firma_Web = tbWebAdresi.Text,
+                Firma_Yetkili = tbYetkili.Text
+            };
+
+            _db.bgFirmaKayits.InsertOnSubmit(bgFirmaKayit);
+            _db.SubmitChanges();
         }
 
         private void btnSil_Click(object sender, EventArgs e)

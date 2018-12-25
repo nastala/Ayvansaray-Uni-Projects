@@ -256,7 +256,7 @@
             // 
             // cbFirmaTipi
             // 
-            this.cbFirmaTipi.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbFirmaTipi.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
             this.cbFirmaTipi.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.cbFirmaTipi.FormattingEnabled = true;
             this.cbFirmaTipi.Location = new System.Drawing.Point(134, 203);
