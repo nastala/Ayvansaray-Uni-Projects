@@ -93,3 +93,24 @@ FROM PlakaKodlari INNER JOIN Employees ON PlakaKodlari.Sehir = Employees.City
 USE Northwind
 SELECT [Order Details].UnitPrice, [Order Details].Quantity FROM Orders INNER JOIN [Order Details] ON [Order Details].OrderID = Orders.OrderID
 ORDER BY [Order Details].UnitPrice DESC, [Order Details].Quantity 
+
+--Soru 20
+USE Northwind
+SELECT Customers.ContactName, Orders.OrderDate
+FROM Customers INNER JOIN Orders ON Orders.CustomerID = Customers.CustomerID
+WHERE Orders.OrderDate > '1998-01-01'
+
+--Soru 21
+USE Northwind
+SELECT * FROM Products INNER JOIN Categories ON Categories.CategoryID = Products.ProductID
+WHERE Categories.CategoryName = 'Beverages' AND Products.UnitsInStock > 0
+
+--Soru 22
+USE Northwind
+SELECT Employees.EmployeeID, Employees.LastName, Employees.Title
+From Employees 
+WHERE Employees.Title IN (SELECT Employees.Title FROM Employees GROUP BY Employees.Title
+									HAVING COUNT(*) > 1)
+ORDER BY EmployeeID
+
+--Soru 23
