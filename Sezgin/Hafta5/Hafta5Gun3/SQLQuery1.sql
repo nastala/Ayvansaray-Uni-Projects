@@ -92,5 +92,6 @@ SELECT ([Employees].[FirstName] + ' ' + [Employees].[LastName]) as Çalýþan, [Pla
 FROM PlakaKodlari INNER JOIN Employees ON PlakaKodlari.Sehir = Employees.City
 
 --Soru 19
+USE Northwind
 SELECT [Order Details].UnitPrice, [Order Details].Quantity FROM Orders INNER JOIN [Order Details] ON [Order Details].OrderID = Orders.OrderID
 ORDER BY [Order Details].UnitPrice DESC, [Order Details].Quantity 
