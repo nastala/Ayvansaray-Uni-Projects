@@ -66,9 +66,7 @@ FROM [Products]
 --Soru 14
 USE [Northwind]
 SELECT [Products].[ProductName], [Products].[UnitPrice]
-FROM [Products] WHERE [Products].[CategoryID] = 5 
-OR [Products].[CategoryID] = 9 
-OR [Products].[CategoryID] = 10
+FROM [Products] WHERE [Products].[CategoryID] IN (5, 9, 10) 
 
 --Soru 15
 USE [Northwind]
