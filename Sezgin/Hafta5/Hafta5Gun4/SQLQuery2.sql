@@ -32,3 +32,12 @@ LEFT JOIN (SELECT Employees.FirstName + ' ' + Employees.LastName as Name, Employ
 ON q1.EmployeeID = Employees.ReportsTo
 
 --Soru 8
+SELECT Employees.FirstName + ' ' + Employees.LastName as 'Employee''s Name', Employees.City, Employees.PostalCode FROM Employees
+SELECT Customers.ContactName as 'Customer''s Name', Customers.City, Customers.PostalCode FROM Customers
+
+--Soru 9
+SELECT Categories.CategoryID, Categories.CategoryName, Shippers.ShipperID, Shippers.CompanyName, Orders.OrderDate FROM [Order Details]
+INNER JOIN Orders ON Orders.OrderID = [Order Details].OrderID
+INNER JOIN Products ON Products.ProductID = [Order Details].ProductID
+INNER JOIN Categories ON Categories.CategoryID = Products.CategoryID
+INNER JOIN Shippers ON Shippers.ShipperID = Orders.ShipVia
