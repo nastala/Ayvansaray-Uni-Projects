@@ -53,6 +53,18 @@ ON q2.EmployeeID = Employees.EmployeeID
 ORDER BY q2.EmployeeTotal DESC
 
 --Hangi bölgede hangi ürün category'e göre en çok satýlmýþtýr. En çok satýþ yapan category
+--1.Cevap
+select CategoryName,TerritoryDescription,ProductName,count(ProductName) from Categories c 
+inner join Products p on c.CategoryID= p.CategoryID 
+inner join [Order Details] od on od.ProductID= p.ProductID 
+inner join Orders o on od.OrderID=o.OrderID 
+inner join Employees e on o.EmployeeID=e.EmployeeID
+inner join EmployeeTerritories et on e.EmployeeID=et.EmployeeID
+inner join Territories t on t.TerritoryID=et.TerritoryID
+group by TerritoryDescription,CategoryName,ProductName
+order by COUNT(ProductName) desc
+
+--2. Cevap
 SELECT Territories.TerritoryDescription, q2.CategoryName, q2.ProductName, SUM(q1.Price) as Total FROM Territories
 INNER JOIN EmployeeTerritories ON EmployeeTerritories.TerritoryID = Territories.TerritoryID
 INNER JOIN Employees ON EmployeeTerritories.EmployeeID = Employees.EmployeeID
