@@ -18,3 +18,17 @@ SELECT Products.ProductName, Categories.CategoryName FROM Products
 RIGHT JOIN Categories ON Categories.CategoryID = Products.ProductID
 
 --Soru 5
+SELECT Customers.ContactName, Orders.OrderDate FROM Customers
+INNER JOIN Orders ON Customers.CustomerID = Orders.CustomerID
+
+--Soru 6
+SELECT Products.ProductName, Categories.CategoryName FROM Products
+LEFT JOIN Categories ON Categories.CategoryID = Products.ProductID
+
+--Soru 7
+SELECT DISTINCT Employees.FirstName as 'Rapor Veren', q1.Name as 'Rapor Verilen' FROM Employees
+LEFT JOIN (SELECT Employees.FirstName + ' ' + Employees.LastName as Name, Employees.EmployeeID FROM Employees WHERE Employees.EmployeeID IN 
+										(SELECT Employees.ReportsTo FROM Employees )) q1
+ON q1.EmployeeID = Employees.ReportsTo
+
+--Soru 8
