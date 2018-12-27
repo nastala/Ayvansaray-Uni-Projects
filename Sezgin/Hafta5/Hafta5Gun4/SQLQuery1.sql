@@ -62,35 +62,3 @@ INNER JOIN (SELECT Categories.CategoryName, Products.ProductName, Products.Produ
 	ON q2.ProductID = q1.ProductID
 GROUP BY Territories.TerritoryDescription, q2.CategoryName, q2.ProductName
 ORDER BY Territories.TerritoryDescription, Total DESC
-
-SELECT Employees.EmployeeID, q2.TerritoryDescription FROM Employees
-INNER JOIN (SELECT Territories.TerritoryDescription, EmployeeTerritories.EmployeeID FROM EmployeeTerritories 
-			INNER JOIN Territories ON EmployeeTerritories.TerritoryID = Territories.TerritoryID) q2
-ON Employees.EmployeeID = q2.EmployeeID
-
-SELECT Orders.OrderID FROM Orders
-INNER JOIN (SELECT Employees.EmployeeID, q2.TerritoryDescription FROM Employees
-			INNER JOIN (SELECT Territories.TerritoryDescription, EmployeeTerritories.EmployeeID FROM EmployeeTerritories 
-					INNER JOIN Territories ON EmployeeTerritories.TerritoryID = Territories.TerritoryID) q2
-			ON Employees.EmployeeID = q2.EmployeeID) q3
-ON q3.EmployeeID = Orders.EmployeeID
-
-SELECT Territories.TerritoryDescription, q2.CategoryName, q2.ProductName, SUM(q1.Price) as Total FROM Territories
-INNER JOIN EmployeeTerritories ON EmployeeTerritories.TerritoryID = Territories.TerritoryID
-INNER JOIN Employees ON EmployeeTerritories.EmployeeID = Employees.EmployeeID
-INNER JOIN Orders ON Orders.EmployeeID = Employees.EmployeeID
-INNER JOIN (SELECT [Order Details].Quantity * [Order Details].UnitPrice as Price, [Order Details].OrderID, [Order Details].ProductID FROM [Order Details]) q1 ON q1.OrderID = Orders.OrderID
-INNER JOIN (SELECT Categories.CategoryName, Products.ProductName, Products.ProductID FROM Categories INNER JOIN Products ON Products.CategoryID = Categories.CategoryID) q2
-	ON q2.ProductID = q1.ProductID
-GROUP BY Territories.TerritoryDescription, q2.CategoryName, q2.ProductName
-ORDER BY Territories.TerritoryDescription, Total DESC
-
-SELECT Products.CategoryID FROM Products 
-INNER JOIN [Order Details] ON Products.ProductID = [Order Details].ProductID
-GROUP BY Products.CategoryID
-
-SELECT Categories.CategoryName, COUNT(Categories.CategoryName) as Total FROM Categories
-INNER JOIN (SELECT Products.CategoryID, Products.ProductName FROM Products 
-			INNER JOIN [Order Details] ON Products.ProductID = [Order Details].ProductID) q1
-ON q1.CategoryID = Categories.CategoryID
-GROUP BY Categories.CategoryName
