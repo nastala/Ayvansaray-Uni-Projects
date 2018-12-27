@@ -51,3 +51,11 @@ INNER JOIN (SELECT Orders.EmployeeID, SUM(q1.OrderTotalPrice) as EmployeeTotal F
 			GROUP BY Orders.EmployeeID) q2
 ON q2.EmployeeID = Employees.EmployeeID
 ORDER BY q2.EmployeeTotal DESC
+
+SELECT TOP 3 Employees.FirstName + ' ' + Employees.LastName as Name, q2.EmployeeTotal, 200.00 as Prim FROM Employees
+INNER JOIN (SELECT Orders.EmployeeID, SUM(q1.OrderTotalPrice) as EmployeeTotal FROM Orders 
+			INNER JOIN (SELECT OrderID, SUM([Order Details].Quantity * [Order Details].UnitPrice) as OrderTotalPrice FROM [Order Details] GROUP BY [Order Details].OrderID) q1
+			ON q1.OrderID = Orders.OrderID
+			GROUP BY Orders.EmployeeID) q2
+ON q2.EmployeeID = Employees.EmployeeID
+ORDER BY q2.EmployeeTotal DESC
