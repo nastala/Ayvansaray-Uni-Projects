@@ -108,7 +108,7 @@ WHERE Categories.CategoryName = 'Beverages' AND Products.UnitsInStock > 0
 --Soru 22
 USE Northwind
 SELECT Employees.EmployeeID, Employees.LastName, Employees.Title
-From Employees 
+FROM Employees 
 WHERE Employees.Title IN (SELECT Employees.Title FROM Employees GROUP BY Employees.Title
 									HAVING COUNT(*) > 1)
 ORDER BY EmployeeID
