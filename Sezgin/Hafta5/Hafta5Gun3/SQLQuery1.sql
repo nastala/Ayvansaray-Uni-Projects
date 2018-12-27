@@ -113,4 +113,13 @@ WHERE Employees.Title IN (SELECT Employees.Title FROM Employees GROUP BY Employe
 									HAVING COUNT(*) > 1)
 ORDER BY EmployeeID
 
---Soru 23
+--Emre'nin sorusu
+USE Northwind
+SELECT o.OrderID as 'Order', c.CompanyName, o.OrderDate, e.FirstName + ' ' + e.LastName as Employee,		
+			p2.ProductName
+FROM Orders o 
+		INNER JOIN Customers c ON c.CustomerID = o.CustomerID
+		INNER JOIN Employees e ON e.EmployeeID = o.EmployeeID
+		INNER JOIN (SELECT ProductName, od.OrderID FROM Products INNER JOIN [Order Details] od 
+						ON od.ProductID = Products.ProductID) p2
+		ON p2.OrderID = o.OrderID
