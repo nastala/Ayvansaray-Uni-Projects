@@ -81,4 +81,6 @@ INNER JOIN Orders ON Orders.OrderID = [Order Details].OrderID
 WHERE Products.ProductName = 'Chai'
 GROUP BY Products.ProductName, Orders.ShipCountry
 HAVING SUM([Order Details].Quantity) > 2
-ORDER BY TotalQuantities 
+ORDER BY TotalQuantities DESC
+
+
