@@ -31,4 +31,48 @@ GROUP BY Customers.CustomerID
 HAVING SUM(od.OrderTotal) > 40000
 ORDER BY CustomerTotal DESC
 
+SELECT O.ShipCountry AS 'Ulke', O.ShipCity AS 'Sehir', COUNT(OO.Quantity) AS 'Siparis Kalem Sayisi', COUNT(O.OrderID) as 'Siparis Gecme Sayisi'
+FROM Orders O INNER JOIN [Order Details] OO ON O.OrderID = OO.OrderID
+GROUP BY O.ShipCountry, O.ShipCity
+WITH ROLLUP
+
+--WAY-1
+SELECT O.ShipCountry AS 'Ulke', O.ShipCity AS 'Sehir', COUNT(OO.Quantity) AS 'Siparis Kalem Sayisi', OOO.OrderCount as 'Siparis Gecme Sayisi'
+FROM Orders O 
+INNER JOIN (SELECT Orders.ShipCountry, Orders.ShipCity, COUNT(Orders.OrderID) as OrderCount FROM Orders 
+					GROUP BY Orders.ShipCity, Orders.ShipCountry) OOO ON OOO.ShipCountry = O.ShipCountry AND OOO.ShipCity = O.ShipCity
+INNER JOIN [Order Details] OO ON O.OrderID = OO.OrderID
+GROUP BY O.ShipCountry, O.ShipCity, OOO.OrderCount
+--WAY-2
+SELECT O.ShipCountry AS 'Ulke', O.ShipCity AS 'Sehir', COUNT(OO.Quantity) AS 'Siparis Kalem Sayisi', 
+	(
+		SELECT COUNT(Orders.OrderID) FROM Orders 
+					WHERE Orders.ShipCity = O.ShipCity AND Orders.ShipCountry = O.ShipCountry
+					GROUP BY Orders.ShipCity, Orders.ShipCountry
+	) as 'Siparis Gecme Sayisi'
+FROM Orders O 
+INNER JOIN [Order Details] OO ON O.OrderID = OO.OrderID
+GROUP BY O.ShipCountry, O.ShipCity
+ORDER BY O.ShipCountry, O.ShipCity
+
+CREATE PROCEDURE procOrderListWithMaxUnitPrice
+AS
+SELECT O.OrderID, C.CompanyName, CONVERT(VARCHAR, O.OrderDate, 103) AS OrderDate,
+	(
+		SELECT MAX(OO.UnitPrice) FROM [Order Details] OO WHERE O.OrderID = OO.OrderID
+	) AS MaxUnitPrice
+FROM Orders O INNER JOIN CUstomers C ON O.CustomerID = C.CustomerID
+
+EXEC procOrderListWithMaxUnitPrice
+
+CREATE PROCEDURE procOrderListWithMaxUnitPrice2
+AS
+SELECT Orders.OrderID, Customers.CompanyName, Orders.OrderDate, MAX([Order Details].UnitPrice)
+FROM Orders INNER JOIN [Order Details] ON Orders.OrderID = [Order Details].OrderID
+INNER JOIN Customers ON Customers.CustomerID = Orders.CustomerID
+GROUP BY Orders.OrderID, Customers.CompanyName, Orders.OrderDate
+ORDER BY Orders.OrderID, Customers.CompanyName
+
+EXEC procOrderListWithMaxUnitPrice2
+
 
