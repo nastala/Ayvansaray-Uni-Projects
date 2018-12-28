@@ -91,3 +91,7 @@ DELETE FROM Customers WHERE Customers.CustomerID IN
 	SELECT DISTINCT Orders.CustomerID FROM Orders 
 	WHERE Orders.ShipCountry = @ShipCountry AND Orders.ShipCity IS NOT NULL
 )
+
+SELECT * FROM Products 
+INNER JOIN Categories ON Categories.CategoryID = Products.CategoryID
+WHERE Categories.CategoryName LIKE '[b-d]%' AND Products.UnitPrice > 30
