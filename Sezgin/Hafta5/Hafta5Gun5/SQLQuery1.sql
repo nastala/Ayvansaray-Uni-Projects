@@ -20,3 +20,15 @@ INNER JOIN (SELECT Suppliers.CompanyName, Suppliers.SupplierID FROM Suppliers WH
 ON s.SupplierID = Products.SupplierID
 GROUP BY s.CompanyName, Products.ProductName
 ORDER BY 'Units-In-Stock' DESC
+
+SELECT Customers.CustomerID, SUM(od.OrderTotal) as CustomerTotal FROM Orders
+INNER JOIN (SELECT [Order Details].OrderID, Sum([Order Details].Quantity * [Order Details].UnitPrice) as OrderTotal FROM [Order Details]
+				GROUP BY [Order Details].OrderID) od
+ON od.OrderID = Orders.OrderID
+INNER JOIN Customers ON Customers.CustomerID = Orders.CustomerID
+WHERE  Orders.OrderDate BETWEEN '1997' AND '1998'
+GROUP BY Customers.CustomerID
+HAVING SUM(od.OrderTotal) > 40000
+ORDER BY CustomerTotal DESC
+
+
