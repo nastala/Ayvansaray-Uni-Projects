@@ -92,6 +92,21 @@ DELETE FROM Customers WHERE Customers.CustomerID IN
 	WHERE Orders.ShipCountry = @ShipCountry AND Orders.ShipCity IS NOT NULL
 )
 
-SELECT * FROM Products 
+SELECT Products.ProductName, Products.UnitPrice FROM Products
 INNER JOIN Categories ON Categories.CategoryID = Products.CategoryID
-WHERE Categories.CategoryName LIKE '[b-d]%' AND Products.UnitPrice > 30
+WHERE  Categories.CategoryName LIKE '[b-d]%' AND Products.UnitPrice > 30
+ORDER BY Products.UnitPrice
+
+SELECT p1.ProductName, 
+(
+	SELECT Categories.CategoryName FROM Categories
+	WHERE  Categories.CategoryName LIKE '[b-d]%' AND p1.CategoryID = Categories.CategoryID
+	AND CategoryName IS NOT NULL
+)as CategoryName, 
+(
+	SELECT Products.UnitPrice FROM Products 
+	WHERE Products.ProductID = p1.ProductID AND Products.UnitPrice > 30
+)as Price
+FROM Products p1
+ORDER BY Price DESC
+
