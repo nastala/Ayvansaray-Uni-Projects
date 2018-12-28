@@ -84,4 +84,10 @@ GROUP BY Products.ProductName, Orders.ShipCountry
 HAVING COUNT(*) > 2
 ORDER BY OrderCount DESC
 
-
+CREATE PROCEDURE myprocedure @ShipCountry nvarchar(50)
+AS
+DELETE FROM Customers WHERE Customers.CustomerID IN 
+(
+	SELECT DISTINCT Orders.CustomerID FROM Orders 
+	WHERE Orders.ShipCountry = @ShipCountry AND Orders.ShipCity IS NOT NULL
+)
