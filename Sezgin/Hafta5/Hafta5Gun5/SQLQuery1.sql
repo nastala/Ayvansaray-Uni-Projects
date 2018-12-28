@@ -75,4 +75,10 @@ ORDER BY Orders.OrderID, Customers.CompanyName
 
 EXEC procOrderListWithMaxUnitPrice2
 
-
+SELECT Products.ProductName, ShipCountry, SUM([Order Details].Quantity) as TotalQuantities FROM Products
+INNER JOIN [Order Details] ON [Order Details].ProductID = Products.ProductID
+INNER JOIN Orders ON Orders.OrderID = [Order Details].OrderID
+WHERE Products.ProductName = 'Chai'
+GROUP BY Products.ProductName, Orders.ShipCountry
+HAVING SUM([Order Details].Quantity) > 2
+ORDER BY TotalQuantities 
