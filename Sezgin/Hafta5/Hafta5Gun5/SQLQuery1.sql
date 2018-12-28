@@ -36,6 +36,7 @@ FROM Orders O INNER JOIN [Order Details] OO ON O.OrderID = OO.OrderID
 GROUP BY O.ShipCountry, O.ShipCity
 WITH ROLLUP
 
+--Soru: Kaç kere sipariþ verildi, kaç tane sipariþ kalemi var?
 --WAY-1
 SELECT O.ShipCountry AS 'Ulke', O.ShipCity AS 'Sehir', COUNT(OO.Quantity) AS 'Siparis Kalem Sayisi', OOO.OrderCount as 'Siparis Gecme Sayisi'
 FROM Orders O 
