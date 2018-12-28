@@ -10,3 +10,9 @@ INSERT INTO booksales VALUES
   ('Senegal','non-fiction','2014',64980), ('Senegal','non-fiction','2015',78901),
   ('Paraguay','fiction','2014',87970), ('Paraguay','fiction','2015',76940),
   ('Paraguay','non-fiction','2014',8760), ('Paraguay','non-fiction','2015',9030)
+
+SELECT booksales.year, SUM(booksales.sales) as total FROM booksales GROUP BY booksales.year WITH ROLLUP
+
+SELECT country, year, genre, SUM(sales) FROM booksales GROUP BY country, year, genre WITH ROLLUP
+
+
