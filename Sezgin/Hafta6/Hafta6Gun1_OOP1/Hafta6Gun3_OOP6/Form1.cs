@@ -36,6 +36,10 @@ namespace Hafta6Gun3_OOP6
                     textBox2.Text = ad[2];
                     break;
             }
+
+            //int girilenId = Int32.Parse(textBox1.Text);
+            //int index = Array.IndexOf(id, girilenId);
+            //textBox2.Text = ad[index];
         }
     }
 }
