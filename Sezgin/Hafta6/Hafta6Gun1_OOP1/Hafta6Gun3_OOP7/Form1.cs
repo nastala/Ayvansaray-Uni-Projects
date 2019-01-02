@@ -39,11 +39,20 @@ namespace Hafta6Gun3_OOP7
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            idCount = 2;
-            Classlar.Ogrenci ogrenci1 = new Classlar.Ogrenci(1, "Sezgin", "Yağlı", 100);
-            Classlar.Ogrenci ogrenci2 = new Classlar.Ogrenci(2, "Hasan", "Veli", 200);
-            ogrenciler.Add(ogrenci1);
-            ogrenciler.Add(ogrenci2);
+            idCount = 100;
+            //Classlar.Ogrenci ogrenci1 = new Classlar.Ogrenci(1, "Sezgin", "Yağlı", 100);
+            //Classlar.Ogrenci ogrenci2 = new Classlar.Ogrenci(2, "Hasan", "Veli", 200);
+            //ogrenciler.Add(ogrenci1);
+            //ogrenciler.Add(ogrenci2);
+            for (int i = 1; i <= 100; i++)
+            {
+                Classlar.Ogrenci o = new Classlar.Ogrenci();
+                o.Id = i;
+                o.Ad = FakeData.NameData.GetFirstName();
+                o.Soyad = FakeData.NameData.GetSurname();
+                o.Maas = FakeData.NumberData.GetNumber(600, 800);
+                ogrenciler.Add(o);    
+            }
             Doldur();
         }
 
@@ -64,6 +73,7 @@ namespace Hafta6Gun3_OOP7
             Classlar.Ogrenci yeniOgrenci = new Classlar.Ogrenci(idCount, ad, soyad, maas);
             ogrenciler.Add(yeniOgrenci);
             Doldur();
+            dataGridView1.Rows[dataGridView1.Rows.Count - 1].Selected = true;
         }
 
         private void btnSil_Click(object sender, EventArgs e)

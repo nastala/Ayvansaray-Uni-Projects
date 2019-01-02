@@ -20,5 +20,10 @@ namespace Hafta6Gun3_OOP7.Classlar
             Soyad = soyad;
             Maas = maas;
         }
+
+        public Ogrenci()
+        {
+
+        }
     }
 }
