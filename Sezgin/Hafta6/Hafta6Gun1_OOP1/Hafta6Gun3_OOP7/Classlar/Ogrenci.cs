@@ -12,5 +12,13 @@ namespace Hafta6Gun3_OOP7.Classlar
         public string Ad { get; set; }
         public string Soyad { get; set; }
         public int Maas { get; set; }
+
+        public Ogrenci(int id, string ad, string soyad, int maas)
+        {
+            Id = id;
+            Ad = ad;
+            Soyad = soyad;
+            Maas = maas;
+        }
     }
 }
