@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hafta6Gun3_OOP1", "Hafta6Gu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hafta6Gun3_OOP2", "Hafta6Gun3_OOP2\Hafta6Gun3_OOP2.csproj", "{EEADD582-D085-4D63-AA07-694ED7E66D5E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hafta6Gun3_OOP3", "Hafta6Gun3_OOP3\Hafta6Gun3_OOP3.csproj", "{D1056995-B76D-4956-B77D-68B068E653D9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hafta6Gun3_OOP4", "Hafta6Gun3_OOP4\Hafta6Gun3_OOP4.csproj", "{67BC7ECB-8F09-4DBF-B9D7-71AB18C905A9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{EEADD582-D085-4D63-AA07-694ED7E66D5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EEADD582-D085-4D63-AA07-694ED7E66D5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EEADD582-D085-4D63-AA07-694ED7E66D5E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1056995-B76D-4956-B77D-68B068E653D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1056995-B76D-4956-B77D-68B068E653D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1056995-B76D-4956-B77D-68B068E653D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1056995-B76D-4956-B77D-68B068E653D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67BC7ECB-8F09-4DBF-B9D7-71AB18C905A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67BC7ECB-8F09-4DBF-B9D7-71AB18C905A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67BC7ECB-8F09-4DBF-B9D7-71AB18C905A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67BC7ECB-8F09-4DBF-B9D7-71AB18C905A9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
