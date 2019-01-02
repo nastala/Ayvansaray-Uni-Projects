@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2048
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hafta6Gun3_OOP1", "Hafta6Gun1_OOP1\Hafta6Gun3_OOP1.csproj", "{7210598E-194D-428C-9DFD-E549BEE84E59}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hafta6Gun3_OOP2", "Hafta6Gun3_OOP2\Hafta6Gun3_OOP2.csproj", "{EEADD582-D085-4D63-AA07-694ED7E66D5E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7210598E-194D-428C-9DFD-E549BEE84E59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7210598E-194D-428C-9DFD-E549BEE84E59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7210598E-194D-428C-9DFD-E549BEE84E59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7210598E-194D-428C-9DFD-E549BEE84E59}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EEADD582-D085-4D63-AA07-694ED7E66D5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEADD582-D085-4D63-AA07-694ED7E66D5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEADD582-D085-4D63-AA07-694ED7E66D5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEADD582-D085-4D63-AA07-694ED7E66D5E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {75D8C2BE-BEF1-4874-A4A0-CA79C0567B04}
+	EndGlobalSection
+EndGlobal
