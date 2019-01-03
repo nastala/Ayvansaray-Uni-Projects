@@ -1,0 +1,7 @@
+C:\Users\OmerC\source\repos\DelegateTutorial\DelegateTutorial\bin\Debug\DelegateTutorial.exe.config
+C:\Users\OmerC\source\repos\DelegateTutorial\DelegateTutorial\bin\Debug\DelegateTutorial.exe
+C:\Users\OmerC\source\repos\DelegateTutorial\DelegateTutorial\bin\Debug\DelegateTutorial.pdb
+C:\Users\OmerC\source\repos\DelegateTutorial\DelegateTutorial\obj\Debug\DelegateTutorial.csprojAssemblyReference.cache
+C:\Users\OmerC\source\repos\DelegateTutorial\DelegateTutorial\obj\Debug\DelegateTutorial.csproj.CoreCompileInputs.cache
+C:\Users\OmerC\source\repos\DelegateTutorial\DelegateTutorial\obj\Debug\DelegateTutorial.exe
+C:\Users\OmerC\source\repos\DelegateTutorial\DelegateTutorial\obj\Debug\DelegateTutorial.pdb
