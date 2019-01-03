@@ -74,6 +74,8 @@ namespace Hafta6Gun3_OOP7
             ogrenciler.Add(yeniOgrenci);
             Doldur();
             dataGridView1.Rows[dataGridView1.Rows.Count - 1].Selected = true;
+            dataGridView1.CurrentCell = dataGridView1.Rows[dataGridView1.Rows.Count - 1].Cells[0];
+            secilenOgrenci = (Classlar.Ogrenci)dataGridView1.CurrentRow.DataBoundItem;
         }
 
         private void btnSil_Click(object sender, EventArgs e)
