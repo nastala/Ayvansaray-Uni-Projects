@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="kutuphane" Class="KutuphaneDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=kutuphane;Integrated Security=True" SettingsObjectName="Grup3_OOP.Properties.Settings" SettingsPropertyName="kutuphaneConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.islem" Member="islems">
+    <Type Name="islem">
+      <Column Name="islemno" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ogrno" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="kitapno" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="atarih" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="vtarih" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="kitap_islem" Member="kitap" ThisKey="kitapno" OtherKey="kitapno" Type="kitap" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="ogrenci_islem" Member="ogrenci" ThisKey="ogrno" OtherKey="ogrno" Type="ogrenci" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.kitap" Member="kitaps">
+    <Type Name="kitap">
+      <Column Name="kitapno" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="isbnno" Type="System.String" DbType="Char(20)" CanBeNull="true" />
+      <Column Name="kitapadi" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="yazarno" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="turno" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="sayfasayisi" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="puan" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="kitap_islem" Member="islems" ThisKey="kitapno" OtherKey="kitapno" Type="islem" />
+      <Association Name="tur_kitap" Member="tur" ThisKey="turno" OtherKey="turno" Type="tur" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="yazar_kitap" Member="yazar" ThisKey="yazarno" OtherKey="yazarno" Type="yazar" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ogrenci" Member="ogrencis">
+    <Type Name="ogrenci">
+      <Column Name="ogrno" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ograd" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="ogrsoyad" Type="System.String" DbType="NChar(20)" CanBeNull="true" />
+      <Column Name="cinsiyet" Type="System.Char" DbType="NChar(1)" CanBeNull="true" />
+      <Column Name="dtarih" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="sinif" Type="System.String" DbType="NChar(4)" CanBeNull="true" />
+      <Column Name="puan" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Association Name="ogrenci_islem" Member="islems" ThisKey="ogrno" OtherKey="ogrno" Type="islem" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tur" Member="turs">
+    <Type Name="tur">
+      <Column Name="turno" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="turadi" Type="System.String" DbType="NChar(30)" CanBeNull="true" />
+      <Association Name="tur_kitap" Member="kitaps" ThisKey="turno" OtherKey="turno" Type="kitap" />
+    </Type>
+  </Table>
+  <Table Name="dbo.yazar" Member="yazars">
+    <Type Name="yazar">
+      <Column Name="yazarno" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="yazarad" Type="System.String" DbType="NChar(20)" CanBeNull="true" />
+      <Column Name="yazarsoyad" Type="System.String" DbType="NChar(20)" CanBeNull="true" />
+      <Association Name="yazar_kitap" Member="kitaps" ThisKey="yazarno" OtherKey="yazarno" Type="kitap" />
+    </Type>
+  </Table>
+</Database>
