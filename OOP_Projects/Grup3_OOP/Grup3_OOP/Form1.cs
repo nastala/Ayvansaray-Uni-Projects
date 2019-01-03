@@ -28,7 +28,7 @@ namespace Grup3_OOP
             // islemOzetleriDoldur();
 
             // Classlar.Grup3_FakeData fakeData = new Classlar.Grup3_FakeData();
-            dataGridView1.DataSource = Classlar.Grup3_FakeData2.GenerateRandomFullNames(10);
+            dataGridView1.DataSource = Classlar.Grup3_FakeData2.GenerateRandomFullNames(1000);
         }
 
         private void islemOzetleriDoldur()

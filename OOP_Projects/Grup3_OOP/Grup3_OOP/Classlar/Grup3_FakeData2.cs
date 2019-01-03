@@ -40,12 +40,24 @@ namespace Grup3_OOP.Classlar
         "Zaft","Zaitsev","Zalabak","Zalla","Zanjani","Zanol","Zapka","Zeldes","Zerbey","Ziegelhofer","Zielesch","Zilk",
         "Zinnanti","Zitterich","Zulu","Zusi" };
 
+        public static string[] GetMNames(){
+            return _mNames;
+        }
+
+        public static string[] GetFNames(){
+            return _fNames;
+        }
+
+        public static string[] GetSurnames(){
+            return _surnames;
+        }
+
         public static List<FakeData> GenerateRandomFullNames(int listSize){
             List<FakeData> fakeDatas = new List<FakeData>();
             Random r = new Random();
 
             for(int i = 0; i < listSize; i++) {
-                int rGender = r.Next(0, 1);
+                int rGender = r.Next(0, 2);
                 int rName;
                 string name, surname;
                 char gender;
