@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classlar\Grup3_FakeData.cs" />
+    <Compile Include="Classlar\Grup3_FakeData2.cs" />
     <Compile Include="Classlar\IslemOzet.cs" />
     <Compile Include="DB\Kutuphane.designer.cs">
       <AutoGen>True</AutoGen>

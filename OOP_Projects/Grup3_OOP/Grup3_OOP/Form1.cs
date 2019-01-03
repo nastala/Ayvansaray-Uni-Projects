@@ -23,12 +23,12 @@ namespace Grup3_OOP
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            islemOzetler = new List<Classlar.IslemOzet>();
+            // islemOzetler = new List<Classlar.IslemOzet>();
 
-            islemOzetleriDoldur();
+            // islemOzetleriDoldur();
 
-            Classlar.Grup3_FakeData fakeData = new Classlar.Grup3_FakeData();
-            dataGridView1.DataSource = fakeData.KarmalariGetir(100);
+            // Classlar.Grup3_FakeData fakeData = new Classlar.Grup3_FakeData();
+            dataGridView1.DataSource = Classlar.Grup3_FakeData2.GenerateRandomFullNames(10);
         }
 
         private void islemOzetleriDoldur()
