@@ -12,7 +12,7 @@ namespace DelegateTutorial
         static void Main(string[] args)
         {
             var items = new[] { new Item("TShirt"), new Item("Pants") };
-            var player1 = new Player(PlayerDied, 100, "Player1");
+            IPlayer player1 = new Player(PlayerDied, 100, "Player1");
             player1.GiveItem(items[0]);
             player1.GiveItem(items[1], 3);
             Console.WriteLine(player1.Inventory.ToString());
