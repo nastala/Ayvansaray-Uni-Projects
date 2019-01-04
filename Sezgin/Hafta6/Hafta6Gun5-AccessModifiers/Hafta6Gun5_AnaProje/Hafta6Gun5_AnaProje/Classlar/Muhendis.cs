@@ -12,5 +12,10 @@ namespace Hafta6Gun5_AnaProje.Classlar
         {
             return 0;
         }
+
+        protected string TamIsim()
+        {
+            return "Sezgin Yağlı";
+        }
     }
 }

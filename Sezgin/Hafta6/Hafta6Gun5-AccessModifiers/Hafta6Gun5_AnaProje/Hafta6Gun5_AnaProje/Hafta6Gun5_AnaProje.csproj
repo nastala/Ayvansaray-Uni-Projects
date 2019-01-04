@@ -43,6 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classlar\Kisi.cs" />
+    <Compile Include="Classlar\KisiAbstract.cs" />
+    <Compile Include="Classlar\Muhendis.cs" />
+    <Compile Include="Classlar\Ogrenci.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
