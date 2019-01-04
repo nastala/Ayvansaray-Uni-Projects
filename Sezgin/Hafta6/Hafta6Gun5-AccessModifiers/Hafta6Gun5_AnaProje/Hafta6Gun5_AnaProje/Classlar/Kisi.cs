@@ -24,5 +24,10 @@ namespace Hafta6Gun5_AnaProje.Classlar
             AdSoyad = this.Ad + " " + this.Soyad;
             return AdSoyad;
         }
+
+        protected virtual int maasHesapla(int a, int b)
+        {
+            return 0;
+        }
     }
 }

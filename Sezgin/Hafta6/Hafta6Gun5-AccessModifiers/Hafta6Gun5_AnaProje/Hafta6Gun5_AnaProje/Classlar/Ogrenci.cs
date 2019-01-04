@@ -15,5 +15,10 @@ namespace Hafta6Gun5_AnaProje.Classlar
             this.TCKimlik = 123124;
             this.ogrNo = 1234;
         }
+
+        protected override int maasHesapla(int a, int b)
+        {
+            return a * b;
+        }
     }
 }
