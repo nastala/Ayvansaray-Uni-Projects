@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="FirmaKayit" Class="DbFirmaDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=FirmaKayit;Integrated Security=True" SettingsObjectName="FirmaKayit.Properties.Settings" SettingsPropertyName="FirmaKayitConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.bgFirmaTipi" Member="bgFirmaTipis">
+    <Type Name="bgFirmaTipi">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Ftipi" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Association Name="bgFirmaTipi_bgFirmaKayit" Member="bgFirmaKayits" ThisKey="Id" OtherKey="Ftipi" Type="bgFirmaKayit" />
+    </Type>
+  </Table>
+  <Table Name="dbo.bgFirmaKayit" Member="bgFirmaKayits">
+    <Type Name="bgFirmaKayit">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Fno" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Ftipi" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Fadi" Type="System.String" DbType="NChar(250)" CanBeNull="true" />
+      <Column Name="Fadres" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Ftel1" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Ftel2" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Ffax" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Fyetkili" Type="System.String" DbType="NVarChar(120)" CanBeNull="true" />
+      <Column Name="Fdepertman" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Fweb" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Femail" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Fvd" Type="System.String" DbType="NVarChar(80)" CanBeNull="true" />
+      <Column Name="Fvno" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="saveUser" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="saveDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="updateUser" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="updateDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Association Name="bgFirmaTipi_bgFirmaKayit" Member="bgFirmaTipi" ThisKey="Ftipi" OtherKey="Id" Type="bgFirmaTipi" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
