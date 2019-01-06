@@ -1,0 +1,1 @@
+Regular Expression: https://docs.microsoft.com/en-us/sql/ssms/scripting/search-text-with-regular-expressions?view=sql-server-2017
