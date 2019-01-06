@@ -1,1 +1,3 @@
 Heap - Stack Difference: https://www.programmerinterview.com/index.php/data-structures/difference-between-stack-and-heap/
+Big Endian Little Endian: https://chortle.ccsu.edu/AssemblyTutorial/Chapter-15/ass15_3.html
+ 
