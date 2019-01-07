@@ -16,6 +16,13 @@ namespace ButikOtelRezervasyonu1
          ve bir sonraki gun temizlik icin bos birakilabilir mi diye kontrol etmesin
          -Gun sonu isleminde son gun icin rezerve edilmis odanýn sonraki gunune otomatik olarak temizlik gunu eklenir.
              */
+        /*
+         Rezervasyon yapma iþlemini bir classa toplayýn ve bütün hatalarý düzeltin.
+         Genel hatlarýyla bir rezervasyon classý olacak, 2 bir tane rezervasyon enumý boþ dolu, temizlik, 3 bir tane de rastgele doldur methodu yapýn,verilen arrayi girin
+         son aþama bir tane method, bugünkü boþ odalar, ikinci method aylýk doluluk durumu, üçüncü method bugün için hýzlý rezervasyon, iki tarih arasý rezervasyon,
+         bugün için hýzlý -> iki tarih arasý rezervasyon çaðýracak tek satýr,
+         gün sonu iþlemi methodu
+             */
         const int odaSayisi = 10;
         const int gunSayisi = 30;
         static int[,] rezervasyonDurumu = new int[odaSayisi, gunSayisi];
