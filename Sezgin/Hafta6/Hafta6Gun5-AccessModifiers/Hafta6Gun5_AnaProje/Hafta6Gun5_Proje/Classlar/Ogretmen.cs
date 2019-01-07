@@ -10,5 +10,10 @@ namespace Hafta6Gun5_Proje.Classlar
     public class Ogretmen : Hafta6Gun5_AnaProje.Classlar.Kisi
     {
 
+        public Ogretmen()
+        {
+            this.TCKimlik = 12313;
+            this.KrediKartNo = 1111;
+        }
     }
 }

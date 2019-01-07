@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Hafta6Gun5_AnaProje.Classlar
 {
-    class Ogrenci : Kisi
+    public class Ogrenci : Kisi
     {
         int ogrNo;
 

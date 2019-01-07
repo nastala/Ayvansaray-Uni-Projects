@@ -26,6 +26,14 @@ namespace Hafta6Gun5_Proje
             // kisi.Yas = 33;
             // private
             // fullName = kisi.adSoyad();
+
+            Hafta6Gun5_AnaProje.Classlar.Ogrenci ogrenci = new Hafta6Gun5_AnaProje.Classlar.Ogrenci();
+
+            // eklendi
+            Classlar.Ogretmen ogretmen = new Classlar.Ogretmen();
+            
+            // protected internal
+            // ogretmen.KrediKartNo = 123123;
         }
     }
 }

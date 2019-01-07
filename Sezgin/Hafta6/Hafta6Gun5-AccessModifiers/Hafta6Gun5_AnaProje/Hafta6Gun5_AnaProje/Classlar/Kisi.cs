@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Hafta6Gun5_AnaProje.Classlar
 {
-    class Kisi
+    public class Kisi
     {
         private string AdSoyad;
         internal int Yas { get; set; }

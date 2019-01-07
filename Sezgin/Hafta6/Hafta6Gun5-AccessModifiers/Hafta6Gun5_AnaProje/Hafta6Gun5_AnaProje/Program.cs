@@ -14,6 +14,8 @@ namespace Hafta6Gun5_AnaProje
             Console.WriteLine(muhendis.MaasHesapla());
             // Console.WriteLine(muhendis.TamIsim()); Protected method olduğu için hata veriyor.
             Console.ReadLine();
+            Classlar.Ogrenci ogrenci = new Classlar.Ogrenci();
+            ogrenci.KrediKartNo = 1234;
         }
     }
 }
