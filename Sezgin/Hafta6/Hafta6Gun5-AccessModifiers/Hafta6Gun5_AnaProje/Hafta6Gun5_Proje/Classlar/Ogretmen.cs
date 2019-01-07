@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Hafta6Gun5_AnaProje;
 
 namespace Hafta6Gun5_Proje.Classlar
 {
-    class Ogretmen
+    public class Ogretmen : Hafta6Gun5_AnaProje.Classlar.Kisi
     {
 
     }
