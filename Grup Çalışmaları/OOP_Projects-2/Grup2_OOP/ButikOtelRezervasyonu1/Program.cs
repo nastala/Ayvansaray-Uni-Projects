@@ -22,6 +22,7 @@ namespace ButikOtelRezervasyonu1
          son aþama bir tane method, bugünkü boþ odalar, ikinci method aylýk doluluk durumu, üçüncü method bugün için hýzlý rezervasyon, iki tarih arasý rezervasyon,
          bugün için hýzlý -> iki tarih arasý rezervasyon çaðýracak tek satýr,
          gün sonu iþlemi methodu
+         Rezervasyon durumu arrayi private olsun
              */
         const int odaSayisi = 10;
         const int gunSayisi = 30;
