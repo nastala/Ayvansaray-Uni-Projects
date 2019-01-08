@@ -31,17 +31,35 @@ namespace ButikOtelRezervasyonu1
         static void Main(string[] args)
         {
             Classlar.Rezervasyon rezervasyon = new Classlar.Rezervasyon();
-            rezervasyon.RastgeleDoldur();
-            rezervasyon.AylikDolulukDurumu();
-            try
+
+            while (true)
             {
-                rezervasyon.BugunkuBosOdalar();
+                Console.WriteLine("");
+                Console.WriteLine("        Butik Otel Rezervasyonu");
+                Console.WriteLine("1-Bugunku bos odalari goster");
+                Console.WriteLine("2-30 gunluk doluluk durumu");
+                Console.WriteLine("3-Bugun icin hizli rezervasyon");
+                Console.WriteLine("4-Iki tarih arasi rezervasyon");
+                Console.WriteLine("5-Gun sonu islemi");
+
+                switch (Console.ReadKey().KeyChar)
+                {
+                    case '1':
+                        rezervasyon.BugunkuBosOdalar();
+                        break;
+                    case '2':
+                        rezervasyon.AylikDolulukDurumu();
+                        break;
+                    case '3':
+                        rezervasyon.BugunIcinHizliRezervasyon();
+                        break;
+                    case '4':
+                        DateTime now = DateTime.Today;
+                        break;
+                    case '5':
+                        break;
+                }
             }
-            catch(Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
-            Console.ReadKey();
             //rezervasyonDurumu[0, 0] = 1;
             //rezervasyonDurumu[0, 1] = 2;
             //rezervasyonDurumu[0, 5] = 1;

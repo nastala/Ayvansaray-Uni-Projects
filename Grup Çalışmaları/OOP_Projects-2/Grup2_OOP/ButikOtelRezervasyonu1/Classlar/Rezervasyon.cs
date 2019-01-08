@@ -16,6 +16,7 @@ namespace ButikOtelRezervasyonu1.Classlar
         }
 
         private OdaDurumu[,] _rezervasyonDurumu;
+        private List<int> _bosOdalar;
         private int _odaSayisi;
         private int _gunSayisi;
         private DateTime _currentDate;
@@ -26,6 +27,8 @@ namespace ButikOtelRezervasyonu1.Classlar
             _gunSayisi = 30;
             _rezervasyonDurumu = new OdaDurumu[_odaSayisi, _gunSayisi];
             _currentDate = DateTime.Today;
+            _bosOdalar = new List<int>();
+            RastgeleDoldur();
         }
 
         public Rezervasyon(int odaSayisi, int gunSayisi)
@@ -34,6 +37,7 @@ namespace ButikOtelRezervasyonu1.Classlar
             _odaSayisi = odaSayisi;
             _gunSayisi = gunSayisi;
             _currentDate = DateTime.Today;
+            _bosOdalar = new List<int>();
         }
 
         public void RastgeleDoldur()
@@ -72,6 +76,8 @@ namespace ButikOtelRezervasyonu1.Classlar
                     }
                 }
             }
+
+            BosOdalariDoldur();
         }
 
         private string OdaDurumuToText(OdaDurumu odaDurumu)
@@ -117,18 +123,23 @@ namespace ButikOtelRezervasyonu1.Classlar
             }
         }
 
-        public void BugunkuBosOdalar()
+        private void BosOdalariDoldur()
         {
-            List<int> bosOdalar = new List<int>();
-            for(int i = 0; i < _odaSayisi; i++)
+            _bosOdalar.Clear();
+            for (int i = 0; i < _odaSayisi; i++)
             {
                 if (_rezervasyonDurumu[i, 0] == OdaDurumu.Bos && _rezervasyonDurumu[i, 1] == OdaDurumu.Bos)
-                    bosOdalar.Add(i + 1);
+                    _bosOdalar.Add(i);
             }
-            if (bosOdalar.Count > 0)
+        }
+
+        public void BugunkuBosOdalar()
+        {
+            Console.WriteLine("\n \tBoş odalar:");
+            if (_bosOdalar.Count > 0)
             {
-                foreach (int i in bosOdalar)
-                    Console.WriteLine(i);
+                foreach (int i in _bosOdalar)
+                    Console.WriteLine(string.Format("Oda {0:00}", i + 1));
             }
             else
                 Console.WriteLine("Boş oda bulunamadı");
@@ -136,7 +147,27 @@ namespace ButikOtelRezervasyonu1.Classlar
 
         public void BugunIcinHizliRezervasyon()
         {
+            DateTime dateTime = DateTime.Today;
+            IkiTarihArasiHizliRezervasyon(dateTime, dateTime);
+        }
 
+        public void IkiTarihArasiHizliRezervasyon(DateTime dBaslangic, DateTime dBitis)
+        {
+            #region BugunIcinHizliRezervasyon
+            if (dBaslangic == dBitis)
+            {
+                if (_bosOdalar.Count > 0)
+                {
+                    _rezervasyonDurumu[_bosOdalar[0], 0] = OdaDurumu.Dolu;
+                    _rezervasyonDurumu[_bosOdalar[0], 1] = OdaDurumu.Temizlik;
+                    BosOdalariDoldur();
+                }
+                else
+                {
+                    Console.WriteLine("Bugün için boş oda bulunamadı");
+                }
+            }
+            #endregion
         }
     }
 }
