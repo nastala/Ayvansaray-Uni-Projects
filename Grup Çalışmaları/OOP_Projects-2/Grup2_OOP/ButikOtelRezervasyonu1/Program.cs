@@ -24,6 +24,10 @@ namespace ButikOtelRezervasyonu1
          gün sonu iþlemi methodu
          Rezervasyon durumu arrayi private olsun
              */
+
+        /*
+         Rezervasyondan inherit ederk çadýrrezervasyon, oda kelimelerinin çadýr olarak, ana baþlýk çadýr rezervasyonu
+             */
         const int odaSayisi = 10;
         const int gunSayisi = 30;
         static int[,] rezervasyonDurumu = new int[odaSayisi, gunSayisi];
