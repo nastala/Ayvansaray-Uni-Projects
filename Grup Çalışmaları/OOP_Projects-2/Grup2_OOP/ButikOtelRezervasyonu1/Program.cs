@@ -54,7 +54,7 @@ namespace ButikOtelRezervasyonu1
                         rezervasyon.BugunIcinHizliRezervasyon();
                         break;
                     case '4':
-                        DateTime now = DateTime.Today;
+                        // DateTime now = DateTime.Today;
                         try
                         {
                             Console.Write("\n\t Baþlangýç Tarihini girin(dd-mm-yyyy): ");
@@ -69,6 +69,7 @@ namespace ButikOtelRezervasyonu1
                         }
                         break;
                     case '5':
+                        rezervasyon.GunSonu();
                         break;
                 }
             }
@@ -260,7 +261,7 @@ namespace ButikOtelRezervasyonu1
             //                }
             //                break;
             //            }
-            //    }
+            //    } 
             //}
         }
     }

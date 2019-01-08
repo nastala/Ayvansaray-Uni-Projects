@@ -239,5 +239,27 @@ namespace ButikOtelRezervasyonu1.Classlar
                 Console.WriteLine(string.Format("\n\t Oda {0:00} sizin için ayrıldı.", oda + 1));
             }
         }
+
+        public void GunSonu()
+        {
+            _currentDate = _currentDate.AddDays(1);
+            for(int i = 0; i < _odaSayisi; i++)
+            {
+                for(int j = 0; j < _gunSayisi - 1; j++)
+                {
+                    _rezervasyonDurumu[i, j] = _rezervasyonDurumu[i, j + 1];
+                    if (j == _gunSayisi - 2)
+                    {
+                        if (_rezervasyonDurumu[i, j] == OdaDurumu.Dolu)
+                            _rezervasyonDurumu[i, j + 1] = OdaDurumu.Temizlik;
+                        else
+                            _rezervasyonDurumu[i, j + 1] = OdaDurumu.Bos;
+                    }
+                }
+            }
+
+            BosOdalariDoldur();
+            Console.WriteLine("\n\t Gün sonu işlemi gerçekleştirildi");
+        }
     }
 }
