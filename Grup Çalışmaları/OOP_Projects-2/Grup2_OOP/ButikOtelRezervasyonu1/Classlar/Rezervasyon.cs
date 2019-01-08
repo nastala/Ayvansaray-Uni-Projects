@@ -45,6 +45,8 @@ namespace ButikOtelRezervasyonu1.Classlar
             Random r = new Random();
             int rGun, rOda, rDurum;
             int i = 0;
+
+            #region while
             while(i < 50)
             {
                 rGun = r.Next(0, _gunSayisi);
@@ -76,6 +78,7 @@ namespace ButikOtelRezervasyonu1.Classlar
                     }
                 }
             }
+            #endregion
 
             BosOdalariDoldur();
         }
@@ -101,6 +104,41 @@ namespace ButikOtelRezervasyonu1.Classlar
             return text;
         }
 
+        private void BosOdalariDoldur()
+        {
+            _bosOdalar.Clear();
+            for (int i = 0; i < _odaSayisi; i++)
+            {
+                if (_rezervasyonDurumu[i, 0] == OdaDurumu.Bos && _rezervasyonDurumu[i, 1] == OdaDurumu.Bos)
+                    _bosOdalar.Add(i);
+            }
+        }
+
+        private int TarihAraligindaBosOdayiGetir(int iBaslangic, int iBitis)
+        {
+            bool check = true;
+
+            for(int i = 0; i < 10; i++)
+            {
+                for(int j = iBaslangic; j <= iBitis; j++)
+                {
+                    if (_rezervasyonDurumu[i, j] != OdaDurumu.Bos)
+                    {
+                        check = false;
+                        break;
+                    }
+                }
+                if(check && iBitis != _gunSayisi - 2)
+                {
+                    check = _rezervasyonDurumu[i, iBitis + 1] == OdaDurumu.Bos;
+                }
+                if (check)
+                    return i;
+            }
+
+            return -1;
+        }
+
         public void AylikDolulukDurumu()
         {
             Console.WriteLine();
@@ -120,16 +158,6 @@ namespace ButikOtelRezervasyonu1.Classlar
                     Console.Write(text);
                 }
                 Console.WriteLine();
-            }
-        }
-
-        private void BosOdalariDoldur()
-        {
-            _bosOdalar.Clear();
-            for (int i = 0; i < _odaSayisi; i++)
-            {
-                if (_rezervasyonDurumu[i, 0] == OdaDurumu.Bos && _rezervasyonDurumu[i, 1] == OdaDurumu.Bos)
-                    _bosOdalar.Add(i);
             }
         }
 
@@ -170,6 +198,45 @@ namespace ButikOtelRezervasyonu1.Classlar
                 }
             }
             #endregion
+
+            bool check = true;
+            if (dBaslangic < _currentDate)
+            {
+                Console.WriteLine(string.Format("\n\t Başlangıç tarihi {0:dd-MM-yyyy} tarihinden küçük olamaz", _currentDate));
+                check = false;
+            }
+
+            if(dBitis < dBaslangic)
+            {
+                Console.WriteLine(string.Format("\n\t Bitiş Tarihi Başlangıç Tarihinden küçük olamaz", _currentDate));
+                check = false;
+            }
+
+            if(dBitis > _currentDate.AddDays(_gunSayisi))
+            {
+                Console.WriteLine(string.Format("\n\t Bitiş tarihi {0:dd-MM-yyyy} tarihinden büyük olamaz", _currentDate.AddDays(_gunSayisi)));
+                check = false;
+            }
+
+            if (check)
+            {
+                int gunBaslangic = (dBaslangic - _currentDate).Days;
+                int gunBitis = (dBitis - _currentDate).Days;
+                int oda = TarihAraligindaBosOdayiGetir(gunBaslangic, gunBitis);
+                if(oda == -1)
+                {
+                    Console.Write("\n\t Belirlenen tarih aralığında boş oda bulunamadı");
+                    return;
+                }
+                for (int i = gunBaslangic; i <= gunBitis; i++)
+                {
+                    _rezervasyonDurumu[oda, i] = OdaDurumu.Dolu;
+                }
+                if(gunBitis != _gunSayisi - 1)
+                    _rezervasyonDurumu[oda, gunBitis + 1] = OdaDurumu.Temizlik;
+                BosOdalariDoldur();
+                Console.WriteLine(string.Format("\n\t Oda {0:00} sizin için ayrıldı.", oda + 1));
+            }
         }
     }
 }

@@ -55,6 +55,18 @@ namespace ButikOtelRezervasyonu1
                         break;
                     case '4':
                         DateTime now = DateTime.Today;
+                        try
+                        {
+                            Console.Write("\n\t Baþlangýç Tarihini girin(dd-mm-yyyy): ");
+                            DateTime dBaslangic = DateTime.Parse(Console.ReadLine());
+                            Console.Write("\n\t Bitiþ Tarihini girin(dd-mm-yyyy): ");
+                            DateTime dBitis = DateTime.Parse(Console.ReadLine());
+                            rezervasyon.IkiTarihArasiHizliRezervasyon(dBaslangic, dBitis);
+                        }
+                        catch(Exception e)
+                        {
+                            Console.WriteLine("\n\t Bir Hata Meydana Geldi " + e.Message);
+                        }
                         break;
                     case '5':
                         break;
