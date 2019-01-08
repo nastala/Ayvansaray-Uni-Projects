@@ -20,6 +20,14 @@ namespace ButikOtelRezervasyonu1.Classlar
         private int _gunSayisi;
         private DateTime _currentDate;
 
+        public Rezervasyon()
+        {
+            _odaSayisi = 10;
+            _gunSayisi = 30;
+            _rezervasyonDurumu = new OdaDurumu[_odaSayisi, _gunSayisi];
+            _currentDate = DateTime.Today;
+        }
+
         public Rezervasyon(int odaSayisi, int gunSayisi)
         {
             _rezervasyonDurumu = new OdaDurumu[odaSayisi, gunSayisi];
@@ -30,36 +38,98 @@ namespace ButikOtelRezervasyonu1.Classlar
 
         public void RastgeleDoldur()
         {
-            _rezervasyonDurumu[0, 0] = OdaDurumu.Dolu;
-            _rezervasyonDurumu[0, 1] = OdaDurumu.Temizlik;
-            _rezervasyonDurumu[0, 5] = OdaDurumu.Dolu;
-            _rezervasyonDurumu[0, 6] = OdaDurumu.Temizlik;
-            _rezervasyonDurumu[1, 7] = OdaDurumu.Dolu;
-            _rezervasyonDurumu[1, 8] = OdaDurumu.Temizlik;
-            _rezervasyonDurumu[2, 9] = OdaDurumu.Dolu;
-            _rezervasyonDurumu[2, 10] = OdaDurumu.Temizlik;
-            _rezervasyonDurumu[5, 15] = OdaDurumu.Dolu;
-            _rezervasyonDurumu[5, 16] = OdaDurumu.Temizlik;
-            _rezervasyonDurumu[8, 20] = OdaDurumu.Dolu;
-            _rezervasyonDurumu[8, 21] = OdaDurumu.Temizlik;
-            _rezervasyonDurumu[0, 27] = OdaDurumu.Dolu;
-            _rezervasyonDurumu[0, 28] = OdaDurumu.Temizlik;
-            _rezervasyonDurumu[9, 29] = OdaDurumu.Dolu;
-            _rezervasyonDurumu[4, 0] = OdaDurumu.Temizlik;
-            _rezervasyonDurumu[5, 1] = OdaDurumu.Dolu;
-            _rezervasyonDurumu[5, 2] = OdaDurumu.Temizlik;
+            Random r = new Random();
+            int rGun, rOda, rDurum;
+            int i = 0;
+            while(i < 50)
+            {
+                rGun = r.Next(0, _gunSayisi);
+                rOda = r.Next(0, _odaSayisi);
+                rDurum = r.Next(0, 2);
+                if (_rezervasyonDurumu[rOda, rGun] == 0)
+                {
+                    if(rDurum == 1)
+                    {
+                        if (rGun != _gunSayisi - 1)
+                        {
+                            if (_rezervasyonDurumu[rOda, rGun + 1] == OdaDurumu.Bos)
+                            {
+                                _rezervasyonDurumu[rOda, rGun] = OdaDurumu.Dolu;
+                                _rezervasyonDurumu[rOda, rGun + 1] = OdaDurumu.Temizlik;
+                                i++;
+                            }
+                        }
+                        else
+                        {
+                            _rezervasyonDurumu[rOda, rGun] = OdaDurumu.Dolu;
+                            i++;
+                        }
+                    }
+                    else
+                    {
+                        _rezervasyonDurumu[rOda, rGun] = (OdaDurumu)rDurum;
+                        i++;
+                    }
+                }
+            }
         }
 
-        public string[] bugunkuBosOdalar()
+        private string OdaDurumuToText(OdaDurumu odaDurumu)
         {
-            List<OdaDurumu> bosOdalar = new List<OdaDurumu>();
+            string text;
+            switch (odaDurumu)
+            {
+                case OdaDurumu.Bos:
+                    text = " - ";
+                    break;
+                case OdaDurumu.Dolu:
+                    text = " D ";
+                    break;
+                case OdaDurumu.Temizlik:
+                    text = " x ";
+                    break;
+                default:
+                    text = " - ";
+                    break;
+            }
+            return text;
+        }
+
+        public void AylikDolulukDurumu()
+        {
             for(int i = 0; i < _odaSayisi; i++)
             {
-                OdaDurumu oda = _rezervasyonDurumu[i, 0];
-                if (oda == OdaDurumu.Bos)
-                    bosOdalar.Add(oda);
+                for(int j = 0; j < _gunSayisi; j++)
+                {
+                    OdaDurumu odaDurumu = _rezervasyonDurumu[i, j];
+                    string text = OdaDurumuToText(odaDurumu);
+                    
+                    Console.Write(text);
+                }
+                Console.WriteLine();
             }
-            return null;
+        }
+
+        public void BugunkuBosOdalar()
+        {
+            List<int> bosOdalar = new List<int>();
+            for(int i = 0; i < _odaSayisi; i++)
+            {
+                if (_rezervasyonDurumu[i, 0] == OdaDurumu.Bos && _rezervasyonDurumu[i, 1] == OdaDurumu.Bos)
+                    bosOdalar.Add(i + 1);
+            }
+            if (bosOdalar.Count > 0)
+            {
+                foreach (int i in bosOdalar)
+                    Console.WriteLine(i);
+            }
+            else
+                Console.WriteLine("Boş oda bulunamadı");
+        }
+
+        public void BugunIcinHizliRezervasyon()
+        {
+
         }
     }
 }
