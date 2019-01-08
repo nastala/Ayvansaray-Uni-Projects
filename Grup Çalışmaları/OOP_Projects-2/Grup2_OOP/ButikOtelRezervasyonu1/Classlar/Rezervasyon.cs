@@ -158,13 +158,15 @@ namespace ButikOtelRezervasyonu1.Classlar
             {
                 if (_bosOdalar.Count > 0)
                 {
-                    _rezervasyonDurumu[_bosOdalar[0], 0] = OdaDurumu.Dolu;
-                    _rezervasyonDurumu[_bosOdalar[0], 1] = OdaDurumu.Temizlik;
+                    int oda = _bosOdalar[0];
+                    _rezervasyonDurumu[oda, 0] = OdaDurumu.Dolu;
+                    _rezervasyonDurumu[oda, 1] = OdaDurumu.Temizlik;
                     BosOdalariDoldur();
+                    Console.WriteLine(string.Format("\n\tOda {0:00} sizin için ayrıldı", oda + 1));
                 }
                 else
                 {
-                    Console.WriteLine("Bugün için boş oda bulunamadı");
+                    Console.WriteLine("\n\tBugün için boş oda bulunamadı");
                 }
             }
             #endregion
