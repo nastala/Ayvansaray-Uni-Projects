@@ -120,6 +120,7 @@ namespace ButikOtelRezervasyonu1.Classlar
 
             for(int i = 0; i < 10; i++)
             {
+                check = true;
                 for(int j = iBaslangic; j <= iBitis; j++)
                 {
                     if (_rezervasyonDurumu[i, j] != OdaDurumu.Bos)
@@ -128,7 +129,7 @@ namespace ButikOtelRezervasyonu1.Classlar
                         break;
                     }
                 }
-                if(check && iBitis != _gunSayisi - 2)
+                if(check && iBitis != _gunSayisi - 1)
                 {
                     check = _rezervasyonDurumu[i, iBitis + 1] == OdaDurumu.Bos;
                 }
