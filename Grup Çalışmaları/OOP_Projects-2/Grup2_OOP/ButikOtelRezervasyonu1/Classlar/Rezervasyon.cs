@@ -97,13 +97,20 @@ namespace ButikOtelRezervasyonu1.Classlar
 
         public void AylikDolulukDurumu()
         {
-            for(int i = 0; i < _odaSayisi; i++)
+            Console.WriteLine();
+            Console.WriteLine("30 gunluk doluluk durumu");
+            Console.Write("      ");
+            for (int j = 0; j < _gunSayisi; j++)
             {
-                for(int j = 0; j < _gunSayisi; j++)
+                Console.Write(" {0:00}", _currentDate.AddDays(j).Day);
+            }
+            Console.WriteLine();
+            for (int i = 0; i < _odaSayisi; i++)
+            {
+                Console.Write("Oda {0:00}", i + 1);
+                for (int j = 0; j < _gunSayisi; j++)
                 {
-                    OdaDurumu odaDurumu = _rezervasyonDurumu[i, j];
-                    string text = OdaDurumuToText(odaDurumu);
-                    
+                    string text = OdaDurumuToText(_rezervasyonDurumu[i, j]);
                     Console.Write(text);
                 }
                 Console.WriteLine();
