@@ -32,31 +32,60 @@ namespace ButikOtelRezervasyonu1.Classlar
             TarihCetveliniYazdir();
         }
 
-        public void KucukCadirRezervasyon()
+        public void KucukCadirRezervasyon(DateTime dBaslangic, DateTime dBitis)
         {
-            this.BugunIcinHizliRezervasyon();
+            this.IkiTarihArasiHizliRezervasyon(dBaslangic, dBitis);
         }
 
         private void BugunIcinBuyukCadirRezervasyon()
         {
+            bool check = false;
             if (_bosOdalar.Count > 1)
             {
                 for(int i = 0; i < _bosOdalar.Count - 1; i++)
                 {
                     if(_bosOdalar[i] + 1 == _bosOdalar[i + 1])
                     {
-                        int oda = _bosOdalar[0];
+                        int oda = _bosOdalar[i];
                         _rezervasyonDurumu[oda, 0] = OdaDurumu.Dolu;
                         _rezervasyonDurumu[oda, 1] = OdaDurumu.Temizlik;
-                        GunBazindaDolulukDoldur();
+                        _rezervasyonDurumu[oda + 1, 0] = OdaDurumu.Dolu;
+                        _rezervasyonDurumu[oda + 1, 1] = OdaDurumu.Temizlik;
+                        BosOdalariDoldur();
                         Console.WriteLine(string.Format("\n\tOda {0:00} sizin için ayrıldı", oda + 1));
+                        check = true;
+                        break;
                     }
                 }
             }
-            else
-            {
+            if(!check)
                 Console.WriteLine("\n\tBugün için boş büyük çadır bulunamadı");
+        }
+
+        private int TarihAraligindaBosOdayiGetir(int iBaslangic, int iBitis)
+        {
+            bool check = true;
+
+            for (int i = 0; i < _odaSayisi - 1; i++)
+            {
+                check = true;
+                for (int j = iBaslangic; j <= iBitis; j++)
+                {
+                    if (_rezervasyonDurumu[i, j] != OdaDurumu.Bos || _rezervasyonDurumu[i + 1, j] != OdaDurumu.Bos)
+                    {
+                        check = false;
+                        break;
+                    }
+                }
+                if (check && iBitis != _gunSayisi - 1)
+                {
+                    check = _rezervasyonDurumu[i, iBitis + 1] == OdaDurumu.Bos && _rezervasyonDurumu[i + 1, iBitis + 1] == OdaDurumu.Bos;
+                }
+                if (check)
+                    return i;
             }
+
+            return -1;
         }
 
         public void BuyukCadirRezervasyon(DateTime dBaslangic, DateTime dBitis)
@@ -68,7 +97,7 @@ namespace ButikOtelRezervasyonu1.Classlar
                 return;
             }
             #endregion
-
+            
             bool check = true;
             if (dBaslangic < _currentDate)
             {
@@ -95,15 +124,19 @@ namespace ButikOtelRezervasyonu1.Classlar
                 int oda = TarihAraligindaBosOdayiGetir(gunBaslangic, gunBitis);
                 if (oda == -1)
                 {
-                    Console.Write("\n\t Belirlenen tarih aralığında boş oda bulunamadı");
+                    Console.Write("\n\t Belirlenen tarih aralığında boş büyük çadır bulunamadı");
                     return;
                 }
                 for (int i = gunBaslangic; i <= gunBitis; i++)
                 {
                     _rezervasyonDurumu[oda, i] = OdaDurumu.Dolu;
+                    _rezervasyonDurumu[oda + 1, i] = OdaDurumu.Dolu;
                 }
                 if (gunBitis != _gunSayisi - 1)
+                {
                     _rezervasyonDurumu[oda, gunBitis + 1] = OdaDurumu.Temizlik;
+                    _rezervasyonDurumu[oda + 1, gunBitis + 1] = OdaDurumu.Temizlik;
+                }
                 BosOdalariDoldur();
                 Console.WriteLine(string.Format("\n\t Oda {0:00} sizin için ayrıldı.", oda + 1));
             }

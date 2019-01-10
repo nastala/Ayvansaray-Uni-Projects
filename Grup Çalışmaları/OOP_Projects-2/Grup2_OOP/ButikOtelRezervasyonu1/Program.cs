@@ -42,13 +42,17 @@ namespace ButikOtelRezervasyonu1
             while (true)
             {
                 Console.WriteLine("");
-                Console.WriteLine("        Butik Otel Rezervasyonu");
-                Console.WriteLine("1-Bugunku bos odalari goster");
+                Console.WriteLine("        Çadýr Yeri Rezervasyonu");
+                Console.WriteLine("1-Bugunku bos yerleri goster");
                 Console.WriteLine("2-30 gunluk doluluk durumu");
-                Console.WriteLine("3-Bugun icin hizli rezervasyon");
-                Console.WriteLine("4-Iki tarih arasi rezervasyon");
-                Console.WriteLine("5-Gun sonu islemi");
+                Console.WriteLine("3-Gün bazýnda doluluk oranlarý");
+                Console.WriteLine("4-Bugün için hýzlý rezervasyon <küçük çadýr>");
+                Console.WriteLine("5-Ýki tarih arasý hýzlý rezervasyon <küçük çadýr>");
+                Console.WriteLine("6-Bugün için hýzlý rezervasyon <büyük çadýr>");
+                Console.WriteLine("7-Ýki tarih arasý hýzlý rezervasyon <büyük çadýr>");
+                Console.WriteLine("8-Gun sonu islemi");
 
+                DateTime now = DateTime.Today;
                 switch (Console.ReadKey().KeyChar)
                 {
                     case '1':
@@ -58,25 +62,44 @@ namespace ButikOtelRezervasyonu1
                         cadir.AylikDolulukDurumu();
                         break;
                     case '3':
-                        cadir.KucukCadirRezervasyon();
+                        cadir.GunBazindaDoluluk();
                         break;
                     case '4':
-                        // DateTime now = DateTime.Today;
+                        cadir.KucukCadirRezervasyon(now, now);
+                        break;
+                    case '5':
                         try
                         {
                             Console.Write("\n\t Baþlangýç Tarihini girin(dd-mm-yyyy): ");
                             DateTime dBaslangic = DateTime.Parse(Console.ReadLine());
                             Console.Write("\n\t Bitiþ Tarihini girin(dd-mm-yyyy): ");
                             DateTime dBitis = DateTime.Parse(Console.ReadLine());
-                            rezervasyon.IkiTarihArasiHizliRezervasyon(dBaslangic, dBitis);
+                            cadir.KucukCadirRezervasyon(dBaslangic, dBitis);
                         }
-                        catch(Exception e)
+                        catch (Exception e)
                         {
                             Console.WriteLine("\n\t Bir Hata Meydana Geldi " + e.Message);
                         }
                         break;
-                    case '5':
-                        rezervasyon.GunSonu();
+                    case '6':
+                        cadir.BuyukCadirRezervasyon(now, now);
+                        break;
+                    case '7':
+                        try
+                        {
+                            Console.Write("\n\t Baþlangýç Tarihini girin(dd-mm-yyyy): ");
+                            DateTime dBaslangic = DateTime.Parse(Console.ReadLine());
+                            Console.Write("\n\t Bitiþ Tarihini girin(dd-mm-yyyy): ");
+                            DateTime dBitis = DateTime.Parse(Console.ReadLine());
+                            cadir.BuyukCadirRezervasyon(dBaslangic, dBitis);
+                        }
+                        catch (Exception e)
+                        {
+                            Console.WriteLine("\n\t Bir Hata Meydana Geldi " + e.Message);
+                        }
+                        break;
+                    case '8':
+                        cadir.GunSonu();
                         break;
                 }
             }

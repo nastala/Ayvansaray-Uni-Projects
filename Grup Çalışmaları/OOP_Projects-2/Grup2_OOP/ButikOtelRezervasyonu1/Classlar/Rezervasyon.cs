@@ -104,7 +104,7 @@ namespace ButikOtelRezervasyonu1.Classlar
             return text;
         }
 
-        private void BosOdalariDoldur()
+        protected void BosOdalariDoldur()
         {
             _bosOdalar.Clear();
             for (int i = 0; i < _odaSayisi; i++)
@@ -118,7 +118,7 @@ namespace ButikOtelRezervasyonu1.Classlar
         {
             bool check = true;
 
-            for(int i = 0; i < 10; i++)
+            for(int i = 0; i < _odaSayisi; i++)
             {
                 check = true;
                 for(int j = iBaslangic; j <= iBitis; j++)
