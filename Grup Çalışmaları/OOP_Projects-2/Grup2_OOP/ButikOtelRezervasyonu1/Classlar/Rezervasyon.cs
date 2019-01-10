@@ -15,11 +15,11 @@ namespace ButikOtelRezervasyonu1.Classlar
             Temizlik
         }
 
-        private OdaDurumu[,] _rezervasyonDurumu;
-        private List<int> _bosOdalar;
-        private int _odaSayisi;
-        private int _gunSayisi;
-        private DateTime _currentDate;
+        protected OdaDurumu[,] _rezervasyonDurumu;
+        protected List<int> _bosOdalar;
+        protected int _odaSayisi;
+        protected int _gunSayisi;
+        protected DateTime _currentDate;
 
         public Rezervasyon()
         {
@@ -40,7 +40,7 @@ namespace ButikOtelRezervasyonu1.Classlar
             _bosOdalar = new List<int>();
         }
 
-        public void RastgeleDoldur()
+        protected void RastgeleDoldur()
         {
             Random r = new Random();
             int rGun, rOda, rDurum;
@@ -197,6 +197,7 @@ namespace ButikOtelRezervasyonu1.Classlar
                 {
                     Console.WriteLine("\n\tBugün için boş oda bulunamadı");
                 }
+                return;
             }
             #endregion
 

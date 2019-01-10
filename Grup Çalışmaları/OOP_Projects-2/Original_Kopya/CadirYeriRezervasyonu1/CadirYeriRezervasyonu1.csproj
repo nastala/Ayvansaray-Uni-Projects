@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{9FDB2D48-BE25-4CEA-A2A3-8ECB2216FB4D}</ProjectGuid>
+    <ProjectGuid>{B3FD3E75-345E-4DF5-B54E-F0E7ECC24DF7}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>ButikOtelRezervasyonu1</RootNamespace>
-    <AssemblyName>ButikOtelRezervasyonu1</AssemblyName>
+    <RootNamespace>ButikCadirYeriRezervasyonu1</RootNamespace>
+    <AssemblyName>ButikCadirYeriRezervasyonu1</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -42,14 +42,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classlar\Cadir.cs" />
-    <Compile Include="Classlar\Rezervasyon.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

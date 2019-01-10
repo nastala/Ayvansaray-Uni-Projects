@@ -35,7 +35,10 @@ namespace ButikOtelRezervasyonu1
         static void Main(string[] args)
         {
             Classlar.Rezervasyon rezervasyon = new Classlar.Rezervasyon();
-
+            Classlar.Cadir cadir = new Classlar.Cadir();
+            cadir.AylikDolulukDurumu();
+            cadir.GunBazindaDoluluk();
+            Console.ReadKey();
             while (true)
             {
                 Console.WriteLine("");
@@ -49,13 +52,13 @@ namespace ButikOtelRezervasyonu1
                 switch (Console.ReadKey().KeyChar)
                 {
                     case '1':
-                        rezervasyon.BugunkuBosOdalar();
+                        cadir.BugunkuBosOdalar();
                         break;
                     case '2':
-                        rezervasyon.AylikDolulukDurumu();
+                        cadir.AylikDolulukDurumu();
                         break;
                     case '3':
-                        rezervasyon.BugunIcinHizliRezervasyon();
+                        cadir.KucukCadirRezervasyon();
                         break;
                     case '4':
                         // DateTime now = DateTime.Today;
