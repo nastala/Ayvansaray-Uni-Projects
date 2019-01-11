@@ -10,7 +10,7 @@ namespace DelegateTutorial.Classes
     {
         public int HP { get; private set; }
         public string Name { get; set; }
-        public event Action<Player> PlayerDied;
+        private event Action<Player> PlayerDied;
 
 
         public Player(Action<Player> deathEvent, int hp, string playerName)

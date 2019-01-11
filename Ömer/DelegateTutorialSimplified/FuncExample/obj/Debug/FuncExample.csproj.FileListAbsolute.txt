@@ -1,0 +1,6 @@
+E:\Projects\DelegateTutorialSimplified\FuncExample\bin\Debug\FuncExample.exe.config
+E:\Projects\DelegateTutorialSimplified\FuncExample\bin\Debug\FuncExample.exe
+E:\Projects\DelegateTutorialSimplified\FuncExample\bin\Debug\FuncExample.pdb
+E:\Projects\DelegateTutorialSimplified\FuncExample\obj\Debug\FuncExample.csproj.CoreCompileInputs.cache
+E:\Projects\DelegateTutorialSimplified\FuncExample\obj\Debug\FuncExample.exe
+E:\Projects\DelegateTutorialSimplified\FuncExample\obj\Debug\FuncExample.pdb
