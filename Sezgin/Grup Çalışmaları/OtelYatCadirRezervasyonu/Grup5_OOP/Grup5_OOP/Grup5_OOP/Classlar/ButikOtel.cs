@@ -46,5 +46,32 @@ namespace Grup5_OOP.Classlar
             }
             return -1;
         }
+
+        public int BugunIcinTekYerlikBosOda(int iBaslangic, int iBitis)
+        {
+            for(int i = 0; i <= odaSayisi; i++)
+            {
+                bool check = true;
+                for (int j = iBaslangic; j < iBitis; j++)
+                {
+                    if (rezervasyonDurumu[i, j] != RezervasyonEnum.Bos)
+                    {
+                        check = false;
+                        break;
+                    }
+
+                    if (check)
+                    {
+                        if(iBitis < gunSayisi - 1)
+                            check = rezervasyonDurumu[i, iBitis + 1] == RezervasyonEnum.Bos;
+                    }
+
+                    if (check)
+                        return i;
+                }
+            }
+
+            return -1;
+        }
     }
 }

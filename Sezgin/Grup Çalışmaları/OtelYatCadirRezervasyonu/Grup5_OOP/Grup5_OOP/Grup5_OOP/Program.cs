@@ -46,7 +46,7 @@ namespace Grup5_OOP
                             break;
                     }
                 }
-                if (rezervasyon != null)
+                else if (rezervasyon != null)
                 {
                     Console.WriteLine("");
                     Console.WriteLine(string.Format("\t{0}", rezervasyon.UygulamaAdi()));

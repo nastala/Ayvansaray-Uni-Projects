@@ -96,10 +96,7 @@ namespace Grup5_OOP.Classlar
             //rezervasyonDurumu[5, 2] = RezervasyonEnum.Temizlik;
         }
 
-        protected virtual int BugunIcinTekYerlikBosOda()
-        {
-            return -1;
-        }
+        protected virtual int BugunIcinTekYerlikBosOda() { return -1; }
 
         protected virtual int BugunIcinCiftYerlikBosOda() { return -1; }
 
@@ -138,6 +135,11 @@ namespace Grup5_OOP.Classlar
             {
                 Console.WriteLine("Bugün için tek yerlik boş yerimiz kalmadı");
             }
+        }
+
+        public void YatVeOtelRezervasyonu(DateTime dBaslangic, DateTime dBitis, Rezervasyon[] mixRezervasyon, bool yanYanaIkiYer = false)
+        {
+
         }
 
         public void BugunkuBosOdalar()
