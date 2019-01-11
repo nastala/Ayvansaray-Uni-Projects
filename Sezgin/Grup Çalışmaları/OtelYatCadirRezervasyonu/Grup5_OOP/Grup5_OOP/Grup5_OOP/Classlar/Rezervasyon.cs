@@ -11,6 +11,7 @@ namespace Grup5_OOP.Classlar
         private static DateTime _currentDate = DateTime.Today;
         protected const int odaSayisi = 10;
         protected const int gunSayisi = 30;
+        protected Random r;
         protected RezervasyonEnum[,] rezervasyonDurumu = new RezervasyonEnum[odaSayisi, gunSayisi];
         protected enum RezervasyonEnum
         {
@@ -19,13 +20,23 @@ namespace Grup5_OOP.Classlar
             Temizlik = 2
         }
 
+        public Rezervasyon()
+        {
+
+        }
+
+        public Rezervasyon(Random random)
+        {
+            r = random;
+        }
+
         public abstract string UygulamaAdi();
         public abstract string KiralananYerTipi();
         public abstract bool YanYanaIkiYerBirdenRezervasyonYapabilirMi();
+        public abstract int Fiyat(int gun, bool ciftYer);
 
         public void RasgeleDoldur()
         {
-            Random r = new Random();
             int rGun, rOda, rDurum;
             int i = 0;
             string kiralanan = KiralananYerTipi();
@@ -85,6 +96,50 @@ namespace Grup5_OOP.Classlar
             //rezervasyonDurumu[5, 2] = RezervasyonEnum.Temizlik;
         }
 
+        protected virtual int BugunIcinTekYerlikBosOda()
+        {
+            return -1;
+        }
+
+        protected virtual int BugunIcinCiftYerlikBosOda() { return -1; }
+
+        public void BugunIcinTekYerlikOtelVeYatYeriRezervasyonu(Rezervasyon[] mixRezervasyon)
+        {
+            int otelOda = mixRezervasyon[0].BugunIcinTekYerlikBosOda();
+            int yatOda = mixRezervasyon[1].BugunIcinTekYerlikBosOda();
+            if (otelOda != -1 && yatOda != -1)
+            {
+                mixRezervasyon[0].rezervasyonDurumu[otelOda, 0] = RezervasyonEnum.Dolu;
+                mixRezervasyon[0].rezervasyonDurumu[otelOda, 1] = RezervasyonEnum.Temizlik;
+                mixRezervasyon[1].rezervasyonDurumu[yatOda, 0] = RezervasyonEnum.Dolu;
+                Console.WriteLine(string.Format("\n{0} {1:00} sizin için ayrıldı <butik otel>", mixRezervasyon[0].KiralananYerTipi(), otelOda + 1));
+                Console.WriteLine(string.Format("\n{0} {1:00} sizin için ayrıldı <yat>", mixRezervasyon[1].KiralananYerTipi(), yatOda + 1));
+            }
+            else
+            {
+                Console.WriteLine("Bugün için tek yerlik boş yerimiz kalmadı");
+            }
+        }
+
+        public void BugunIcinCiftYerlikOtelVeYatYeriRezervasyonu(Rezervasyon[] mixRezervasyon)
+        {
+            int otelOda = mixRezervasyon[0].BugunIcinTekYerlikBosOda();
+            int yatOda = mixRezervasyon[1].BugunIcinCiftYerlikBosOda();
+            if (otelOda != -1 && yatOda != -1)
+            {
+                mixRezervasyon[0].rezervasyonDurumu[otelOda, 0] = RezervasyonEnum.Dolu;
+                mixRezervasyon[0].rezervasyonDurumu[otelOda, 1] = RezervasyonEnum.Temizlik;
+                mixRezervasyon[1].rezervasyonDurumu[yatOda, 0] = RezervasyonEnum.Dolu;
+                mixRezervasyon[1].rezervasyonDurumu[yatOda + 1, 0] = RezervasyonEnum.Dolu;
+                Console.WriteLine(string.Format("\n{0} {1:00} sizin için ayrıldı <butik otel>", mixRezervasyon[0].KiralananYerTipi(), otelOda + 1));
+                Console.WriteLine(string.Format("\n{0} {1:00} sizin için ayrıldı <yat>", mixRezervasyon[1].KiralananYerTipi(), yatOda + 1));
+            }
+            else
+            {
+                Console.WriteLine("Bugün için tek yerlik boş yerimiz kalmadı");
+            }
+        }
+
         public void BugunkuBosOdalar()
         {
             string kiralanan = KiralananYerTipi();
@@ -102,7 +157,7 @@ namespace Grup5_OOP.Classlar
                 Console.WriteLine("Bugun icin bos " + kiralanan + " yok");
         }
 
-        public void RezervasyonYap() // Bugün için hızlı rezervasyon
+        public void RezervasyonYap() 
         {
             RezervasyonYap(DateTime.Today, DateTime.Today);
         }
@@ -176,6 +231,9 @@ namespace Grup5_OOP.Classlar
                         }
                     }
                     Console.WriteLine("{0} numarali " + kiralanan + " sizin icin ayrildi", i + 1);
+                    Console.WriteLine("Toplam fiyat : {1} TL, {0} gun.",
+                        (gun2 - gun1) + 1,
+                        this.Fiyat((gun2 - gun1) + 1, YanYanaIkiYer));
                     break;
                 }
             }
@@ -209,7 +267,7 @@ namespace Grup5_OOP.Classlar
 
             for (int i = 0; i < odaSayisi; i++)
             {
-                Console.Write(kiralanan + " {0:00}", i + 1); //Oda01, Oda02 satir basliklari icin
+                Console.Write(kiralanan + " {0:00}", i + 1); 
                 for (int j = 0; j < gunSayisi; j++)
                 {
                     if (rezervasyonDurumu[i, j] == RezervasyonEnum.Bos)

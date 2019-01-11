@@ -6,16 +6,30 @@ using System.Threading.Tasks;
 
 namespace Grup5_OOP.Classlar
 {
-    class Yat : Rezervasyon
+    class Cadir : Rezervasyon
     {
+        public Cadir()
+        {
+
+        }
+
+        public Cadir(Random random) : base(random)
+        {
+        }
+
         public override string KiralananYerTipi()
         {
-            return "yat";
+            return "çadır";
+        }
+
+        public override int Fiyat(int gun, bool ciftYer)
+        {
+            return gun * (ciftYer ? 160 : 100);
         }
 
         public override string UygulamaAdi()
         {
-            return "Yat Yeri Rezervasyonu";
+            return "Çadır Yeri Rezervasyonu";
         }
 
         public override bool YanYanaIkiYerBirdenRezervasyonYapabilirMi()
