@@ -61,6 +61,7 @@
             this.btnVeriOku.TabIndex = 1;
             this.btnVeriOku.Text = "Veri Oku";
             this.btnVeriOku.UseVisualStyleBackColor = true;
+            this.btnVeriOku.Click += new System.EventHandler(this.btnVeriOku_Click);
             // 
             // btnAddChild
             // 
@@ -88,6 +89,7 @@
             this.btnVeriBul.TabIndex = 3;
             this.btnVeriBul.Text = "Veri Bul";
             this.btnVeriBul.UseVisualStyleBackColor = true;
+            this.btnVeriBul.Click += new System.EventHandler(this.btnVeriBul_Click);
             // 
             // btnSchemaOlustur
             // 
@@ -190,6 +192,7 @@
             this.Controls.Add(this.dgvVeriler);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvVeriler)).EndInit();
             this.ResumeLayout(false);
 
