@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2048
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Doviz_Kurlari", "Doviz_Kurlari\Doviz_Kurlari.csproj", "{F2F5C061-0ED5-4483-9BC2-E2035F6B4628}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Doviz_Kurlari_DataSource", "Doviz_Kurlari\Doviz_Kurlari_DataSource.csproj", "{F2F5C061-0ED5-4483-9BC2-E2035F6B4628}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Doviz_Kurlari2", "Doviz_Kurlari2\Doviz_Kurlari2.csproj", "{F336838E-B944-4B17-BD76-BDB12686EC40}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{F2F5C061-0ED5-4483-9BC2-E2035F6B4628}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F2F5C061-0ED5-4483-9BC2-E2035F6B4628}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F2F5C061-0ED5-4483-9BC2-E2035F6B4628}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F336838E-B944-4B17-BD76-BDB12686EC40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F336838E-B944-4B17-BD76-BDB12686EC40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F336838E-B944-4B17-BD76-BDB12686EC40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F336838E-B944-4B17-BD76-BDB12686EC40}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
