@@ -41,11 +41,13 @@ namespace Doviz_Kurlari2
 
                 if (!string.IsNullOrEmpty(alisFiyat))
                 {
+                    alisFiyat = alisFiyat.Replace('.', ',');
                     doviz.AlisFiyat = Convert.ToDecimal(alisFiyat);
                 }
                 
                 if(!string.IsNullOrEmpty(satisFiyat))
                 {
+                    satisFiyat = satisFiyat.Replace('.', ',');
                     doviz.SatisFiyat = Convert.ToDecimal(satisFiyat);
                 }
 
