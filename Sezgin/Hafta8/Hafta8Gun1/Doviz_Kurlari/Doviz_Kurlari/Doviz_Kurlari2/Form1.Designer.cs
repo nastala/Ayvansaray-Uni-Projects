@@ -51,6 +51,7 @@
             this.lbDoviz.Name = "lbDoviz";
             this.lbDoviz.Size = new System.Drawing.Size(130, 225);
             this.lbDoviz.TabIndex = 0;
+            this.lbDoviz.SelectedIndexChanged += new System.EventHandler(this.lbDoviz_SelectedIndexChanged);
             // 
             // btnYukle
             // 

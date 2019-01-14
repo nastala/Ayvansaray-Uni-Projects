@@ -55,9 +55,40 @@ namespace Doviz_Kurlari2
                 }
 
                 kurlar.Add(doviz);
+                lbDoviz.Items.Add(doviz);
             }
 
             dgvKur.DataSource = kurlar;
+            int i = 0;
+            foreach(var item in kurlar)
+            {
+                try
+                {
+                    dgvDoviz.Rows.Add();
+                    dgvDoviz.Rows[i].Cells[0].Value = item.DovizAd;
+                    dgvDoviz.Rows[i].Cells[1].Value = item.SatisFiyat;
+                    i++;
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Hello from the other side!");
+                }
+            }
+        }
+
+        private void lbDoviz_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Doviz secilenDoviz = new Doviz();
+
+            if(lbDoviz.SelectedIndex != -1)
+                secilenDoviz = (Doviz)lbDoviz.Items[lbDoviz.SelectedIndex];
+
+            if(secilenDoviz != null)
+            {
+                lblBirim.Text = secilenDoviz.Birim.ToString();
+                lblDovizAlis.Text = secilenDoviz.AlisFiyat.ToString();
+                lblDovizSatis.Text = secilenDoviz.SatisFiyat.ToString();
+            }
         }
     }
 }
