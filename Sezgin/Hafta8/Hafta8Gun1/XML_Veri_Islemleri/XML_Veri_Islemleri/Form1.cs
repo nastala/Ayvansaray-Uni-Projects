@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -163,7 +164,24 @@ namespace XML_Veri_Islemleri
 
         private void btnSqlToXml_Click(object sender, EventArgs e)
         {
+            SqlConnection con = new SqlConnection(veritabani);
+            SqlDataAdapter dataAdapter = new SqlDataAdapter("select * from Products", con);
+            DataTable dt = new DataTable("Product");
+            dataAdapter.Fill(dt);
+            DataSet ds = new DataSet("Products");
+            ds.Tables.Add(dt);
 
+            FolderBrowserDialog fd = new FolderBrowserDialog();
+            DialogResult dr = fd.ShowDialog();
+            if(dr == DialogResult.OK)
+            {
+                string dosya = fd.SelectedPath + "\\SQLtoXML.xml";
+                ds.WriteXml(dosya);
+                MessageBox.Show("SQL'den gelen veriler XML dosyasına yazıldı.\n" + dosya);
+                wbVeriler.Url = new Uri(dosya);
+            }
+            else
+                MessageBox.Show("Hata meydana geldi");
         }
     }
 }
