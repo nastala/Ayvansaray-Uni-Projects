@@ -146,6 +146,7 @@
             this.btnXmlVeriSil.TabIndex = 11;
             this.btnXmlVeriSil.Text = "XML Veri Sil";
             this.btnXmlVeriSil.UseVisualStyleBackColor = true;
+            this.btnXmlVeriSil.Click += new System.EventHandler(this.btnXmlVeriSil_Click);
             // 
             // btnSqlToSchema
             // 

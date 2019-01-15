@@ -117,5 +117,25 @@ namespace XML_Veri_Islemleri
 
             wbVeriler.Url = new Uri(dosyaYolu);
         }
+
+        private void btnXmlVeriSil_Click(object sender, EventArgs e)
+        {
+            XmlDocument xmlDoc = new XmlDocument();
+            xmlDoc.Load(dosyaYolu);
+            XmlNode secilenNode = xmlDoc.SelectSingleNode("Calisanlar/Calisan[Adi='Melek']");
+
+            if(secilenNode != null)
+            {
+                xmlDoc.DocumentElement.RemoveChild(secilenNode);
+                xmlDoc.Save(dosyaYolu);
+                MessageBox.Show("Melek adlı çalışan silindi.");
+            }
+            else
+            {
+                MessageBox.Show("Melek adlı çalışan bulunamadı");
+            }
+
+            wbVeriler.Url = new Uri(dosyaYolu);
+        }
     }
 }
