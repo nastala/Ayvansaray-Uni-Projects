@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -182,6 +183,33 @@ namespace XML_Veri_Islemleri
             }
             else
                 MessageBox.Show("Hata meydana geldi");
+        }
+
+        private void btnXmlToSql_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog fd = new FolderBrowserDialog();
+            DialogResult result = fd.ShowDialog();
+            if(result == DialogResult.OK)
+            {
+                string dosya = fd.SelectedPath + "\\SQLtoXML.xml";
+
+                if (File.Exists(dosya))
+                {
+                    SqlConnection conn = new SqlConnection(veritabani);
+                    SqlDataAdapter dataAdapter = new SqlDataAdapter("select * from ProductsX", conn);
+                    SqlCommandBuilder commandBuilder = new SqlCommandBuilder(dataAdapter);
+                    DataSet dataSet = new DataSet();
+                    dataSet.ReadXml(dosya);
+                    dataAdapter.Update(dataSet.Tables[0]);
+
+                    MessageBox.Show("XML'den okunan veriler ProductsX tablosuna kaydedildi");
+                    wbVeriler.Url = new Uri(dosya);
+                }
+                else
+                {
+                    MessageBox.Show("Dosya bulunamadı. \n" + dosya);
+                }
+            }
         }
     }
 }

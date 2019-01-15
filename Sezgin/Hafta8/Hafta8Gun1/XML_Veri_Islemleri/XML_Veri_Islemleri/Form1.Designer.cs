@@ -120,6 +120,7 @@
             this.btnXmlToSql.TabIndex = 6;
             this.btnXmlToSql.Text = "XML to SQL";
             this.btnXmlToSql.UseVisualStyleBackColor = true;
+            this.btnXmlToSql.Click += new System.EventHandler(this.btnXmlToSql_Click);
             // 
             // btnXPathIleTagBul
             // 
