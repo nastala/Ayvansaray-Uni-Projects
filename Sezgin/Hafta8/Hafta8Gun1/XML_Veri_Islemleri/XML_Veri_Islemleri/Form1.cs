@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
+using System.Xml.XPath;
 
 namespace XML_Veri_Islemleri
 {
@@ -59,6 +60,47 @@ namespace XML_Veri_Islemleri
             {
                 MessageBox.Show("Aranan kişi bulunamadı");
             }
+        }
+
+        private void btnXPathIleTagBul_Click(object sender, EventArgs e)
+        {
+            XmlDocument xmlDoc = new XmlDocument();
+            xmlDoc.Load(dosyaYolu);
+            XmlNode secilenNode = xmlDoc.SelectSingleNode("Calisanlar/Calisan[Adi='Melek']");
+            //XmlNode secilenNode = xmlDoc.SelectSingleNode("Calisanlar/Calisan[@TCNo=12345678902]");
+
+            if (secilenNode != null)
+            {
+                MessageBox.Show("Aranan kisi XPath ile kolayca bulundu:\n\n"
+                    + secilenNode.ChildNodes[0].InnerText + " "
+                    + secilenNode.ChildNodes[1].InnerText + "\n"
+                    + secilenNode.ChildNodes[2].InnerText + "\n"
+                    + "TCNo: " + secilenNode.Attributes["TCNo"].Value);
+            }
+            else
+            {
+                MessageBox.Show("Aranan kisi 'Melek' bulunamadi.", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            wbVeriler.Url = new Uri(dosyaYolu);
+        }
+
+        private void btnXPathIleVerileriBul_Click(object sender, EventArgs e)
+        {
+            XPathDocument xmlDoc = new XPathDocument(dosyaYolu);
+            XPathNavigator xmlNav = xmlDoc.CreateNavigator();
+            XPathNodeIterator secilenNode = xmlNav.Select("Calisanlar/Calisan/Adi");
+
+            string metin = "";
+            while (secilenNode.MoveNext())
+            {
+                if (secilenNode.Current.InnerXml.StartsWith("C"))
+                    metin += secilenNode.Current.InnerXml + "\n";
+            }
+
+            if (!string.IsNullOrEmpty(metin))
+                MessageBox.Show("Adı C ile başlayanlar: \n\n" + metin);
+            else
+                MessageBox.Show("Adı C ile başlayan bulunamadı.");
         }
     }
 }

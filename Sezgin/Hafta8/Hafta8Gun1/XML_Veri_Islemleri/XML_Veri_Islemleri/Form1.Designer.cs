@@ -108,6 +108,7 @@
             this.btnXPathIleVerileriBul.TabIndex = 7;
             this.btnXPathIleVerileriBul.Text = "X Path İle Verileri Bul";
             this.btnXPathIleVerileriBul.UseVisualStyleBackColor = true;
+            this.btnXPathIleVerileriBul.Click += new System.EventHandler(this.btnXPathIleVerileriBul_Click);
             // 
             // btnXmlToSql
             // 
@@ -126,6 +127,7 @@
             this.btnXPathIleTagBul.TabIndex = 5;
             this.btnXPathIleTagBul.Text = "X Path İle Tag Bul";
             this.btnXPathIleTagBul.UseVisualStyleBackColor = true;
+            this.btnXPathIleTagBul.Click += new System.EventHandler(this.btnXPathIleTagBul_Click);
             // 
             // btnXmlSchemaDogrula
             // 
