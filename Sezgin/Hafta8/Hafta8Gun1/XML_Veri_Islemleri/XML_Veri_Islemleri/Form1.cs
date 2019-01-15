@@ -15,7 +15,7 @@ namespace XML_Veri_Islemleri
     public partial class Form1 : Form
     {
         string dosyaYolu = Application.StartupPath + "\\CalisanListesi.xml";
-        const string veritabani = "server=.;Database=Northwind;trusted;connection=true";
+        const string veritabani = "Data Source=localhost;Initial Catalog=Northwind;Integrated Security=True";
 
         public Form1()
         {
@@ -136,6 +136,34 @@ namespace XML_Veri_Islemleri
             }
 
             wbVeriler.Url = new Uri(dosyaYolu);
+        }
+
+        private void btnAddChild_Click(object sender, EventArgs e)
+        {
+            XmlDocument xmlDoc = new XmlDocument();
+            xmlDoc.Load(dosyaYolu);
+            XmlElement yeniEleman = xmlDoc.CreateElement("Calisan");
+            XmlAttribute attrTCNO = xmlDoc.CreateAttribute("TCNo");
+            attrTCNO.Value = "12345678904";
+            yeniEleman.Attributes.Append(attrTCNO);
+
+            XmlNode xNodeAdi = xmlDoc.CreateElement("Adi");
+            xNodeAdi.InnerText = "Buse";
+            yeniEleman.AppendChild(xNodeAdi);
+
+            XmlNode xNodeSoyadi = xmlDoc.CreateElement("Soyadi");
+            xNodeSoyadi.InnerText = "Zengin";
+            yeniEleman.AppendChild(xNodeSoyadi);
+
+            xmlDoc.DocumentElement.AppendChild(yeniEleman);
+            xmlDoc.Save(dosyaYolu);
+            MessageBox.Show("Buse eklendi");
+            wbVeriler.Url = new Uri(dosyaYolu);
+        }
+
+        private void btnSqlToXml_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

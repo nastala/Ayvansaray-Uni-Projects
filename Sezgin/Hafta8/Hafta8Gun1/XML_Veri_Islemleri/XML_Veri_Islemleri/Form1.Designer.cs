@@ -71,6 +71,7 @@
             this.btnAddChild.TabIndex = 2;
             this.btnAddChild.Text = "Child Ekle";
             this.btnAddChild.UseVisualStyleBackColor = true;
+            this.btnAddChild.Click += new System.EventHandler(this.btnAddChild_Click);
             // 
             // btnSqlToXml
             // 
@@ -80,6 +81,7 @@
             this.btnSqlToXml.TabIndex = 4;
             this.btnSqlToXml.Text = "SQL to XML";
             this.btnSqlToXml.UseVisualStyleBackColor = true;
+            this.btnSqlToXml.Click += new System.EventHandler(this.btnSqlToXml_Click);
             // 
             // btnVeriBul
             // 
