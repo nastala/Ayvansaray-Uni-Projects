@@ -102,5 +102,20 @@ namespace XML_Veri_Islemleri
             else
                 MessageBox.Show("Adı C ile başlayan bulunamadı.");
         }
+
+        private void btnVeriDegistir_Click(object sender, EventArgs e)
+        {
+            XmlDocument xmlDoc = new XmlDocument();
+            xmlDoc.Load(dosyaYolu);
+            XmlNode secilenNode = xmlDoc.SelectSingleNode("Calisanlar/Calisan[Adi='Melek']");
+
+            if(secilenNode != null)
+            {
+                secilenNode.ChildNodes[1].InnerText += secilenNode.ChildNodes[1].InnerText.Contains("Galip") ? "" : " Galip";
+                xmlDoc.Save(dosyaYolu);
+            }
+
+            wbVeriler.Url = new Uri(dosyaYolu);
+        }
     }
 }

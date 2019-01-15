@@ -164,6 +164,7 @@
             this.btnVeriDegistir.TabIndex = 9;
             this.btnVeriDegistir.Text = "Veri Değiştir";
             this.btnVeriDegistir.UseVisualStyleBackColor = true;
+            this.btnVeriDegistir.Click += new System.EventHandler(this.btnVeriDegistir_Click);
             // 
             // wbVeriler
             // 
