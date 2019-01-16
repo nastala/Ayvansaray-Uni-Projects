@@ -101,6 +101,7 @@
             this.btnSchemaOlustur.TabIndex = 8;
             this.btnSchemaOlustur.Text = "Schema Oluştur";
             this.btnSchemaOlustur.UseVisualStyleBackColor = true;
+            this.btnSchemaOlustur.Click += new System.EventHandler(this.btnSchemaOlustur_Click);
             // 
             // btnXPathIleVerileriBul
             // 
@@ -159,6 +160,7 @@
             this.btnSqlToSchema.TabIndex = 10;
             this.btnSqlToSchema.Text = "SQL to Schema";
             this.btnSqlToSchema.UseVisualStyleBackColor = true;
+            this.btnSqlToSchema.Click += new System.EventHandler(this.btnSqlToSchema_Click);
             // 
             // btnVeriDegistir
             // 
