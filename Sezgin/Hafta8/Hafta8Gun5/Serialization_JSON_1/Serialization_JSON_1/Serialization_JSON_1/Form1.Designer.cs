@@ -114,6 +114,7 @@
             this.btnToInternal.TabIndex = 10;
             this.btnToInternal.Text = "İçe Aktar";
             this.btnToInternal.UseVisualStyleBackColor = true;
+            this.btnToInternal.Click += new System.EventHandler(this.btnToInternal_Click);
             // 
             // btnToExternal
             // 

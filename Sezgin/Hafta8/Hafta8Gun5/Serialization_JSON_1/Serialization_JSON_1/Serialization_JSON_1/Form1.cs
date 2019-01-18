@@ -59,5 +59,28 @@ namespace Serialization_JSON_1
                 MessageBox.Show("Dosya Kaydedildi");
             }
         }
+
+        private void btnToInternal_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            List<Student> newStudents = new List<Student>();
+            XmlSerializer serializer = new XmlSerializer(typeof(List<Student>));
+            if(openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                TextReader reader = new StreamReader(openFileDialog.FileName);
+                newStudents = (List<Student>)serializer.Deserialize(reader);
+                fillList(newStudents);
+                reader.Close();
+            }
+        }
+
+        private void fillList(List<Student> students)
+        {
+            lbStudents.Items.Clear();
+            foreach (var student in students)
+            {
+                lbStudents.Items.Add(student);
+            }
+        }
     }
 }
