@@ -49,6 +49,7 @@
             this.lbStudents.Name = "lbStudents";
             this.lbStudents.Size = new System.Drawing.Size(131, 238);
             this.lbStudents.TabIndex = 0;
+            this.lbStudents.SelectedIndexChanged += new System.EventHandler(this.lbStudents_SelectedIndexChanged);
             // 
             // tbStudentName
             // 
@@ -146,7 +147,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(389, 295);
+            this.ClientSize = new System.Drawing.Size(389, 258);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnToExternal);
             this.Controls.Add(this.btnToInternal);

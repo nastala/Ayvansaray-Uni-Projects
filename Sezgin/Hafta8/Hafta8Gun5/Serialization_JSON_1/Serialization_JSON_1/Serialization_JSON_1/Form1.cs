@@ -83,5 +83,15 @@ namespace Serialization_JSON_1
                 lbStudents.Items.Add(student);
             }
         }
+
+        private void lbStudents_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(lbStudents.SelectedIndex != -1)
+            {
+                tbStudentName.Text = ((Student)lbStudents.SelectedItem).Name;
+                tbStudentSurname.Text = ((Student)lbStudents.SelectedItem).Surname;
+                dtpStudentBirthDate.Value = ((Student)lbStudents.SelectedItem).BirthDate;
+            }
+        }
     }
 }
