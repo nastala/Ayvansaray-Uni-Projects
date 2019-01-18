@@ -65,6 +65,7 @@ namespace Serialization_JSON_1
             OpenFileDialog openFileDialog = new OpenFileDialog();
             List<Student> newStudents = new List<Student>();
             XmlSerializer serializer = new XmlSerializer(typeof(List<Student>));
+
             if(openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 TextReader reader = new StreamReader(openFileDialog.FileName);
