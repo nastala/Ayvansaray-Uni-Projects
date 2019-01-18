@@ -123,6 +123,7 @@
             this.btnToExternal.TabIndex = 11;
             this.btnToExternal.Text = "Dışa Aktar";
             this.btnToExternal.UseVisualStyleBackColor = true;
+            this.btnToExternal.Click += new System.EventHandler(this.btnToExternal_Click);
             // 
             // Form1
             // 
