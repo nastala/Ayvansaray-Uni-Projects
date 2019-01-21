@@ -68,8 +68,12 @@ namespace _3_Disconnected_Mimari_1
                 command.Parameters.Add(new SqlParameter("unitPrice", unitPrice));
                 command.Parameters.Add(new SqlParameter("unitsInStock", unitsInStock));
                 _conn.Open();
-                command.ExecuteNonQuery();
-                fillDgvProducts();
+                int rowsAffected = command.ExecuteNonQuery();
+                if(rowsAffected > 0)
+                {
+                    fillDgvProducts();
+                    MessageBox.Show("Inserted new row successfully");
+                }
             }
             finally
             {
