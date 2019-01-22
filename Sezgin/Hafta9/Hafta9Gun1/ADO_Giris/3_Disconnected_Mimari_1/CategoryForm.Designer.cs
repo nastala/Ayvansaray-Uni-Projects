@@ -36,8 +36,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.dgvCategories = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btnImageAdd = new System.Windows.Forms.Button();
-            this.lblImagePath = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCategories)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -61,8 +59,6 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.lblImagePath);
-            this.groupBox1.Controls.Add(this.btnImageAdd);
             this.groupBox1.Controls.Add(this.btnAdd);
             this.groupBox1.Controls.Add(this.tbDescription);
             this.groupBox1.Controls.Add(this.label2);
@@ -70,13 +66,13 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(6, 19);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(433, 67);
+            this.groupBox1.Size = new System.Drawing.Size(313, 67);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(372, 19);
+            this.btnAdd.Location = new System.Drawing.Point(210, 23);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(55, 29);
             this.btnAdd.TabIndex = 5;
@@ -105,7 +101,7 @@
             this.dgvCategories.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCategories.Location = new System.Drawing.Point(6, 92);
             this.dgvCategories.Name = "dgvCategories";
-            this.dgvCategories.Size = new System.Drawing.Size(433, 150);
+            this.dgvCategories.Size = new System.Drawing.Size(313, 150);
             this.dgvCategories.TabIndex = 6;
             this.dgvCategories.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCategories_CellClick);
             // 
@@ -118,24 +114,6 @@
             this.groupBox2.Size = new System.Drawing.Size(445, 248);
             this.groupBox2.TabIndex = 7;
             this.groupBox2.TabStop = false;
-            // 
-            // btnImageAdd
-            // 
-            this.btnImageAdd.Location = new System.Drawing.Point(282, 19);
-            this.btnImageAdd.Name = "btnImageAdd";
-            this.btnImageAdd.Size = new System.Drawing.Size(84, 29);
-            this.btnImageAdd.TabIndex = 6;
-            this.btnImageAdd.Text = "Image Add";
-            this.btnImageAdd.UseVisualStyleBackColor = true;
-            this.btnImageAdd.Click += new System.EventHandler(this.btnImageAdd_Click);
-            // 
-            // lblImagePath
-            // 
-            this.lblImagePath.AutoSize = true;
-            this.lblImagePath.Location = new System.Drawing.Point(254, 51);
-            this.lblImagePath.Name = "lblImagePath";
-            this.lblImagePath.Size = new System.Drawing.Size(0, 13);
-            this.lblImagePath.TabIndex = 7;
             // 
             // CategoryForm
             // 
@@ -163,7 +141,5 @@
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.DataGridView dgvCategories;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Label lblImagePath;
-        private System.Windows.Forms.Button btnImageAdd;
     }
 }

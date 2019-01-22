@@ -57,7 +57,6 @@ namespace _3_Disconnected_Mimari_1
         {
             string categoryName = tbCategoryName.Text;
             string description = tbDescription.Text;
-            string path = lblImagePath.Text;
             byte[] imageArray = null;
             if(string.IsNullOrWhiteSpace(categoryName) || string.IsNullOrWhiteSpace(description))
             {
@@ -65,16 +64,23 @@ namespace _3_Disconnected_Mimari_1
                 return;
             }
 
-            if(!string.IsNullOrWhiteSpace(path))
+            DialogResult result = MessageBox.Show("Do you want to add picture?", "Attention", MessageBoxButtons.YesNo);
+            if(result == DialogResult.Yes)
             {
-                try
+                OpenFileDialog openFileDialog = new OpenFileDialog();
+                openFileDialog.Filter = "Image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png";
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    imageArray = BitmapToByteArray(new Bitmap(path));
-                }
-                catch(Exception exc)
-                {
-                    MessageBox.Show("Error Message: " + exc.Message);
-                    imageArray = null;
+                    string path = openFileDialog.FileName;
+                    try
+                    {
+                        imageArray = BitmapToByteArray(new Bitmap(path));
+                    }
+                    catch (Exception exc)
+                    {
+                        MessageBox.Show("Error Message: " + exc.Message);
+                        imageArray = null;
+                    }
                 }
             }
 
@@ -83,10 +89,10 @@ namespace _3_Disconnected_Mimari_1
             try
             {
                 SqlCommand command = new SqlCommand(query, _conn);
-                command.Parameters.Add(new SqlParameter("categoryName", categoryName));
-                command.Parameters.Add(new SqlParameter("description", description));
+                command.Parameters.Add(new SqlParameter("@categoryName", categoryName));
+                command.Parameters.Add(new SqlParameter("@description", description));
                 if (imageArray != null)
-                    command.Parameters.Add(new SqlParameter("picture", imageArray));
+                    command.Parameters.Add(new SqlParameter("@picture", imageArray));
                 _conn.Open();
                 int rowsAffected = command.ExecuteNonQuery();
                 if(rowsAffected > 0)
@@ -102,17 +108,6 @@ namespace _3_Disconnected_Mimari_1
             finally
             {
                 _conn.Close();
-            }
-        }
-
-        private void btnImageAdd_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog dialog = new OpenFileDialog();
-            dialog.Filter = "Image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png";
-            if(dialog.ShowDialog() == DialogResult.OK)
-            {
-                string path = dialog.FileName;
-                lblImagePath.Text = path;
             }
         }
 
