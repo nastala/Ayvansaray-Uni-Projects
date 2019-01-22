@@ -64,25 +64,7 @@ namespace _3_Disconnected_Mimari_1
                 return;
             }
 
-            DialogResult result = MessageBox.Show("Do you want to add picture?", "Attention", MessageBoxButtons.YesNo);
-            if(result == DialogResult.Yes)
-            {
-                OpenFileDialog openFileDialog = new OpenFileDialog();
-                openFileDialog.Filter = "Image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png";
-                if (openFileDialog.ShowDialog() == DialogResult.OK)
-                {
-                    string path = openFileDialog.FileName;
-                    try
-                    {
-                        imageArray = BitmapToByteArray(new Bitmap(path));
-                    }
-                    catch (Exception exc)
-                    {
-                        MessageBox.Show("Error Message: " + exc.Message);
-                        imageArray = null;
-                    }
-                }
-            }
+            imageArray = PictureDialog();
 
             string query = imageArray == null ? "INSERT INTO Categories(CategoryName, Description) VALUES(@categoryName, @description)" :
                 "INSERT INTO Categories(CategoryName, Description, Picture) VALUES(@categoryName, @description, @picture)";
@@ -109,6 +91,30 @@ namespace _3_Disconnected_Mimari_1
             {
                 _conn.Close();
             }
+        }
+
+        private byte[] PictureDialog()
+        {
+            DialogResult result = MessageBox.Show("Do you want to add picture?", "Attention", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                OpenFileDialog openFileDialog = new OpenFileDialog();
+                openFileDialog.Filter = "Image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png";
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string path = openFileDialog.FileName;
+                    try
+                    {
+                        return BitmapToByteArray(new Bitmap(path));
+                    }
+                    catch (Exception exc)
+                    {
+                        MessageBox.Show("Error Message: " + exc.Message);
+                        return null;
+                    }
+                }
+            }
+            return null;
         }
 
         public byte[] BitmapToByteArray(Bitmap bitmap)
