@@ -20,10 +20,11 @@ namespace _3_Disconnected_Mimari_1
         {
             InitializeComponent();
             _conn = new SqlConnection("Data Source=.;Initial Catalog=Northwind;Integrated Security=True");
-            fillDgvProducts();
+            _selectedProductID = -1;
+            FillDgvProducts();
         }
 
-        private void fillDgvProducts()
+        private void FillDgvProducts()
         {
             SqlDataAdapter dataAdapter = new SqlDataAdapter();
             dataAdapter.SelectCommand = new SqlCommand("SELECT * FROM Products", _conn);
@@ -73,7 +74,7 @@ namespace _3_Disconnected_Mimari_1
                 int rowsAffected = command.ExecuteNonQuery();
                 if(rowsAffected > 0)
                 {
-                    fillDgvProducts();
+                    FillDgvProducts();
                     MessageBox.Show("New row inserted successfully");
                 }
             }
@@ -100,7 +101,13 @@ namespace _3_Disconnected_Mimari_1
                 return;
             }
 
-            string query = "UPDATE Products SET(ProductName, UnitPrice, UnitsInStock) VALUES(@productName, @unitPrice, @unitsInStock) WHERE ProductID = @productID";
+            if(_selectedProductID == -1)
+            {
+                MessageBox.Show("Please select the row you want to save!");
+                return;
+            }
+
+            string query = "UPDATE Products SET ProductName = @productName, UnitPrice = @unitPrice, UnitsInStock = @unitsInStock WHERE ProductID = @productID";
             try
             {
                 SqlCommand command = new SqlCommand(query, _conn);
@@ -112,7 +119,7 @@ namespace _3_Disconnected_Mimari_1
                 int rowsAffected = command.ExecuteNonQuery();
                 if(rowsAffected > 0)
                 {
-                    fillDgvProducts();
+                    FillDgvProducts();
                     MessageBox.Show("New row inserted successfully");
                 }
             }
