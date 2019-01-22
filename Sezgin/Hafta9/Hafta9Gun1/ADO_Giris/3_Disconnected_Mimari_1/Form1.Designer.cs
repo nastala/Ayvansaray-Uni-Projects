@@ -39,6 +39,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.dgvProducts = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnSave = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudUnitsInStock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudUnitPrice)).BeginInit();
@@ -74,6 +75,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnSave);
             this.groupBox1.Controls.Add(this.nudUnitsInStock);
             this.groupBox1.Controls.Add(this.nudUnitPrice);
             this.groupBox1.Controls.Add(this.btnCategories);
@@ -84,7 +86,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(6, 14);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(419, 72);
+            this.groupBox1.Size = new System.Drawing.Size(481, 72);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             // 
@@ -104,7 +106,7 @@
             // 
             // btnCategories
             // 
-            this.btnCategories.Location = new System.Drawing.Point(340, 24);
+            this.btnCategories.Location = new System.Drawing.Point(401, 24);
             this.btnCategories.Name = "btnCategories";
             this.btnCategories.Size = new System.Drawing.Size(73, 29);
             this.btnCategories.TabIndex = 7;
@@ -135,7 +137,7 @@
             this.dgvProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProducts.Location = new System.Drawing.Point(6, 92);
             this.dgvProducts.Name = "dgvProducts";
-            this.dgvProducts.Size = new System.Drawing.Size(419, 190);
+            this.dgvProducts.Size = new System.Drawing.Size(481, 190);
             this.dgvProducts.TabIndex = 4;
             this.dgvProducts.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProducts_CellClick);
             // 
@@ -145,15 +147,25 @@
             this.groupBox2.Controls.Add(this.groupBox1);
             this.groupBox2.Location = new System.Drawing.Point(12, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(432, 293);
+            this.groupBox2.Size = new System.Drawing.Size(495, 293);
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
+            // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(340, 24);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(55, 29);
+            this.btnSave.TabIndex = 10;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(457, 308);
+            this.ClientSize = new System.Drawing.Size(516, 309);
             this.Controls.Add(this.groupBox2);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -180,6 +192,7 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.NumericUpDown nudUnitsInStock;
         private System.Windows.Forms.NumericUpDown nudUnitPrice;
+        private System.Windows.Forms.Button btnSave;
     }
 }
 

@@ -14,6 +14,7 @@ namespace _3_Disconnected_Mimari_1
     public partial class Form1 : Form
     {
         private SqlConnection _conn;
+        private int _selectedProductID;
 
         public Form1()
         {
@@ -42,6 +43,7 @@ namespace _3_Disconnected_Mimari_1
                 tbProductName.Text = dgvProducts.Rows[e.RowIndex].Cells["ProductName"].Value.ToString();
                 nudUnitPrice.Value = (decimal)dgvProducts.Rows[e.RowIndex].Cells["UnitPrice"].Value;
                 nudUnitsInStock.Text = dgvProducts.Rows[e.RowIndex].Cells["UnitsInStock"].Value.ToString();
+                _selectedProductID = (int)dgvProducts.Rows[e.RowIndex].Cells["ProductID"].Value;
             }
             catch(Exception exc)
             {
@@ -64,9 +66,9 @@ namespace _3_Disconnected_Mimari_1
             try
             {
                 SqlCommand command = new SqlCommand(query, _conn);
-                command.Parameters.Add(new SqlParameter("productName", productName));
-                command.Parameters.Add(new SqlParameter("unitPrice", unitPrice));
-                command.Parameters.Add(new SqlParameter("unitsInStock", unitsInStock));
+                command.Parameters.Add(new SqlParameter("@productName", productName));
+                command.Parameters.Add(new SqlParameter("@unitPrice", unitPrice));
+                command.Parameters.Add(new SqlParameter("@unitsInStock", unitsInStock));
                 _conn.Open();
                 int rowsAffected = command.ExecuteNonQuery();
                 if(rowsAffected > 0)
@@ -85,6 +87,39 @@ namespace _3_Disconnected_Mimari_1
         {
             CategoryForm categoryForm = new CategoryForm();
             categoryForm.ShowDialog();
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            string productName = tbProductName.Text;
+            decimal unitPrice = nudUnitPrice.Value;
+            int unitsInStock = (int)nudUnitsInStock.Value;
+            if (string.IsNullOrWhiteSpace(productName) && unitPrice < 0 && unitsInStock < 0)
+            {
+                MessageBox.Show("You entered wrong or empty values");
+                return;
+            }
+
+            string query = "UPDATE Products SET(ProductName, UnitPrice, UnitsInStock) VALUES(@productName, @unitPrice, @unitsInStock) WHERE ProductID = @productID";
+            try
+            {
+                SqlCommand command = new SqlCommand(query, _conn);
+                command.Parameters.Add(new SqlParameter("@productName", productName));
+                command.Parameters.Add(new SqlParameter("@unitPrice", unitPrice));
+                command.Parameters.Add(new SqlParameter("@unitsInStock", unitsInStock));
+                command.Parameters.Add(new SqlParameter("@productID", _selectedProductID));
+                _conn.Open();
+                int rowsAffected = command.ExecuteNonQuery();
+                if(rowsAffected > 0)
+                {
+                    fillDgvProducts();
+                    MessageBox.Show("New row inserted successfully");
+                }
+            }
+            finally
+            {
+                _conn.Close();
+            }
         }
     }
 }
