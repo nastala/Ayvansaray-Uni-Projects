@@ -80,5 +80,11 @@ namespace _3_Disconnected_Mimari_1
                 _conn.Close();
             }
         }
+
+        private void btnCategories_Click(object sender, EventArgs e)
+        {
+            CategoryForm categoryForm = new CategoryForm();
+            categoryForm.ShowDialog();
+        }
     }
 }

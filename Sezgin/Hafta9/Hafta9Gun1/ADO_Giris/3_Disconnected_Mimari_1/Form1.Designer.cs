@@ -32,18 +32,18 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tbProductName = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.nudUnitsInStock = new System.Windows.Forms.NumericUpDown();
+            this.nudUnitPrice = new System.Windows.Forms.NumericUpDown();
             this.btnCategories = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dgvProducts = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.nudUnitPrice = new System.Windows.Forms.NumericUpDown();
-            this.nudUnitsInStock = new System.Windows.Forms.NumericUpDown();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudUnitsInStock)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudUnitPrice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).BeginInit();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudUnitPrice)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudUnitsInStock)).BeginInit();
             this.SuspendLayout();
             // 
             // btnAdd
@@ -88,6 +88,20 @@
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             // 
+            // nudUnitsInStock
+            // 
+            this.nudUnitsInStock.Location = new System.Drawing.Point(195, 33);
+            this.nudUnitsInStock.Name = "nudUnitsInStock";
+            this.nudUnitsInStock.Size = new System.Drawing.Size(71, 20);
+            this.nudUnitsInStock.TabIndex = 9;
+            // 
+            // nudUnitPrice
+            // 
+            this.nudUnitPrice.Location = new System.Drawing.Point(110, 33);
+            this.nudUnitPrice.Name = "nudUnitPrice";
+            this.nudUnitPrice.Size = new System.Drawing.Size(71, 20);
+            this.nudUnitPrice.TabIndex = 8;
+            // 
             // btnCategories
             // 
             this.btnCategories.Location = new System.Drawing.Point(340, 24);
@@ -96,6 +110,7 @@
             this.btnCategories.TabIndex = 7;
             this.btnCategories.Text = "Categories";
             this.btnCategories.UseVisualStyleBackColor = true;
+            this.btnCategories.Click += new System.EventHandler(this.btnCategories_Click);
             // 
             // label3
             // 
@@ -134,20 +149,6 @@
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             // 
-            // nudUnitPrice
-            // 
-            this.nudUnitPrice.Location = new System.Drawing.Point(110, 33);
-            this.nudUnitPrice.Name = "nudUnitPrice";
-            this.nudUnitPrice.Size = new System.Drawing.Size(71, 20);
-            this.nudUnitPrice.TabIndex = 8;
-            // 
-            // nudUnitsInStock
-            // 
-            this.nudUnitsInStock.Location = new System.Drawing.Point(195, 33);
-            this.nudUnitsInStock.Name = "nudUnitsInStock";
-            this.nudUnitsInStock.Size = new System.Drawing.Size(71, 20);
-            this.nudUnitsInStock.TabIndex = 9;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -158,10 +159,10 @@
             this.Text = "Form1";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudUnitsInStock)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudUnitPrice)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).EndInit();
             this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.nudUnitPrice)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudUnitsInStock)).EndInit();
             this.ResumeLayout(false);
 
         }
