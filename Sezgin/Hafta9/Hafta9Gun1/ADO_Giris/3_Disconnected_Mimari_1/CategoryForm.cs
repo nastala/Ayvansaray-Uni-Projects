@@ -108,7 +108,7 @@ namespace _3_Disconnected_Mimari_1
         private void btnImageAdd_Click(object sender, EventArgs e)
         {
             OpenFileDialog dialog = new OpenFileDialog();
-            dialog.Filter = "Image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png)";
+            dialog.Filter = "Image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png";
             if(dialog.ShowDialog() == DialogResult.OK)
             {
                 string path = dialog.FileName;
