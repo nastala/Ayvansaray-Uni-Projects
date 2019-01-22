@@ -120,7 +120,7 @@ namespace _3_Disconnected_Mimari_1
                 if(rowsAffected > 0)
                 {
                     FillDgvProducts();
-                    MessageBox.Show("New row inserted successfully");
+                    MessageBox.Show("Row updated successfully");
                 }
             }
             finally
