@@ -128,8 +128,42 @@ namespace _3_Disconnected_Mimari_1
         {
             if(dgvCategories.Columns[e.ColumnIndex] == dgvCategories.Columns["Picture"])
             {
-                MessageBox.Show("Picture column double clicked");
-                byte[] imageArray = PictureDialog("Do you want to update picture?");
+                byte[] imageArray = PictureDialog("Do you want to update the picture?");
+                if(imageArray != null)
+                {
+                    int categoryID = (int)dgvCategories.Rows[e.RowIndex].Cells["CategoryID"].Value;
+                    UpdateCategoryImage(categoryID, imageArray);
+                }
+            }
+        }
+
+        private void UpdateCategoryImage(int categoryID, byte[] imageArray)
+        {
+            string query = "UPDATE Categories SET picture = @picture WHERE CategoryID = @categoryID";
+            try
+            {
+                SqlCommand command = new SqlCommand(query, _conn);
+                command.Parameters.Add(new SqlParameter("@picture", imageArray));
+                command.Parameters.Add(new SqlParameter("@categoryID", categoryID));
+                _conn.Open();
+                int rowsAffected = command.ExecuteNonQuery();
+                if(rowsAffected > 0)
+                {
+                    MessageBox.Show("Picture updated successfully");
+                    FillDgvCategories();
+                }
+                else
+                {
+                    MessageBox.Show("Picture update failed");
+                }
+            }
+            catch(Exception exc)
+            {
+                MessageBox.Show("Picture update error: " + exc.Message);
+            }
+            finally
+            {
+                _conn.Close();
             }
         }
     }
