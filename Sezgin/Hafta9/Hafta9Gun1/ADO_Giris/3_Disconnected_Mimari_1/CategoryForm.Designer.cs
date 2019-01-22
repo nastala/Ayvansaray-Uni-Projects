@@ -72,7 +72,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(210, 23);
+            this.btnAdd.Location = new System.Drawing.Point(232, 23);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(55, 29);
             this.btnAdd.TabIndex = 5;
@@ -104,6 +104,7 @@
             this.dgvCategories.Size = new System.Drawing.Size(313, 150);
             this.dgvCategories.TabIndex = 6;
             this.dgvCategories.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCategories_CellClick);
+            this.dgvCategories.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCategories_CellContentDoubleClick);
             // 
             // groupBox2
             // 
@@ -111,7 +112,7 @@
             this.groupBox2.Controls.Add(this.dgvCategories);
             this.groupBox2.Location = new System.Drawing.Point(12, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(445, 248);
+            this.groupBox2.Size = new System.Drawing.Size(330, 250);
             this.groupBox2.TabIndex = 7;
             this.groupBox2.TabStop = false;
             // 
@@ -119,7 +120,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(462, 265);
+            this.ClientSize = new System.Drawing.Size(350, 263);
             this.Controls.Add(this.groupBox2);
             this.Name = "CategoryForm";
             this.Text = "CategoryForm";

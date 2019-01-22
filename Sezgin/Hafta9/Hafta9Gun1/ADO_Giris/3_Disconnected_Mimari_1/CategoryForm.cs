@@ -64,7 +64,7 @@ namespace _3_Disconnected_Mimari_1
                 return;
             }
 
-            imageArray = PictureDialog();
+            imageArray = PictureDialog("Do you want to add picture?");
 
             string query = imageArray == null ? "INSERT INTO Categories(CategoryName, Description) VALUES(@categoryName, @description)" :
                 "INSERT INTO Categories(CategoryName, Description, Picture) VALUES(@categoryName, @description, @picture)";
@@ -93,9 +93,9 @@ namespace _3_Disconnected_Mimari_1
             }
         }
 
-        private byte[] PictureDialog()
+        private byte[] PictureDialog(string message)
         {
-            DialogResult result = MessageBox.Show("Do you want to add picture?", "Attention", MessageBoxButtons.YesNo);
+            DialogResult result = MessageBox.Show(message, "Attention", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
                 OpenFileDialog openFileDialog = new OpenFileDialog();
@@ -122,6 +122,15 @@ namespace _3_Disconnected_Mimari_1
             System.IO.MemoryStream ms = new System.IO.MemoryStream();
             bitmap.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
             return ms.ToArray();
+        }
+
+        private void dgvCategories_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if(dgvCategories.Columns[e.ColumnIndex] == dgvCategories.Columns["Picture"])
+            {
+                MessageBox.Show("Picture column double clicked");
+                byte[] imageArray = PictureDialog("Do you want to update picture?");
+            }
         }
     }
 }
