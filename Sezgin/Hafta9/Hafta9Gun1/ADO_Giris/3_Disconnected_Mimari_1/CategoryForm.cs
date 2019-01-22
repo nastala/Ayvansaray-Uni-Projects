@@ -57,18 +57,36 @@ namespace _3_Disconnected_Mimari_1
         {
             string categoryName = tbCategoryName.Text;
             string description = tbDescription.Text;
+            string path = lblImagePath.Text;
+            byte[] imageArray = null;
             if(string.IsNullOrWhiteSpace(categoryName) || string.IsNullOrWhiteSpace(description))
             {
                 MessageBox.Show("Please enter valid texts");
                 return;
             }
 
-            string query = "INSERT INTO Categories(CategoryName, Description) VALUES(@categoryName, @description)";
+            if(!string.IsNullOrWhiteSpace(path))
+            {
+                try
+                {
+                    imageArray = BitmapToByteArray(new Bitmap(path));
+                }
+                catch(Exception exc)
+                {
+                    MessageBox.Show("Error Message: " + exc.Message);
+                    imageArray = null;
+                }
+            }
+
+            string query = imageArray == null ? "INSERT INTO Categories(CategoryName, Description) VALUES(@categoryName, @description)" :
+                "INSERT INTO Categories(CategoryName, Description, Picture) VALUES(@categoryName, @description, @picture)";
             try
             {
                 SqlCommand command = new SqlCommand(query, _conn);
                 command.Parameters.Add(new SqlParameter("categoryName", categoryName));
                 command.Parameters.Add(new SqlParameter("description", description));
+                if (imageArray != null)
+                    command.Parameters.Add(new SqlParameter("picture", imageArray));
                 _conn.Open();
                 int rowsAffected = command.ExecuteNonQuery();
                 if(rowsAffected > 0)
@@ -85,6 +103,24 @@ namespace _3_Disconnected_Mimari_1
             {
                 _conn.Close();
             }
+        }
+
+        private void btnImageAdd_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.Filter = "Image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png)";
+            if(dialog.ShowDialog() == DialogResult.OK)
+            {
+                string path = dialog.FileName;
+                lblImagePath.Text = path;
+            }
+        }
+
+        public byte[] BitmapToByteArray(Bitmap bitmap)
+        {
+            System.IO.MemoryStream ms = new System.IO.MemoryStream();
+            bitmap.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+            return ms.ToArray();
         }
     }
 }
