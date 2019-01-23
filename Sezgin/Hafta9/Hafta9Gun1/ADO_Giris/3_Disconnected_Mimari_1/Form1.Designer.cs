@@ -28,10 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnAdd = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.tbProductName = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnSave = new System.Windows.Forms.Button();
             this.nudUnitsInStock = new System.Windows.Forms.NumericUpDown();
             this.nudUnitPrice = new System.Windows.Forms.NumericUpDown();
             this.btnCategories = new System.Windows.Forms.Button();
@@ -39,12 +41,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.dgvProducts = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btnSave = new System.Windows.Forms.Button();
+            this.cmsDgvProducts = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.cmsProductsDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudUnitsInStock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudUnitPrice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).BeginInit();
             this.groupBox2.SuspendLayout();
+            this.cmsDgvProducts.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnAdd
@@ -90,6 +94,16 @@
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(340, 24);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(55, 29);
+            this.btnSave.TabIndex = 10;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
             // nudUnitsInStock
             // 
             this.nudUnitsInStock.Location = new System.Drawing.Point(195, 33);
@@ -99,6 +113,12 @@
             // 
             // nudUnitPrice
             // 
+            this.nudUnitPrice.DecimalPlaces = 4;
+            this.nudUnitPrice.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
             this.nudUnitPrice.Location = new System.Drawing.Point(110, 33);
             this.nudUnitPrice.Name = "nudUnitPrice";
             this.nudUnitPrice.Size = new System.Drawing.Size(71, 20);
@@ -140,6 +160,7 @@
             this.dgvProducts.Size = new System.Drawing.Size(481, 190);
             this.dgvProducts.TabIndex = 4;
             this.dgvProducts.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProducts_CellClick);
+            this.dgvProducts.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvProducts_CellMouseDown);
             // 
             // groupBox2
             // 
@@ -151,15 +172,19 @@
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             // 
-            // btnSave
+            // cmsDgvProducts
             // 
-            this.btnSave.Location = new System.Drawing.Point(340, 24);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(55, 29);
-            this.btnSave.TabIndex = 10;
-            this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            this.cmsDgvProducts.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cmsProductsDelete});
+            this.cmsDgvProducts.Name = "cmsDgvProducts";
+            this.cmsDgvProducts.Size = new System.Drawing.Size(108, 26);
+            // 
+            // cmsProductsDelete
+            // 
+            this.cmsProductsDelete.Name = "cmsProductsDelete";
+            this.cmsProductsDelete.Size = new System.Drawing.Size(180, 22);
+            this.cmsProductsDelete.Text = "Delete";
+            this.cmsProductsDelete.Click += new System.EventHandler(this.cmsProductsDelete_Click);
             // 
             // Form1
             // 
@@ -175,6 +200,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudUnitPrice)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).EndInit();
             this.groupBox2.ResumeLayout(false);
+            this.cmsDgvProducts.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -193,6 +219,8 @@
         private System.Windows.Forms.NumericUpDown nudUnitsInStock;
         private System.Windows.Forms.NumericUpDown nudUnitPrice;
         private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.ContextMenuStrip cmsDgvProducts;
+        private System.Windows.Forms.ToolStripMenuItem cmsProductsDelete;
     }
 }
 
