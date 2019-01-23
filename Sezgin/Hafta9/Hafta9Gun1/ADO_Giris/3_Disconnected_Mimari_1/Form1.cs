@@ -109,25 +109,12 @@ namespace _3_Disconnected_Mimari_1
                 return;
             }
 
-            string query = "UPDATE Products SET ProductName = @productName, UnitPrice = @unitPrice, UnitsInStock = @unitsInStock WHERE ProductID = @productID";
-            try
+            var duo = new DatabaseUpdateObject("Products", "ProductID", _selectedProductID, ("ProductName", productName), ("UnitPrice", (int)unitPrice), ("UnitsInStock", unitsInStock));
+            UpdateFrom(duo, out bool hasError);
+            if (hasError == false)
             {
-                SqlCommand command = new SqlCommand(query, _conn);
-                command.Parameters.Add(new SqlParameter("@productName", productName));
-                command.Parameters.Add(new SqlParameter("@unitPrice", unitPrice));
-                command.Parameters.Add(new SqlParameter("@unitsInStock", unitsInStock));
-                command.Parameters.Add(new SqlParameter("@productID", _selectedProductID));
-                _conn.Open();
-                int rowsAffected = command.ExecuteNonQuery();
-                if (rowsAffected > 0)
-                {
-                    FillDgvProducts();
-                    MessageBox.Show("Row updated successfully");
-                }
-            }
-            finally
-            {
-                _conn.Close();
+                FillDgvProducts();
+                MessageBox.Show("Row updated successfully");
             }
         }
 
@@ -216,10 +203,12 @@ namespace _3_Disconnected_Mimari_1
         private int UpdateFrom(DatabaseUpdateObject duo, out bool hasError)
         {
             hasError = false;
-            var query = new StringBuilder($"UPDATE { duo.TableName} ");
+            var query = new StringBuilder($"UPDATE { duo.TableName} SET ");
             foreach (var columnAndValue in duo.ColumnsAndValues)
             {
-                query.Append($"SET {columnAndValue.ColumnName} = {columnAndValue.ColumnValue}, ");
+                object value = columnAndValue.ColumnValue;
+                query = columnAndValue.ColumnValue is string ? query.Append($"{columnAndValue.ColumnName} = '{columnAndValue.ColumnValue}', ") 
+                    : query.Append($"{columnAndValue.ColumnName} = {columnAndValue.ColumnValue}, ");
             }
             query = query.Remove(query.Length - 2, 1);
             query.Append($"WHERE {duo.ColumnName} = {duo.UpdateId}");
