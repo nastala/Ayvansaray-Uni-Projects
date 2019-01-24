@@ -1,0 +1,11 @@
+E:\Projects\WordGame\WordGame\bin\Debug\WordGame.exe.config
+E:\Projects\WordGame\WordGame\bin\Debug\WordGame.exe
+E:\Projects\WordGame\WordGame\bin\Debug\WordGame.pdb
+E:\Projects\WordGame\WordGame\obj\Debug\WordGame.csprojAssemblyReference.cache
+E:\Projects\WordGame\WordGame\obj\Debug\WordGame.FormFirstInput.resources
+E:\Projects\WordGame\WordGame\obj\Debug\WordGame.Properties.Resources.resources
+E:\Projects\WordGame\WordGame\obj\Debug\WordGame.csproj.GenerateResource.cache
+E:\Projects\WordGame\WordGame\obj\Debug\WordGame.csproj.CoreCompileInputs.cache
+E:\Projects\WordGame\WordGame\obj\Debug\WordGame.exe
+E:\Projects\WordGame\WordGame\obj\Debug\WordGame.pdb
+E:\Projects\WordGame\WordGame\obj\Debug\WordGame.FormMainPage.resources
