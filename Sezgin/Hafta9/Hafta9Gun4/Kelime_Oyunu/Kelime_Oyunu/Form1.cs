@@ -60,15 +60,14 @@ namespace Kelime_Oyunu
 
         private void StartGame(char charElem, List<string> names)
         {
-            string foundedName = names.FirstOrDefault(productNames => productNames.ToLower().StartsWith(charElem.ToString().ToLower()));
+            string foundedName = names.FirstOrDefault(productName => productName.ToLower().StartsWith(charElem.ToString().ToLower()));
 
             if (string.IsNullOrWhiteSpace(foundedName))
             {
                 MessageBox.Show("Game Over!");
                 return;
             }
-
-            foundedName = foundedName.Split(' ')[0];
+            
             lbHistory.Items.Add($"Step_{_stepCount} - {foundedName}");
             lbSteps.Items.Add(foundedName);
             names.Remove(foundedName);
