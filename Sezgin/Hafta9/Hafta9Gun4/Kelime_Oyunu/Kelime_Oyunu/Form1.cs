@@ -26,7 +26,18 @@ namespace Kelime_Oyunu
 
         private void FillProductNames()
         {
-            throw new NotImplementedException();
+            _productNames.Clear();
+
+            SqlDataAdapter dataAdapter = new SqlDataAdapter();
+            dataAdapter.SelectCommand = new SqlCommand("SELECT ProductName FROM Products WHERE Discontinued = 0", _conn);
+            DataTable dataTable = new DataTable();
+            dataAdapter.Fill(dataTable);
+
+            DataTableReader dataTableReader = dataTable.CreateDataReader();
+            while (dataTableReader.Read())
+            {
+                string productName = dataTableReader[0].ToString().Split(' ')[0];
+            }
         }
     }
 }
