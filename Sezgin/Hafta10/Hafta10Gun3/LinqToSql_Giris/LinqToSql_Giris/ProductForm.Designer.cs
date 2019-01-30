@@ -1,6 +1,6 @@
 ﻿namespace LinqToSql_Giris
 {
-    partial class Form1
+    partial class ProductForm
     {
         /// <summary>
         /// Required designer variable.
@@ -44,6 +44,7 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.tbSearch = new System.Windows.Forms.TextBox();
+            this.btnOpenCategoryForm = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.nudUnitsInStock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudUnitPrice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMain)).BeginInit();
@@ -187,11 +188,22 @@
             this.tbSearch.TabIndex = 21;
             this.tbSearch.TextChanged += new System.EventHandler(this.tbSearch_TextChanged);
             // 
-            // Form1
+            // btnOpenCategoryForm
+            // 
+            this.btnOpenCategoryForm.Location = new System.Drawing.Point(868, 438);
+            this.btnOpenCategoryForm.Name = "btnOpenCategoryForm";
+            this.btnOpenCategoryForm.Size = new System.Drawing.Size(75, 23);
+            this.btnOpenCategoryForm.TabIndex = 22;
+            this.btnOpenCategoryForm.Text = "Categories";
+            this.btnOpenCategoryForm.UseVisualStyleBackColor = true;
+            this.btnOpenCategoryForm.Click += new System.EventHandler(this.btnOpenCategoryForm_Click);
+            // 
+            // ProductForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(955, 465);
+            this.Controls.Add(this.btnOpenCategoryForm);
             this.Controls.Add(this.tbSearch);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.btnSave);
@@ -208,7 +220,7 @@
             this.Controls.Add(this.nudUnitPrice);
             this.Controls.Add(this.tbProductName);
             this.Controls.Add(this.dgvMain);
-            this.Name = "Form1";
+            this.Name = "ProductForm";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.nudUnitsInStock)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudUnitPrice)).EndInit();
@@ -236,6 +248,7 @@
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox tbSearch;
+        private System.Windows.Forms.Button btnOpenCategoryForm;
     }
 }
 

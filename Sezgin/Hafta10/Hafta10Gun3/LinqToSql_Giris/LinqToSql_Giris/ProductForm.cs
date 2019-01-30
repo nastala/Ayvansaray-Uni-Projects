@@ -10,12 +10,12 @@ using System.Windows.Forms;
 
 namespace LinqToSql_Giris
 {
-    public partial class Form1 : Form
+    public partial class ProductForm : Form
     {
         private NorthwindDataContext _dataContext = new NorthwindDataContext();
         private List<Product> _products;
 
-        public Form1()
+        public ProductForm()
         {
             InitializeComponent();
 
@@ -118,6 +118,12 @@ namespace LinqToSql_Giris
         private void tbSearch_TextChanged(object sender, EventArgs e)
         {
             dgvMain.DataSource = _dataContext.Products.Where(product => product.ProductName.Contains(tbSearch.Text));
+        }
+
+        private void btnOpenCategoryForm_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new CategoryForm().Show();
         }
     }
 }
