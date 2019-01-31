@@ -11,10 +11,34 @@ namespace CodeFirst
         static void Main(string[] args)
         {
             var model = new Model1();
-            model.Students.Add(new Student { FirstName = "Ş", LastName = "Emre" });
+
+            var studentList = new List<Student>
+            {
+                new Student
+                {
+                    FirstName = "Sezgin",
+                    LastName = "Yağlı"
+                },
+                new Student
+                {
+                    FirstName = "Kamil",
+                    LastName = "Kara"
+                },
+                new Student
+                {
+                    FirstName = "İsmail",
+                    LastName = "Ada"
+                }
+            };
+            
+            model.Teachers.Add(new Teacher
+            {
+                Name = "Tarık Keskin",
+                Students = studentList
+            });
             model.SaveChanges();
 
-            foreach (var item in model.Students)
+            foreach (var item in model.Teachers.FirstOrDefault().Students)
             {
                 Console.WriteLine(item.FirstName + ' ' + item.LastName);
             }
