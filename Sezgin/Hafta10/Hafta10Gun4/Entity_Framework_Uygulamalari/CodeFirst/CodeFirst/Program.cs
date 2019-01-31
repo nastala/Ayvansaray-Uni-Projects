@@ -33,7 +33,8 @@ namespace CodeFirst
             
             model.Teachers.Add(new Teacher
             {
-                Name = "Tarık Keskin",
+                FirstName = "Tarık",
+                LastName = "Keskin",
                 Students = studentList
             });
             model.SaveChanges();

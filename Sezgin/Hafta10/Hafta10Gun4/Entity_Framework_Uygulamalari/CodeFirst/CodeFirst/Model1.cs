@@ -27,6 +27,7 @@ namespace CodeFirst
     {
         public int ID { get; set; }
         public List<Student> Students { get; set; }
-        public string Name { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
     }
 }
