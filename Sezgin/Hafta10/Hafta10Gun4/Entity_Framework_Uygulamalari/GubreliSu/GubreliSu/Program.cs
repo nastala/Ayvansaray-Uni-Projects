@@ -29,6 +29,7 @@ namespace GubreliSu
             };
 
             cBitki[] bitkilerClone = (cBitki[])bitkiler.Clone();
+            // cBitki[] bitkilerClone = bitkiler;
             bitkilerClone[0] = new cBitki(){ Beslenme = "su" };
 
             Console.WriteLine(bitkiler[0].Beslenme);
