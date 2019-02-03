@@ -58,6 +58,7 @@
     <Compile Include="Classes\Bus.cs" />
     <Compile Include="Classes\City.cs" />
     <Compile Include="Classes\Driver.cs" />
+    <Compile Include="Classes\Helper.cs" />
     <Compile Include="Classes\Passenger.cs" />
     <Compile Include="Classes\Trip.cs" />
     <Compile Include="Form1.cs">
@@ -66,11 +67,11 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\AdminForms\AddBusForm.cs">
+    <Compile Include="Forms\AdminForms\ManageBussesForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\AdminForms\AddBusForm.Designer.cs">
-      <DependentUpon>AddBusForm.cs</DependentUpon>
+    <Compile Include="Forms\AdminForms\ManageBussesForm.Designer.cs">
+      <DependentUpon>ManageBussesForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\AdminForms\AdminMainForm.cs">
       <SubType>Form</SubType>
@@ -78,17 +79,34 @@
     <Compile Include="Forms\AdminForms\AdminMainForm.Designer.cs">
       <DependentUpon>AdminMainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\AdminForms\ManageDriversForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AdminForms\ManageDriversForm.Designer.cs">
+      <DependentUpon>ManageDriversForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902031541292_test.cs" />
+    <Compile Include="Migrations\201902031541292_test.Designer.cs">
+      <DependentUpon>201902031541292_test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\AdminForms\AddBusForm.resx">
-      <DependentUpon>AddBusForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\AdminForms\ManageBussesForm.resx">
+      <DependentUpon>ManageBussesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AdminForms\AdminMainForm.resx">
       <DependentUpon>AdminMainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AdminForms\ManageDriversForm.resx">
+      <DependentUpon>ManageDriversForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902031541292_test.resx">
+      <DependentUpon>201902031541292_test.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

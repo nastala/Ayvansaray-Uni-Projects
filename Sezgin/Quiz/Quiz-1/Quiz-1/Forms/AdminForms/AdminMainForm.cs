@@ -19,8 +19,14 @@ namespace Quiz_1.Forms.AdminForms
 
         private void btnAddBus_Click(object sender, EventArgs e)
         {
-            AddBusForm addBusForm = new AddBusForm();
+            ManageBussesForm addBusForm = new ManageBussesForm();
             addBusForm.Show();
+        }
+
+        private void btnManageDrivers_Click(object sender, EventArgs e)
+        {
+            ManageDriversForm manageDrivers = new ManageDriversForm();
+            manageDrivers.Show();
         }
     }
 }
