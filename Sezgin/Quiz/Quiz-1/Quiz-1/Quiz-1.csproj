@@ -79,15 +79,27 @@
     <Compile Include="Forms\AdminForms\AdminMainForm.Designer.cs">
       <DependentUpon>AdminMainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\AdminForms\ManageCitiesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AdminForms\ManageCitiesForm.Designer.cs">
+      <DependentUpon>ManageCitiesForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\AdminForms\ManageDriversForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\AdminForms\ManageDriversForm.Designer.cs">
       <DependentUpon>ManageDriversForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201902031541292_test.cs" />
-    <Compile Include="Migrations\201902031541292_test.Designer.cs">
-      <DependentUpon>201902031541292_test.cs</DependentUpon>
+    <Compile Include="Forms\PurchaseTicketForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PurchaseTicketForm.Designer.cs">
+      <DependentUpon>PurchaseTicketForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902042019347_test.cs" />
+    <Compile Include="Migrations\201902042019347_test.Designer.cs">
+      <DependentUpon>201902042019347_test.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model.cs" />
@@ -102,11 +114,17 @@
     <EmbeddedResource Include="Forms\AdminForms\AdminMainForm.resx">
       <DependentUpon>AdminMainForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AdminForms\ManageCitiesForm.resx">
+      <DependentUpon>ManageCitiesForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\AdminForms\ManageDriversForm.resx">
       <DependentUpon>ManageDriversForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201902031541292_test.resx">
-      <DependentUpon>201902031541292_test.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\PurchaseTicketForm.resx">
+      <DependentUpon>PurchaseTicketForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902042019347_test.resx">
+      <DependentUpon>201902042019347_test.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

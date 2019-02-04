@@ -30,16 +30,17 @@
         {
             this.btnAddBus = new System.Windows.Forms.Button();
             this.btnManageDrivers = new System.Windows.Forms.Button();
+            this.btnManageCities = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnAddBus
             // 
             this.btnAddBus.Location = new System.Drawing.Point(16, 44);
-            this.btnAddBus.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAddBus.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddBus.Name = "btnAddBus";
             this.btnAddBus.Size = new System.Drawing.Size(113, 50);
             this.btnAddBus.TabIndex = 0;
-            this.btnAddBus.Text = "Add Bus";
+            this.btnAddBus.Text = "Manage Busses";
             this.btnAddBus.UseVisualStyleBackColor = true;
             this.btnAddBus.Click += new System.EventHandler(this.btnAddBus_Click);
             // 
@@ -54,14 +55,26 @@
             this.btnManageDrivers.UseVisualStyleBackColor = true;
             this.btnManageDrivers.Click += new System.EventHandler(this.btnManageDrivers_Click);
             // 
+            // btnManageCities
+            // 
+            this.btnManageCities.Location = new System.Drawing.Point(258, 44);
+            this.btnManageCities.Margin = new System.Windows.Forms.Padding(4);
+            this.btnManageCities.Name = "btnManageCities";
+            this.btnManageCities.Size = new System.Drawing.Size(113, 50);
+            this.btnManageCities.TabIndex = 2;
+            this.btnManageCities.Text = "Manage Cities";
+            this.btnManageCities.UseVisualStyleBackColor = true;
+            this.btnManageCities.Click += new System.EventHandler(this.btnManageCities_Click);
+            // 
             // AdminMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(612, 154);
+            this.Controls.Add(this.btnManageCities);
             this.Controls.Add(this.btnManageDrivers);
             this.Controls.Add(this.btnAddBus);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AdminMainForm";
             this.Text = "AdminMainForm";
             this.ResumeLayout(false);
@@ -72,5 +85,6 @@
 
         private System.Windows.Forms.Button btnAddBus;
         private System.Windows.Forms.Button btnManageDrivers;
+        private System.Windows.Forms.Button btnManageCities;
     }
 }

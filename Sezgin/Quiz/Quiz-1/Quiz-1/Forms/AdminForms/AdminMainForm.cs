@@ -28,5 +28,11 @@ namespace Quiz_1.Forms.AdminForms
             ManageDriversForm manageDrivers = new ManageDriversForm();
             manageDrivers.Show();
         }
+
+        private void btnManageCities_Click(object sender, EventArgs e)
+        {
+            ManageCitiesForm manageCitiesForm = new ManageCitiesForm();
+            manageCitiesForm.Show();
+        }
     }
 }

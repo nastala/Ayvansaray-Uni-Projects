@@ -1,4 +1,5 @@
 ﻿using Quiz_1.Classes;
+using Quiz_1.Forms;
 using Quiz_1.Forms.AdminForms;
 using System;
 using System.Collections.Generic;
@@ -71,6 +72,12 @@ namespace Quiz_1
         {
             AdminMainForm adminMainForm = new AdminMainForm();
             adminMainForm.Show();
+        }
+
+        private void btnPurchaseTicket_Click(object sender, EventArgs e)
+        {
+            PurchaseTicketForm purchaseTicketForm = new PurchaseTicketForm();
+            purchaseTicketForm.Show();
         }
     }
 }
