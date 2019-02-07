@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -191,9 +192,20 @@ namespace Faturaİslemleri
                 FaturaToplam = _faturaDetaylari.Select(f => f.GenelToplam).Sum()
             };
 
-            _db.FaturaMasters.Add(faturaMaster);
-            _db.SaveChanges();
-            ClearFaturaInputs();
+            DbContextTransaction tran = _db.Database.BeginTransaction();
+
+            try
+            {
+                _db.FaturaMasters.Add(faturaMaster);
+                _db.SaveChanges();
+                ClearFaturaInputs();
+            }
+            catch (Exception)
+            {
+                tran.Rollback();
+                MessageBox.Show("Beklenmeyen bir hata meydana geldi");
+            }
+            
         }
 
         private void ClearFaturaInputs()
