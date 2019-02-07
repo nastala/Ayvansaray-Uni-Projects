@@ -54,5 +54,11 @@ namespace Faturaİslemleri
             FormYeniFatura formYeniFatura = new FormYeniFatura();
             formYeniFatura.Show();
         }
+
+        private void görüntüleSorgulaDüzenleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormFaturaGoruntule formFaturaGoruntule = new FormFaturaGoruntule();
+            formFaturaGoruntule.Show();
+        }
     }
 }

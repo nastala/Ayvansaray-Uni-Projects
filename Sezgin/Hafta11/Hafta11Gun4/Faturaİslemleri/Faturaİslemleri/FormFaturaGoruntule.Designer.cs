@@ -122,6 +122,7 @@
             this.cbMusteriIlce.Name = "cbMusteriIlce";
             this.cbMusteriIlce.Size = new System.Drawing.Size(121, 21);
             this.cbMusteriIlce.TabIndex = 5;
+            this.cbMusteriIlce.SelectedIndexChanged += new System.EventHandler(this.cbMusteriIlce_SelectedIndexChanged);
             // 
             // label4
             // 
@@ -139,6 +140,7 @@
             this.cbMusteri.Name = "cbMusteri";
             this.cbMusteri.Size = new System.Drawing.Size(121, 21);
             this.cbMusteri.TabIndex = 7;
+            this.cbMusteri.SelectedIndexChanged += new System.EventHandler(this.cbMusteri_SelectedIndexChanged);
             // 
             // groupBox2
             // 

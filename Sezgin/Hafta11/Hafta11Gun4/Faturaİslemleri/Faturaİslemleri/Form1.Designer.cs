@@ -113,6 +113,7 @@
             this.görüntüleSorgulaDüzenleToolStripMenuItem.Name = "görüntüleSorgulaDüzenleToolStripMenuItem";
             this.görüntüleSorgulaDüzenleToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
             this.görüntüleSorgulaDüzenleToolStripMenuItem.Text = "Görüntüle/Sorgula/Düzenle";
+            this.görüntüleSorgulaDüzenleToolStripMenuItem.Click += new System.EventHandler(this.görüntüleSorgulaDüzenleToolStripMenuItem_Click);
             // 
             // yeniFaturaOluşturToolStripMenuItem
             // 

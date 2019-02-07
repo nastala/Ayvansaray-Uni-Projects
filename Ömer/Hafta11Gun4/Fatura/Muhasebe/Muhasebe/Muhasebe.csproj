@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E3488C84-D4E5-4DF5-814B-E091A9419BAD}</ProjectGuid>
+    <ProjectGuid>{6AC2B6D8-7DB3-4805-8433-438FCE6B1EBC}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Faturaİslemleri</RootNamespace>
-    <AssemblyName>Faturaİslemleri</AssemblyName>
+    <RootNamespace>Muhasebe</RootNamespace>
+    <AssemblyName>Muhasebe</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -55,100 +55,99 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormBirim.cs">
+    <Compile Include="AccountingModel.cs" />
+    <Compile Include="Controls\EntityComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Enums.cs" />
+    <Compile Include="Entities\Customer.cs" />
+    <Compile Include="Entities\Invoice.cs" />
+    <Compile Include="Entities\InvoiceDetail.cs" />
+    <Compile Include="Entities\Product.cs" />
+    <Compile Include="Entities\Unit.cs" />
+    <Compile Include="Forms\EditorCity.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormBirim.Designer.cs">
-      <DependentUpon>FormBirim.cs</DependentUpon>
+    <Compile Include="Forms\EditorCity.Designer.cs">
+      <DependentUpon>EditorCity.cs</DependentUpon>
     </Compile>
-    <Compile Include="FaturaContext.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="Controls\EditorControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\EditorControl.Designer.cs">
+      <DependentUpon>EditorControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\City.cs" />
+    <Compile Include="Entities\DatabaseObject.cs" />
+    <Compile Include="Entities\District.cs" />
+    <Compile Include="Forms\EditorCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Forms\EditorCustomer.Designer.cs">
+      <DependentUpon>EditorCustomer.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormFaturaGoruntule.cs">
+    <Compile Include="Forms\EditorDistrict.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormFaturaGoruntule.Designer.cs">
-      <DependentUpon>FormFaturaGoruntule.cs</DependentUpon>
+    <Compile Include="Forms\EditorDistrict.Designer.cs">
+      <DependentUpon>EditorDistrict.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormMusteri.cs">
+    <Compile Include="Forms\EditorInvoice.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormMusteri.Designer.cs">
-      <DependentUpon>FormMusteri.cs</DependentUpon>
+    <Compile Include="Forms\EditorInvoice.Designer.cs">
+      <DependentUpon>EditorInvoice.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormUrun.cs">
+    <Compile Include="Forms\EditorInvoiceDetails.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormUrun.Designer.cs">
-      <DependentUpon>FormUrun.cs</DependentUpon>
+    <Compile Include="Forms\EditorInvoiceDetails.Designer.cs">
+      <DependentUpon>EditorInvoiceDetails.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormYeniFatura.cs">
+    <Compile Include="Forms\EditorProduct.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormYeniFatura.Designer.cs">
-      <DependentUpon>FormYeniFatura.cs</DependentUpon>
+    <Compile Include="Forms\EditorProduct.Designer.cs">
+      <DependentUpon>EditorProduct.cs</DependentUpon>
     </Compile>
-    <Compile Include="Ilceler.cs">
+    <Compile Include="Forms\EditorUnit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Ilceler.Designer.cs">
-      <DependentUpon>Ilceler.cs</DependentUpon>
+    <Compile Include="Forms\EditorUnit.Designer.cs">
+      <DependentUpon>EditorUnit.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201902070652092_test.cs" />
-    <Compile Include="Migrations\201902070652092_test.Designer.cs">
-      <DependentUpon>201902070652092_test.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201902071011374_test1.cs" />
-    <Compile Include="Migrations\201902071011374_test1.Designer.cs">
-      <DependentUpon>201902071011374_test1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201902071028172_test2.cs" />
-    <Compile Include="Migrations\201902071028172_test2.Designer.cs">
-      <DependentUpon>201902071028172_test2.cs</DependentUpon>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Sehirler.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Sehirler.Designer.cs">
-      <DependentUpon>Sehirler.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UrunSecilen.cs" />
-    <EmbeddedResource Include="FormBirim.resx">
-      <DependentUpon>FormBirim.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\EditorCity.resx">
+      <DependentUpon>EditorCity.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Controls\EditorControl.resx">
+      <DependentUpon>EditorControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormFaturaGoruntule.resx">
-      <DependentUpon>FormFaturaGoruntule.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\EditorCustomer.resx">
+      <DependentUpon>EditorCustomer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormMusteri.resx">
-      <DependentUpon>FormMusteri.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\EditorDistrict.resx">
+      <DependentUpon>EditorDistrict.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormUrun.resx">
-      <DependentUpon>FormUrun.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\EditorInvoice.resx">
+      <DependentUpon>EditorInvoice.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormYeniFatura.resx">
-      <DependentUpon>FormYeniFatura.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\EditorInvoiceDetails.resx">
+      <DependentUpon>EditorInvoiceDetails.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Ilceler.resx">
-      <DependentUpon>Ilceler.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\EditorProduct.resx">
+      <DependentUpon>EditorProduct.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201902070652092_test.resx">
-      <DependentUpon>201902070652092_test.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\EditorUnit.resx">
+      <DependentUpon>EditorUnit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201902071011374_test1.resx">
-      <DependentUpon>201902071011374_test1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201902071028172_test2.resx">
-      <DependentUpon>201902071028172_test2.cs</DependentUpon>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -159,9 +158,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Sehirler.resx">
-      <DependentUpon>Sehirler.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
