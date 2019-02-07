@@ -46,9 +46,11 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.dgvCities);
-            this.groupBox2.Location = new System.Drawing.Point(390, 12);
+            this.groupBox2.Location = new System.Drawing.Point(292, 10);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(362, 227);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Size = new System.Drawing.Size(272, 184);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Data Field";
@@ -56,12 +58,14 @@
             // dgvCities
             // 
             this.dgvCities.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCities.Location = new System.Drawing.Point(8, 25);
+            this.dgvCities.Location = new System.Drawing.Point(6, 20);
+            this.dgvCities.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvCities.Name = "dgvCities";
             this.dgvCities.ReadOnly = true;
             this.dgvCities.RowTemplate.Height = 24;
-            this.dgvCities.Size = new System.Drawing.Size(348, 196);
+            this.dgvCities.Size = new System.Drawing.Size(261, 159);
             this.dgvCities.TabIndex = 2;
+            this.dgvCities.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCities_CellClick);
             // 
             // groupBox1
             // 
@@ -72,57 +76,55 @@
             this.groupBox1.Controls.Add(this.btnSave);
             this.groupBox1.Controls.Add(this.tbPlateNumber);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Location = new System.Drawing.Point(11, 12);
+            this.groupBox1.Location = new System.Drawing.Point(8, 10);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(373, 227);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Size = new System.Drawing.Size(280, 184);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Edit Field";
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(243, 155);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDelete.Location = new System.Drawing.Point(182, 126);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(100, 44);
+            this.btnDelete.Size = new System.Drawing.Size(75, 36);
             this.btnDelete.TabIndex = 40;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(51, 25);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(38, 20);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(72, 17);
+            this.label1.Size = new System.Drawing.Size(55, 13);
             this.label1.TabIndex = 28;
             this.label1.Text = "City Name";
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(123, 155);
-            this.btnClear.Margin = new System.Windows.Forms.Padding(4);
+            this.btnClear.Location = new System.Drawing.Point(92, 126);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(100, 44);
+            this.btnClear.Size = new System.Drawing.Size(75, 36);
             this.btnClear.TabIndex = 39;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = true;
             // 
             // tbName
             // 
-            this.tbName.Location = new System.Drawing.Point(51, 45);
-            this.tbName.Margin = new System.Windows.Forms.Padding(4);
+            this.tbName.Location = new System.Drawing.Point(38, 37);
             this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(239, 22);
+            this.tbName.Size = new System.Drawing.Size(180, 20);
             this.tbName.TabIndex = 27;
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(7, 155);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSave.Location = new System.Drawing.Point(5, 126);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(100, 44);
+            this.btnSave.Size = new System.Drawing.Size(75, 36);
             this.btnSave.TabIndex = 37;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -130,29 +132,28 @@
             // 
             // tbPlateNumber
             // 
-            this.tbPlateNumber.Location = new System.Drawing.Point(51, 103);
-            this.tbPlateNumber.Margin = new System.Windows.Forms.Padding(4);
+            this.tbPlateNumber.Location = new System.Drawing.Point(38, 84);
             this.tbPlateNumber.Name = "tbPlateNumber";
-            this.tbPlateNumber.Size = new System.Drawing.Size(239, 22);
+            this.tbPlateNumber.Size = new System.Drawing.Size(180, 20);
             this.tbPlateNumber.TabIndex = 31;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(51, 83);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(38, 67);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(94, 17);
+            this.label3.Size = new System.Drawing.Size(71, 13);
             this.label3.TabIndex = 32;
             this.label3.Text = "Plate Number";
             // 
             // ManageCitiesForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(764, 253);
+            this.ClientSize = new System.Drawing.Size(573, 206);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "ManageCitiesForm";
             this.Text = "ManageCitiesForm";
             this.groupBox2.ResumeLayout(false);

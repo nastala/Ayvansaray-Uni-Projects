@@ -19,6 +19,6 @@ namespace Quiz_1.Classes
         public byte[] Image { get; set; }
         
         [Index(IsUnique = true)]
-        public int? DriverID { get; set; }
+        public Driver Driver { get; set; }
     }
 }

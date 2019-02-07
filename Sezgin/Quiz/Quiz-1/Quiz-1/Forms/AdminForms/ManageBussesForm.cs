@@ -87,7 +87,7 @@ namespace Quiz_1.Forms.AdminForms
                 {
                     Image = Helper.ImageToByteArray(pbImage.Image),
                     Name = tbName.Text,
-                    DriverID = cbDrivers.SelectedValue != null ? (int)cbDrivers.SelectedValue : -1,
+                    Driver = cbDrivers.SelectedItem != null ? (Driver)cbDrivers.SelectedItem : null,
                     Plate = tbPlate.Text,
                     SeatCount = Convert.ToInt32(tbSeatCount.Text)
                 };
@@ -98,7 +98,7 @@ namespace Quiz_1.Forms.AdminForms
             {
                 _selectedBus.Image = Helper.ImageToByteArray(pbImage.Image);
                 _selectedBus.Name = tbName.Text;
-                _selectedBus.DriverID = cbDrivers.SelectedValue != null ? (int)cbDrivers.SelectedValue : -1;
+                _selectedBus.Driver = cbDrivers.SelectedItem != null ? (Driver)cbDrivers.SelectedItem : null;
                 _selectedBus.Plate = tbPlate.Text;
                 _selectedBus.SeatCount = Convert.ToInt32(tbSeatCount.Text);
             }
@@ -139,7 +139,7 @@ namespace Quiz_1.Forms.AdminForms
             tbName.Text = selectedBus.Name;
             tbPlate.Text = selectedBus.Plate;
             tbSeatCount.Text = selectedBus.SeatCount.ToString();
-            cbDrivers.SelectedValue = selectedBus.DriverID;
+            cbDrivers.SelectedItem = selectedBus.Driver;
             pbImage.Image = (Image)((new ImageConverter()).ConvertFrom(selectedBus.Image));
         }
 

@@ -81,5 +81,29 @@ namespace Quiz_1.Forms.AdminForms
 
             return true;
         }
+
+        private void dgvCities_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex == -1 || dgvCities.CurrentRow == null)
+                return;
+
+            _selectedCity = (City)dgvCities.CurrentRow.DataBoundItem;
+            tbName.Text = _selectedCity.Name;
+            tbPlateNumber.Text = _selectedCity.PlateNumber.ToString();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (_selectedCity == null)
+                return;
+
+            DialogResult result = MessageBox.Show($"Are you sure to delete the city {_selectedCity.Name}?", "Attention", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                _model.Cities.Remove(_selectedCity);
+                _model.SaveChanges();
+                ClearInputs();
+            }
+        }
     }
 }

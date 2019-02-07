@@ -12,6 +12,8 @@ namespace Quiz_1.Classes
     {
         [Key]
         public int CityID { get; set; }
+
+        [Index(IsUnique = true)]
         public int PlateNumber { get; set; }
         public string Name { get; set; }
     }
