@@ -87,23 +87,27 @@ namespace Faturaİslemleri
             {
                 fatura.UrunID = _secilenUrun.UrunID;
                 fatura.Miktar = adet;
-                fatura.ToplamFiyat = adet * _secilenUrun.BirimFiyat;
+                /*fatura.ToplamFiyat = adet * _secilenUrun.BirimFiyat;
                 fatura.KDV = kdv;
-                fatura.KDVliFiyat = (adet * _secilenUrun.BirimFiyat) + (adet * _secilenUrun.BirimFiyat * kdv / 100);
+                fatura.KDVliFiyat = _secilenUrun.BirimFiyat + (adet * _secilenUrun.BirimFiyat * kdv / 100);
+                fatura.GenelToplam = fatura.KDVliFiyat * fatura.Miktar;*/
             }
             else
             {
                 fatura = urun;
                 fatura.Miktar += adet;
-                fatura.ToplamFiyat = fatura.Miktar * _secilenUrun.BirimFiyat;
+                /*fatura.ToplamFiyat = fatura.Miktar * _secilenUrun.BirimFiyat;
                 fatura.KDV = kdv;
-                fatura.KDVliFiyat = fatura.ToplamFiyat + (fatura.ToplamFiyat * kdv / 100);
+                fatura.KDVliFiyat = _secilenUrun.BirimFiyat + (adet * _secilenUrun.BirimFiyat * kdv / 100);
+                fatura.GenelToplam = fatura.KDVliFiyat * fatura.Miktar;*/
             }
 
+            fatura.ToplamFiyat = fatura.Miktar * _secilenUrun.BirimFiyat;
+            fatura.KDV = kdv;
+            fatura.KDVliFiyat = _secilenUrun.BirimFiyat + (_secilenUrun.BirimFiyat * kdv / 100);
+            fatura.GenelToplam = fatura.KDVliFiyat * fatura.Miktar;
+
             _faturaDetaylari.Add(fatura);
-
-            lblFaturaToplam.Text = _faturaDetaylari.Select(f => f.KDVliFiyat).Sum().ToString();
-
             ClearUrunInputs();
         }
 
@@ -113,6 +117,7 @@ namespace Faturaİslemleri
             nudUrunMiktar.Value = 1;
             txtUrunKDV.Text = "";
             dgvYeniFatura.DataSource = _faturaDetaylari.ToList();
+            lblFaturaToplam.Text = _faturaDetaylari.Select(f => f.GenelToplam).Sum().ToString();
         }
 
         private bool CheckUrunInputs()
@@ -128,45 +133,6 @@ namespace Faturaİslemleri
 
             try
             {
-                decimal kdv = Convert.ToDecimal(txtUrunKDV.Text);
-                return true;
-            }
-            catch (FormatException)
-            {
-                return false;
-            }
-        }
-
-        private bool CheckInputs()
-        {
-            if (cbMusteri.SelectedItem == null)
-                return false;
-
-            if (_db.Musteriler.ToList().FirstOrDefault(m => m.MusteriID == (int)cbMusteri.SelectedValue) == null)
-                return false;
-
-            if (string.IsNullOrWhiteSpace(txtIrsaliyeNo.Text))
-                return false;
-
-            if (cbUrunAdi.SelectedItem == null)
-                return false;
-
-            if (_db.Urunler.ToList().FirstOrDefault(u => u.UrunID == (int)cbUrunAdi.SelectedValue) == null)
-                return false;
-
-            if (string.IsNullOrWhiteSpace(txtUrunBirimi.Text))
-                return false;
-
-            if (string.IsNullOrWhiteSpace(txtUrunFiyati.Text))
-                return false;
-
-            if (string.IsNullOrWhiteSpace(txtUrunKDV.Text))
-                return false;
-
-            try
-            {
-                decimal fiyat = Convert.ToDecimal(txtUrunFiyati.Text);
-                int birim = Convert.ToInt32(txtUrunBirimi.Text);
                 decimal kdv = Convert.ToDecimal(txtUrunKDV.Text);
                 return true;
             }
@@ -207,6 +173,75 @@ namespace Faturaİslemleri
                 _faturaDetaylari.Remove(_secilenFaturaDetay);
                 ClearUrunInputs();
             }
+        }
+
+        private void btnFaturaKaydet_Click(object sender, EventArgs e)
+        {
+            if (!CheckFaturaInputs())
+                return;
+
+            FaturaMaster faturaMaster = new FaturaMaster()
+            {
+                FaturaID = _faturaID,
+                faturadetay = _faturaDetaylari,
+                FaturaTarihi = DateTime.Now,
+                IrsaliyeNo = Convert.ToInt32(txtIrsaliyeNo.Text),
+                MusteriID = _secilenMusteri.MusteriID,
+                OdemeTarihi = dtpOdemeTarihi.Value,
+                FaturaToplam = _faturaDetaylari.Select(f => f.GenelToplam).Sum()
+            };
+
+            _db.FaturaMasters.Add(faturaMaster);
+            _db.SaveChanges();
+            ClearFaturaInputs();
+        }
+
+        private void ClearFaturaInputs()
+        {
+            txtIrsaliyeNo.Text = "";
+            ClearDgvYeniFatura();
+
+            FaturaDetay fatura = _db.FaturaDetays.ToList().LastOrDefault();
+            _faturaID = fatura == null ? 1 : fatura.FaturaID;
+            lblFaturaID.Text = _faturaID.ToString();
+
+            ClearUrunInputs();
+        }
+
+        private void ClearDgvYeniFatura()
+        {
+            _faturaDetaylari = new HashSet<FaturaDetay>();
+            dgvYeniFatura.DataSource = _faturaDetaylari;
+        }
+
+        private bool CheckFaturaInputs()
+        {
+            if (_secilenMusteri == null)
+                return false;
+
+            if (_faturaDetaylari.Count < 1)
+                return false;
+
+            if (string.IsNullOrWhiteSpace(txtIrsaliyeNo.Text))
+                return false;
+
+            if (dtpOdemeTarihi.Value == null)
+                return false;
+
+            try
+            {
+                Convert.ToInt32(txtIrsaliyeNo.Text);
+                return true;
+            }
+            catch (FormatException)
+            {
+                return false;
+            }
+        }
+
+        private void btnListeTemizle_Click(object sender, EventArgs e)
+        {
+            ClearDgvYeniFatura();
         }
     }
 }

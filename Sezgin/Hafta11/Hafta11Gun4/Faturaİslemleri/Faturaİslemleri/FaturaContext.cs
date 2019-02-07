@@ -130,9 +130,9 @@
         public int FaturaID { get; set; }
         public int MusteriID { get; set; }
         public DateTime FaturaTarihi { get; set; }
-        public int IrsaliyeNo { get; set; }
+        public int IrsaliyeNo { get; set; } 
         public DateTime OdemeTarihi { get; set; }
-       
+        public decimal FaturaToplam { get; set; }
 
         public virtual ICollection<FaturaDetay> faturadetay{ get; set; }
     }
@@ -151,8 +151,8 @@
         public decimal ToplamFiyat { get; set; }
         public decimal KDV { get; set; }
         public decimal KDVliFiyat { get; set; }
-        public decimal FaturaToplam { get; set; }
         public string Aciklama { get; set; }
+        public decimal GenelToplam { get; set; }
 
         public virtual FaturaMaster faturamaster{ get; set; }
         public virtual Urun urun { get; set; }

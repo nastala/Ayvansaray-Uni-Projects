@@ -338,6 +338,7 @@
             this.btnFaturaKaydet.TabIndex = 1;
             this.btnFaturaKaydet.Text = "Fatura Kaydet";
             this.btnFaturaKaydet.UseVisualStyleBackColor = true;
+            this.btnFaturaKaydet.Click += new System.EventHandler(this.btnFaturaKaydet_Click);
             // 
             // btnListeTemizle
             // 
@@ -347,6 +348,7 @@
             this.btnListeTemizle.TabIndex = 1;
             this.btnListeTemizle.Text = "Liste Temizle";
             this.btnListeTemizle.UseVisualStyleBackColor = true;
+            this.btnListeTemizle.Click += new System.EventHandler(this.btnListeTemizle_Click);
             // 
             // dgvYeniFatura
             // 
