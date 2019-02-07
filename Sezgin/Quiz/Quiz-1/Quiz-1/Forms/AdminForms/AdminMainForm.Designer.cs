@@ -31,6 +31,7 @@
             this.btnAddBus = new System.Windows.Forms.Button();
             this.btnManageDrivers = new System.Windows.Forms.Button();
             this.btnManageCities = new System.Windows.Forms.Button();
+            this.btnManageTrips = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnAddBus
@@ -66,11 +67,23 @@
             this.btnManageCities.UseVisualStyleBackColor = true;
             this.btnManageCities.Click += new System.EventHandler(this.btnManageCities_Click);
             // 
+            // btnManageTrips
+            // 
+            this.btnManageTrips.Location = new System.Drawing.Point(379, 44);
+            this.btnManageTrips.Margin = new System.Windows.Forms.Padding(4);
+            this.btnManageTrips.Name = "btnManageTrips";
+            this.btnManageTrips.Size = new System.Drawing.Size(113, 50);
+            this.btnManageTrips.TabIndex = 3;
+            this.btnManageTrips.Text = "Manage Trips";
+            this.btnManageTrips.UseVisualStyleBackColor = true;
+            this.btnManageTrips.Click += new System.EventHandler(this.btnManageTrips_Click);
+            // 
             // AdminMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(612, 154);
+            this.Controls.Add(this.btnManageTrips);
             this.Controls.Add(this.btnManageCities);
             this.Controls.Add(this.btnManageDrivers);
             this.Controls.Add(this.btnAddBus);
@@ -86,5 +99,6 @@
         private System.Windows.Forms.Button btnAddBus;
         private System.Windows.Forms.Button btnManageDrivers;
         private System.Windows.Forms.Button btnManageCities;
+        private System.Windows.Forms.Button btnManageTrips;
     }
 }

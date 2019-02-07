@@ -7,12 +7,14 @@ namespace Quiz_1.Migrations
     {
         public override void Up()
         {
-            CreateIndex("dbo.Cities", "PlateNumber", unique: true);
+            DropColumn("dbo.Trips", "DepartureTime");
+            DropColumn("dbo.Trips", "TripTime");
         }
         
         public override void Down()
         {
-            DropIndex("dbo.Cities", new[] { "PlateNumber" });
+            AddColumn("dbo.Trips", "TripTime", c => c.DateTime(nullable: false));
+            AddColumn("dbo.Trips", "DepartureTime", c => c.DateTime(nullable: false));
         }
     }
 }

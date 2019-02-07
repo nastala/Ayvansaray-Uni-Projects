@@ -34,5 +34,11 @@ namespace Quiz_1.Forms.AdminForms
             ManageCitiesForm manageCitiesForm = new ManageCitiesForm();
             manageCitiesForm.Show();
         }
+
+        private void btnManageTrips_Click(object sender, EventArgs e)
+        {
+            ManageTripsForm manageTripsForm = new ManageTripsForm();
+            manageTripsForm.Show();
+        }
     }
 }

@@ -17,5 +17,6 @@ namespace Quiz_1
         public virtual DbSet<Bus> Busses { get; set; }
         public virtual DbSet<Passenger> Passengers { get; set; }
         public virtual DbSet<Driver> Drivers { get; set; }
+        public virtual DbSet<TripDetail> TripDetails { get; set; }
     }
 }
