@@ -31,6 +31,20 @@ namespace Quiz_1.Forms
             cbDepartureCities.DisplayMember = "Name";
             cbDepartureCities.ValueMember = "CityID";
             cbDepartureCities.DataSource = _model.Cities.ToList();
+
+            cbBusses.DisplayMember = "Plate";
+            cbBusses.ValueMember = "BusID";
+            cbBusses.DataSource = _model.Busses.ToList();
+        }
+
+        private void cbBusses_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbBusses.SelectedIndex == -1)
+                return;
+
+            _selectedBus = (Bus)cbBusses.SelectedItem;
+            lblBus.Text = _selectedBus.Name;
+            pbBus.Image = (Image)((new ImageConverter()).ConvertFrom(_selectedBus.Image));
         }
     }
 }

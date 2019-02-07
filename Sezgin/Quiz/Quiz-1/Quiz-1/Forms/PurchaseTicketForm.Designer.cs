@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cbBusses = new System.Windows.Forms.ComboBox();
-            this.cbDepartureCities = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblBus = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.pbBus = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.cbDestinationCities = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.pbBus = new System.Windows.Forms.PictureBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.lblBus = new System.Windows.Forms.Label();
+            this.cbDepartureCities = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cbBusses = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbBus)).BeginInit();
             this.SuspendLayout();
@@ -55,103 +55,118 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.cbBusses);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(13, 13);
+            this.groupBox1.Location = new System.Drawing.Point(10, 11);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(775, 332);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Size = new System.Drawing.Size(581, 270);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Purchase a Ticket";
             // 
-            // label1
+            // lblBus
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(36, 17);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Bus:";
+            this.lblBus.AutoSize = true;
+            this.lblBus.Location = new System.Drawing.Point(32, 71);
+            this.lblBus.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblBus.Name = "lblBus";
+            this.lblBus.Size = new System.Drawing.Size(25, 13);
+            this.lblBus.TabIndex = 9;
+            this.lblBus.Text = "Bus";
             // 
-            // cbBusses
+            // label4
             // 
-            this.cbBusses.FormattingEnabled = true;
-            this.cbBusses.Location = new System.Drawing.Point(10, 43);
-            this.cbBusses.Name = "cbBusses";
-            this.cbBusses.Size = new System.Drawing.Size(149, 24);
-            this.cbBusses.TabIndex = 1;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(5, 71);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(31, 13);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Bus: ";
             // 
-            // cbDepartureCities
+            // pbBus
             // 
-            this.cbDepartureCities.FormattingEnabled = true;
-            this.cbDepartureCities.Location = new System.Drawing.Point(184, 43);
-            this.cbDepartureCities.Name = "cbDepartureCities";
-            this.cbDepartureCities.Size = new System.Drawing.Size(149, 24);
-            this.cbDepartureCities.TabIndex = 3;
+            this.pbBus.Location = new System.Drawing.Point(8, 87);
+            this.pbBus.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pbBus.Name = "pbBus";
+            this.pbBus.Size = new System.Drawing.Size(118, 178);
+            this.pbBus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbBus.TabIndex = 7;
+            this.pbBus.TabStop = false;
             // 
-            // label2
+            // panel1
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(181, 22);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(99, 17);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Departure City";
+            this.panel1.Location = new System.Drawing.Point(138, 60);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(439, 205);
+            this.panel1.TabIndex = 6;
             // 
             // cbDestinationCities
             // 
             this.cbDestinationCities.FormattingEnabled = true;
-            this.cbDestinationCities.Location = new System.Drawing.Point(357, 43);
+            this.cbDestinationCities.Location = new System.Drawing.Point(268, 35);
+            this.cbDestinationCities.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbDestinationCities.Name = "cbDestinationCities";
-            this.cbDestinationCities.Size = new System.Drawing.Size(149, 24);
+            this.cbDestinationCities.Size = new System.Drawing.Size(113, 21);
             this.cbDestinationCities.TabIndex = 5;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(354, 22);
+            this.label3.Location = new System.Drawing.Point(266, 18);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(106, 17);
+            this.label3.Size = new System.Drawing.Size(80, 13);
             this.label3.TabIndex = 4;
             this.label3.Text = "Destination City";
             // 
-            // panel1
+            // cbDepartureCities
             // 
-            this.panel1.Location = new System.Drawing.Point(184, 74);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(585, 252);
-            this.panel1.TabIndex = 6;
+            this.cbDepartureCities.FormattingEnabled = true;
+            this.cbDepartureCities.Location = new System.Drawing.Point(138, 35);
+            this.cbDepartureCities.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbDepartureCities.Name = "cbDepartureCities";
+            this.cbDepartureCities.Size = new System.Drawing.Size(113, 21);
+            this.cbDepartureCities.TabIndex = 3;
             // 
-            // pbBus
+            // label2
             // 
-            this.pbBus.Location = new System.Drawing.Point(10, 107);
-            this.pbBus.Name = "pbBus";
-            this.pbBus.Size = new System.Drawing.Size(158, 219);
-            this.pbBus.TabIndex = 7;
-            this.pbBus.TabStop = false;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(136, 18);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(74, 13);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Departure City";
             // 
-            // label4
+            // cbBusses
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(7, 87);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(40, 17);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Bus: ";
+            this.cbBusses.FormattingEnabled = true;
+            this.cbBusses.Location = new System.Drawing.Point(8, 35);
+            this.cbBusses.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbBusses.Name = "cbBusses";
+            this.cbBusses.Size = new System.Drawing.Size(113, 21);
+            this.cbBusses.TabIndex = 1;
+            this.cbBusses.SelectedIndexChanged += new System.EventHandler(this.cbBusses_SelectedIndexChanged);
             // 
-            // lblBus
+            // label1
             // 
-            this.lblBus.AutoSize = true;
-            this.lblBus.Location = new System.Drawing.Point(43, 87);
-            this.lblBus.Name = "lblBus";
-            this.lblBus.Size = new System.Drawing.Size(32, 17);
-            this.lblBus.TabIndex = 9;
-            this.lblBus.Text = "Bus";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(5, 18);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(28, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Bus:";
             // 
             // PurchaseTicketForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(799, 359);
+            this.ClientSize = new System.Drawing.Size(599, 292);
             this.Controls.Add(this.groupBox1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "PurchaseTicketForm";
             this.Text = "PurchaseTicketForm";
             this.groupBox1.ResumeLayout(false);
