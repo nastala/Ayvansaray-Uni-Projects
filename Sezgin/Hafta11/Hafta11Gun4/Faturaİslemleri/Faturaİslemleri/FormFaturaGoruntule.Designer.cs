@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.btnListele = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbFaturaID = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cbMusteriSehir = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -54,13 +54,14 @@
             this.btnListele.TabIndex = 0;
             this.btnListele.Text = "Listele";
             this.btnListele.UseVisualStyleBackColor = true;
+            this.btnListele.Click += new System.EventHandler(this.btnListele_Click);
             // 
-            // textBox1
+            // tbFaturaID
             // 
-            this.textBox1.Location = new System.Drawing.Point(75, 23);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(121, 20);
-            this.textBox1.TabIndex = 1;
+            this.tbFaturaID.Location = new System.Drawing.Point(75, 23);
+            this.tbFaturaID.Name = "tbFaturaID";
+            this.tbFaturaID.Size = new System.Drawing.Size(121, 20);
+            this.tbFaturaID.TabIndex = 1;
             // 
             // label1
             // 
@@ -89,7 +90,7 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.cbMusteriSehir);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.tbFaturaID);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(202, 171);
@@ -159,6 +160,7 @@
             this.dgvFaturalar.Name = "dgvFaturalar";
             this.dgvFaturalar.Size = new System.Drawing.Size(554, 184);
             this.dgvFaturalar.TabIndex = 0;
+            this.dgvFaturalar.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFaturalar_CellClick);
             // 
             // btnTemizle
             // 
@@ -168,6 +170,7 @@
             this.btnTemizle.TabIndex = 6;
             this.btnTemizle.Text = "Temizle";
             this.btnTemizle.UseVisualStyleBackColor = true;
+            this.btnTemizle.Click += new System.EventHandler(this.btnTemizle_Click);
             // 
             // FormFaturaGoruntule
             // 
@@ -191,7 +194,7 @@
         #endregion
 
         private System.Windows.Forms.Button btnListele;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbFaturaID;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cbMusteriSehir;
         private System.Windows.Forms.GroupBox groupBox1;
