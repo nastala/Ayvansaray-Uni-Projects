@@ -145,7 +145,7 @@
         }
         [Key] [Column(Order=0)]
         public int FaturaID { get; set; }
-        [Key][Column(Order = 1)]
+        [Key] [Column(Order = 1)]
         public int UrunID { get; set; }
         public decimal Miktar { get; set; }
         public decimal ToplamFiyat { get; set; }

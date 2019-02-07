@@ -32,7 +32,7 @@
             this.dtpOdemeTarihi = new System.Windows.Forms.DateTimePicker();
             this.txtIrsaliyeNo = new System.Windows.Forms.TextBox();
             this.cbMusteri = new System.Windows.Forms.ComboBox();
-            this.cbMusteriİlce = new System.Windows.Forms.ComboBox();
+            this.cbMusteriIlce = new System.Windows.Forms.ComboBox();
             this.cbMusteriSehir = new System.Windows.Forms.ComboBox();
             this.lblFaturaID = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -72,7 +72,7 @@
             this.groupBox1.Controls.Add(this.dtpOdemeTarihi);
             this.groupBox1.Controls.Add(this.txtIrsaliyeNo);
             this.groupBox1.Controls.Add(this.cbMusteri);
-            this.groupBox1.Controls.Add(this.cbMusteriİlce);
+            this.groupBox1.Controls.Add(this.cbMusteriIlce);
             this.groupBox1.Controls.Add(this.cbMusteriSehir);
             this.groupBox1.Controls.Add(this.lblFaturaID);
             this.groupBox1.Controls.Add(this.label6);
@@ -109,14 +109,15 @@
             this.cbMusteri.Name = "cbMusteri";
             this.cbMusteri.Size = new System.Drawing.Size(193, 21);
             this.cbMusteri.TabIndex = 2;
+            this.cbMusteri.SelectedIndexChanged += new System.EventHandler(this.cbMusteri_SelectedIndexChanged);
             // 
-            // cbMusteriİlce
+            // cbMusteriIlce
             // 
-            this.cbMusteriİlce.FormattingEnabled = true;
-            this.cbMusteriİlce.Location = new System.Drawing.Point(151, 66);
-            this.cbMusteriİlce.Name = "cbMusteriİlce";
-            this.cbMusteriİlce.Size = new System.Drawing.Size(193, 21);
-            this.cbMusteriİlce.TabIndex = 2;
+            this.cbMusteriIlce.FormattingEnabled = true;
+            this.cbMusteriIlce.Location = new System.Drawing.Point(151, 66);
+            this.cbMusteriIlce.Name = "cbMusteriIlce";
+            this.cbMusteriIlce.Size = new System.Drawing.Size(193, 21);
+            this.cbMusteriIlce.TabIndex = 2;
             // 
             // cbMusteriSehir
             // 
@@ -129,7 +130,7 @@
             // lblFaturaID
             // 
             this.lblFaturaID.AutoSize = true;
-            this.lblFaturaID.Location = new System.Drawing.Point(167, 20);
+            this.lblFaturaID.Location = new System.Drawing.Point(148, 20);
             this.lblFaturaID.Name = "lblFaturaID";
             this.lblFaturaID.Size = new System.Drawing.Size(13, 13);
             this.lblFaturaID.TabIndex = 1;
@@ -217,9 +218,15 @@
             this.nudUrunMiktar.Name = "nudUrunMiktar";
             this.nudUrunMiktar.Size = new System.Drawing.Size(193, 20);
             this.nudUrunMiktar.TabIndex = 4;
+            this.nudUrunMiktar.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // txtUrunFiyati
             // 
+            this.txtUrunFiyati.Enabled = false;
             this.txtUrunFiyati.Location = new System.Drawing.Point(148, 47);
             this.txtUrunFiyati.Name = "txtUrunFiyati";
             this.txtUrunFiyati.Size = new System.Drawing.Size(193, 20);
@@ -234,6 +241,7 @@
             // 
             // txtUrunBirimi
             // 
+            this.txtUrunBirimi.Enabled = false;
             this.txtUrunBirimi.Location = new System.Drawing.Point(148, 73);
             this.txtUrunBirimi.Name = "txtUrunBirimi";
             this.txtUrunBirimi.Size = new System.Drawing.Size(193, 20);
@@ -246,6 +254,7 @@
             this.cbUrunAdi.Name = "cbUrunAdi";
             this.cbUrunAdi.Size = new System.Drawing.Size(193, 21);
             this.cbUrunAdi.TabIndex = 2;
+            this.cbUrunAdi.SelectedIndexChanged += new System.EventHandler(this.cbUrunAdi_SelectedIndexChanged);
             // 
             // btnUrunSil
             // 
@@ -255,6 +264,7 @@
             this.btnUrunSil.TabIndex = 1;
             this.btnUrunSil.Text = "Ürün Sil";
             this.btnUrunSil.UseVisualStyleBackColor = true;
+            this.btnUrunSil.Click += new System.EventHandler(this.btnUrunSil_Click);
             // 
             // btnUrunGuncelle
             // 
@@ -273,6 +283,7 @@
             this.btnUrunEkle.TabIndex = 1;
             this.btnUrunEkle.Text = "Ürün Ekle";
             this.btnUrunEkle.UseVisualStyleBackColor = true;
+            this.btnUrunEkle.Click += new System.EventHandler(this.btnUrunEkle_Click);
             // 
             // label10
             // 
@@ -345,15 +356,16 @@
             this.dgvYeniFatura.Name = "dgvYeniFatura";
             this.dgvYeniFatura.Size = new System.Drawing.Size(897, 259);
             this.dgvYeniFatura.TabIndex = 2;
+            this.dgvYeniFatura.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvYeniFatura_CellClick);
             // 
             // label12
             // 
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(631, 476);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(83, 13);
+            this.label12.Size = new System.Drawing.Size(86, 13);
             this.label12.TabIndex = 0;
-            this.label12.Text = "Fatura Toplamı=";
+            this.label12.Text = "Fatura Toplamı =";
             // 
             // label13
             // 
@@ -366,7 +378,7 @@
             // lblFaturaToplam
             // 
             this.lblFaturaToplam.AutoSize = true;
-            this.lblFaturaToplam.Location = new System.Drawing.Point(737, 476);
+            this.lblFaturaToplam.Location = new System.Drawing.Point(720, 476);
             this.lblFaturaToplam.Name = "lblFaturaToplam";
             this.lblFaturaToplam.Size = new System.Drawing.Size(13, 13);
             this.lblFaturaToplam.TabIndex = 3;
@@ -423,7 +435,7 @@
         private System.Windows.Forms.DateTimePicker dtpOdemeTarihi;
         private System.Windows.Forms.TextBox txtIrsaliyeNo;
         private System.Windows.Forms.ComboBox cbMusteri;
-        private System.Windows.Forms.ComboBox cbMusteriİlce;
+        private System.Windows.Forms.ComboBox cbMusteriIlce;
         private System.Windows.Forms.ComboBox cbMusteriSehir;
         private System.Windows.Forms.Label lblFaturaID;
         private System.Windows.Forms.NumericUpDown nudUrunMiktar;

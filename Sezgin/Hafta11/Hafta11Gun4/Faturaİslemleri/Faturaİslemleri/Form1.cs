@@ -48,5 +48,11 @@ namespace Faturaİslemleri
             FormMusteri musteriler = new FormMusteri();
             musteriler.Show();
         }
+
+        private void yeniFaturaOluşturToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormYeniFatura formYeniFatura = new FormYeniFatura();
+            formYeniFatura.Show();
+        }
     }
 }
