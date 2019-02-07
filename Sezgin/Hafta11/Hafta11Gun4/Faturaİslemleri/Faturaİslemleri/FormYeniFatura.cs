@@ -201,7 +201,7 @@ namespace Faturaİslemleri
             if (_secilenFaturaDetay == null)
                 return;
 
-            DialogResult result = MessageBox.Show($"{_secilenFaturaDetay.urun.UrunAdi} adlı ürünü silmek istiyor musunuz?", "Attention", MessageBoxButtons.YesNo);
+            DialogResult result = MessageBox.Show($"{_secilenFaturaDetay.urun.UrunAdi} adlı ürünü silmek istiyor musunuz?", "Uyarı", MessageBoxButtons.YesNo);
             if(result == DialogResult.Yes)
             {
                 _faturaDetaylari.Remove(_secilenFaturaDetay);
