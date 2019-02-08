@@ -199,6 +199,7 @@ namespace Faturaİslemleri
                 _db.FaturaMasters.Add(faturaMaster);
                 _db.SaveChanges();
                 ClearFaturaInputs();
+                tran.Commit();
             }
             catch (Exception)
             {

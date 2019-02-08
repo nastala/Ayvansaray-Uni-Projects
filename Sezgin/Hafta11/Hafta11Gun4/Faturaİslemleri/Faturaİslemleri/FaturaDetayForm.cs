@@ -13,17 +13,20 @@ namespace Faturaİslemleri
     public partial class FaturaDetayForm : Form
     {
         private FaturaContext _db;
+        private List<FaturaDetay> _faturaDetays;
 
-        public FaturaDetayForm(HashSet<FaturaDetay> faturaDetays)
+        public FaturaDetayForm(ICollection<FaturaDetay> faturaDetays)
         {
             InitializeComponent();
 
+            _faturaDetays = faturaDetays.ToList();
             Initialize();
         }
 
         private void Initialize()
         {
             _db = new FaturaContext();
+            dgvFaturaDetaylari.DataSource = _faturaDetays;
         }
     }
 }

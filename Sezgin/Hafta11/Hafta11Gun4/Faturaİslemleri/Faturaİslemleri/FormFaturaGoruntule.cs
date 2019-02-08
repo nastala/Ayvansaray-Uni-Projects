@@ -114,7 +114,12 @@ namespace Faturaİslemleri
 
         private void dgvFaturalar_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex == -1 || dgvFaturalar.CurrentRow == null)
+                return;
 
+            FaturaMaster faturaMaster = (FaturaMaster)dgvFaturalar.CurrentRow.DataBoundItem;
+            FaturaDetayForm faturaDetayForm = new FaturaDetayForm(faturaMaster.faturadetay);
+            faturaDetayForm.ShowDialog();
         }
     }
 }

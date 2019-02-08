@@ -104,19 +104,6 @@
     <Compile Include="Ilceler.Designer.cs">
       <DependentUpon>Ilceler.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201902070652092_test.cs" />
-    <Compile Include="Migrations\201902070652092_test.Designer.cs">
-      <DependentUpon>201902070652092_test.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201902071011374_test1.cs" />
-    <Compile Include="Migrations\201902071011374_test1.Designer.cs">
-      <DependentUpon>201902071011374_test1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201902071028172_test2.cs" />
-    <Compile Include="Migrations\201902071028172_test2.Designer.cs">
-      <DependentUpon>201902071028172_test2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sehirler.cs">
@@ -149,15 +136,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ilceler.resx">
       <DependentUpon>Ilceler.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201902070652092_test.resx">
-      <DependentUpon>201902070652092_test.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201902071011374_test1.resx">
-      <DependentUpon>201902071011374_test1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201902071028172_test2.resx">
-      <DependentUpon>201902071028172_test2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
