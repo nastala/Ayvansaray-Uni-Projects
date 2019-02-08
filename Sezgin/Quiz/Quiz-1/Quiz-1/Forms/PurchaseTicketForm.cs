@@ -88,7 +88,7 @@ namespace Quiz_1.Forms
 
             if (trip != null)
             {
-                List<TripDetail> tripDetails = _model.TripDetails.Where(t => t.Trip.TripID == trip.TripID).ToList();
+                List<TripDetail> tripDetails = trip.TripDetails.ToList();
                 foreach (TripDetail tripDetail in tripDetails)
                 {
                     pnlSeats.Controls[tripDetail.SeatNumber.ToString()].Enabled = false;
@@ -167,11 +167,10 @@ namespace Quiz_1.Forms
             TripDetail tripDetail = new TripDetail()
             {
                 Passenger = passenger,
-                Trip = trip,
                 SeatNumber = seatNumber
             };
 
-            _model.TripDetails.Add(tripDetail);
+            trip.TripDetails.Add(tripDetail);
             _model.SaveChanges();
 
             FillSeats();

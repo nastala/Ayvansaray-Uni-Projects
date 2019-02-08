@@ -18,5 +18,11 @@ namespace Quiz_1.Classes
         //public DateTime TripTime { get; set; }
         public bool IsLeft { get; set; }
         public Bus Bus { get; set; }
+        public virtual ICollection<TripDetail> TripDetails { get; set; }
+
+        public Trip()
+        {
+            this.TripDetails = new HashSet<TripDetail>();
+        }
     }
 }

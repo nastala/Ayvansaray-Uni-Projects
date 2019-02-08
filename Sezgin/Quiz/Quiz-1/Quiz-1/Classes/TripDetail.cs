@@ -13,6 +13,6 @@ namespace Quiz_1.Classes
         public int TripDetailsID { get; set; }
         public Passenger Passenger { get; set; }
         public int SeatNumber { get; set; }
-        public Trip Trip { get; set; }
+        //public Trip Trip { get; set; }
     }
 }
