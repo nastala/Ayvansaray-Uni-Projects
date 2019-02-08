@@ -55,6 +55,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FaturaDetayForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FaturaDetayForm.Designer.cs">
+      <DependentUpon>FaturaDetayForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormBirim.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,6 +126,9 @@
       <DependentUpon>Sehirler.cs</DependentUpon>
     </Compile>
     <Compile Include="UrunSecilen.cs" />
+    <EmbeddedResource Include="FaturaDetayForm.resx">
+      <DependentUpon>FaturaDetayForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormBirim.resx">
       <DependentUpon>FormBirim.cs</DependentUpon>
     </EmbeddedResource>
