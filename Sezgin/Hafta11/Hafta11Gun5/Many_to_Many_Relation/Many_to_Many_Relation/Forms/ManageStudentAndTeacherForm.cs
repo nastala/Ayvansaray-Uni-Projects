@@ -15,6 +15,7 @@ namespace Many_to_Many_Relation.Forms
     {
         private UniversityModel _model;
         private Teacher _currentTeacher;
+        private List<Student> _availableStudents;
 
         public ManageStudentAndTeacherForm()
         {
@@ -27,6 +28,7 @@ namespace Many_to_Many_Relation.Forms
         {
             _model = new UniversityModel();
             _currentTeacher = null;
+            _availableStudents = new List<Student>();
 
             cbTeachers.DisplayMember = "FirstName";
             cbTeachers.ValueMember = "TeacherID";
@@ -46,14 +48,13 @@ namespace Many_to_Many_Relation.Forms
 
         private void cbTeachers_SelectedIndexChanged(object sender, EventArgs e)
         {
-            FillDgvTeacherStudents();
-            FillLvStudents();
-
             if (cbTeachers.SelectedIndex == -1)
                 return;
 
             _currentTeacher = (Teacher)cbTeachers.SelectedItem;
-            
+
+            FillDgvTeacherStudents();
+            FillLvStudents();
         }
 
         private void FillLvStudents()
@@ -64,9 +65,21 @@ namespace Many_to_Many_Relation.Forms
                 return;
 
             List<Student> students = _model.Students.ToList();
-            List<Student> availableStudents = students.SkipWhile((s) => _currentTeacher.Students.Contains(s)).ToList();
+            _availableStudents = students.SkipWhile((s) => _currentTeacher.Students.Contains(s)).ToList();
 
-            availableStudents.ForEach(s => lvStudents.Items.Add(s.FirstName));
+            _availableStudents.ForEach(s => lvStudents.Items.Add(s.FirstName));
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            foreach (ListViewItem item in lvStudents.SelectedItems)
+            {
+                _currentTeacher.Students.Add(_availableStudents[item.Index]);
+            }
+
+            _model.SaveChanges();
+            FillDgvTeacherStudents();
+            FillLvStudents();
         }
     }
 }

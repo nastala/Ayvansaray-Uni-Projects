@@ -73,6 +73,7 @@
             this.lvStudents.Size = new System.Drawing.Size(222, 228);
             this.lvStudents.TabIndex = 3;
             this.lvStudents.UseCompatibleStateImageBehavior = false;
+            this.lvStudents.View = System.Windows.Forms.View.List;
             // 
             // btnAdd
             // 
@@ -82,6 +83,7 @@
             this.btnAdd.TabIndex = 5;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // groupBox1
             // 

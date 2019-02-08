@@ -75,6 +75,7 @@
             this.studentAndTeacherToolStripMenuItem.Name = "studentAndTeacherToolStripMenuItem";
             this.studentAndTeacherToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.studentAndTeacherToolStripMenuItem.Text = "Student and Teacher";
+            this.studentAndTeacherToolStripMenuItem.Click += new System.EventHandler(this.studentAndTeacherToolStripMenuItem_Click);
             // 
             // MainForm
             // 

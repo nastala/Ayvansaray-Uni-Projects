@@ -28,5 +28,11 @@ namespace Many_to_Many_Relation.Forms
             ManageTeacherForm manageTeacherForm = new ManageTeacherForm();
             manageTeacherForm.Show();
         }
+
+        private void studentAndTeacherToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ManageStudentAndTeacherForm manageStudentAndTeacherForm = new ManageStudentAndTeacherForm();
+            manageStudentAndTeacherForm.Show();
+        }
     }
 }
