@@ -46,7 +46,6 @@ namespace Quiz_1.Forms
 
             this.Close();
             _purchaseTicketForm.PurchaseTicket(passenger, _seatNumber);
-            _purchaseTicketForm.Show();
         }
 
         private bool CheckInputs()
@@ -73,6 +72,11 @@ namespace Quiz_1.Forms
 
             Helper.Gender gender;
             Enum.TryParse<Helper.Gender>(cbGender.SelectedValue.ToString(), out gender);
+        }
+
+        protected override void DestroyHandle()
+        {
+            _purchaseTicketForm.Show();
         }
     }
 }

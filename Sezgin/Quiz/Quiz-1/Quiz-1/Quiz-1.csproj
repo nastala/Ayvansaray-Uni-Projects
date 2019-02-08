@@ -110,19 +110,6 @@
     <Compile Include="Forms\PurchaseTicketForm.Designer.cs">
       <DependentUpon>PurchaseTicketForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201902071746091_test4.cs" />
-    <Compile Include="Migrations\201902071746091_test4.Designer.cs">
-      <DependentUpon>201902071746091_test4.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201902071842042_test.cs" />
-    <Compile Include="Migrations\201902071842042_test.Designer.cs">
-      <DependentUpon>201902071842042_test.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201902071844515_test1.cs" />
-    <Compile Include="Migrations\201902071844515_test1.Designer.cs">
-      <DependentUpon>201902071844515_test1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -149,15 +136,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\PurchaseTicketForm.resx">
       <DependentUpon>PurchaseTicketForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201902071746091_test4.resx">
-      <DependentUpon>201902071746091_test4.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201902071842042_test.resx">
-      <DependentUpon>201902071842042_test.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201902071844515_test1.resx">
-      <DependentUpon>201902071844515_test1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
