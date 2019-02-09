@@ -17,7 +17,8 @@ namespace Quiz_1.Classes
         public string Name { get; set; }
         public string Plate { get; set; }
         public byte[] Image { get; set; }
-        
+        public decimal Cost { get; set; }
+
         [Index(IsUnique = true)]
         public Driver Driver { get; set; }
     }

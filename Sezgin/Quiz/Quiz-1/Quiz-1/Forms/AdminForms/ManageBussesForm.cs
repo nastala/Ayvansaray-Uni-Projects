@@ -22,6 +22,11 @@ namespace Quiz_1.Forms.AdminForms
             InitializeComponent();
         }
 
+        private void AddBusForm_Load(object sender, EventArgs e)
+        {
+            Initialize();
+        }
+
         private void Initialize()
         {
             _model = new Model();
@@ -56,24 +61,22 @@ namespace Quiz_1.Forms.AdminForms
             if (string.IsNullOrWhiteSpace(tbSeatCount.Text))
                 return false;
 
+            if (string.IsNullOrWhiteSpace(tbCost.Text))
+                return false;
+
             if (pbImage.Image == null)
                 return false;
 
             try
             {
                 Convert.ToInt32(tbSeatCount.Text);
+                Convert.ToDecimal(tbCost.Text);
+                return true;
             }
             catch
             {
                 return false;
             }
-
-            return true;
-        }
-
-        private void AddBusForm_Load(object sender, EventArgs e)
-        {
-            Initialize();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -89,7 +92,8 @@ namespace Quiz_1.Forms.AdminForms
                     Name = tbName.Text,
                     Driver = cbDrivers.SelectedItem != null ? (Driver)cbDrivers.SelectedItem : null,
                     Plate = tbPlate.Text,
-                    SeatCount = Convert.ToInt32(tbSeatCount.Text)
+                    SeatCount = Convert.ToInt32(tbSeatCount.Text),
+                    Cost = Convert.ToDecimal(tbCost.Text)
                 };
 
                 _model.Busses.Add(bus);
@@ -101,6 +105,7 @@ namespace Quiz_1.Forms.AdminForms
                 _selectedBus.Driver = cbDrivers.SelectedItem != null ? (Driver)cbDrivers.SelectedItem : null;
                 _selectedBus.Plate = tbPlate.Text;
                 _selectedBus.SeatCount = Convert.ToInt32(tbSeatCount.Text);
+                _selectedBus.Cost = Convert.ToDecimal(tbCost.Text);
             }
 
             _model.SaveChanges();

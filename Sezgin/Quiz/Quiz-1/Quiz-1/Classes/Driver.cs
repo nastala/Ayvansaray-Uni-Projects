@@ -14,5 +14,10 @@ namespace Quiz_1.Classes
         public int DriverID { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
+
+        public override string ToString()
+        {
+            return this.FirstName + ' ' + this.LastName;
+        }
     }
 }

@@ -31,5 +31,11 @@ namespace Quiz_1
             PurchaseTicketForm purchaseTicketForm = new PurchaseTicketForm();
             purchaseTicketForm.Show();
         }
+
+        private void btnControl_Click(object sender, EventArgs e)
+        {
+            ControlForm controlForm = new ControlForm();
+            controlForm.Show();
+        }
     }
 }

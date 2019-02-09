@@ -45,6 +45,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgvBusses = new System.Windows.Forms.DataGridView();
+            this.tbCost = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -53,6 +55,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.tbCost);
+            this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.btnDelete);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.btnClear);
@@ -69,14 +73,14 @@
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(582, 325);
+            this.groupBox1.Size = new System.Drawing.Size(582, 393);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Edit Field";
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(242, 269);
+            this.btnDelete.Location = new System.Drawing.Point(243, 325);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(4);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(100, 44);
@@ -97,7 +101,7 @@
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(122, 269);
+            this.btnClear.Location = new System.Drawing.Point(123, 325);
             this.btnClear.Margin = new System.Windows.Forms.Padding(4);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(100, 44);
@@ -116,7 +120,7 @@
             // 
             // mtbPlate
             // 
-            this.mtbPlate.Location = new System.Drawing.Point(375, 280);
+            this.mtbPlate.Location = new System.Drawing.Point(376, 336);
             this.mtbPlate.Margin = new System.Windows.Forms.Padding(4);
             this.mtbPlate.Mask = "00 >L>L>? 0099";
             this.mtbPlate.Name = "mtbPlate";
@@ -133,7 +137,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(6, 269);
+            this.btnSave.Location = new System.Drawing.Point(7, 325);
             this.btnSave.Margin = new System.Windows.Forms.Padding(4);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(100, 44);
@@ -156,7 +160,7 @@
             // 
             this.lblPath.AutoSize = true;
             this.lblPath.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblPath.Location = new System.Drawing.Point(239, 235);
+            this.lblPath.Location = new System.Drawing.Point(240, 289);
             this.lblPath.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPath.Name = "lblPath";
             this.lblPath.Size = new System.Drawing.Size(322, 17);
@@ -176,7 +180,7 @@
             this.pbImage.Location = new System.Drawing.Point(190, 22);
             this.pbImage.Margin = new System.Windows.Forms.Padding(4);
             this.pbImage.Name = "pbImage";
-            this.pbImage.Size = new System.Drawing.Size(374, 209);
+            this.pbImage.Size = new System.Drawing.Size(374, 263);
             this.pbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbImage.TabIndex = 35;
             this.pbImage.TabStop = false;
@@ -216,7 +220,7 @@
             this.groupBox2.Controls.Add(this.dgvBusses);
             this.groupBox2.Location = new System.Drawing.Point(612, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(883, 325);
+            this.groupBox2.Size = new System.Drawing.Size(883, 393);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Data Field";
@@ -228,15 +232,33 @@
             this.dgvBusses.Name = "dgvBusses";
             this.dgvBusses.ReadOnly = true;
             this.dgvBusses.RowTemplate.Height = 24;
-            this.dgvBusses.Size = new System.Drawing.Size(857, 288);
+            this.dgvBusses.Size = new System.Drawing.Size(857, 344);
             this.dgvBusses.TabIndex = 2;
             this.dgvBusses.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBusses_CellClick);
+            // 
+            // tbCost
+            // 
+            this.tbCost.Location = new System.Drawing.Point(7, 289);
+            this.tbCost.Margin = new System.Windows.Forms.Padding(4);
+            this.tbCost.Name = "tbCost";
+            this.tbCost.Size = new System.Drawing.Size(160, 22);
+            this.tbCost.TabIndex = 41;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(7, 269);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(36, 17);
+            this.label5.TabIndex = 42;
+            this.label5.Text = "Cost";
             // 
             // ManageBussesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1507, 349);
+            this.ClientSize = new System.Drawing.Size(1507, 416);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -271,5 +293,7 @@
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridView dgvBusses;
+        private System.Windows.Forms.TextBox tbCost;
+        private System.Windows.Forms.Label label5;
     }
 }

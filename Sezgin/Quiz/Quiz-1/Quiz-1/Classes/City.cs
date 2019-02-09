@@ -16,5 +16,10 @@ namespace Quiz_1.Classes
         [Index(IsUnique = true)]
         public int PlateNumber { get; set; }
         public string Name { get; set; }
+
+        public override string ToString()
+        {
+            return this.Name;
+        }
     }
 }

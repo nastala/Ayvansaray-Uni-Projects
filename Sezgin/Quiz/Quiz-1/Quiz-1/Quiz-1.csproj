@@ -68,16 +68,22 @@
     <Compile Include="Forms\AdminForms\ManageTripsForm.Designer.cs">
       <DependentUpon>ManageTripsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ControlForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ControlForm.Designer.cs">
+      <DependentUpon>ControlForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\PassengerInfo.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\PassengerInfo.Designer.cs">
       <DependentUpon>PassengerInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainForm.cs">
+    <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainForm.Designer.cs">
+    <Compile Include="Forms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\AdminForms\ManageBussesForm.cs">
@@ -110,13 +116,21 @@
     <Compile Include="Forms\PurchaseTicketForm.Designer.cs">
       <DependentUpon>PurchaseTicketForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201902081028286_InitialCreate.cs" />
-    <Compile Include="Migrations\201902081028286_InitialCreate.Designer.cs">
-      <DependentUpon>201902081028286_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\201902091756395_InitialCreate.cs" />
+    <Compile Include="Migrations\201902091756395_InitialCreate.Designer.cs">
+      <DependentUpon>201902091756395_InitialCreate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201902081120035_test.cs" />
-    <Compile Include="Migrations\201902081120035_test.Designer.cs">
-      <DependentUpon>201902081120035_test.cs</DependentUpon>
+    <Compile Include="Migrations\201902091824254_test.cs" />
+    <Compile Include="Migrations\201902091824254_test.Designer.cs">
+      <DependentUpon>201902091824254_test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902091833105_test1.cs" />
+    <Compile Include="Migrations\201902091833105_test1.Designer.cs">
+      <DependentUpon>201902091833105_test1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902091851211_test2.cs" />
+    <Compile Include="Migrations\201902091851211_test2.Designer.cs">
+      <DependentUpon>201902091851211_test2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model.cs" />
@@ -125,10 +139,13 @@
     <EmbeddedResource Include="Forms\AdminForms\ManageTripsForm.resx">
       <DependentUpon>ManageTripsForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ControlForm.resx">
+      <DependentUpon>ControlForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\PassengerInfo.resx">
       <DependentUpon>PassengerInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.resx">
+    <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AdminForms\ManageBussesForm.resx">
@@ -146,11 +163,17 @@
     <EmbeddedResource Include="Forms\PurchaseTicketForm.resx">
       <DependentUpon>PurchaseTicketForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201902081028286_InitialCreate.resx">
-      <DependentUpon>201902081028286_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201902091756395_InitialCreate.resx">
+      <DependentUpon>201902091756395_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201902081120035_test.resx">
-      <DependentUpon>201902081120035_test.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201902091824254_test.resx">
+      <DependentUpon>201902091824254_test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902091833105_test1.resx">
+      <DependentUpon>201902091833105_test1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902091851211_test2.resx">
+      <DependentUpon>201902091851211_test2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

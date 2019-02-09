@@ -13,7 +13,7 @@ namespace Quiz_1.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201902081028286_InitialCreate"; }
+            get { return "201902091756395_InitialCreate"; }
         }
         
         string IMigrationMetadata.Source

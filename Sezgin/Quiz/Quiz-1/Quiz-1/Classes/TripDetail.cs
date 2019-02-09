@@ -11,8 +11,8 @@ namespace Quiz_1.Classes
     {
         [Key]
         public int TripDetailsID { get; set; }
-        public Passenger Passenger { get; set; }
+        public virtual Passenger Passenger { get; set; }
         public int SeatNumber { get; set; }
-        //public Trip Trip { get; set; }
+        public DateTime PurchaseDate { get; set; }
     }
 }

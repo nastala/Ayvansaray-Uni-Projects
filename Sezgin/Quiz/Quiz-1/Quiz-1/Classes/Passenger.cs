@@ -16,5 +16,10 @@ namespace Quiz_1.Classes
         public string LastName { get; set; }
         public string IdentityNumber { get; set; }
         public Gender Gender { get; set; }
+
+        public override string ToString()
+        {
+            return this.FirstName + ' ' + this.LastName;
+        }
     }
 }

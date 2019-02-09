@@ -98,12 +98,6 @@ namespace Quiz_1.Forms
 
         private void FillPanel(int seatCount)
         {
-            Button btnSeatSample = new Button
-            {
-                Width = 55,
-                Height = 55
-            };
-
             int x = 0;
             int y = 0;
 
@@ -146,7 +140,6 @@ namespace Quiz_1.Forms
 
         public void PurchaseTicket(Passenger passenger, int seatNumber)
         {
-            //MessageBox.Show("Hello from Purchase Ticket");
             Trip trip = _model.Trips.FirstOrDefault(t => t.DepartureCity.CityID == _selectedDepartureCity.CityID && t.ArrivalCity.CityID == _selectedDestinationCity.CityID &&
                 t.Bus.BusID == _selectedBus.BusID);
 
@@ -164,10 +157,13 @@ namespace Quiz_1.Forms
                 _model.SaveChanges();
             }
 
+            trip.LastPurchasedTicketTime = DateTime.Now;
+
             TripDetail tripDetail = new TripDetail()
             {
                 Passenger = passenger,
-                SeatNumber = seatNumber
+                SeatNumber = seatNumber,
+                PurchaseDate = DateTime.Now
             };
 
             trip.TripDetails.Add(tripDetail);
