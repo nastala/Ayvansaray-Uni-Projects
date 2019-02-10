@@ -68,6 +68,12 @@
     <Compile Include="Forms\AdminForms\ManageTripsForm.Designer.cs">
       <DependentUpon>ManageTripsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\BusTrackingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\BusTrackingForm.Designer.cs">
+      <DependentUpon>BusTrackingForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ControlForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -138,6 +144,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\AdminForms\ManageTripsForm.resx">
       <DependentUpon>ManageTripsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BusTrackingForm.resx">
+      <DependentUpon>BusTrackingForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ControlForm.resx">
       <DependentUpon>ControlForm.cs</DependentUpon>

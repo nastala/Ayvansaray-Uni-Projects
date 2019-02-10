@@ -29,11 +29,12 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.tbCost = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.btnDelete = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.btnClear = new System.Windows.Forms.Button();
             this.tbName = new System.Windows.Forms.TextBox();
-            this.mtbPlate = new System.Windows.Forms.MaskedTextBox();
             this.tbSeatCount = new System.Windows.Forms.TextBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -45,8 +46,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgvBusses = new System.Windows.Forms.DataGridView();
-            this.tbCost = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -61,7 +60,6 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.btnClear);
             this.groupBox1.Controls.Add(this.tbName);
-            this.groupBox1.Controls.Add(this.mtbPlate);
             this.groupBox1.Controls.Add(this.tbSeatCount);
             this.groupBox1.Controls.Add(this.btnSave);
             this.groupBox1.Controls.Add(this.label2);
@@ -77,6 +75,24 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Edit Field";
+            // 
+            // tbCost
+            // 
+            this.tbCost.Location = new System.Drawing.Point(7, 289);
+            this.tbCost.Margin = new System.Windows.Forms.Padding(4);
+            this.tbCost.Name = "tbCost";
+            this.tbCost.Size = new System.Drawing.Size(160, 22);
+            this.tbCost.TabIndex = 41;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(7, 269);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(36, 17);
+            this.label5.TabIndex = 42;
+            this.label5.Text = "Cost";
             // 
             // btnDelete
             // 
@@ -117,15 +133,6 @@
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(160, 22);
             this.tbName.TabIndex = 27;
-            // 
-            // mtbPlate
-            // 
-            this.mtbPlate.Location = new System.Drawing.Point(376, 336);
-            this.mtbPlate.Margin = new System.Windows.Forms.Padding(4);
-            this.mtbPlate.Mask = "00 >L>L>? 0099";
-            this.mtbPlate.Name = "mtbPlate";
-            this.mtbPlate.Size = new System.Drawing.Size(132, 22);
-            this.mtbPlate.TabIndex = 38;
             // 
             // tbSeatCount
             // 
@@ -236,24 +243,6 @@
             this.dgvBusses.TabIndex = 2;
             this.dgvBusses.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBusses_CellClick);
             // 
-            // tbCost
-            // 
-            this.tbCost.Location = new System.Drawing.Point(7, 289);
-            this.tbCost.Margin = new System.Windows.Forms.Padding(4);
-            this.tbCost.Name = "tbCost";
-            this.tbCost.Size = new System.Drawing.Size(160, 22);
-            this.tbCost.TabIndex = 41;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(7, 269);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(36, 17);
-            this.label5.TabIndex = 42;
-            this.label5.Text = "Cost";
-            // 
             // ManageBussesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -280,7 +269,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.TextBox tbName;
-        private System.Windows.Forms.MaskedTextBox mtbPlate;
         private System.Windows.Forms.TextBox tbSeatCount;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Label label2;

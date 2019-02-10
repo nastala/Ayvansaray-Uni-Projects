@@ -37,5 +37,11 @@ namespace Quiz_1
             ControlForm controlForm = new ControlForm();
             controlForm.Show();
         }
+
+        private void btnBusTracking_Click(object sender, EventArgs e)
+        {
+            BusTrackingForm busTrackingForm = new BusTrackingForm();
+            busTrackingForm.Show();
+        }
     }
 }

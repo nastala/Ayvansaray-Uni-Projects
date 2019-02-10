@@ -31,11 +31,12 @@
             this.btnAdminPanel = new System.Windows.Forms.Button();
             this.btnPurchaseTicket = new System.Windows.Forms.Button();
             this.btnControl = new System.Windows.Forms.Button();
+            this.btnBusTracking = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnAdminPanel
             // 
-            this.btnAdminPanel.Location = new System.Drawing.Point(16, 15);
+            this.btnAdminPanel.Location = new System.Drawing.Point(28, 41);
             this.btnAdminPanel.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdminPanel.Name = "btnAdminPanel";
             this.btnAdminPanel.Size = new System.Drawing.Size(129, 54);
@@ -46,7 +47,7 @@
             // 
             // btnPurchaseTicket
             // 
-            this.btnPurchaseTicket.Location = new System.Drawing.Point(153, 15);
+            this.btnPurchaseTicket.Location = new System.Drawing.Point(165, 41);
             this.btnPurchaseTicket.Margin = new System.Windows.Forms.Padding(4);
             this.btnPurchaseTicket.Name = "btnPurchaseTicket";
             this.btnPurchaseTicket.Size = new System.Drawing.Size(129, 54);
@@ -57,7 +58,7 @@
             // 
             // btnControl
             // 
-            this.btnControl.Location = new System.Drawing.Point(290, 15);
+            this.btnControl.Location = new System.Drawing.Point(302, 41);
             this.btnControl.Margin = new System.Windows.Forms.Padding(4);
             this.btnControl.Name = "btnControl";
             this.btnControl.Size = new System.Drawing.Size(129, 54);
@@ -66,11 +67,23 @@
             this.btnControl.UseVisualStyleBackColor = true;
             this.btnControl.Click += new System.EventHandler(this.btnControl_Click);
             // 
+            // btnBusTracking
+            // 
+            this.btnBusTracking.Location = new System.Drawing.Point(439, 41);
+            this.btnBusTracking.Margin = new System.Windows.Forms.Padding(4);
+            this.btnBusTracking.Name = "btnBusTracking";
+            this.btnBusTracking.Size = new System.Drawing.Size(129, 54);
+            this.btnBusTracking.TabIndex = 5;
+            this.btnBusTracking.Text = "Bus Tracking";
+            this.btnBusTracking.UseVisualStyleBackColor = true;
+            this.btnBusTracking.Click += new System.EventHandler(this.btnBusTracking_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(452, 212);
+            this.ClientSize = new System.Drawing.Size(694, 159);
+            this.Controls.Add(this.btnBusTracking);
             this.Controls.Add(this.btnControl);
             this.Controls.Add(this.btnPurchaseTicket);
             this.Controls.Add(this.btnAdminPanel);
@@ -85,6 +98,7 @@
         private System.Windows.Forms.Button btnAdminPanel;
         private System.Windows.Forms.Button btnPurchaseTicket;
         private System.Windows.Forms.Button btnControl;
+        private System.Windows.Forms.Button btnBusTracking;
     }
 }
 
