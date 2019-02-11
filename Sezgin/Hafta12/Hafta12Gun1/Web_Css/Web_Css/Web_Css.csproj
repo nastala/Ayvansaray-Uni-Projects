@@ -7,12 +7,12 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{8616CD0C-FB40-45BE-B09B-E90A0FC0B8E7}</ProjectGuid>
+    <ProjectGuid>{B08EECDA-5DEB-4D56-A0F4-AC62ED547A74}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Web_Html_Giris</RootNamespace>
-    <AssemblyName>Web_Html_Giris</AssemblyName>
+    <RootNamespace>Web_Css</RootNamespace>
+    <AssemblyName>Web_Css</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
@@ -67,10 +67,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="images\image-1.jpg" />
+    <Content Include="ExternalCssPage.html" />
     <Content Include="Index.html" />
-    <Content Include="Listeler.html" />
-    <Content Include="Sample.html" />
+    <Content Include="Style.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -98,9 +97,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>1402</DevelopmentServerPort>
+          <DevelopmentServerPort>1285</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:1402/</IISUrl>
+          <IISUrl>http://localhost:1285/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
