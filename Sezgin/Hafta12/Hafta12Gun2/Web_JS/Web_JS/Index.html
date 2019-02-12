@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        function UyariVer() {
+            alert("Uyarı");
+        }
+
+        function IsmiEkle() {
+            const metin = document.getElementById("txtIsim").value;
+            document.getElementById("liste").innerHTML += metin + "\n";
+        }
+
+        window.onload = function () {
+            this.alert("On Load");
+        }
+
+        // Script kodları body elemanları yüklendikten sonra yüklenmesini istiyorsanız ikinci yol olarak kodları window.onload'un içine yazabilirsiniz.
+        // Diğer bir çözüm kodları body bölümünün en altına taşıyabilirsiniz.
+        // Html sayfaları yukarıdan aşağıya doğru yüklendiği için bu iki yöntem çözüm olarak sunulabilir.
+    </script>
+    <style>
+        div[id="liste"] {
+            width: 200px;
+            height: 150px;
+            background-color: aliceblue;
+        }
+
+        input[id="btnEkle"] {
+            background-color: aliceblue;
+            border-radius: 15px;
+        }
+
+        input[id="btnEkle"]:hover {
+            transition: 1s;
+            background-color: steelblue;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" value="Uyarı Ver" onclick="UyariVer()" />
+    <label for="txtIsim">Adı: </label>
+    <input type="text" id="txtIsim" />
+    <input type="button" value="Ekle" id="btnEkle" onclick="IsmiEkle()"/>
+    <div id="liste">
+
+    </div>
+</body>
+</html>
