@@ -9,8 +9,15 @@
         }
 
         function IsmiEkle() {
-            const metin = document.getElementById("txtIsim").value;
-            document.getElementById("liste").innerHTML += metin + "\n";
+            let txtIsim = document.getElementById("txtIsim");
+
+            if (!txtIsim.value) // value null ise
+                return;
+
+            const metin = txtIsim.value;
+            document.getElementById("liste").innerHTML += metin + "<br />";
+            txtIsim.value = null;
+            txtIsim.focus();
         }
 
         window.onload = function () {
@@ -20,6 +27,8 @@
         // Script kodları body elemanları yüklendikten sonra yüklenmesini istiyorsanız ikinci yol olarak kodları window.onload'un içine yazabilirsiniz.
         // Diğer bir çözüm kodları body bölümünün en altına taşıyabilirsiniz.
         // Html sayfaları yukarıdan aşağıya doğru yüklendiği için bu iki yöntem çözüm olarak sunulabilir.
+        // JS'de body içerisindeki elemanlar document nesnesinin içindedir.
+        // Body içerisindeki elemanları id ya da class ismine göre seçebiliriz.
     </script>
     <style>
         div[id="liste"] {
