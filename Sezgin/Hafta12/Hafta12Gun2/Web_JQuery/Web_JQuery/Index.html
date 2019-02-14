@@ -8,6 +8,13 @@
             width: 200px;
             height: 400px;
             background-color: aliceblue;
+            margin-top: 20px;
+        }
+
+        .liste {
+            width: 200px;
+            height: 400px;
+            background-color: darkseagreen;
         }
     </style>
     <script src="JQuery3.3.1.js"></script>
@@ -31,12 +38,43 @@
         });
     </script>
     -->
+    <script>
+        function GizleGoster() {
+            $("#divHidden").toggle("slow");
+
+            /*console.log("GizleGoster");
+            console.log(document.getElementById("divHidden").hidden);
+            let divHidden = document.getElementById("divHidden");
+            let button = document.getElementById("btnGizleGoster");
+            
+            if (divHidden.hidden) {
+                divHidden.hidden = false;
+                button.value = "Gizle";
+            }
+            else {
+                divHidden.hidden = true;
+                button.value = "Goster";
+            }*/
+        };
+
+        function RenkDegistir() {
+            const randomColor = 'rgb(' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ')';
+            console.log(randomColor);
+            $("#divHidden").css("background-color", randomColor);
+        }
+    </script>
 </head>
 <body>
     <label for="txtIsim">Adı: </label>
     <input type="text" id="txtIsim" />
     <input type="button" id="btnEkle" value="Ekle" />
+    <br />
     <div id="liste">
+
+    </div>
+    <input type="button" id="btnGizleGoster" value="Goster" onclick="GizleGoster()"/>
+    <input type="button" id="btnRenkDegistir" value="Renk Değiştir" onclick="RenkDegistir()"/>
+    <div id="divHidden" class="liste" hidden="hidden">
 
     </div>
 
