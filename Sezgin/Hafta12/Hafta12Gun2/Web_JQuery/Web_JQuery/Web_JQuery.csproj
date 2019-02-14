@@ -67,8 +67,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\images\left-arrow.png" />
+    <Content Include="assets\images\right-arrow.png" />
     <Content Include="Index.html" />
     <Content Include="JQuery3.3.1.js" />
+    <Content Include="Menu.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
