@@ -1,0 +1,30 @@
+Hafta 13, Gün 1 --- 18.02.2019
+
+MVC ve ASP.NET dil deðil teknolojidir.
+
+ASP.NET içinde C sharp kodu yazmayý saðlayan engine ASP.NET Engine, 
+ASP.NET MVC içinde C sharp kodu yazmayý saðlayan Engine'e "Razor" adý verilir.
+
+Model: Veri tabanýna ulaþmamýzý saðlayan, entity classlarýndan oluþan katmanýn adýdýr.
+View: Kullanýcýlarýn göreceði arayüzdür. Ýçerisinde HTML sayfalarý barýndýrýr. 
+Controller: View ile Model arasýndaki iletiþimi saðlar. Hangi View'un o an gözükmesi gerektiðini belirler.
+	Bir View çalýþma anýnda veritabanýndan veri çekmek isteyebilir, ortadaki controller dediðimiz bölüm veritabanýndan
+	istenilen veriyi alýr ve View'a gönderir. 
+	Bütün mimarinin çalýþmasýný saðlayan bölümdür.
+
+ASP.NET'de her arayüz için ayrý bir kod yazmamýz gerekir.
+MVC'de birden çok controller olabilir. Her controller birden çok arayüz ile iletiþim halinde olup, çalýþabilir. Çünkü MVC'de
+	arayüzü çalýþtýran bir sýnýf deðil, bir methoddur ve bu methodlar bir sýnýf içerisinde bulunabilir.
+
+Models klasörünün altýndaki sýnýflar veritabanýndan veri getiren veya veri ekleyen sýnýflardýr.
+Content klasörünün içerisinde site ile ilgili dýþarýdan eklenen dosyalar bulunuyor. Resim, css vs.
+App_Start klasörünün altýnda projenin baþlangýcý ile ilgili ayarlarýn yapýldýðý sýnýflar vardýr.
+Fonts klasörünün altýnda dýþarýdan eklenen font dosyalarý tutulur.
+Scripts klasörünün altýnda dýþarýdan eklenen JavaScript dosyalarý ya da projenin içerisinde olan JavaScript dosyalarý tutulur.
+Fav-icon.ico web sitesinin baþlýðýnýn(title) yanýndaki icon'ý temsil eder.
+Web.Config web ayarlarýný yapar.
+Global.asax içerisinde ApplicationStart methodu var. Bu method uygulama baþlayacaðý zaman yapýlacak iþlemleri belirler.
+Controllers klasörünün altýndaki her bir dosya sýnýftýr. 
+
+ActionResult döndüren methodlar, controller içerisindeki Action diye isimlendirilir.
+
