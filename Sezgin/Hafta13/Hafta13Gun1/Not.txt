@@ -28,3 +28,6 @@ Controllers klasörünün altýndaki her bir dosya sýnýftýr.
 
 ActionResult döndüren methodlar, controller içerisindeki Action diye isimlendirilir.
 
+RenderBody bir methoddur. Layout(Master Page) sayfasýnda bir slot(boþluk) açmamýzý saðlar. RenderBody methodu ana slottur 
+ve sadece bir kez kullanýlýr. RenderBody ile oluþturulan boþluða bu layout'tan türeyen diðer html sayfalarýnda yazýlan kodlar gelir. 
+
