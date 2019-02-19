@@ -1,0 +1,102 @@
+﻿@using MVC_Uygulama1.Models;
+@model Product
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Create</title>
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>Product</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.ProductName, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ProductName, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ProductName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.UnitPrice, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.UnitPrice, new { htmlAttributes = new { @class = "form-control", @type = "number" } })
+                    @Html.ValidationMessageFor(model => model.UnitPrice, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.UnitsInStock, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.UnitsInStock, new { htmlAttributes = new { @class = "form-control", @type = "number" } })
+                    @Html.ValidationMessageFor(model => model.UnitsInStock, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.SupplierID, "SupplierID", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("SupplierID", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.SupplierID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.CategoryID, "CategoryID", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("CategoryID", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.CategoryID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+
+    @*
+        <form>
+            Ürün adı: <input type="text" name="ProductName" />
+            <br />
+            Fiyat: <input type="number" name="UnitPrice" />
+            <br />
+            Stok: <input type="number" name="UnitsInStock" />
+            <br />
+            Kategori:
+            <select name="CategoryID">
+                foreach (Category kategori in ViewBag.Kategoriler)
+                {
+                    <option value="@kategori.CategoryID" label="@kategori.CategoryName" />
+                }
+            </select>
+            <br />
+            Tedarikçi:
+            <select name="SupplierID">
+                @foreach (Supplier tedarikci in ViewBag.Tedarikciler)
+                {
+                    <option value="@tedarikci.SupplierID" label="@tedarikci.CompanyName" />
+                }
+            </select>
+            <br />
+            @Html.ActionLink("İptal", "Index")
+            <input type="submit" id="btnCreateProduct" value="KAYDET" /> <!-- Kaydet butonuna basıldığında içinde bulunduğu formu post etmesi için tipi submit olarak belirtmeliyiz.
+        </form>
+    *@
+</body>
+</html>

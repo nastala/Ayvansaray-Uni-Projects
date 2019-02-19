@@ -17,11 +17,38 @@ namespace MVC_Uygulama1.Controllers
                     içerisinde yapılır.
                 ViewBag yöntemi ile gönderiliyorsa herhangi bir olmayan dinamik tip tanımlanır ve bu tipin temsil ettiği alana
                     veriler atanabilir.
+                GetAction ve PostAction olmak üzere iki tane Action tipi var. Eğer herhangi bir belirtme yapılmazsa varsayılan
+                    olarak tanımlanan Action GetAction'dır. 
+                GetAction View'e değer gönderir ve View'u çalıştırır.
              */
             IEnumerable<Category> kategoriler = NorthwindModel.Model.Categories.ToList();
             ViewBag.Kategoriler = kategoriler;
 
             return View(NorthwindModel.Model.Products.ToList());
+        }
+
+        [HttpGet]
+        public ActionResult Create()
+        {
+            ViewBag.CategoryID = new SelectList(NorthwindModel.Model.Categories, "CategoryID", "CategoryName");
+            ViewBag.SupplierID = new SelectList(NorthwindModel.Model.Suppliers, "SupplierID", "CompanyName");
+            //ViewBag.Kategoriler = NorthwindModel.Model.Categories.ToList();
+            //ViewBag.Tedarikciler = NorthwindModel.Model.Suppliers.ToList();
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create([Bind(Include = "ProductName, UnitPrice, UnitsInStock, CategoryID, SupplierID")] Product urun)
+        {
+            if (ModelState.IsValid)
+            {
+                NorthwindModel.Model.Products.Add(urun);
+                NorthwindModel.Model.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return RedirectToAction("Create");
         }
     }
 }
