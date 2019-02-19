@@ -1,0 +1,66 @@
+﻿
+@{
+    Layout = null;
+}
+@*Model yöntemi ile gelen veriyi bu kısımda gelmektedir.*@
+@using MVC_Uygulama1.Models;
+@*Action tarafından view taradından model yöntemi ile veri geliyorsa view tarafından bunu yakalamamız lazım bunun için @model tanımlaması yapmamız lazım*@ 
+@model List<Product>
+<!DOCTYPE html>
+@* Veri Göndermek için 2. yol vardır. Bir Model yöntemi 2. ViewBag ile gondermedir.  *@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div style="width:100px;height:50px;background-color:aquamarine;color:orange;">
+        <a href="/Product/AddProduct">Product Add</a>
+    </div>
+    <div> 
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Category Name</th>
+                    <th>Price</th>
+                    <th>UnitsInStock</th>
+                    <th>Category</th>
+                    <th>Supplier</th>
+                </tr>
+            </thead>
+            <tbody>
+                @*Model ile aldığımızverileri listeleme işlemlerini yapmaktayız*@
+                @foreach (Product prd in Model)
+                {
+                <tr>
+                    <td>@prd.ProductName</td>
+                    <td>@prd.UnitPrice</td>
+                    <td>@prd.UnitsInStock</td>
+                    <td>@prd.CategoryID</td>
+                    <td>@prd.SupplierID</td>
+
+                </tr>
+                }
+            </tbody>
+        </table>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Category Name</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Category ctg in ViewBag.categoriesViewBag)
+                {
+                <tr>
+                    <td>@ctg.CategoryName</td>
+                    <td>@ctg.Description</td>
+                </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+</body>
+</html>

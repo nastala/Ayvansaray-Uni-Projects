@@ -1,0 +1,65 @@
+﻿
+@{
+    Layout = null;
+}
+@using MVC_Uygulama1.Models
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AddProduct</title>
+</head>
+<body>
+    <form action="/Product/AddProduct" method="post">
+        <table>
+            <tr>
+                <td>Product Name :</td>
+                <td>
+                    <input type="text" name="productName" />
+                </td>
+            </tr>
+            <tr>
+                <td> Price        :</td>
+                <td>
+                    <input type="number" name="price" />
+                </td>
+            </tr>
+            <tr>
+                <td>Unit In Stock:</td>
+                <td><input type="number" name="unitInStock" /></td>
+            </tr>
+            <tr>
+                <td>Category:</td>
+                <td>
+                    <select name="cId">
+                        @foreach (Category ctg in ViewBag.categoriesVB)
+                        {
+                            <option value="@ctg.CategoryID">@ctg.CategoryName</option>
+                        }
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Supplier:</td>
+                <td>
+                    <select name="sId">
+                        @foreach (Supplier spl in ViewBag.suppliersVB)
+                        {
+                            <option value="@spl.SupplierID">@spl.CompanyName</option>
+                        }
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><a href="/Product/Index">Cancel</a></td>
+                <td>
+                    @* Kaydet butonuna basıldığında içinde bulunduğu formu post etmesi için tipi submit olarak belirmeliyiz *@
+                    <input type="submit" value="Kaydet" />
+                </td>
+            </tr>
+        </table>
+
+    </form>
+</body>
+</html>
