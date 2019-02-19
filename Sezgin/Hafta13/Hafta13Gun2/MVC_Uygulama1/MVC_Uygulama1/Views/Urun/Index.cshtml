@@ -1,0 +1,41 @@
+﻿@using MVC_Uygulama1.Models;
+
+@{
+    Layout = null;
+}
+
+@model IEnumerable<Product>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Ürün Adı</th>
+                <th>Fiyat</th>
+                <th>Stok</th>
+                <th>Kategori</th>
+                <th>Tedarikçi</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(Product urun in Model)
+            {
+                <tr>
+                    <td>@urun.ProductName</td>
+                    <td>@urun.UnitPrice</td>
+                    <td>@urun.UnitsInStock</td>
+                    <td>@urun.CategoryID</td>
+                    <td>@urun.SupplierID</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>
