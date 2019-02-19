@@ -1,0 +1,53 @@
+﻿@*@model IEnumerable<AdressBook.Models.Adress>*@
+@model PagedList.IPagedList<AdressBook.Models.Adress>
+@using PagedList.Mvc;
+@using AdressBook.Models;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+
+@{
+    User user = (User)Session["User"];
+    ViewBag.Title = user.Username;
+}
+
+<h2>@Html.ActionLink(ViewBag.Title as string,"Details", "User")</h2>
+
+<p>
+    @Html.ActionLink("Create New List", "Create")
+</p>
+
+<table class="table" border="0">
+    <tr>
+        <th>
+            @Html.ActionLink("Name", "Index", new { sortString = ViewBag.AddressNameSortParam })
+        </th>
+        <th></th>
+        <th>
+            Person Count
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.ActionLink("Go to Address Book Details", "Index", "Person", new { adressID = item.ID }, null)
+        </td>
+        <td>
+            @item.People.Count()
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>
+<br />
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+@Html.PagedListPager(Model, page => Url.Action("Index",
+    new { page, sortString = ViewBag.CurrentSortParam }))

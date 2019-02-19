@@ -1,0 +1,102 @@
+﻿@model AdressBook.Models.Person
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gender)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gender)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Company)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Company)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Phone1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Phone1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Phone2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Phone2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PersonAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PersonAddress)
+        </dd>
+    </dl>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <hr />
+            @Html.HiddenFor(p => p.FirstName)
+            @Html.HiddenFor(p => p.LastName)
+            @Html.HiddenFor(p => p.PersonID)
+            @Html.HiddenFor(p => p.Phone1)
+            @Html.HiddenFor(p => p.Phone2)
+            @Html.HiddenFor(p => p.Gender)
+            @Html.HiddenFor(p => p.Email)
+            @Html.HiddenFor(p => p.Company)
+            @Html.HiddenFor(p => p.PersonAddress)
+            @Html.HiddenFor(p => p.Photo)
+            <div class="form-group">
+                <div class="col-md-10 col-lg-offset-1">
+                    <strong>Copy This Person To: </strong>@Html.DropDownList("AdressID", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.AdressID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-10 col-lg-offset-1">
+                    <input type="submit" value="Copy Person" class="btn btn-default" /> |
+                    @Html.ActionLink("Back to List", "Index", new { adressID = Model.AdressID })
+                </div>
+            </div>
+        </div>
+    }
+</div>
+

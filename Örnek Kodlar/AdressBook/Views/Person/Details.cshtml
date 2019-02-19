@@ -1,0 +1,183 @@
+﻿@model AdressBook.Models.Person
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+@{
+    ViewBag.Title = "Details";
+
+    WebImage image;
+    string imageBase64, imageSrc;
+    if(Model.Photo != null)
+    {
+        image = new WebImage(Model.Photo).Resize(130, 130, true, true);
+        imageBase64 = Convert.ToBase64String(image.GetBytes());
+        imageSrc = string.Format("data:image/png;base64,{0}", imageBase64);
+    }
+    else
+    {
+        byte[] buffer = File.ReadAllBytes("C:/Projects/AdressBook/AdressBook/Content/images/nophotoavailable.png");
+        image = new WebImage(buffer).Resize(150, 150, true, true);
+        imageBase64 = Convert.ToBase64String(image.GetBytes());
+        imageSrc = string.Format("data:image/png;base64,{0}", imageBase64);
+    }
+}
+
+<h2>Details</h2>
+
+<form class="businesscard-front" id="myForm" style="width:343px; height:214px; display:none;">
+    <div id="companydiv">
+        @Html.DisplayFor(model => model.Company)
+    </div>
+    <div id="namediv">
+        @Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.LastName)
+    </div>
+    <div id="personaddressdiv">
+        Address: @Html.DisplayFor(model => model.PersonAddress)
+    </div>
+    <div id="phonediv">
+        Phone: @Html.DisplayFor(model => model.Phone1)
+    </div>
+    <div id="emaildiv">
+        E-mail: @Html.DisplayTextFor(model => model.Email)
+    </div>
+</form>
+
+<form class="businesscard-rear" id="myFormRear" style="width:343px; height:214px; display:none;">
+    <img id="photodiv" src="@imageSrc" />
+    <div id="namereardiv">
+        @Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.LastName)
+    </div>
+</form>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Adress.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Adress.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gender)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gender)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Company)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Company)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Phone1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Phone1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Phone2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Phone2)
+        </dd>
+        
+        <dt>
+            @Html.DisplayNameFor(model => model.PersonAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PersonAddress)
+        </dd>
+    </dl>
+</div>
+
+@*<div id="my-carousel" class="carousel" data-ride="carousel" style="align-content:center">
+    <ol class="carousel-indicators">
+        <li data-target="#my-carousel" data-slide-to="0" class="active"></li>
+        <li data-target="#my-carousel" data-slide-to="1"></li>
+    </ol>
+    <div class="carousel-inner" style="align-content:center; width:300px; height:300px;">
+        <div class="item active" style="align-content:center; width:300px; height:300px;">
+            <img src="@imageSrc" />
+            <div class="carousel-caption">
+
+            </div>
+        </div>
+
+        <div class="item">
+            <img src="@imageSrc2" />
+            <div class="carousel-caption">
+
+            </div>
+        </div>
+
+        <a class="left carousel-control" href="#my-carousel" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
+        <a class="right carousel-control" href="#my-carousel" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+        </a>
+    </div>
+</div>*@
+
+
+
+<p class="form-control col-md-offset-1" style="width:225px">
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PersonID }) |
+    @Html.ActionLink("Carry", "Carry", new { id = Model.PersonID}) |
+    @Html.ActionLink("Copy", "Copy", new { id = Model.PersonID }) |
+    @Html.ActionLink("Back to List", "Index", new { adressID = Model.AdressID })
+</p>
+
+<script type="text/javascript">
+    $(function () {
+        $(document).ready(function () {
+            document.getElementById("myForm").style.display = "block";
+        });
+
+        $(document).on('click', '#myForm', function () {
+            document.getElementById("myForm").style.display = "none";
+            document.getElementById("myFormRear").style.display = "block";
+        });
+
+        $(document).on('click', '#myFormRear', function () {
+            document.getElementById("myFormRear").style.display = "none";
+            document.getElementById("myForm").style.display = "block";
+        });
+    });
+</script>

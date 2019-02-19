@@ -1,0 +1,58 @@
+﻿@model AdressBook.Models.User
+@{
+    ViewBag.Title = "User Profile";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Username)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Username)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Password)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Password) |
+            @Html.ActionLink("Change Password", "ChangePassword")
+        </dd>
+        <dt>
+            Total Address Book Count
+        </dt>
+        <dd>
+            @Model.Adresses.Count()
+        </dd>
+        
+        <dt>
+            Total Recorded People
+        </dt>
+        <dd>
+            @{ 
+                var total = 0;
+                foreach(var adress in Model.Adresses)
+                {
+                    total = total + adress.People.Count();
+                }
+            }
+            @total
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email) |
+            @Html.ActionLink("Edit E-Mail Address", "ChangeEmail")
+        </dd>
+    </dl>
+    <div class="col-lg-offset-1">
+        @Html.ActionLink("Back to List", "Index", "Adress") |
+        @Html.ActionLink("Delete User", "Delete", "User")
+    </div>
+</div>
