@@ -25,7 +25,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach(Product urun in Model)
+            @foreach (Product urun in Model)
             {
                 <tr>
                     <td>@urun.ProductName</td>
@@ -33,6 +33,23 @@
                     <td>@urun.UnitsInStock</td>
                     <td>@urun.CategoryID</td>
                     <td>@urun.SupplierID</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Kategori Adı</th>
+                <th>Tanımı</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Category kategori in ViewBag.Kategoriler)
+            {
+                <tr>
+                    <td>@kategori.CategoryName</td>
+                    <td>@kategori.Description</td>
                 </tr>
             }
         </tbody>
