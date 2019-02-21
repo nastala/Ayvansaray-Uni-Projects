@@ -3,26 +3,40 @@
 
 @{
     ViewBag.Title = "Products";
+    List<int> selectedProducts = new List<int>();
 }
 
 <head>
     <script>
         function OnProductClick(productID) {
-            alert("OnProductClick " + productID);
             window.location.href = "/Product/Details?productID=" + productID;
         }
+
+        function OnNewProductClick() {
+            window.location.href = "/Product/Create";
+        }
+
+        function OnDeleteProductClick(productID) {
+            window.location.href = "/Product/Delete?productID=" + productID;
+        }
     </script>
+
+    <style>
+        td:hover {
+            cursor: pointer;
+        }
+    </style>
 </head>
 
 <div class="row">
     <div class="col-md-12">
-        <div class="block">
+        <div class="block container">
             <div class="block-heading">
                 <div class="main-text h2">
-                    Hover Rows
+                    Ürünler
                 </div>
                 <div class="block-controls">
-                    <span aria-hidden="true" class="icon icon-cross icon-size-medium block-control-remove"></span>
+                    <span aria-hidden="true" class="icon icon-plus icon-size-medium" onclick="OnNewProductClick()"></span>
                     <span aria-hidden="true" class="icon icon-arrow-down icon-size-medium block-control-collapse"></span>
                 </div>
             </div>
@@ -44,12 +58,12 @@
                             @for (int i = 1; i <= Model.Count(); i++)
                             {
                                 Product product = (Product)Model.ElementAt(i - 1);
-                                <tr onclick="OnProductClick(@product.ProductID)">
-                                    <td>@i</td>
-                                    <td>@product.ProductName</td>
-                                    <td>@product.UnitPrice</td>
-                                    <td>@product.UnitsInStock</td>
-                                    <td>
+                                <tr>
+                                    <td onclick="OnProductClick(@product.ProductID)">@i</td>
+                                    <td onclick="OnProductClick(@product.ProductID)">@product.ProductName</td>
+                                    <td onclick="OnProductClick(@product.ProductID)">@product.UnitPrice</td>
+                                    <td onclick="OnProductClick(@product.ProductID)">@product.UnitsInStock</td>
+                                    <td onclick="OnProductClick(@product.ProductID)">
                                         @if (!product.Discontinued)
                                         {
                                             <span class="label label-success">Sipariş verilebilir</span>
@@ -59,8 +73,11 @@
                                             <span class="label label-danger">Sipariş dışı</span>
                                         }
                                     </td>
-                                    <td class="warning">@product.Category.CategoryName</td>
-                                    <td class="danger">@product.Supplier.ContactName</td>
+                                    <td class="warning" onclick="OnProductClick(@product.ProductID)">@product.Category.CategoryName</td>
+                                    <td class="danger" onclick="OnProductClick(@product.ProductID)">@product.Supplier.ContactName</td>
+                                    <td>
+                                        <button type="button" class="btn btn-danger rounded" onclick="OnDeleteProductClick(@product.ProductID)">Sil</button>
+                                    </td>
                                 </tr>
                             }
                         </tbody>
