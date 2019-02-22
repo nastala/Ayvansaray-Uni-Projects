@@ -1,0 +1,88 @@
+﻿@using MVC_Template.Models;
+@model IEnumerable<Category>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@section head 
+{
+    <style>
+        tr:hover {
+            cursor: pointer;
+        }
+    </style>
+
+    <script>
+        function OnNewCategoryClick() {
+            console.log("OnNewCategoryClick");
+        }
+
+        function OnCategoryClick(categoryID) {
+            console.log("OnCategoryClick " + categoryID);
+        }
+
+        function OnDeleteCategoryClick(categoryID) {
+            console.log("OnDeleteCategoryClick " + categoryID);
+        }
+    </script>
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="block container">
+            <div class="block-heading">
+                <div class="main-text h2">
+                    Kategoriler
+                </div>
+                <div class="block-controls">
+                    <span aria-hidden="true" class="icon icon-plus icon-size-medium" onclick="OnNewCategoryClick()"></span>
+                    <span aria-hidden="true" class="icon icon-arrow-down icon-size-medium block-control-collapse"></span>
+                </div>
+            </div>
+            <div class="block-content-outer">
+                <div class="block-content-inner">
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Kategori Adı</th>
+                                <th>Tanım</th>
+                                <th>Resim</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @for (int i = 1; i <= Model.Count(); i++)
+                            {
+                                Category category = (Category)Model.ElementAt(i - 1);
+                                byte[] photo = category.Picture;
+                                string imageSrc = null;
+                                if (photo != null)
+                                {
+                                    using (var ms = new MemoryStream())
+                                    {
+                                        ms.Write(photo, 78, photo.Length - 78); // strip out 78 byte OLE header (don't need to do this for normal images)
+                                        string imageBase64 = Convert.ToBase64String(ms.ToArray());
+                                        imageSrc = string.Format("data:image;base64,{0}", imageBase64);
+                                    }
+                                }
+                                <tr>
+                                    <td onclick="OnCategoryClick(@category.CategoryID)">@i</td>
+                                    <td onclick="OnCategoryClick(@category.CategoryID)">@category.CategoryName</td>
+                                    <td onclick="OnCategoryClick(@category.CategoryID)">@category.Description</td>
+                                    <td>
+                                        <img src="@imageSrc" width="80" height="80" alt="Picture"/>
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-danger rounded" onclick="OnDeleteCategoryClick(@category.CategoryID)">Sil</button>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

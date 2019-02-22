@@ -1002,6 +1002,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Global.asax.cs">
@@ -1015,6 +1016,7 @@
     <Compile Include="Models\CustomerDemographic.cs" />
     <Compile Include="Models\Customer_and_Suppliers_by_City.cs" />
     <Compile Include="Models\Employee.cs" />
+    <Compile Include="Models\HttpPostedFileBaseExtensions.cs" />
     <Compile Include="Models\Invoice.cs" />
     <Compile Include="Models\NorthwindModel.cs" />
     <Compile Include="Models\Order.cs" />
@@ -1094,6 +1096,8 @@
     <Content Include="Views\Product\Index.cshtml" />
     <Content Include="Views\Product\Details.cshtml" />
     <Content Include="Views\Product\Create.cshtml" />
+    <Content Include="Views\Category\Index.cshtml" />
+    <Content Include="Views\Category\Create.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

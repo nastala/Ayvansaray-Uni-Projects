@@ -5,6 +5,7 @@ namespace MVC_Template.Models
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
+    using System.IO;
 
     public partial class Category
     {
@@ -28,5 +29,27 @@ namespace MVC_Template.Models
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Product> Products { get; set; }
+
+        [NotMapped]
+        public string Base64String
+        {
+            get
+            {
+                var base64Str = string.Empty;
+                var imageSrc = string.Empty;
+
+                if (this.Picture != null)
+                {
+                    using (var ms = new MemoryStream())
+                    {
+                        ms.Write(Picture, 78, Picture.Length - 78); // strip out 78 byte OLE header (don't need to do this for normal images)
+                        base64Str = Convert.ToBase64String(ms.ToArray());
+                        imageSrc = string.Format("data:image;base64,{0}", base64Str);
+                    }
+                }
+
+                return imageSrc;
+            }
+        }
     }
 }
