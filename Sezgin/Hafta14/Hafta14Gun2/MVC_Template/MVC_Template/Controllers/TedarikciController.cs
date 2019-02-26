@@ -16,12 +16,23 @@ namespace MVC_Template.Controllers
             List<Supplier> ktg = ctx.Suppliers.ToList();
             return View(ktg);
         }
+
+        // Bu methodun içinde oluşan hata Ajax'ı etkilemez. Ajax için success Ajax'ın doğru bir şekilde action'a ulaşmış olmasıyla ilgilidir. Bu methodda veritabanındaki ilişkilerden dolayı kayıt silinemez ve benzeri hatalar Ajax'ı ilgilendirmez. Bu yüzden bu method içinde oluşan hatalarla ilgili Ajax tarafına bilgi göndermeliyiz. 
         [HttpPost]
-        public void TedarikciSil(int id)
+        public string TedarikciSil(int id)
         {
-            Supplier s = ctx.Suppliers.Find(id);
-            ctx.Suppliers.Remove(s);
-            ctx.SaveChanges();
+            try
+            {
+                Supplier s = ctx.Suppliers.Find(id);
+                ctx.Suppliers.Remove(s);
+                ctx.SaveChanges();
+
+                return "OK";
+            }
+            catch(Exception)
+            {
+                return "ERROR";
+            }
         }
         public ActionResult TedarikciEkle()
         {

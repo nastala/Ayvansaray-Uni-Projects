@@ -142,9 +142,14 @@
             $.ajax({
                 type: "POST",
                 url: "/Tedarikci/TedarikciSil/" + tedID,
-                success: function () {
-                    alert("Kayıt silindi");
-                    window.location.replace("/Tedarikci/Index");
+                success: function (durum) {
+                    if (durum === "OK") {
+                        alert("Kayıt silindi");
+                        window.location.replace("/Tedarikci/Index");
+                    }
+                    else {
+                        alert("Kayıt silme sırasında hata oluştu.");
+                    }
                 },
                 error: function () {
                     alert("Kayıt silme sırasında hata oluştu.");
