@@ -1,0 +1,68 @@
+﻿@using System.Web.Security;
+@using MVC_Template.App_Classes;
+@model User
+
+@{
+    ViewBag.Title = "Yeni Üye";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="block">
+            <div class="block-heading">
+                <div class="main-text h2">
+                    Üye Ekleme Sayfası
+                </div>
+                <div class="block-controls">
+                    <span aria-hidden="true" class="icon icon-cross icon-size-medium block-control-remove"></span>
+                    <span aria-hidden="true" class="icon icon-arrow-down icon-size-medium block-control-collapse"></span>
+                </div>
+            </div>
+            <div class="block-content-outer">
+                <div class="block-content-inner">
+                    <form action="/Kullanici/Ekle" method="post" role="form" enctype="multipart/form-data">
+                        <div class="form-group">
+                            @{
+                                string message = ViewBag.Message;
+                                if (message != null)
+                                {
+                                    if (message == "Başarılı")
+                                    {
+                                        <label class="text-success">@message</label>
+                                    }
+                                    else
+                                    {
+                                        <label class="text-danger">@message</label>
+                                    }
+                                }
+
+                            }
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Kullanıcı adı:</label>
+                            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Kullanıcı adı giriniz" name="UserName">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Parola:</label>
+                            <input type="password" class="form-control" id="exampleInputEmail1" placeholder="Parola giriniz" name="Password">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">E-posta:</label>
+                            <input type="email" class="form-control" id="exampleInputPassword1" placeholder="E-posta giriniz" name="Email">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Gizli soru:</label>
+                            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Gizli soru giriniz" name="SecretQuestion">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Gizli cevap:</label>
+                            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Gizli cevap giriniz" name="SecretAnswer">
+                        </div>
+                        <br />
+                        <button type="submit" class="btn btn-primary">Kaydet</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
