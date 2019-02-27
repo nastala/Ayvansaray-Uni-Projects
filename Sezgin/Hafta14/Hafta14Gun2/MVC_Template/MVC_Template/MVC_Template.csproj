@@ -1006,6 +1006,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\KullaniciController.cs" />
     <Compile Include="Controllers\TedarikciController.cs" />
     <Compile Include="Controllers\UrunController.cs" />
     <Compile Include="Global.asax.cs">
@@ -1112,6 +1113,7 @@
     <Content Include="Views\Category\Guncelle.cshtml" />
     <Content Include="Views\Tedarikci\TedarikciEkle.cshtml" />
     <Content Include="Views\Tedarikci\Guncelle.cshtml" />
+    <Content Include="Views\Kullanici\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

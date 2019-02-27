@@ -1,0 +1,12 @@
+Üye Yönetimi <-> Membership Management: Bir web sitesine kayýt olmak, giriþ çýkýþ iþlemleri sýrasýnda kullanýcý kontrolünün
+	yapýlmasý, kullanýcýnýn sahip olduðu yetkilere göre kontroller yapýlmasý, yani gelen kullanýcýnýn sahip olduðu
+	role göre bazý ekranlarýn kullanýlabilmesi ya da kullanýlamamasý vb. kontrollerin veya yetkilerin tanýmlanmasý 
+	iþlemidir.
+
+	ASP.NET Membership: Kullanýcýlarýn veritabanýndaki rollerini, kayýtlarýný ve bunlarýn iliþkilerini tutmayý 
+			saðlayan bir yapý.
+
+	C:\Windows\Microsoft.NET\Framework64\v4.0.30319\aspnet_regsql.exe ->
+		Kullanmýþ olduðumuz veritabanýna üye yönetimi ile ilgili tablolarý oluþturmamýzý saðlayacak
+
+Rol Yönetimi <-> Role Management
