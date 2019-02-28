@@ -16,12 +16,14 @@ namespace MVC_Template.Controllers
             List<Product> prd = ctx.Products.ToList();
             return View(prd);
         }
+
         public ActionResult UrunEkle()
         {
             ViewBag.Kategoriler = ctx.Categories.ToList();
             ViewBag.Tedarikciler = ctx.Suppliers.ToList();
             return View();
         }
+
         [HttpPost]
         public ActionResult UrunEkle(Product prd)
         {
@@ -43,6 +45,7 @@ namespace MVC_Template.Controllers
             return RedirectToAction("Index");
 
         }
+
         public ActionResult Guncelle(int? id)
         {
             if (id == null)

@@ -26,26 +26,41 @@
                                     <th>Email</th>
                                     <th>Kayıt Tarihi</th>
                                     <th>Son Giriş Tarihi</th>
+                                    <th>Rolleri</th>
+                                    <th>Rol Ata</th>
+                                    <th>Sil</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach (MembershipUser user in Model)
                                 {
-                                <tr>
-                                    <td>@user.UserName</td>
-                                    <td>@user.Email</td>
-                                    <td>@user.CreationDate</td>
-                                    <td>@user.LastLoginDate</td>
-                                    <td><a href="#" class="btn btn-danger uyeSil" data-username="@user.UserName">Üye Sil</a></td>
-                                </tr>
+                                    <tr>
+                                        <td>@user.UserName</td>
+                                        <td>@user.Email</td>
+                                        <td>@user.CreationDate</td>
+                                        <td>@user.LastLoginDate</td>
+                                        <td><a class="btn btn-primary roles" data-username="@user.UserName">Rolleri</a></td>
+                                        <td><a class="btn btn-primary addRole" data-username="@user.UserName">Rol Ata</a></td>
+                                        <td><a href="#" class="btn btn-danger uyeSil" data-username="@user.UserName">Üye Sil</a></td>
+                                    </tr>
                                 }
                             </tbody>
                         </table>
                     </div>
-
                 </div>
-
             </div>
         </div>
     </div>
 </div>
+
+@section scripts
+{
+    <script src="~/Content/assets/js/required/jquery-1.11.1.min.js"></script>
+    <script>
+        $(".addRole").on('click', function () {
+            const username = $(this).data("username");
+            console.log(username);
+            window.location.href = "/Kullanici/RolAta?username=" + username;
+        });
+    </script>
+}

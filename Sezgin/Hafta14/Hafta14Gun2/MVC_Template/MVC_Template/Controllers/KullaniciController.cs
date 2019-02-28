@@ -11,6 +11,7 @@ namespace MVC_Template.Controllers
     public class KullaniciController : Controller
     {
         // Buradaki sayfaları sadece Admin rolüne sahip olan görebilecek.
+        // [dbo].[aspnet_Users], [dbo].[aspnet_UsersInRoles], [dbo].[aspnet_Membership]
 
         // GET: Kullanici
         public ActionResult Index()
@@ -82,6 +83,62 @@ namespace MVC_Template.Controllers
             }
 
             return View();
+        }
+
+        public ActionResult RolAta(string username)
+        {
+            /* Parametre olarak id yazmak zorundayız, sebebi projenin App_Start klasörünün altında Route_Config.cs dosyasında "{controller}/{action}/{id}" bu parametre adının default adı id olduğu için parametre adının da id olması gerekiyor. 
+             *  
+             *  Kullanıcı RolAta'ya tıklandığında kullanıcı adını parametre olarak buraya alıyoruz. Buradan da kullanıcının adını View'e gönderiyoruz. Amacımız parametre bilgisini View'e taşımak. View tarafında Ekle butonuna basınca tekrar kullanıcı adını ve rol adını View'den alıp Post tarafına taşımak.
+             */
+
+            if (string.IsNullOrWhiteSpace(username))
+                return RedirectToAction("Index");
+
+            MembershipUser user = Membership.GetUser(username);
+
+            if (user == null)
+                return HttpNotFound();
+
+            string[] userRoles = Roles.GetRolesForUser(username);
+            string[] allRoles = Roles.GetAllRoles();
+
+            List<string> availableRoles = new List<string>();
+            foreach (string role in allRoles)
+            {
+                if (!userRoles.Contains(role))
+                    availableRoles.Add(role);
+            }
+
+            ViewBag.AvailableRoles = availableRoles;
+            ViewBag.UserRoles = userRoles;
+            ViewBag.Username = username;
+
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult RolAta(string username, List<string> addedRoles)
+        {
+            if (addedRoles.Count < 1)
+                return RedirectToAction("RolAta", new { username = username });
+
+            Roles.AddUserToRoles(username, addedRoles.ToArray());
+
+            return RedirectToAction("RolAta", new { username = username });
+        }
+
+        [HttpPost]
+        public ActionResult RolSil(string username, string removedRoles)
+        {
+            string[] removedRolesArray = removedRoles.Split(',');
+
+            if (removedRolesArray.Length < 1)
+                return RedirectToAction("RolAta", new { username = username });
+
+            Roles.RemoveUserFromRoles(username, removedRolesArray);
+
+            return RedirectToAction("RolAta", new { username = username });
         }
     }
 }

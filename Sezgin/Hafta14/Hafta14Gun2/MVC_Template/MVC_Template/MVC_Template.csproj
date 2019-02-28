@@ -1008,6 +1008,7 @@
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KullaniciController.cs" />
+    <Compile Include="Controllers\RolController.cs" />
     <Compile Include="Controllers\TedarikciController.cs" />
     <Compile Include="Controllers\UrunController.cs" />
     <Compile Include="Global.asax.cs">
@@ -1116,6 +1117,9 @@
     <Content Include="Views\Tedarikci\Guncelle.cshtml" />
     <Content Include="Views\Kullanici\Index.cshtml" />
     <Content Include="Views\Kullanici\Ekle.cshtml" />
+    <Content Include="Views\Rol\Index.cshtml" />
+    <Content Include="Views\Rol\Ekle.cshtml" />
+    <Content Include="Views\Kullanici\RolAta.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
