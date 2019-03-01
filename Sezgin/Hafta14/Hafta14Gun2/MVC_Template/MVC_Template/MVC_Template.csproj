@@ -1011,6 +1011,7 @@
     <Compile Include="Controllers\RolController.cs" />
     <Compile Include="Controllers\TedarikciController.cs" />
     <Compile Include="Controllers\UrunController.cs" />
+    <Compile Include="Controllers\UyeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -1120,6 +1121,7 @@
     <Content Include="Views\Rol\Index.cshtml" />
     <Content Include="Views\Rol\Ekle.cshtml" />
     <Content Include="Views\Kullanici\RolAta.cshtml" />
+    <Content Include="Views\Uye\Login.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
