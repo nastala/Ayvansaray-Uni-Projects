@@ -12,6 +12,7 @@
         $(document).ready(function () {
             $("#file").on("change", function () {
                 const files = this.files;
+                console.log(files);
 
                 if (files.length > 0) {
                     var reader = new FileReader();

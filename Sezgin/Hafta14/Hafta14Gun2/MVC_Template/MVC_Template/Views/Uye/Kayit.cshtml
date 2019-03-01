@@ -100,20 +100,22 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    @{
-                                        string message = ViewBag.Message;
-                                        if (message != null)
-                                        {
-                                            if (message == "Başarılı")
+                                    <div class="col-sm-offset-5">
+                                        @{
+                                            string message = ViewBag.Message;
+                                            if (message != null)
                                             {
-                                                <h3 class="text-success">@message</h3>
-                                            }
-                                            else
-                                            {
-                                                <h3 class="text-danger">@message</h3>
+                                                if (message == "Başarılı")
+                                                {
+                                                    <h3 class="text-success" style="align-items: center;">@message</h3>
+                                                }
+                                                else
+                                                {
+                                                    <h3 class="text-danger">@message</h3>
+                                                }
                                             }
                                         }
-                                    }
+                                    </div>
                                 </div>
                             </form>
                         </div>
