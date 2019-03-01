@@ -5,6 +5,20 @@
     ViewBag.Title = "Üyeler";
 }
 
+@section head
+{
+    <script src="~/Content/assets/js/required/jquery-1.11.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".addRole").on('click', function () {
+                const username = $(this).data("username");
+                console.log(username);
+                window.location.href = "/Kullanici/RolAta?username=" + username;
+            });
+        });
+    </script>
+}
+
 <div class="row">
     <div class="col-md-12">
         <div class="block">
@@ -52,15 +66,3 @@
         </div>
     </div>
 </div>
-
-@section scripts
-{
-    <script src="~/Content/assets/js/required/jquery-1.11.1.min.js"></script>
-    <script>
-        $(".addRole").on('click', function () {
-            const username = $(this).data("username");
-            console.log(username);
-            window.location.href = "/Kullanici/RolAta?username=" + username;
-        });
-    </script>
-}

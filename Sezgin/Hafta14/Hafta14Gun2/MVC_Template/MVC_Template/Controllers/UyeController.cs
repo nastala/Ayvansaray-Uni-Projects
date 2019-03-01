@@ -19,8 +19,8 @@ namespace MVC_Template.Controllers
         [AllowAnonymous]
         public ActionResult Giris(string message = null)
         {
-            //if (HttpContext.User != null)
-            //    return RedirectToAction("Index", "Home");
+            if (HttpContext.User != null && !string.IsNullOrWhiteSpace(HttpContext.User.Identity.Name))
+                return RedirectToAction("Index", "Home");
 
             ViewBag.Message = message;
             return View();
@@ -43,8 +43,8 @@ namespace MVC_Template.Controllers
         [AllowAnonymous]
         public ActionResult Kayit(string message = null)
         {
-            //if (HttpContext.User != null)
-            //    return RedirectToAction("Index", "Home");
+            if (HttpContext.User != null && !string.IsNullOrWhiteSpace(HttpContext.User.Identity.Name))
+                return RedirectToAction("Index", "Home");
 
             ViewBag.Message = message;
             return View();
