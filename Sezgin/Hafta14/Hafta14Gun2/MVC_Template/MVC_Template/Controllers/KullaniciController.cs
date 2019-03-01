@@ -8,7 +8,7 @@ using System.Web.Security;
 
 namespace MVC_Template.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Admin")]
     public class KullaniciController : Controller
     {
         // Buradaki sayfaları sadece Admin rolüne sahip olan görebilecek.
@@ -25,7 +25,6 @@ namespace MVC_Template.Controllers
         public ActionResult Ekle(string message = null)
         {
             ViewBag.Message = message;
-
             return View();
         }
 

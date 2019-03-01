@@ -1,0 +1,154 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Yeni Kayıt</title>
+
+    <link rel="icon" href="~/Content/assets/images/required/ico/favicon.ico">
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="~/Content/assets/images/required/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="~/Content/assets/images/required/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="~/Content/assets/images/required/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="~/Content/assets/images/required/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="~/Content/assets/images/required/ico/favicon.png">
+    <!-- Required CSS Files -->
+    <link type="text/css" href="~/Content/assets/css/required/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link type="text/css" href="~/Content/assets/js/required/jquery-ui-1.11.0.custom/jquery-ui.min.css" rel="stylesheet" />
+    <link type="text/css" href="~/Content/assets/js/required/jquery-ui-1.11.0.custom/jquery-ui.structure.min.css" rel="stylesheet" />
+    <link type="text/css" href="~/Content/assets/js/required/jquery-ui-1.11.0.custom/jquery-ui.theme.min.css" rel="stylesheet" />
+    <link type="text/css" href="~/Content/assets/css/required/mCustomScrollbar/jquery.mCustomScrollbar.min.css" rel="stylesheet" />
+    <link type="text/css" href="~/Content/assets/css/required/icheck/all.css" rel="stylesheet" />
+    <link type="text/css" href="~/Content/assets/fonts/metrize-icons/styles-metrize-icons.css" rel="stylesheet">
+    <!-- Optional CSS Files -->
+    <link type="text/css" href="~/Content/assets/css/optional/bootstrapValidator.min.css" rel="stylesheet" />
+    <!-- add CSS files here -->
+    <!-- More Required CSS Files -->
+    <link type="text/css" href="~/Content/assets/css/styles-core.css" rel="stylesheet" />
+    <link type="text/css" href="~/Content/assets/css/styles-core-responsive.css" rel="stylesheet" />
+    <!-- Demo CSS Files -->
+    <link type="text/css" href="~/Content/assets/css/demo-files/pages-signin-signup.css" rel="stylesheet" />
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="~/Content/assets/js/required/misc/ie10-viewport-bug-workaround.js"></script>
+</head>
+<body>
+    <div class="container-fluid">
+        <div id="body-container">
+            <div class="standalone-page registration-page">
+                <div class="standalone-page-top-border">
+                    <span class="border-block bg-color-green"></span>
+                    <span class="border-block bg-color-orange"></span>
+                    <span class="border-block bg-color-yellow"></span>
+                    <span class="border-block bg-color-blue"></span>
+                    <span class="border-block bg-color-red"></span>
+                    <span class="border-block bg-color-lime"></span>
+                    <span class="border-block bg-color-purple"></span>
+                </div>
+                <div class="standalone-page-block">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <h2 class="heading">
+                                <span aria-hidden="true" class="icon icon-user"></span>
+                                <span class="main-text">
+                                    Yeni Kayıt Oluştur
+                                </span>
+                            </h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <form role="form" class="registration-form form-horizontal" method="post" action="/Uye/Kayit">
+                                <div class="form-group">
+                                    <label for="inputUsername" class="col-sm-3 control-label">Kullanıcı Adı</label>
+                                    <div class="col-sm-9">
+                                        <input autocomplete="off" class="form-control" id="inputUsername" placeholder="Kullanıcı Adı" type="text" name="Username">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputEmail" class="col-sm-3 control-label">E-posta</label>
+                                    <div class="col-sm-9">
+                                        <input autocomplete="off" class="form-control" id="inputEmail" placeholder="E-posta" type="email" name="Email">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputPassword" class="col-sm-3 control-label">Şifre</label>
+                                    <div class="col-sm-9">
+                                        <input autocomplete="off" class="form-control" id="inputPassword" placeholder="Şifre" type="password" name="Password">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputPassword" class="col-sm-3 control-label">Gizli Soru</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Gizli soru giriniz" name="SecretQuestion">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputPassword" class="col-sm-3 control-label">Gizli Cevap</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Gizli cevap giriniz" name="SecretAnswer">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-3 col-sm-9">
+                                        <button type="submit" class="btn btn-success">Oluştur</button>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @{
+                                        string message = ViewBag.Message;
+                                        if (message != null)
+                                        {
+                                            if (message == "Başarılı")
+                                            {
+                                                <h3 class="text-success">@message</h3>
+                                            }
+                                            else
+                                            {
+                                                <h3 class="text-danger">@message</h3>
+                                            }
+                                        }
+                                    }
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="change-section">
+                                <h3 class="heading">Zaten Kayıtlı Mısın?</h3>
+                                <a href="/Uye/Giris" class="btn btn-default btn-block">Giriş</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Required JS Files -->
+    <script type="text/javascript" src="~/Content/assets/js/required/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="~/Content/assets/js/required/jquery-ui-1.11.0.custom/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="~/Content/assets/js/required/bootstrap/bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/Content/assets/js/required/jquery.easing.1.3-min.js"></script>
+    <script type="text/javascript" src="~/Content/assets/js/required/jquery.mCustomScrollbar.min.js"></script>
+    <script type="text/javascript" src="~/Content/assets/js/required/misc/jquery.mousewheel-3.0.6.min.js"></script>
+    <script type="text/javascript" src="~/Content/assets/js/required/misc/retina.min.js"></script>
+    <script type="text/javascript" src="~/Content/assets/js/required/icheck.min.js"></script>
+    <script type="text/javascript" src="~/Content/assets/js/required/misc/jquery.ui.touch-punch.min.js"></script>
+    <script type="text/javascript" src="~/Content/assets/js/required/circloid-functions.js"></script>
+    <!-- Optional JS Files -->
+    <script type="text/javascript" src="~/Content/assets/js/optional/bootstrapValidator.min.js"></script>
+    <!-- add optional JS plugin files here -->
+    <!-- REQUIRED: User Editable JS Files -->
+    <script type="text/javascript" src="~/Content/assets/js/script.js"></script>
+    <!-- add additional User Editable files here -->
+    <!-- Demo JS Files -->
+    <script type="text/javascript" src="~/Content/assets/js/demo-files/pages-signup.js"></script>
+</body>
+</html>

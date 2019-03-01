@@ -109,7 +109,7 @@
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="pages-signin-1.html">
+                                            <a href="#" id="logout">
                                                 <span aria-hidden="true" class="icon icon-arrow-curve-right"></span>
                                                 <span class="main-text">Logout</span>
                                             </a>
@@ -214,5 +214,21 @@
     <script type="text/javascript" src="~/Content/assets/js/demo-files/index.js"></script>
 
     @RenderSection("scripts", false)
+
+    <script>
+        $("#logout").on("click", function () {
+            console.log("logout click");
+            $.ajax({
+                type: "POST",
+                url: "/Uye/Cikis",
+                success: function () {
+                    window.location.replace("/Uye/Giris");
+                },
+                error: function () {
+                    alert("Üye çıkış sırasında hata oluştu.");
+                }
+            });
+        });
+    </script>
 </body>
 </html>
