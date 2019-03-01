@@ -6,6 +6,10 @@ using System.Web.Mvc;
 
 namespace MVC_Template.Controllers
 {
+    /*
+     * Bu controller üzerindeki actionlara erişebilmek için kullanıcının giriş yapması lazım. Eğer kullanıcı Authenticate değilse actionları kullanamayacak.
+     * */
+    [Authorize]
     public class HomeController : Controller
     {
         // GET: Home

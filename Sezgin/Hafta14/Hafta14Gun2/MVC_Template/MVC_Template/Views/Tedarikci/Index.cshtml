@@ -8,13 +8,64 @@
 @using MVC_Template.Models;
 @model List<Supplier>
 
- @section head
+@section head
 {
     <style>
         .hata {
             color: red;
         }
-     </style>     
+    </style>
+    <script src="~/Content/assets/js/required/jquery-1.11.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".modalAc").click(function () {
+                const sirketAdi = $(this).data("tedname");
+                const id = $(this).data("tedid");
+                console.log(sirketAdi, id);
+                $(".modal-body > p.mesaj").html(sirketAdi + " tedarikçisi silinsin mi?");
+                $(".tedModalSil").data("tedid", id);
+            });
+
+            $(".tedSil").click(function () {
+                var sonuc = confirm("Kayıt silinsin mi?");
+                if (sonuc) {
+                    var tedID = $(this).data("tedid");
+                    $.ajax({
+                        type: "POST",
+                        url: "/Tedarikci/TedarikciSil/" + tedID,
+                        success: function () {
+                            alert("Kayıt silindi");
+                            window.location.replace("/Tedarikci/Index");
+                        },
+                        error: function () {
+                            alert("Kayıt silme sırasında hata oluştu.");
+                        }
+                    })
+                }
+            });
+
+            $(".tedModalSil").click(function () {
+                const tedID = $(this).data("tedid");
+                console.log(tedID);
+                $.ajax({
+                    type: "POST",
+                    url: "/Tedarikci/TedarikciSil/" + tedID,
+                    success: function (durum) {
+                        if (durum === "OK") {
+                            alert("Kayıt silindi");
+                            window.location.replace("/Tedarikci/Index");
+                        }
+                        else {
+                            alert("Kayıt silme sırasında hata oluştu.");
+                        }
+                    },
+                    error: function () {
+                        alert("Kayıt silme sırasında hata oluştu.");
+                    }
+                })
+            });
+        });
+    </script>
 }
 
 <br />
@@ -76,13 +127,10 @@
                             </tbody>
                         </table>
                     </div>
-
                 </div>
-
             </div>
         </div>
     </div>
-
 </div>
 
 @section body
@@ -107,55 +155,5 @@
     </div><!-- /.modal -->
 }
 
-@section scripts{
-    <script src="~/Content/assets/js/required/jquery-1.11.1.min.js"></script>
-    <script>
-        $(".modalAc").click(function () {
-            const sirketAdi = $(this).data("tedname");
-            const id = $(this).data("tedid");
-            console.log(sirketAdi, id);
-            $(".modal-body > p.mesaj").html(sirketAdi + " tedarikçisi silinsin mi?");
-            $(".tedModalSil").data("tedid", id);
-        });
 
-        $(".tedSil").click(function () {
-            var sonuc = confirm("Kayıt silinsin mi?");
-            if (sonuc) {
-                var tedID = $(this).data("tedid");
-                $.ajax({
-                    type: "POST",
-                    url: "/Tedarikci/TedarikciSil/" + tedID,
-                    success: function () {
-                        alert("Kayıt silindi");
-                        window.location.replace("/Tedarikci/Index");
-                    },
-                    error: function () {
-                        alert("Kayıt silme sırasında hata oluştu.");
-                    }
-                })
-            }
-        });
-
-        $(".tedModalSil").click(function () {
-            const tedID = $(this).data("tedid");
-            console.log(tedID);
-            $.ajax({
-                type: "POST",
-                url: "/Tedarikci/TedarikciSil/" + tedID,
-                success: function (durum) {
-                    if (durum === "OK") {
-                        alert("Kayıt silindi");
-                        window.location.replace("/Tedarikci/Index");
-                    }
-                    else {
-                        alert("Kayıt silme sırasında hata oluştu.");
-                    }
-                },
-                error: function () {
-                    alert("Kayıt silme sırasında hata oluştu.");
-                }
-            })
-        });
-    </script>
-}
 

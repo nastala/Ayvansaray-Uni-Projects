@@ -7,6 +7,7 @@ using System.Web.Security;
 
 namespace MVC_Template.Controllers
 {
+    [Authorize]
     public class RolController : Controller
     {
 

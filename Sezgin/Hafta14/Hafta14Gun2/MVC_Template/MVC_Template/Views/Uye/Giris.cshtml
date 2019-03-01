@@ -53,42 +53,58 @@
                                 <h2 class="heading">
                                     <span aria-hidden="true" class="icon icon-key"></span>
                                     <span class="main-text">
-                                        Please enter your login details.
+                                        Giriş
                                     </span>
                                 </h2>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-xs-12">
-                                <form role="form" class="login-form form-horizontal" method="post" action="index.html">
+                                <form role="form" class="login-form form-horizontal" method="post" action="/Uye/Giris">
                                     <div class="form-group">
-                                        <label for="inputEmail" class="col-sm-3 control-label">Email</label>
+                                        <label for="inputEmail" class="col-sm-3 control-label">Kullanıcı Adı</label>
                                         <div class="col-sm-9">
-                                            <input autocomplete="off" class="form-control" id="inputEmail" placeholder="Email" type="email" name="email">
-                                            <span class="help-block text-muted">Use: demo@example.com</span>
+                                            <input autocomplete="off" class="form-control" id="inputUsername" placeholder="Kullanıcı Adı" type="text" name="username">
+                                            <span class="help-block text-muted">Örnek: ornek60</span>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="inputPassword" class="col-sm-3 control-label">Password</label>
+                                        <label for="inputPassword" class="col-sm-3 control-label">Şifre</label>
                                         <div class="col-sm-9">
-                                            <input autocomplete="off" class="form-control" id="inputPassword" placeholder="Password" type="password" name="password">
-                                            <span class="help-block text-muted">Use: 12345678</span>
+                                            <input autocomplete="off" class="form-control" id="inputPassword" placeholder="Şifre" type="password" name="password">
+                                            <span class="help-block text-muted">Örnek: 12345678</span>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="col-sm-offset-3 col-sm-9">
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox"> Remember me
+                                                    <input type="checkbox" name="rememberMe"> Beni Hatırla
                                                 </label>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="col-sm-offset-3 col-sm-9">
-                                            <button type="submit" class="btn btn-success">Sign In</button>
-                                            <a href="~/Content/pages-forgot-password.html" class="btn btn-link btn-sm pull-right">I forgot my password</a>
+                                            <button type="submit" class="btn btn-success">Giriş</button>
+                                            <a href="~/Content/pages-forgot-password.html" class="btn btn-link btn-sm pull-right">Şifremi Unuttum</a>
                                         </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @{
+                                            string message = ViewBag.Message;
+                                            if (message != null)
+                                            {
+                                                if (message == "Başarılı")
+                                                {
+                                                    <h3 class="text-success">@message</h3>
+                                                }
+                                                else
+                                                {
+                                                    <h3 class="text-danger">@message</h3>
+                                                }
+                                            }
+                                        }
                                     </div>
                                 </form>
                             </div>
@@ -96,8 +112,8 @@
                         <div class="row">
                             <div class="col-xs-12">
                                 <div class="change-section">
-                                    <h3 class="heading">Not Registered?</h3>
-                                    <a href="~/Content/pages-signup.html" class="btn btn-default btn-block">Create New Account</a>
+                                    <h3 class="heading">Kayıtlı Olmadın Mı?</h3>
+                                    <a href="~/Content/pages-signup.html" class="btn btn-default btn-block">Yeni Kayıt Oluştur</a>
                                 </div>
                             </div>
                         </div>

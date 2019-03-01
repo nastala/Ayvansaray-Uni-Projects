@@ -1121,7 +1121,7 @@
     <Content Include="Views\Rol\Index.cshtml" />
     <Content Include="Views\Rol\Ekle.cshtml" />
     <Content Include="Views\Kullanici\RolAta.cshtml" />
-    <Content Include="Views\Uye\Login.cshtml" />
+    <Content Include="Views\Uye\Giris.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -8,6 +8,7 @@ using System.Web.Security;
 
 namespace MVC_Template.Controllers
 {
+    [Authorize]
     public class KullaniciController : Controller
     {
         // Buradaki sayfaları sadece Admin rolüne sahip olan görebilecek.

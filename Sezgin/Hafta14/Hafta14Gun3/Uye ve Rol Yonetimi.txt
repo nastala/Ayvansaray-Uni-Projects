@@ -10,3 +10,5 @@
 		Kullanmýþ olduðumuz veritabanýna üye yönetimi ile ilgili tablolarý oluþturmamýzý saðlayacak
 
 Rol Yönetimi <-> Role Management
+
+slidingExpiration -> Kullanýcý web sitesinde hareket ettiðinde Timeout süresini sýfýrlar, yeniden saymaya baþlar.
