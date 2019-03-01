@@ -99,11 +99,11 @@
             $.ajax({
                 type: "POST",
                 url: "/Kullanici/RolSil?username=" + username + "&removedRoles=" + removedRoles,
-                success: function () {
-                    window.location.replace("/Kullanici/RolAta?username=" + username);
+                success: function (response) {
+                    window.location.replace("/Kullanici/RolAta?username=" + username + "&message=" + response);
                 },
                 error: function () {
-                    alert("Kayıt silme sırasında hata oluştu.");
+                    alert("Rol silme sırasında hata oluştu.");
                 }
             })
         })

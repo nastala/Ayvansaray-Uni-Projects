@@ -85,7 +85,7 @@ namespace MVC_Template.Controllers
             return View();
         }
 
-        public ActionResult RolAta(string username)
+        public ActionResult RolAta(string username, string message = null)
         {
             /* Parametre olarak id yazmak zorundayız, sebebi projenin App_Start klasörünün altında Route_Config.cs dosyasında "{controller}/{action}/{id}" bu parametre adının default adı id olduğu için parametre adının da id olması gerekiyor. 
              *  
@@ -113,6 +113,7 @@ namespace MVC_Template.Controllers
             ViewBag.AvailableRoles = availableRoles;
             ViewBag.UserRoles = userRoles;
             ViewBag.Username = username;
+            ViewBag.Message = message;
 
             return View();
         }
@@ -121,24 +122,24 @@ namespace MVC_Template.Controllers
         public ActionResult RolAta(string username, List<string> addedRoles)
         {
             if (addedRoles.Count < 1)
-                return RedirectToAction("RolAta", new { username = username });
+                return RedirectToAction("RolAta", new { username = username, message = "Hata" });
 
             Roles.AddUserToRoles(username, addedRoles.ToArray());
 
-            return RedirectToAction("RolAta", new { username = username });
+            return RedirectToAction("RolAta", new { username = username, message = "Başarılı" });
         }
 
         [HttpPost]
-        public ActionResult RolSil(string username, string removedRoles)
+        public string RolSil(string username, string removedRoles)
         {
             string[] removedRolesArray = removedRoles.Split(',');
 
-            if (removedRolesArray.Length < 1)
-                return RedirectToAction("RolAta", new { username = username });
+            if (removedRolesArray.Length < 1 || string.IsNullOrWhiteSpace(removedRolesArray[0]))
+                return "Hata";
 
             Roles.RemoveUserFromRoles(username, removedRolesArray);
 
-            return RedirectToAction("RolAta", new { username = username });
+            return "Başarılı";
         }
     }
 }
