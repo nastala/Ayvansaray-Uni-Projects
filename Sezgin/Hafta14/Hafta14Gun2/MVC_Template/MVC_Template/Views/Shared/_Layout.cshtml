@@ -1,4 +1,5 @@
-﻿
+﻿@using MVC_Template.Models;
+
 @{
     Layout = null;
 }
@@ -169,7 +170,29 @@
                                     </a>
                                 </li>
                             }
-                        </ul>
+                            @if (Session["Sepet"] != null)
+                            {
+                                List<Product> products = (List<Product>)Session["Sepet"];
+
+                                <li>
+                                    <a href="#" class="top">
+                                        <span class="main-menu-text sepet">
+                                            Sepetinizde <b>@products.Count</b> adet ürün var
+                                            <i class="icon icon-arrow-down-bold-round icon-size-small"></i>
+                                        </span>
+                                    </a>
+                                    <ul>
+                                        @foreach (Product product in products)
+                                        {
+                                            <li>
+                                                <a href="/Urun/Detay?productID=@product.ProductID">
+                                                    <span class="main-text">@product.ProductName</span>
+                                                </a>
+                                            </li>
+                                        }
+                                    </ul>
+                                </li>
+                            }
                     </div>
                 </div>
             </div>
@@ -184,7 +207,7 @@
             &copy; <a href="#?ref=Base5Builder">Circloid</a> was made with <span style="color:#FF0000;">&#10084;</span> and supported by - <a href="http://base5builder.com/" target="_blank" style="font-weight:300;color:#ffffff;background:#1d1d1d;padding:0 3px;">Base<span style="color:#ffa733;font-weight:bold">5</span>Builder</a>
         </div>
     </div>
-    @RenderSection("body",false)
+    @RenderSection("body", false)
     <!-- END Footer Container -->
     <!-- Required JS Files -->
     <script type="text/javascript" src="~/Content/assets/js/required/jquery-1.11.1.min.js"></script>

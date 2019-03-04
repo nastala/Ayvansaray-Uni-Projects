@@ -1,0 +1,44 @@
+﻿@using MVC_Template.Models;
+@model Product
+
+    @{
+        ViewBag.Title = "Detay";
+    }
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="block">
+                <div class="block-heading">
+                    <div class="main-text h2">
+                        Ürün Detay Sayfası
+                    </div>
+                    <div class="main-text h2">
+                    </div>
+                    <div class="block-controls">
+                        <a href="/Urun/Index"><span aria-hidden="true" class="icon icon-cross icon-size-medium block-control-remove"></span></a>
+                        <span aria-hidden="true" class="icon icon-arrow-down icon-size-medium block-control-collapse"></span>
+                    </div>
+                </div>
+                <div class="block-content-outer">
+                    <div class="block-content-inner">
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label for="productName">Ürün adı: </label>
+                                </div>
+                                <div class="col-md-10">
+                                    <input id="productName" disabled value="@Model.ProductName" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <br />
+                            <input name="username" value="@ViewBag.Username" type="hidden" />
+                            <button type="submit" class="btn btn-primary">Ata</button>
+                            <a class="btn btn-danger" id="removedRoles" data-username="@ViewBag.Username">Sil</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

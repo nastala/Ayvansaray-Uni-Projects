@@ -1,11 +1,19 @@
 		Ýstemci Tarafýnda Durum Yönetimi Yapma Yöntemleri
 Client Side tarafýnda State yönetimi: Bilgiler client tarafýnda tutuluyor.
-	1. Query String Management(Sorgu Metni Yönetimi):
+	1. Query String Management(Sorgu Metni Yönetimi): 
 	2. Cache Management(Çerez Yönetimi):
 
 Server Side tarafýnda State yönetimi: Ýstenilen bilgiler Server'da tutuluyor ve Client side'a göre daha güvenli.
-	1. Session Management(Oturum Yönetimi):
-	2. Application Management(Uygulama Yönetimi):  
+	1. Session Management(Oturum Yönetimi): Sisteme giriþ yapan herkesin kendine ait bir oturumu vardýr. Yani kendine
+		ait bir alaný vardýr ve o kiþi ile ilgili bilgi tutulmak istenirse o alanda tutulur. Uygulama içerisinde
+		Session property'si vardýr. Session içerisine bir string alan açarak istediðimiz deðeri o alan içerisine 
+		atayabiliriz. Örnek: Session["AktifSepet"] = ...;
+		AktifSepet ile ilgili bir Session açtýysanýz ve sisteme 10 kiþi girdiyse 10 kiþi içinde ayrý ayrý bu alan
+		açýlýr. Session kapanýnca yani Session'ýn süresi bitince o Session ile baðlý kullanýcýnýn AktifSepet deðeri
+ 		temizlenir. Ama öyle örnekler oluyor ki 1 ay 1 yýl sonra dahi sepetteki bilgiler duruyor. Bunun sebebi
+		bu bilgilerin uygulamanýn veritabanýnýn dýþýnda ayrý bir veritabanýnda tutulmasýdýr. 
+
+	2. Application Management(Uygulama Yönetimi): 
 
 Durum Yönetimi: Web sayfasý geliþtirirken ortaya çýkan durumlarýn yönetimini yapmamýz gerekir. Tarayýcýya gelip bir siteye
 	talepte bulunduðumuz zaman Server o talebi alýr, gerekli yerlere iletir, gerekli yerlerden cevabý alýr, cevaba uygun
@@ -25,3 +33,6 @@ Durum Yönetimi: Web sayfasý geliþtirirken ortaya çýkan durumlarýn yönetimini yap
 
 	Server'ýn bize gönderip unuttuðu bir sayfadan bilgi taþýma yapacaðýz bir sayfadan diðerine geçerken önceki sayfa
 	unutulacaktýr. Buradaki bazý bilgileri tutmak istersek bunu ya Client ya da Server Side tarafýnda tutacaðýz.
+
+ÖRNEK: Ürün listeleme sayfasýna detay butonu koyacaðýz. Basýlýnca ürün detay sayfasýna gidilecek. Tek ürün detay sayfasý 
+	olacak ve seçilen ürüne göre doldurulacak.

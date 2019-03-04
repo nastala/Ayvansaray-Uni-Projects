@@ -1,15 +1,42 @@
-﻿
+﻿@using MVC_Template.Models;
+
 @{
     ViewBag.Title = "Ürünler";
 }
 @using MVC_Template.Models;
 @model  List<Product>
 @section head
-    {
+{
+    <script src="~/Content/assets/js/required/jquery-1.11.1.min.js"></script>
     <script>
         function urunClick(productID) {
             window.location.href = "/Urun/Guncelle/" + productID;
         }
+
+        $(document).ready(function () {
+            $(".sepeteEkle").on("click", function () {
+                console.log("sepeteEkle clicked");
+                const productID = $(this).data("productid");
+                console.log(productID);
+                $.ajax({
+                    type: "POST",
+                    url: "/Urun/SepeteEkle?productID=" + productID,
+                    success: function (response) {
+                        if (response === "ITEM ADDED TO THE CART") {
+                            @{ List<Product> products = (List<Product>)Session["Sepet"]; }
+                            console.log("ITEM ADDED TO THE CART");
+                            console.log($(".sepet"));
+                        }
+                        else {
+                            alert(response);
+                        }
+                    },
+                    error: function () {
+                        alert("Sepete ekleme sırasında hata oluştu.");
+                    }
+                })
+            })
+        });
     </script>
     <style>
         td:hover {
@@ -45,91 +72,96 @@
                         <th>Stok</th>
                         <th>Yeni Alınan Sipariş Miktarı</th>
                         <th>Yeniden Sipariş Noktası</th>
-                        <th>Statü</th>
+                        <th>Durum</th>
+                        <th>Sepete Ekle</th>
+                        <th>Detay</th>
                         <th>Sil</th>
+                        <th>Sor ve Sil</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach (var prod in Model)
                     {
-                    <tr>
+                        <tr>
 
-                        <td onclick="urunClick(@prod.ProductID)">@prod.ProductName</td>
-                        @if (prod.Supplier?.CompanyName == null)
-                        {
-                            <td onclick="urunClick(@prod.ProductID)" class="danger"></td>
-                        }
-                        else
-                        {
-                            <td onclick="urunClick(@prod.ProductID)" class="danger">@prod.Supplier.CompanyName</td>
+                            <td onclick="urunClick(@prod.ProductID)">@prod.ProductName</td>
+                            @if (prod.Supplier?.CompanyName == null)
+                            {
+                                <td onclick="urunClick(@prod.ProductID)" class="danger"></td>
+                            }
+                            else
+                            {
+                                <td onclick="urunClick(@prod.ProductID)" class="danger">@prod.Supplier.CompanyName</td>
 
-                        }
-                        @if (prod.Category?.CategoryName == null)
-                        {
+                            }
+                            @if (prod.Category?.CategoryName == null)
+                            {
 
-                            <td onclick="urunClick(@prod.ProductID)" class="warning"></td>
+                                <td onclick="urunClick(@prod.ProductID)" class="warning"></td>
 
-                        }
-                        else
-                        {
+                            }
+                            else
+                            {
 
-                            <td onclick="urunClick(@prod.ProductID)" class="warning">@prod.Category.CategoryName</td>
+                                <td onclick="urunClick(@prod.ProductID)" class="warning">@prod.Category.CategoryName</td>
 
-                        }
-                        @if (prod.QuantityPerUnit == null)
-                        {
-                            <td onclick="urunClick(@prod.ProductID)"></td>
-                        }
-                        else
-                        {
-                            <td onclick="urunClick(@prod.ProductID)">@prod.QuantityPerUnit</td>
-                        }
-                        @if (prod.UnitPrice == null)
-                        {
-                            <td onclick="urunClick(@prod.ProductID)"></td>
-                        }
-                        else
-                        {
-                            <td onclick="urunClick(@prod.ProductID)">@prod.UnitPrice</td>
-                        }
-                        @if (prod.UnitsInStock == null)
-                        {
-                            <td onclick="urunClick(@prod.ProductID)"></td>
-                        }
-                        else
-                        {
-                            <td onclick="urunClick(@prod.ProductID)">@prod.UnitsInStock</td>
-                        }
-                        @if (prod.UnitsOnOrder == null)
-                        {
-                            <td onclick="urunClick(@prod.ProductID)"></td>
-                        }
-                        else
-                        {
-                            <td onclick="urunClick(@prod.ProductID)">@prod.UnitsOnOrder</td>
-                        }
-                        @if (prod.ReorderLevel == null)
-                        {
-                            <td onclick="urunClick(@prod.ProductID)"></td>
-                        }
-                        else
-                        {
-                            <td onclick="urunClick(@prod.ProductID)">@prod.ReorderLevel</td>
-                        }
-                        @if (prod.Discontinued)
-                        {
-                            <td onclick="urunClick(@prod.ProductID)"><span class="icon icon-cross highlight-color-red-text" onclick="urunClick(@prod.ProductID)"></span></td>
+                            }
+                            @if (prod.QuantityPerUnit == null)
+                            {
+                                <td onclick="urunClick(@prod.ProductID)"></td>
+                            }
+                            else
+                            {
+                                <td onclick="urunClick(@prod.ProductID)">@prod.QuantityPerUnit</td>
+                            }
+                            @if (prod.UnitPrice == null)
+                            {
+                                <td onclick="urunClick(@prod.ProductID)"></td>
+                            }
+                            else
+                            {
+                                <td onclick="urunClick(@prod.ProductID)">@prod.UnitPrice</td>
+                            }
+                            @if (prod.UnitsInStock == null)
+                            {
+                                <td onclick="urunClick(@prod.ProductID)"></td>
+                            }
+                            else
+                            {
+                                <td onclick="urunClick(@prod.ProductID)">@prod.UnitsInStock</td>
+                            }
+                            @if (prod.UnitsOnOrder == null)
+                            {
+                                <td onclick="urunClick(@prod.ProductID)"></td>
+                            }
+                            else
+                            {
+                                <td onclick="urunClick(@prod.ProductID)">@prod.UnitsOnOrder</td>
+                            }
+                            @if (prod.ReorderLevel == null)
+                            {
+                                <td onclick="urunClick(@prod.ProductID)"></td>
+                            }
+                            else
+                            {
+                                <td onclick="urunClick(@prod.ProductID)">@prod.ReorderLevel</td>
+                            }
+                            @if (prod.Discontinued)
+                            {
+                                <td onclick="urunClick(@prod.ProductID)"><span class="icon icon-cross highlight-color-red-text" onclick="urunClick(@prod.ProductID)"></span></td>
 
-                        }
-                        else
-                        {
-                            <td onclick="urunClick(@prod.ProductID)"><span class="icon icon-check highlight-color-green-text" onclick="urunClick(@prod.ProductID)"></span></td>
-                        }
+                            }
+                            else
+                            {
+                                <td onclick="urunClick(@prod.ProductID)"><span class="icon icon-check highlight-color-green-text" onclick="urunClick(@prod.ProductID)"></span></td>
+                            }
 
-                        <td onclick="urunClick(@prod.ProductID)"><a href="/Urun/UrunSil?productID=@prod.ProductID" class="btn btn-danger rounded">Sil</a></td>
-                        <td onclick="urunClick(@prod.ProductID)"><a href="/Urun/UrunSorSil/@prod.ProductID" class="btn btn-danger rounded">Sor ve Sil</a></td>
+                            <td><a class="btn btn-default sepeteEkle" data-productid="@prod.ProductID" href="#">Sepete Ekle</a></td>
+                            <td><a href="/Urun/Detay?productID=@prod.ProductID" class="btn btn-primary rounded">Detay</a></td>
+                            <td onclick="urunClick(@prod.ProductID)"><a href="/Urun/UrunSil?productID=@prod.ProductID" class="btn btn-danger rounded">Sil</a></td>
+                            <td onclick="urunClick(@prod.ProductID)"><a href="/Urun/UrunSorSil/@prod.ProductID" class="btn btn-danger rounded">Sor ve Sil</a></td>
 
-                    </tr>
+                        </tr>
                     }
                 </tbody>
             </table>

@@ -60,6 +60,7 @@ namespace MVC_Template.Controllers
             ViewBag.Tedarikciler = ctx.Suppliers.ToList();
             return View(product);
         }
+
         public ActionResult UrunSorSil(int? id)
         {
             if (id == null)
@@ -70,6 +71,7 @@ namespace MVC_Template.Controllers
                 return HttpNotFound();
             return View(prd);
         }
+
         [HttpPost]
         public ActionResult UrunSorSil(Product p)
         {
@@ -78,6 +80,7 @@ namespace MVC_Template.Controllers
             ctx.SaveChanges();
             return RedirectToAction("Index");
         }
+
         [HttpPost]
         public ActionResult Guncelle(Product prd)
         {
@@ -92,6 +95,54 @@ namespace MVC_Template.Controllers
 
             ctx.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        public ActionResult Detay(int? productID)
+        {
+            if (productID == null)
+                return RedirectToAction("Index");
+
+            Product product = ctx.Products.Find(productID);
+
+            if (product == null)
+                return HttpNotFound();
+
+            return View(product);
+        }
+
+        [HttpPost]
+        public string SepeteEkle(int? productID)
+        {
+            if (productID == null)
+                return null;
+
+            Product product = ctx.Products.Find(productID);
+
+            if (product == null)
+                return "NOT FOUND";
+
+            List<Product> products;
+
+            if (Session["Sepet"] == null)
+            {
+                products = new List<Product>();
+                products.Add(product);
+            }
+            else
+            {
+                products = (List<Product>)Session["Sepet"];
+
+                foreach (Product tempProduct in products)
+                {
+                    if (tempProduct.ProductID == product.ProductID)
+                        return "ITEM ALREADY EXISTS";
+                }
+
+                products.Add(product);
+            }
+
+            Session["Sepet"] = products;
+            return "ITEM ADDED TO THE CART";
         }
     }
 }
