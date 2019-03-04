@@ -8,6 +8,7 @@ using System.Web.Security;
 
 namespace MVC_Template.Controllers
 {
+    [Authorize]
     public class KullaniciController : Controller
     {
         // GET: Kullanici
@@ -17,15 +18,17 @@ namespace MVC_Template.Controllers
             return View(users);
         }
 
+        [AllowAnonymous]
         public ActionResult KullaniciEkle()
         {
             return View();
         }
 
+        [AllowAnonymous]
         [HttpPost]
         public ActionResult KullaniciEkle(Kullanici k)
         {
-            Membership.CreateUser(k.UserName, k.Password, k.Email, k.PasswordQuestion, k.Comment, true, out MembershipCreateStatus durum);
+            Membership.CreateUser(k.UserName, k.Password, k.Email, k.PasswordQuestion, k.PasswordAnswer, true, out MembershipCreateStatus durum);
 
             string mesaj = "";
             switch (durum)
@@ -76,6 +79,7 @@ namespace MVC_Template.Controllers
                 return View();
         }
 
+        [Authorize(Roles="Admin")]
         public ActionResult RolAta(string Id)
         {
             ViewBag.UserName = Id;
@@ -84,6 +88,7 @@ namespace MVC_Template.Controllers
             // return View(id);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public ActionResult RolAta(string UserName, string RoleName)
         {

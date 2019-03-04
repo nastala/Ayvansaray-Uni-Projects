@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace MVC_Template.Controllers
 {
+    [Authorize]
     public class CategoryController : Controller
     {
         NorthwindContext ctx = new NorthwindContext();

@@ -11,6 +11,6 @@ namespace MVC_Template.Add_Classes
         public string Password { get; set; }
         public string Email { get; set; }
         public string PasswordQuestion { get; set; }
-        public string Comment { get; set; }
+        public string PasswordAnswer { get; set; }
     }
 }

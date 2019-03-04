@@ -7,6 +7,7 @@ using MVC_Template.Models;
 
 namespace MVC_Template.Controllers
 {
+    [Authorize]
     public class TedarikciController : Controller
     {
         NorthwindContext ctx = new NorthwindContext();

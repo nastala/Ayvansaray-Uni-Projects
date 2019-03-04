@@ -156,11 +156,19 @@
                                     <span class="main-menu-text">Tedarikciler</span>
                                 </a>
                             </li>
-                            <li class="menu-item-top">
-                                <a href="/Kullanici/Index" class="top">
-                                    <span class="main-menu-text">Kullanıcılar</span>
-                                </a>
-                            </li>
+                            @if (HttpContext.Current.User != null && Roles.GetRolesForUser(HttpContext.Current.User.Identity.Name).Contains("Admin"))
+                            {
+                                <li class="menu-item-top">
+                                    <a href="/Kullanici/Index" class="top">
+                                        <span class="main-menu-text">Kullanıcılar</span>
+                                    </a>
+                                </li>
+                                <li class="menu-item-top">
+                                    <a href="/Rol/Index" class="top">
+                                        <span class="main-menu-text">Roller</span>
+                                    </a>
+                                </li>
+                            }
                         </ul>
                     </div>
                 </div>

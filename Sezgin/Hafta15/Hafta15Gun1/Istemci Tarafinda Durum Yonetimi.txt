@@ -1,0 +1,24 @@
+		Ýstemci Tarafýnda Durum Yönetimi Yapma Yöntemleri
+Client Side tarafýnda State yönetimi yapmak için iki yöntemden bahsediliyor. 
+	1. Query String Management(Sorgu Metni Yönetimi):
+	2. Cache Management(Çerez Yönetimi):
+
+Server Side tarafýnda State yönetimi yapmak için yöntemler:
+	1. Session Management(Oturum Yönetimi):
+	2. Application Management(Uygulama Yönetimi):  
+
+Durum Yönetimi: Web sayfasý geliþtirirken ortaya çýkan durumlarýn yönetimini yapmamýz gerekir. Tarayýcýya gelip bir siteye
+	talepte bulunduðumuz zaman Server o talebi alýr, gerekli yerlere iletir, gerekli yerlerden cevabý alýr, cevaba uygun
+	HTML çýktýsý oluþturur ve o HTML çýktýsýný Tarayýcýya gönderir. Daha sonra Server'a ayný talepte bulunulsa bile
+	daha önce verdiði cevap unutulmuþtur, ve Server bütün sayfayý tekrar üretir.
+
+	Bir sayfadan baþka bir sayfaya giderken bilgi taþýmamýz gerekebilir. Ama Server bir önceki sayfayý oluþturdu ve 
+	unuttu. Yeni sayfayý talep üstüne oluþtur ve onu da unutur. Peki biz sayfalar arasý bilgiyi nasýl kopyalayacaðýz?
+
+	Örnek: E-ticaret sitesinde bir sayfasýnda ürünler listelenir. Bir ürün seçilip detayýna gidildiðinde tek detay
+	sayfasý vardýr ve seçilen ürünün bilgilerine göre sayfa doldurulur. 
+
+	Örnek: Anasayfa'da seçim yapýp sepete ekliyoruz. Sonra baþka sayfalarda geziniyor ama sepet hep dolu kalýyor. Sepet
+	doluyken baþka sayfalara gidince, yeni sayfayla ilgili talep Server'a gidiyor. Talebe göre Server sayfayý hazýrlýyor,
+	Tarayýcýya gönderiyor fakat sepetin içindeki deðerler sabit ve dolu kalýyor. Burada State Management Konusu devreye
+	giriyor. Sayfalar arasý veri taþýma ve verilerin kaybolmamasý State Management ile saðlanýyor.
