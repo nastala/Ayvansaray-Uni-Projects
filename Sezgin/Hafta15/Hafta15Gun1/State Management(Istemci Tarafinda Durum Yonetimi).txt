@@ -12,8 +12,13 @@ Server Side tarafýnda State yönetimi: Ýstenilen bilgiler Server'da tutuluyor ve 
 		açýlýr. Session kapanýnca yani Session'ýn süresi bitince o Session ile baðlý kullanýcýnýn AktifSepet deðeri
  		temizlenir. Ama öyle örnekler oluyor ki 1 ay 1 yýl sonra dahi sepetteki bilgiler duruyor. Bunun sebebi
 		bu bilgilerin uygulamanýn veritabanýnýn dýþýnda ayrý bir veritabanýnda tutulmasýdýr. 
+		Application yöntemini kullanmak için global.asax'ý kullanýyoruz.
+		Örnek: Bir siteyi 3000 kiþi ziyaret etti, 100 kiþi þu anda aktif. 
+		
 
-	2. Application Management(Uygulama Yönetimi): 
+	2. Application Management(Uygulama Yönetimi): Application bilgisi sunucunun RAM'inde tutulur. Ama önceki anlattýðýmýz
+		Session'ýn tam tersidir. Session bilgisi her kullanýcýya yeni üretilen bir oturumdur. Ama Application
+		tüm kullanýcýlar için ortak bir alandýr. Ortak bir alan vardýr ve bütün kullanýcýlar onu görür.  
 
 Durum Yönetimi: Web sayfasý geliþtirirken ortaya çýkan durumlarýn yönetimini yapmamýz gerekir. Tarayýcýya gelip bir siteye
 	talepte bulunduðumuz zaman Server o talebi alýr, gerekli yerlere iletir, gerekli yerlerden cevabý alýr, cevaba uygun

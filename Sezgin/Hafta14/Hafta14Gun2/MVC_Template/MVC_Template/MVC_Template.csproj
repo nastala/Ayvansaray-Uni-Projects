@@ -1126,6 +1126,7 @@
     <Content Include="Views\Urun\Detay.cshtml" />
     <Content Include="Views\Home\CookieAta.cshtml" />
     <Content Include="Views\Home\CookieOku.cshtml" />
+    <Content Include="Views\Urun\PartialProductCountNav.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

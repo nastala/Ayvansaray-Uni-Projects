@@ -23,9 +23,19 @@
                     url: "/Urun/SepeteEkle?productID=" + productID,
                     success: function (response) {
                         if (response === "ITEM ADDED TO THE CART") {
-                            @{ List<Product> products = (List<Product>)Session["Sepet"]; }
                             console.log("ITEM ADDED TO THE CART");
-                            console.log($(".sepet"));
+                            console.log($("#sepet"));
+
+                            $.ajax({
+                                type: "GET",
+                                url: "/Urun/PartialProductCountNav",
+                                success: function (response) {
+                                    $("#sepet").html(response);
+                                },
+                                error: function () {
+                                    alert("Ürün sayısını getirme sırasında hata oluştu.");
+                                }
+                            });
                         }
                         else {
                             alert(response);
@@ -34,7 +44,7 @@
                     error: function () {
                         alert("Sepete ekleme sırasında hata oluştu.");
                     }
-                })
+                });
             })
         });
     </script>

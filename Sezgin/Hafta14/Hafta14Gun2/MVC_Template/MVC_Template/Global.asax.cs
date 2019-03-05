@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MVC_Template.App_Classes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,6 +14,13 @@ namespace MVC_Template
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+        }
+
+        protected void Session_Start()
+        {
+            int sayac = 1;
+            if (Application["Kullanici"] != null)
+                sayac += (Application["Kullanici"] as List<User>).Count;
         }
     }
 }

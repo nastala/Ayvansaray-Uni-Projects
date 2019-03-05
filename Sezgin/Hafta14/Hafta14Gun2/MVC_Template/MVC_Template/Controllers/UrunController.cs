@@ -144,5 +144,19 @@ namespace MVC_Template.Controllers
             Session["Sepet"] = products;
             return "ITEM ADDED TO THE CART";
         }
+
+        public int UrunSayisi()
+        {
+            List<Product> products = (List<Product>)Session["Sepet"];
+            if (products != null && products.Count > 0)
+                return products.Count;
+            else
+                return 0;
+        }
+
+        public ActionResult PartialProductCountNav()
+        {
+            return PartialView(Session["Sepet"] as List<Product>);
+        }
     }
 }

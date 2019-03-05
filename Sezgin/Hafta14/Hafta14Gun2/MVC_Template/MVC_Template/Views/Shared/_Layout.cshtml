@@ -170,29 +170,10 @@
                                     </a>
                                 </li>
                             }
-                            @if (Session["Sepet"] != null)
-                            {
-                                List<Product> products = (List<Product>)Session["Sepet"];
-
-                                <li>
-                                    <a href="#" class="top">
-                                        <span class="main-menu-text sepet">
-                                            Sepetinizde <b>@products.Count</b> adet ürün var
-                                            <i class="icon icon-arrow-down-bold-round icon-size-small"></i>
-                                        </span>
-                                    </a>
-                                    <ul>
-                                        @foreach (Product product in products)
-                                        {
-                                            <li>
-                                                <a href="/Urun/Detay?productID=@product.ProductID">
-                                                    <span class="main-text">@product.ProductName</span>
-                                                </a>
-                                            </li>
-                                        }
-                                    </ul>
-                                </li>
-                            }
+                            <li id="sepet">
+                                @Html.Partial("/Views/Urun/PartialProductCountNav.cshtml", Session["Sepet"] as List<Product>)
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
