@@ -18,9 +18,28 @@ namespace MVC_Template
 
         protected void Session_Start()
         {
-            int sayac = 1;
-            if (Application["Kullanici"] != null)
-                sayac += (Application["Kullanici"] as List<User>).Count;
+            if (HttpContext.Current.User == null || string.IsNullOrWhiteSpace(HttpContext.Current.User.Identity.Name))
+                return;
+
+            int sayac = 0;
+            if (Application["AktifKullanici"] == null)
+                sayac = 1;
+            else
+            {
+                sayac = (int)Application["AktifKullanici"];
+                sayac++;
+            }
+
+            Application["AktifKullanici"] = sayac;
+        }
+
+        protected void Session_End()
+        {
+            int sayac = 0;
+            if (Application["AktifKullanici"] != null)
+                sayac = (int)Application["AktifKullanici"] - 1;
+
+            Application["AktifKullanici"] = sayac;
         }
     }
 }

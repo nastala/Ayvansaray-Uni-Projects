@@ -170,6 +170,14 @@
                                     </a>
                                 </li>
                             }
+                            @if (HttpContext.Current.Application["AktifKullanici"] != null)
+                            {
+                                <li class="menu-item-top">
+                                    <a href="#" class="top">
+                                        <span class="main-menu-text">@HttpContext.Current.Application["AktifKullanici"] kullanıcı şu anda aktif</span>
+                                    </a>
+                                </li>
+                            }
                             <li id="sepet">
                                 @Html.Partial("/Views/Urun/PartialProductCountNav.cshtml", Session["Sepet"] as List<Product>)
                             </li>

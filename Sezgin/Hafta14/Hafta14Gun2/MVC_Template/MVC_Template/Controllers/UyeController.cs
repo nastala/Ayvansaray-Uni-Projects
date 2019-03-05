@@ -32,6 +32,19 @@ namespace MVC_Template.Controllers
         {
             if (Membership.ValidateUser(username, password))
             {
+                // Session.Clear();  // This may not be needed -- but can't hurt
+                // Session.Abandon();
+
+                //// Clear authentication cookie
+                //HttpCookie rFormsCookie = new HttpCookie(FormsAuthentication.FormsCookieName, "");
+                //rFormsCookie.Expires = DateTime.Now.AddYears(-1);
+                //Response.Cookies.Add(rFormsCookie);
+
+                //// Clear session cookie 
+                //HttpCookie rSessionCookie = new HttpCookie("ASP.NET_SessionId", "");
+                //rSessionCookie.Expires = DateTime.Now.AddYears(-1);
+                //Response.Cookies.Add(rSessionCookie);
+
                 // Bu methodun çalışması için Web.Config'de bazı ayarların düzenlenmesi gerekir. Yani bu web sitesine üye girişi yapılabileceğine dair ayar yapmamız gerekir.
                 FormsAuthentication.RedirectFromLoginPage(username, (rememberMe != null && rememberMe.Equals("on")) ? true : false);
                 return RedirectToAction("Index", "Home");
@@ -112,7 +125,21 @@ namespace MVC_Template.Controllers
         public void Cikis()
         {
             if (HttpContext.User != null)
+            {
                 FormsAuthentication.SignOut();
+                //Session.Clear();  // This may not be needed -- but can't hurt
+                //Session.Abandon();
+
+                //// Clear authentication cookie
+                //HttpCookie rFormsCookie = new HttpCookie(FormsAuthentication.FormsCookieName, "");
+                //rFormsCookie.Expires = DateTime.Now.AddYears(-1);
+                //Response.Cookies.Add(rFormsCookie);
+
+                //// Clear session cookie 
+                //HttpCookie rSessionCookie = new HttpCookie("ASP.NET_SessionId", "");
+                //rSessionCookie.Expires = DateTime.Now.AddYears(-1);
+                //Response.Cookies.Add(rSessionCookie);
+            }
         }
     }
 }
