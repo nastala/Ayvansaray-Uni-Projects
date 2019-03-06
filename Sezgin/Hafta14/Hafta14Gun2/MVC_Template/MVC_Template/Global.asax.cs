@@ -18,8 +18,8 @@ namespace MVC_Template
 
         protected void Session_Start()
         {
-            if (HttpContext.Current.User == null || string.IsNullOrWhiteSpace(HttpContext.Current.User.Identity.Name))
-                return;
+            //if (HttpContext.Current.User == null || string.IsNullOrWhiteSpace(HttpContext.Current.User.Identity.Name))
+            //    return;
 
             int sayac = 0;
             if (Application["AktifKullanici"] == null)
