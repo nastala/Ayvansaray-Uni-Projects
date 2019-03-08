@@ -117,8 +117,13 @@
                                         </li>
                                     </ul>
                                 </li>
+
                                 <li id="sepet">
-                                    @Html.Partial("/Views/Urun/PartialProductCountNav.cshtml", Session["Sepet"] as List<Product>)
+                                    @if (Session["Sepet"] != null)
+                                    {
+                                        @Html.Partial("/Views/Urun/PartialProductCountNav.cshtml", Session["Sepet"] as List<Product>)
+
+                                    }
                                 </li>
                             </ul>
                         </div>
@@ -181,9 +186,6 @@
                                     </a>
                                 </li>
                             }
-                            <li>
-                                @Html.Partial("/Views/Urun/PartialProductCountNav.cshtml", Session["Sepet"] as List<Product>)
-                            </li>
                         </ul>
                     </div>
                 </div>

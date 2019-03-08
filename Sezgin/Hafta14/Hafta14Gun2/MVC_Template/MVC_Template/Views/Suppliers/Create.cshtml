@@ -1,0 +1,105 @@
+﻿@model MVC_Template.Models.Supplier
+
+@{
+                /**/
+
+                ViewBag.Title = "Create";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="block">
+            <div class="block-heading">
+                <div class="main-text h2">
+                    @ViewBag.ControllerName Createme Ekranı
+                </div>
+                <div class="block-controls">
+                    <a href="/@ViewBag.ControllerName/Index"><span aria-hidden="true" class="icon icon-cross icon-size-medium block-control-remove"></span></a>
+                    <span aria-hidden="true" class="icon icon-arrow-down icon-size-medium block-control-collapse"></span>
+                </div>
+            </div>
+            <div class="block-content-outer">
+                <div class="block-content-inner">
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-group">
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.CompanyName)
+                            @Html.EditorFor(model => model.CompanyName, new { htmlAttributes = new { @class = "form-control rounded" } })
+                            @Html.ValidationMessageFor(model => model.CompanyName, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.ContactName)
+                            @Html.EditorFor(model => model.ContactName, new { htmlAttributes = new { @class = "form-control rounded" } })
+                            @Html.ValidationMessageFor(model => model.ContactName, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.ContactTitle)
+                            @Html.EditorFor(model => model.ContactTitle, new { htmlAttributes = new { @class = "form-control rounded" } })
+                            @Html.ValidationMessageFor(model => model.ContactTitle, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Address)
+                            @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control rounded" } })
+                            @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.City)
+                            @Html.EditorFor(model => model.City, new { htmlAttributes = new { @class = "form-control rounded" } })
+                            @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Region)
+                            @Html.EditorFor(model => model.Region, new { htmlAttributes = new { @class = "form-control rounded" } })
+                            @Html.ValidationMessageFor(model => model.Region, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.PostalCode)
+                            @Html.EditorFor(model => model.PostalCode, new { htmlAttributes = new { @class = "form-control rounded" } })
+                            @Html.ValidationMessageFor(model => model.PostalCode, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Country)
+                            @Html.EditorFor(model => model.Country, new { htmlAttributes = new { @class = "form-control rounded" } })
+                            @Html.ValidationMessageFor(model => model.Country, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Phone)
+                            @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control rounded" } })
+                            @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Fax)
+                            @Html.EditorFor(model => model.Fax, new { htmlAttributes = new { @class = "form-control rounded" } })
+                            @Html.ValidationMessageFor(model => model.Fax, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.HomePage)
+                            @Html.EditorFor(model => model.HomePage, new { htmlAttributes = new { @class = "form-control rounded" } })
+                            @Html.ValidationMessageFor(model => model.HomePage, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary rounded">OLUŞTUR</button>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

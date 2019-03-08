@@ -1336,8 +1336,7 @@ a.highlight-color-purple-link-hover:focus {
   list-style: none;
 }
 #header-container .header-bar {
-  background-color: #1d1d1d !important;
-  background-image: url("../images/required/site-bg@2x.png") !important;
+  background-color: #f14141;
   min-height: 46px;
   border: 0;
   z-index: 9999;
