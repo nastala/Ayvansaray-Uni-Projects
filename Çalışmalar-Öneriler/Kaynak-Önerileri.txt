@@ -1,1 +1,2 @@
 Visual C Sharp Ýngilizce Kaynak: https://drive.google.com/open?id=1pnOMgXJvO6b8X3UqpMZih4VQ1sQjbXpV
+Microsoft Soru Örnekleri: https://vceguide.com/

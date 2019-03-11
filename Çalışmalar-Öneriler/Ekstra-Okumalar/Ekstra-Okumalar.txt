@@ -3,3 +3,7 @@ Big Endian Little Endian: https://chortle.ccsu.edu/AssemblyTutorial/Chapter-15/a
 Some People Learn to Code in Their 60s, 70s or 80s: https://www.nytimes.com/2017/09/22/your-money/some-people-learn-to-code-in-their-60s-70s-or-80s.html
 As Computer Coding Classes Swell, So Does Cheating: https://www.nytimes.com/2017/05/29/us/computer-science-cheating.html
 Computer Programming To Be Officially Renamed “Googling Stackoverflow: http://www.theallium.com/engineering/computer-programming-to-be-officially-renamed-googling-stackoverflow/
+
+Material
+BOM(Bill of Material)
+Route

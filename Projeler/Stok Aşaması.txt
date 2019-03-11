@@ -1,0 +1,8 @@
+Mal Çýkýþ: 
+	1. Yeniden Sipariþ Noktasý - Ör: 19 adet, Formül = A x B + C -> D
+	2. Tedarikçi Süresi (Gün) - Ör: 3 gün -> A
+	3. Tedarik süresi boyunca oluþacak günlük talep (talep/gün) - Ör: 5 adet/gün -> B
+	4. Emniyet Stoðu - Ör: 4 adet -> C
+	5. EOQ(Economic Order Quantity) - Ekonomik Sipariþ Miktarý - Ör: 30 adet, Formül = E - G -> F
+	6. Maksimum stok seviyesi - Ör: 38 adet, Formül = D x 2 -> E
+	7. Stok Seviyesi - Ör: 8 adet -> G
