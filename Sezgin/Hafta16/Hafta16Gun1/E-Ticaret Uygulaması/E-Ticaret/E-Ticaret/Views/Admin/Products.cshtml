@@ -1,0 +1,91 @@
+﻿@using E_Ticaret.Models;
+@model IEnumerable<Product>
+
+@{
+    ViewBag.Title = "Admin - Ürünler";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="wrapper">
+    <section class="panel">
+        <header class="panel-heading">
+            Ürünler
+        </header>
+        <div class="panel-body">
+            <div class="adv-table editable-table ">
+                <div class="clearfix">
+                    <div class="btn-group">
+                        <a id="editable-sample_new" class="btn btn-success" href="/Admin/AddProduct">
+                            Yeni Ürün <i class="icon-plus"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="space15"></div>
+                <table class="table table-striped table-hover table-bordered" id="editable-sample">
+                    <thead>
+                        <tr>
+                            <th>Ürün Adı</th>
+                            <th>Açıklama</th>
+                            <th>Alış Fiyatı</th>
+                            <th>Satış Fiyatı</th>
+                            <th>Kategori</th>
+                            <th>Eklenme Tarihi</th>
+                            <th>Marka</th>
+                            <th>Son Tüketim Tarihi</th>
+                            <th>Resim Ekle</th>
+                            <th>Güncelle</th>
+                            <th>Sil</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (Product product in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @product.Name
+                                </td>
+                                <td>
+                                    @product.Description
+                                </td>
+                                <td>
+                                    @product.PurchasePrice
+                                </td>
+                                <td>
+                                    @product.SalePrice
+                                </td>
+                                <td>
+                                    @product.Category.Name
+                                </td>
+                                <td>
+                                    @product.CreationDate
+                                </td>
+                                <td>
+                                    @product.Brand.Name
+                                </td>
+                                <td>
+                                    @product.ExpirationDate
+                                </td>
+                                <td>
+                                    <a href="#">Resim Ekle</a>
+                                </td>
+                                <td>
+                                    <a href="#">Güncelle</a>
+                                </td>
+                                <td>
+                                    <a href="#">Sil</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+</section>
+
+
+@section scripts
+{
+    $("#nav-accordion > li#products > a").attr("class", "active");
+    $("#nav-accordion > li#products > ul > li#listProducts").attr("class", "active");
+}

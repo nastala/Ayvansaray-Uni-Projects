@@ -25,6 +25,9 @@ namespace E_Ticaret.Models
         [Column(TypeName = "money")]
         public decimal PurchasePrice { get; set; }
 
+        [Column(TypeName = "money")]
+        public decimal SalePrice { get; set; }
+
         [StringLength(500)]
         public string Description { get; set; }
 

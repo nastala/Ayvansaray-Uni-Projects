@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="~/Content/Admin/img/favicon.png">
 
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title</title>
 
     <!-- Bootstrap core CSS -->
     <link href="~/Content/Admin/css/bootstrap.min.css" rel="stylesheet">
@@ -269,19 +269,58 @@
             <div id="sidebar" class="nav-collapse ">
                 <!-- sidebar menu start-->
                 <ul class="sidebar-menu" id="nav-accordion">
-                    <li class="dashboard">
+                    <li id="dashboard">
                         <a href="/Admin/Index">
                             <i class="icon-dashboard"></i>
                             <span>Ana Sayfa</span>
                         </a>
                     </li>
-                    <li class="dashboard2">
+                    <li class="sub-menu" id="products">
+                        <a href="javascript:;">
+                            <i class="icon-book"></i>
+                            <span>Ürünler</span>
+                        </a>
+                        <ul class="sub">
+                            <li id="listProducts"><a href="/Admin/Products">Ürünler</a></li>
+                            <li id="addProduct"><a href="/Admin/AddProduct">Yeni Ürün</a></li>
+                        </ul>
+                    </li>
+                    <li id="categories">
                         <a href="/Admin/Index">
                             <i class="icon-dashboard"></i>
-                            <span>Ana Sayfa 2</span>
+                            <span>Kategoriler</span>
                         </a>
                     </li>
-
+                    <li id="brands">
+                        <a href="/Admin/Index">
+                            <i class="icon-dashboard"></i>
+                            <span>Markalar</span>
+                        </a>
+                    </li>
+                    <li id="customers">
+                        <a href="/Admin/Index">
+                            <i class="icon-dashboard"></i>
+                            <span>Müşteriler</span>
+                        </a>
+                    </li>
+                    <li id="sliderPictures">
+                        <a href="/Admin/Index">
+                            <i class="icon-dashboard"></i>
+                            <span>Slider Resimleri</span>
+                        </a>
+                    </li>
+                    <li id="tradings">
+                        <a href="/Admin/Index">
+                            <i class="icon-dashboard"></i>
+                            <span>Alışverişler</span>
+                        </a>
+                    </li>
+                    <li id="rapors">
+                        <a href="/Admin/Index">
+                            <i class="icon-dashboard"></i>
+                            <span>Raporlar</span>
+                        </a>
+                    </li>
                     <li class="sub-menu">
                         <a href="javascript:;">
                             <i class="icon-laptop"></i>
@@ -293,7 +332,6 @@
                             <li><a href="language_switch_bar.html">Language Switch Bar</a></li>
                         </ul>
                     </li>
-
                     <li class="sub-menu">
                         <a href="javascript:;">
                             <i class="icon-book"></i>
@@ -497,7 +535,7 @@
             $('select.styled').customSelect();
         });
 
-         @RenderSection("scripts", required: false)
     </script>
+    @RenderSection("scripts", required: false)
 </body>
 </html>

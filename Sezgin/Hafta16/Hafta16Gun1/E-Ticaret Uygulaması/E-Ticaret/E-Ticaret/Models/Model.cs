@@ -56,6 +56,10 @@ namespace E_Ticaret.Models
                 .HasPrecision(19, 4);
 
             modelBuilder.Entity<Product>()
+                .Property(e => e.SalePrice)
+                .HasPrecision(19, 4);
+
+            modelBuilder.Entity<Product>()
                 .HasMany(e => e.Pictures)
                 .WithRequired(e => e.Product)
                 .WillCascadeOnDelete(false);
