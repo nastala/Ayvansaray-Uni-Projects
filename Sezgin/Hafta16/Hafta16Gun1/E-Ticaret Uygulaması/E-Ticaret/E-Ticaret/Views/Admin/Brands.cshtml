@@ -1,0 +1,60 @@
+﻿@using E_Ticaret.Models;
+@model IEnumerable<Brand>
+
+@{
+    ViewBag.Title = "Brands";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="wrapper">
+    <section class="panel">
+        <header class="panel-heading">
+            Ürünler
+        </header>
+        <div class="panel-body">
+            <div class="adv-table editable-table ">
+                <div class="clearfix">
+                    <div class="btn-group">
+                        <a id="editable-sample_new" class="btn btn-success" href="/Admin/AddBrand">
+                            Yeni Marka <i class="icon-plus"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="space15"></div>
+                <table class="table table-striped table-hover table-bordered" id="editable-sample">
+                    <thead>
+                        <tr>
+                            <th>Marka Adı</th>
+                            <th>Açıklama</th>
+                            <th>Resmi Göster</th>
+                            <th>Güncelle</th>
+                            <th>Sil</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (Brand brand in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @brand.Name
+                                </td>
+                                <td>
+                                    @brand.Description
+                                </td>
+                                <td>
+                                    <a href="#">Resmi Göster</a>
+                                </td>
+                                <td>
+                                    <a href="#">Güncelle</a>
+                                </td>
+                                <td>
+                                    <a href="#">Sil</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+</section>

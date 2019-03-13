@@ -158,7 +158,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903131952035_test.cs" />
+    <Compile Include="Migrations\201903131952035_test.Designer.cs">
+      <DependentUpon>201903131952035_test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Brand.cs" />
+    <Compile Include="Models\BrandPicture.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\CustomerAddress.cs" />
@@ -170,6 +176,7 @@
     <Compile Include="Models\SalesOrderDetail.cs" />
     <Compile Include="Models\SalesOrderState.cs" />
     <Compile Include="Models\Shipment.cs" />
+    <Compile Include="Models\sysdiagram.cs" />
     <Compile Include="Models\VariantOption.cs" />
     <Compile Include="Models\VariantType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -2240,10 +2247,13 @@
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Admin\Products.cshtml" />
     <Content Include="Views\Admin\AddProduct.cshtml" />
+    <Content Include="Views\Admin\Brands.cshtml" />
+    <Content Include="Views\Admin\AddBrand.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\Admin\assets\jquery-file-upload\server\php\files\thumbnail\" />
+    <Folder Include="Uploads\Photos\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -2254,6 +2264,11 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201903131952035_test.resx">
+      <DependentUpon>201903131952035_test.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

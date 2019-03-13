@@ -12,6 +12,7 @@ namespace E_Ticaret.Models
         {
         }
 
+        public virtual DbSet<BrandPicture> BrandPictures { get; set; }
         public virtual DbSet<Brand> Brands { get; set; }
         public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<CustomerAddress> CustomerAddresses { get; set; }
@@ -23,11 +24,17 @@ namespace E_Ticaret.Models
         public virtual DbSet<SalesOrder> SalesOrders { get; set; }
         public virtual DbSet<SalesOrderState> SalesOrderStates { get; set; }
         public virtual DbSet<Shipment> Shipments { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<VariantOption> VariantOptions { get; set; }
         public virtual DbSet<VariantType> VariantTypes { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<BrandPicture>()
+                .HasMany(e => e.Brands)
+                .WithOptional(e => e.BrandPicture)
+                .HasForeignKey(e => e.PictureID);
+
             modelBuilder.Entity<Customer>()
                 .Property(e => e.UserName)
                 .IsFixedLength();
