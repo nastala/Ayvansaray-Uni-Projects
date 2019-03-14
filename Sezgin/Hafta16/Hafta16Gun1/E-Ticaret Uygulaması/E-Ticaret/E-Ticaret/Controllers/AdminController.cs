@@ -49,7 +49,7 @@ namespace E_Ticaret.Controllers
                 int width = Convert.ToInt32(ConfigurationManager.AppSettings["BrandWidth"].ToString());
                 int height = Convert.ToInt32(ConfigurationManager.AppSettings["BrandHeight"].ToString());
                 string name = Guid.NewGuid().ToString().Replace("-", "") + Path.GetExtension(fileUpload.FileName);
-                var path = Path.Combine(Server.MapPath("~/Uploads/Photos/"), name);
+                string path = Path.Combine(Server.MapPath("~/Uploads/Photos/"), name);
 
                 //string name="/Content/BrandPictures/" +Guid.NewGuid()+ Path.GetExtension(fileUpload.FileName);
                 //Bitmap bmp = new Bitmap(img, width, height);
@@ -59,9 +59,9 @@ namespace E_Ticaret.Controllers
                 pic.MediumPath = name;
                 pic.IsDefault = true;
                 brand.Picture = pic;
+
                 _model.Brands.Add(brand);
                 _model.SaveChanges();
-
                 return RedirectToAction("Brands");
             }
 

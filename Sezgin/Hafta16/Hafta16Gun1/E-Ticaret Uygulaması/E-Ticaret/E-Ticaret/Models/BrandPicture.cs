@@ -10,8 +10,6 @@ namespace E_Ticaret.Models
     {
         public int ID { get; set; }
 
-        public string Name { get; set; }
-
         [StringLength(250)]
         public string LargePath { get; set; }
 

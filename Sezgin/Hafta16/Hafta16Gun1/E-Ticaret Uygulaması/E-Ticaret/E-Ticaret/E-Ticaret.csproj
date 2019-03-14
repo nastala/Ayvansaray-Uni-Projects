@@ -150,7 +150,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Classes\Model.cs" />
-    <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
@@ -165,6 +164,10 @@
     <Compile Include="Migrations\201903140607386_test1.cs" />
     <Compile Include="Migrations\201903140607386_test1.Designer.cs">
       <DependentUpon>201903140607386_test1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903140617069_test2.cs" />
+    <Compile Include="Migrations\201903140617069_test2.Designer.cs">
+      <DependentUpon>201903140617069_test2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Brand.cs" />
@@ -1991,8 +1994,6 @@
     <Content Include="Content\Zeon\wishlist.html" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config" />
     <Content Include="Content\Admin\.DS_Store" />
     <Content Include="Content\Admin\assets\advanced-datatable\.DS_Store" />
@@ -2226,17 +2227,6 @@
     <Content Include="Content\Zeon\css\fonts\icomoon.ttf" />
     <Content Include="Content\Zeon\css\fonts\icomoon.woff" />
     <Content Include="Content\Zeon\images\swipebox\icons.svg" />
-    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
-    <Content Include="Scripts\jquery-3.3.1.js" />
-    <Content Include="Scripts\jquery-3.3.1.min.js" />
-    <Content Include="Scripts\jquery-3.3.1.slim.js" />
-    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
-    <None Include="Scripts\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\jquery.validate.js" />
-    <Content Include="Scripts\jquery.validate.min.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -2266,8 +2256,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <None Include="packages.config" />
-    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
-    <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201903131952035_test.resx">
@@ -2275,6 +2263,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903140607386_test1.resx">
       <DependentUpon>201903140607386_test1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903140617069_test2.resx">
+      <DependentUpon>201903140617069_test2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
