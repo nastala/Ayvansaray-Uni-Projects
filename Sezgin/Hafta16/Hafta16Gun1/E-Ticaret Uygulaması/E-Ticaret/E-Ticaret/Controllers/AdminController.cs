@@ -58,7 +58,7 @@ namespace E_Ticaret.Controllers
                 BrandPicture pic = new BrandPicture();
                 pic.MediumPath = name;
                 pic.IsDefault = true;
-                brand.BrandPicture = pic;
+                brand.Picture = pic;
                 _model.Brands.Add(brand);
                 _model.SaveChanges();
 

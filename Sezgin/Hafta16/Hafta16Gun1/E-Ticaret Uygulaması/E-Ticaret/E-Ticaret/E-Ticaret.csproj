@@ -162,6 +162,10 @@
     <Compile Include="Migrations\201903131952035_test.Designer.cs">
       <DependentUpon>201903131952035_test.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903140607386_test1.cs" />
+    <Compile Include="Migrations\201903140607386_test1.Designer.cs">
+      <DependentUpon>201903140607386_test1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Brand.cs" />
     <Compile Include="Models\BrandPicture.cs" />
@@ -2268,6 +2272,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201903131952035_test.resx">
       <DependentUpon>201903131952035_test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903140607386_test1.resx">
+      <DependentUpon>201903140607386_test1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

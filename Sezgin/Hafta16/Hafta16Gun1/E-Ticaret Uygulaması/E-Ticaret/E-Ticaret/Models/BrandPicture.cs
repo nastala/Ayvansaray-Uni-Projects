@@ -8,12 +8,6 @@ namespace E_Ticaret.Models
 
     public partial class BrandPicture
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public BrandPicture()
-        {
-            Brands = new HashSet<Brand>();
-        }
-
         public int ID { get; set; }
 
         public string Name { get; set; }
@@ -28,10 +22,5 @@ namespace E_Ticaret.Models
         public string SmallPath { get; set; }
 
         public bool IsDefault { get; set; }
-
-        public int BrandID { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Brand> Brands { get; set; }
     }
 }

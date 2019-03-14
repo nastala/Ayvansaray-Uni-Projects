@@ -30,11 +30,6 @@ namespace E_Ticaret.Models
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<BrandPicture>()
-                .HasMany(e => e.Brands)
-                .WithOptional(e => e.BrandPicture)
-                .HasForeignKey(e => e.PictureID);
-
             modelBuilder.Entity<Customer>()
                 .Property(e => e.UserName)
                 .IsFixedLength();
