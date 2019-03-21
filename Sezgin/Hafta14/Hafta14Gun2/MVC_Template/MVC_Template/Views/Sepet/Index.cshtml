@@ -1,0 +1,53 @@
+﻿@using MVC_Template.App_Classes;
+@model List<SepetDetay>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<br />
+<br />
+
+<div class="block">
+    <div class="block-heading">
+        <div class="main-text h2">
+            Sepet Özeti
+        </div>
+        <div class="block-controls">
+            <span aria-hidden="true" class="icon icon-arrow-down icon-size-medium block-control-collapse"></span>
+        </div>
+    </div>
+    <div class="block-content-outer">
+        <div class="block-content-inner">
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>Ürün Adı</th>
+                        <th>Adet</th>
+                        <th>Toplam Tutar</th>
+                        <th>Çıkar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (SepetDetay cartDetail in Model)
+                    {
+                        <tr>
+                            <td>
+                                @cartDetail.Product.ProductName
+                            </td>
+                            <td>
+                                @cartDetail.Count
+                            </td>
+                            <td>
+                                @cartDetail.Product.UnitPrice
+                            </td>
+                            <td>
+                                <a href="#" class="btn btn-danger">Çıkar</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

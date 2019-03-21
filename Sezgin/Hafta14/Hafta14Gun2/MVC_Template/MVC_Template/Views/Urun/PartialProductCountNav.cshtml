@@ -1,22 +1,25 @@
-﻿@using MVC_Template.Models;
-@model List<Product>
+﻿@using MVC_Template.App_Classes;
+@model List<SepetDetay>
 
 @if (Model != null)
 {
     <a href="#" class="top">
         <span class="main-menu-text">
-            Sepetim(@Model.Count)
+            Sepetim(@Model.Select(m => m.Count).Sum())
             <i class="icon icon-arrow-down-bold-round icon-size-small"></i>
         </span>
     </a>
     <ul>
-        @foreach (Product product in Model)
+        @foreach (SepetDetay cartDetail in Model)
         {
             <li>
-                <a href="/Urun/Detay?productID=@product.ProductID">
-                    <span class="main-text">@product.ProductName</span>
+                <a href="/Urun/Detay?productID=@cartDetail.Product.ProductID">
+                    <span class="main-text">@cartDetail.Product.ProductName (@cartDetail.Count)</span>
                 </a>
             </li>
         }
+            <li>
+                <a href="/Sepet/" class="btn btn-success">Sepete Git</a>
+            </li>
     </ul>
 }

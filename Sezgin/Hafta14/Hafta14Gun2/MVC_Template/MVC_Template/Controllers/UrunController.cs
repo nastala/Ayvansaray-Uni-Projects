@@ -1,4 +1,5 @@
-﻿using MVC_Template.Models;
+﻿using MVC_Template.App_Classes;
+using MVC_Template.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -121,27 +122,28 @@ namespace MVC_Template.Controllers
             if (product == null)
                 return "NOT FOUND";
 
-            List<Product> products;
+            List<SepetDetay> cartDetails;
 
             if (Session["Sepet"] == null)
             {
-                products = new List<Product>();
-                products.Add(product);
+                cartDetails = new List<SepetDetay>();
+                cartDetails.Add(new SepetDetay() { Product = product, Count = 1 });
             }
             else
             {
-                products = (List<Product>)Session["Sepet"];
+                cartDetails = (List<SepetDetay>)Session["Sepet"];
 
-                foreach (Product tempProduct in products)
+                if (cartDetails.Any(c => c.Product.ProductID == productID))
                 {
-                    if (tempProduct.ProductID == product.ProductID)
-                        return "ITEM ALREADY EXISTS";
+                    cartDetails.FirstOrDefault(c => c.Product.ProductID == productID).Count++;
                 }
-
-                products.Add(product);
+                else
+                {
+                    cartDetails.Add(new SepetDetay() { Product = product, Count = 1 });
+                }
             }
 
-            Session["Sepet"] = products;
+            Session["Sepet"] = cartDetails;
             return "ITEM ADDED TO THE CART";
         }
 
@@ -156,7 +158,7 @@ namespace MVC_Template.Controllers
 
         public ActionResult PartialProductCountNav()
         {
-            return PartialView(Session["Sepet"] as List<Product>);
+            return PartialView(Session["Sepet"] as List<SepetDetay>);
         }
     }
 }
