@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MVC_Template.App_Classes;
+using MVC_Template.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,12 +14,15 @@ namespace MVC_Template.Controllers
      * Bu controller üzerindeki actionlara erişebilmek için kullanıcının giriş yapması lazım. Eğer kullanıcı Authenticate değilse actionları kullanamayacak.
      * */
     [Authorize]
+    [CustomActionFilter]
     public class HomeController : Controller
     {
+        private NorthwindContext _model = new NorthwindContext();
+
         // GET: Home
         public ActionResult Index()
         {
-            return View();
+            return View(_model.RequestLogs.ToList());
         }
 
         // Cookie'ye değer atamamızı sağlayan bir Action'ımız olsun

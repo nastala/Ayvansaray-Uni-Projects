@@ -1,4 +1,5 @@
-﻿using MVC_Template.Models;
+﻿using MVC_Template.App_Classes;
+using MVC_Template.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -9,6 +10,7 @@ using System.Web.Mvc;
 namespace MVC_Template.Controllers
 {
     [Authorize]
+    [CustomActionFilter]
     public class CategoryController : Controller
     {
         NorthwindContext ctx = new NorthwindContext();

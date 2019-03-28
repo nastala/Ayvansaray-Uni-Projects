@@ -12,6 +12,7 @@ namespace MVC_Template.Models
         {
         }
 
+        public virtual DbSet<RequestLog> RequestLogs { get; set; }
         public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<CustomerDemographic> CustomerDemographics { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }

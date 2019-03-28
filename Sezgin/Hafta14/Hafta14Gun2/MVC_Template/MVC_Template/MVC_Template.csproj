@@ -1003,6 +1003,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Classes\CustomActionFilter.cs" />
     <Compile Include="App_Classes\SepetDetay.cs" />
     <Compile Include="App_Classes\User.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -1019,6 +1020,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Alphabetical_list_of_product.cs" />
+    <Compile Include="Models\RequestLog.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Category_Sales_for_1997.cs" />
     <Compile Include="Models\Current_Product_List.cs" />
