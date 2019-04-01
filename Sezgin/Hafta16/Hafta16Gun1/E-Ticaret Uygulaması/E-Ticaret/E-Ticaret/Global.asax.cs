@@ -1,4 +1,6 @@
-﻿using System;
+﻿using E_Ticaret.App_ModelBinders;
+using E_Ticaret.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -15,6 +17,7 @@ namespace E_Ticaret
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            ModelBinders.Binders.Add(typeof(Product), new MyModelBinder());
         }
     }
 }
