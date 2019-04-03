@@ -1,5 +1,6 @@
 ﻿using E_Ticaret.App_ModelBinders;
 using E_Ticaret.Models;
+using E_Ticaret.MyModelBinders;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,7 @@ namespace E_Ticaret
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
-            ModelBinders.Binders.Add(typeof(Product), new MyModelBinder());
+            ModelBinders.Binders.Add(typeof(Product), new ProductModelBinder());
         }
     }
 }

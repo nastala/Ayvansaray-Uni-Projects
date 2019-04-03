@@ -172,6 +172,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelBinders\MyModelBinder.cs" />
+    <Compile Include="ModelBinders\ProductModelBinder.cs" />
     <Compile Include="Models\Brand.cs" />
     <Compile Include="Models\BrandPicture.cs" />
     <Compile Include="Models\Category.cs" />

@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using E_Ticaret.Models;
 
+
 namespace E_Ticaret.Controllers
 {
     public class ProductsController : Controller
@@ -64,13 +65,13 @@ namespace E_Ticaret.Controllers
         }
 
         // GET: Products/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(Product product)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Product product = db.Products.Find(id);
+            //if (id == null)
+            //{
+            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            //}
+          //  Product product = db.Products.Find(id);
             if (product == null)
             {
                 return HttpNotFound();
@@ -85,7 +86,7 @@ namespace E_Ticaret.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Name,PurchasePrice,SalePrice,Description,CreationDate,ExpirationDate,CategoryID,BrandID")] Product product)
+        public ActionResult EditPost([Bind(Include = "ID,Name,PurchasePrice,SalePrice,Description,CreationDate,ExpirationDate,CategoryID,BrandID")] Product product)
         {
             if (ModelState.IsValid)
             {
@@ -123,7 +124,7 @@ namespace E_Ticaret.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-
+        
         protected override void Dispose(bool disposing)
         {
             if (disposing)
